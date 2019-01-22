@@ -11,11 +11,9 @@
 </p>
 </div>
 
-{{ if .Params.toc }}
-{{ .TableOfContents }}
-{{ end }}
-
 <main>
+{{ partial "toc.html" . }}
+
 {{ .Content }}
 </main>
 

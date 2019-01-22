@@ -5,19 +5,17 @@ body {
   line-height: 1.5em;
 }
 
-/* Table of Contents, if wanted
-
-Add to yaml:
-
-output:
-  blogdown::html_page:
-    toc: true
-
-    */
-
-#TableOfContents, #TOC {
+#TOC {
   border: 1px solid #eee;
   border-radius: 5px;
+  float: right;
+  margin-left: 5px;
+}
+
+#TOCHeader {
+  height: 20px;
+  color: whitesmoke;
+  text-align: center;
 }
 
 /* Header and Footer */

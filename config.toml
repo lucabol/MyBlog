@@ -1,3 +1,5 @@
+# TODO: 1. Display TOC in aside
+
 baseurl = "/"
 languageCode = "en-us"
 title = "Lucabol blog"
@@ -7,6 +9,11 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 preserveTaxonomyNames = true
 enableEmoji = true
 footnotereturnlinkcontents = "↩"
+
+# Code highlighting, see here for style https://xyproto.github.io/splash/docs/longer/all.html
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsStyle = "vs"
 
 [permalinks]
     post = "/post/:year/:month/:day/:slug/"
@@ -23,11 +30,17 @@ footnotereturnlinkcontents = "↩"
     name = "Tags"
     url = "/tags/"
     weight = 3
+[[menu.main]]
+    name = "Github"
+    url = "http://www.github.com/lucabol"
+    weight = 4
+
 [[menu.feed]]
     name = "Subscribe"
     url = "/index.xml"
 
 [params]
-    description = "A simple, minimal blog for those who love text."
+    description = "Blog about programming, C#, F#, .NET Core, Investing and other stuff."
     footer = "[Github](https://github.com/lucabol)"
     custom_css = ["css/theme-override.css"]
+    toc = true

@@ -1,0 +1,8 @@
+{{ if .TableOfContents }}
+<aside id = "TOC">
+    <header id = "TOCHeader">
+        {{ "#### Sections" | markdownify  }}
+    </header>
+    {{.TableOfContents}}
+</aside>
+{{ end }}
