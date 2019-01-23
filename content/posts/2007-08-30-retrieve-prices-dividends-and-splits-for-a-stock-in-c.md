@@ -47,8 +47,8 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
-  - financial
+  - 'C#'
+  - Financial
 ---
 I wrote this code very quickly and I'm kind of ashamed of it, but it gets the job done (I think). You need the HTML Agility Pack for the stock splits retrieving code. You can download it from [here](http://www.codeplex.com/htmlagilitypack/Release/ProjectReleases.aspx?ReleaseId=272){.}&nbsp;or you can simply comment out the code. I wrote it against [Visual Studio 2008 beta 2](http://msdn2.microsoft.com/en-us/vstudio/aa700831.aspx){.}, but it should be trivial to port it to previous versions.
 

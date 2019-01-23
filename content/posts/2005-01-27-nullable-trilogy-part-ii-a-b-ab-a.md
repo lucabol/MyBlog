@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 A&nbsp;question that often comes up when we discuss Nullable<T>&nbsp;&nbsp;is about&nbsp;the anti-symmetric property. This property states that if a==b then a>=b and a<=b. If a and b are null then this property is not satisfied in the current design as the result of >= and <= is always false when one of the parameters is null. This may seems surprising, but it can be easily understood when considering if null can be ordered.
 

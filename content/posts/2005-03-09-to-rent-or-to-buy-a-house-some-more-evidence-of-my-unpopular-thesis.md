@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - financial
+  - Financial
 ---
 I discussed this topic in a previous post <http://blogs.msdn.com/lucabol/archive/2004/07/30/202394.aspx>&nbsp;and I received a number of emails telling me how crazy I was even speculating that, at the current juncture, it may be more convinient to rent than to buy a house.
 

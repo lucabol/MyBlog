@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - financial
+  - Financial
 ---
 <p class="MsoNormal" style="margin:0;">
   I'm refining my understanding of how to value residential properties. There is this rule of thumb: buy when you can get a rent for the property which is at least 1.2% of the property price (or in another form, when the home price is 7x the annual rent). This is an approx for a more formal spreadsheet (which I have).

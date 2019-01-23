@@ -47,8 +47,8 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
-  - financial
+  - 'C#'
+  - Financial
 ---
 I'm slightly prouder of the structure of this code than&nbsp;the&nbsp;one in [the previous blog post](http://blogs.msdn.com/lucabol/archive/2007/08/30/retrieve-prices-dividends-and-splits-for-a-stock-in-c.aspx). You can simply inherit from QIFParserBase and override a couple of abstract methods to customize the behavior. Still, I just tested it on a couple of test QIF files. It is not production quality at all.
 

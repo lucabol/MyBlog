@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 This is my presentation from TechEd Barcelona: **The link has been fixed. It should work now. Let me know if it doesn't.**&nbsp;<http://www.microsoft.com/emea/msdn/spotlight/sessionh.aspx?videoid=716>. The European locale brings out my Italian accent
 

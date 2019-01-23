@@ -48,7 +48,7 @@ categories:
   - Uncategorized
 tags:
   - 'F#'
-  - financial
+  - Financial
 ---
 Other parts:
 

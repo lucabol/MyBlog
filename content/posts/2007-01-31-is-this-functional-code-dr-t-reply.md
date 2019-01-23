@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 
 This would be a functional approach:

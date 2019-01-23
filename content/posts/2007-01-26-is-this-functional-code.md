@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 
 I'm an Object Oriented (OO) kind of guy, maybe a bigot. I have read a very large number of OO books and I've written a fair amount of OO code in my 10+ years in this industry. I'm afraid my mind is wired for OO at this point, for good or bad.

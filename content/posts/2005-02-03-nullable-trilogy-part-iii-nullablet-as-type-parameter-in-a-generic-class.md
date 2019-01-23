@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 Another commonly asked question relates to the behavior of Nullable<T> when used as type parameter to instantiate a generic class. It might be surprising that comparing such a parameter to null gives always false as a result. As it turns out, this is not related to Nullable<T>, but it is a result of how generics are implemented. There is a tendency to think about generics in a manner very similar to C++ templates, this view is unfortunately not correct.
 

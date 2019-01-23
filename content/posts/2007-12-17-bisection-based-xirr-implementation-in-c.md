@@ -47,8 +47,8 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
-  - financial
+  - 'C#'
+  - Financial
 ---
 Here is a quick implementation of XIRR (using Excel nomenclature) written in C#.
 

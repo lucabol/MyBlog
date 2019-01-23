@@ -49,7 +49,7 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
   - VB
 ---
 In case you are training to play the part of a first generation Italian immigrant in a Broadway show or if you want to understand why I never short msft stock: [http://microsoftpdc.com/Sessions/FT11](http://microsoftpdc.com/Sessions/FT11 "http://microsoftpdc.com/Sessions/FT11")

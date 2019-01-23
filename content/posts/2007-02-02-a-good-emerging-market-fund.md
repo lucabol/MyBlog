@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - financial
+  - Financial
 ---
 If you are looking for a good fund for this corner of your portfolio, you might want to consider Eaton Vance Structured Emerging Mkt (EAEMX). There is also a much cheaper version (EITEX), but it is open just to folks with a financial advisor.
 

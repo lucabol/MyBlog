@@ -49,15 +49,7 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - Books
-  - 'C# Programming'
-  - 'F#'
-  - financial
   - Miscellanea
-  - Object Orientation
-  - Sport
-  - Statistics
-  - VB
 ---
 <span style="color:#ff0000;"><strong>FYI I imported all the posts from the old MSDN blog to this one. Hence this post doesn't make sense anymore. I left it here for memory sake. BTW: I am also back in msft now (30/11/2018).</strong></span>
   

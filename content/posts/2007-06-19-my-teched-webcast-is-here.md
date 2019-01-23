@@ -53,7 +53,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 In case you want to know more about LINQ: [http://www.virtualteched.com/Pages/OnlineSessions/OnlineWebcastsDevTools.aspx](http://www.virtualteched.com/Pages/OnlineSessions/OnlineWebcastsDevTools.aspx "http://www.virtualteched.com/Pages/OnlineSessions/OnlineWebcastsDevTools.aspx")
 

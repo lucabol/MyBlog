@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - financial
+  - Financial
 ---
 Someone&nbsp;asked me for the spreadsheet I used for the&nbsp;calculations in my previous posts.&nbsp; [Here](http://www.duncanmackenzie.net/rentorbuy.zip) you have it. The data doesn't reflect my current situation.
 

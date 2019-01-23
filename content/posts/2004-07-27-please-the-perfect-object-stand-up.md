@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
   - Object Orientation
 ---
 <p class="MsoNormal" style="margin:0;">

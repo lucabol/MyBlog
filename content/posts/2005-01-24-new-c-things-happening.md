@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 <p align="left">
   Express yourself about this DCR: <a href="http://blogs.msdn.com/scottno/archive/2005/01/19/356347.aspx">http://blogs.msdn.com/scottno/archive/2005/01/19/356347.aspx</a>

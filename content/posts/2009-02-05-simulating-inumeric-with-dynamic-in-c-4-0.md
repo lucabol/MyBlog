@@ -49,7 +49,7 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 When I wrote my [Excel financial library](http://blogs.msdn.com/lucabol/archive/2008/12/04/financial-functions-for-net-released.aspx) I agonized over the decision of which numeric type to use to represent money. Logic would push me toward _decimal_, but common usage among financial library writers would push me toward _double_. I ended up picking double, but I regret having to make that choice in the first place.
 

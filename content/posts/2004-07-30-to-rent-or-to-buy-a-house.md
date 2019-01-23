@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - financial
+  - Financial
 ---
 <p class="MsoNormal" style="margin:0;">
   Spurred by some comments to a previous post I quickly run these numbers. They analyze the case of house price not rising in the next five years. I'll take more time to check them if I really get to a point of deciding, but they should be correct.

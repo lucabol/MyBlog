@@ -49,8 +49,8 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
-  - financial
+  - 'C#'
+  - Financial
 ---
 I like to write code and I still manage to do it even now that it is not my primary job. I never post the things that I write because I don't want to maintain them.&nbsp;Lately <a class="" href="http://blogs.msdn.com/charlie/" target="_blank">Charlie</a>&nbsp;convinced me that I don't have to do that. I can just throw the code out, without much preparation or implicit contract of perpetual maintenance.
 

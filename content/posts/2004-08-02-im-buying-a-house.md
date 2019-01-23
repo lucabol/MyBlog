@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - financial
+  - Financial
 ---
 I think I've been misinterpreted in my previous posts. I'm not suggesting that renting is better than owning.&nbsp;You have&nbsp;to run your numbers and make your own choice. There are many assumptions to consider (financial and not). The not financial ones often are more important. You have to run your numbers, but&nbsp;in general renting looks better if:
 

@@ -48,7 +48,7 @@ categories:
   - Uncategorized
 tags:
   - Books
-  - financial
+  - Financial
 ---
 When I read <a href="http://www.amazon.com/Built-Last-Successful-Visionary-Companies/dp/0060566108/ref=pd_bbs_sr_1?ie=UTF8&s=books&qid=1199729020&sr=1-1" target="_blank">Built to Last</a>, <a href="http://www.amazon.com/Search-Excellence-Americas-Best-Run-Companies/dp/B0007M2K8Q/ref=pd_bbs_sr_1?ie=UTF8&s=books&qid=1199729066&sr=1-1" target="_blank">In search of excellent</a> and <a href="http://www.amazon.com/Good-Great-Companies-Leap-Others/dp/0066620996/ref=pd_bbs_2?ie=UTF8&s=books&qid=1199729020&sr=1-2" target="_blank">Good to great</a> I immediately thought: What a bunch of BS!!. But again, I think that about most business books.
 

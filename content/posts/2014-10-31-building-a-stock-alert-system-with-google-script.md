@@ -14,7 +14,7 @@ categories:
   - Investing
   - javascript
 tags:
-  - investing
+  - Financial
 ---
 &nbsp;
 

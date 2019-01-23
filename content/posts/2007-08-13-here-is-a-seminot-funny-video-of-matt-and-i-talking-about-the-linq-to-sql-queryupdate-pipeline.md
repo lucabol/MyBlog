@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 And a bit of history of O/R in Microsoft at the end: <http://blogs.msdn.com/charlie/archive/2007/08/06/linq-to-sql-pipeline-video-with-luca-bolognese-and-matt-warren.aspx>
 

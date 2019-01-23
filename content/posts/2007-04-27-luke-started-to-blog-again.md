@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 After a long hiatus, Luke goes at it again. Luke is our compiler PM and one of the most original coders I've seen.
 

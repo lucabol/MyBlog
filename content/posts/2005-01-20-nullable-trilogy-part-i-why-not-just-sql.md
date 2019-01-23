@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C# Programming'
+  - 'C#'
 ---
 This is the first of a weekly three part serie of posts about Nullable<T>. In these posts I want to describe the reasons behind three design choices:  
 1. Why not just use SQL semantics for null?  

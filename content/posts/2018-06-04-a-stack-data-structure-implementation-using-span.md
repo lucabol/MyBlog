@@ -13,7 +13,6 @@ categories:
   - 'C#'
 tags:
   - C#
-  - programming
 ---
 I am back in Microsoft and today we talk about the code below, which is on github here:
 ```csharp
