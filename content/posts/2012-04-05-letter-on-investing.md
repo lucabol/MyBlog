@@ -11,7 +11,7 @@ categories:
 tags:
   - Financial
 ---
-<a name="_GoBack"></a>In 2007 I wrote a [blog post](http://blogs.msdn.com/b/lucabol/archive/2007/04/20/a-financial-education-my-ideas.aspx) on investing. During the last five years, my view evolved a bit. People often ask me how to get a financial education. This is the latest email I sent on the topic.
+<a name="_GoBack"></a>In 2007 I wrote a [blog post](/2007/04/20/a-financial-education-my-ideas) on investing. During the last five years, my view evolved a bit. People often ask me how to get a financial education. This is the latest email I sent on the topic.
   
 **From:** Bolognese, Luca
   

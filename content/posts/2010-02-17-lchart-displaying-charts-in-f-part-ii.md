@@ -9,7 +9,7 @@ permalink: /2010/02/17/lchart-displaying-charts-in-f-part-ii/
 categories:
   - 'F#'
 ---
-In the [previous post](http://blogs.msdn.com/lucabol/archive/2010/02/17/lchart-displaying-charts-in-f-part-i.aspx) on my old blog I showed how to display simple charts with LChart. In this one we’ll talk about more complex charts. I wanted to define a little language for graphs for the sake of creating a more complex chart in a single line of code. Remember, the scenario here is: I got some data, I want to display it quickly in the fsi. The language has two operators: ‘+’ and ‘++’.
+In the [previous post](/2010/02/17/lchart-displaying-charts-in-f-part-i) on my old blog I showed how to display simple charts with LChart. In this one we’ll talk about more complex charts. I wanted to define a little language for graphs for the sake of creating a more complex chart in a single line of code. Remember, the scenario here is: I got some data, I want to display it quickly in the fsi. The language has two operators: ‘+’ and ‘++’.
 
 ‘+’ allows you to to superimpose things on a chart as in the following example.
 
