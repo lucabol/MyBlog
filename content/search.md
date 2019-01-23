@@ -1,7 +1,7 @@
 ---
 title: "Search Results"
 sitemap:
-  priority : 0.1
+  priority : 0.2
 ---
 <section >
   <div >
