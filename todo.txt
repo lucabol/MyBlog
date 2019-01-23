@@ -1,0 +1,4 @@
+1. Deploy site
+2. Add redirect from WordPress
+3. Add google analytics support
+4. Add comments
