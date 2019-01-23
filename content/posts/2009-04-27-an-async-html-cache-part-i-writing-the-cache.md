@@ -49,7 +49,6 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - .NET Futures
   - VB
 ---
 Other posts:

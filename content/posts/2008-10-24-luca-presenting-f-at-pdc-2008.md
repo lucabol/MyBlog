@@ -47,7 +47,6 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - .NET Futures
   - 'F#'
   - Miscellanea
 ---
