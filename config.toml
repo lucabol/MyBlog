@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "http://www.lucabol.com"
 languageCode = "en-us"
 title = "Lucabol blog"
 theme = "hugo-classic"
@@ -12,6 +12,8 @@ enableRobotsTXT = true
 
 disqusShortname = "lucabol"
 
+relativeURLs = true
+
 # Removes categories taxonomy
 [taxonomies]
   tag = "tags"
@@ -22,7 +24,7 @@ pygmentsCodefencesGuessSyntax = true
 pygmentsStyle = "vs"
 
 [permalinks]
-    post = ":year/:month/:day/:slug/"
+    posts = "/:year/:month/:day/:title/"
 
 [[menu.main]]
     name = "Home"
