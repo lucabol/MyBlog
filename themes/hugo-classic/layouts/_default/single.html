@@ -3,7 +3,7 @@
 <h1><span class="title">{{ .Title }}</span></h1>
 {{ if .Params.date }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
 <p class="terms">
-  {{ range $i := (slice "categories" "tags") }}
+  {{ range $i := (slice "tags") }}
   {{ with ($.Param $i) }}
   {{ $i | title }}: {{ range $k := . }}<a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a> {{ end }}
   {{ end }}
@@ -16,6 +16,8 @@
 
 {{ .Content }}
 </main>
+
+{{ template "_internal/disqus.html" . }}
 
 {{ if .IsPage }}<small class="gray"><em>Updated: {{ .Page.Lastmod }}, Version: {{ .GitInfo.AbbreviatedHash }}</em></small>{{ end }}
 {{ partial "footer.html" . }}

@@ -11,6 +11,8 @@ timeline_notification:
 categories:
   - .NET Core
   - 'C#'
+tags:
+  - C#
 ---
 Let's see how it's implemented. For why it is implemented, see part I.
 ~~~csharp

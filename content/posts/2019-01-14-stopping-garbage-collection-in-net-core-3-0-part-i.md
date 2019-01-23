@@ -15,6 +15,8 @@ timeline_notification:
 categories:
   - .NET Core
   - 'C#'
+tags:
+  - C#
 ---
 Scenario
 ==============

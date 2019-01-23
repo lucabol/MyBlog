@@ -10,6 +10,12 @@ footnotereturnlinkcontents = "↩"
 enableGitInfo = true
 enableRobotsTXT = true
 
+disqusShortname = "lucabol"
+
+# Removes categories taxonomy
+[taxonomies]
+  tag = "tags"
+
 # Code highlighting, see here for style https://xyproto.github.io/splash/docs/longer/all.html
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
@@ -23,21 +29,17 @@ pygmentsStyle = "vs"
     url = "/"
     weight = 1
 [[menu.main]]
-    name = "Categories"
-    url = "/categories/"
-    weight = 2
-[[menu.main]]
     name = "Tags"
     url = "/tags/"
-    weight = 3
+    weight = 2
 [[menu.main]]
     name = "Github"
     url = "http://www.github.com/lucabol"
-    weight = 4
+    weight = 3
 [[menu.main]]
     name = "Linkedin"
     url = "https://www.linkedin.com/in/lucabolognese/"
-    weight = 5
+    weight = 4
 
 [[menu.feed]]
     name = "Subscribe"
