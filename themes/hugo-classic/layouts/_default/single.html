@@ -19,5 +19,5 @@
 
 {{ template "_internal/disqus.html" . }}
 
-{{ if .IsPage }}<small class="gray"><em>Updated: {{ .Page.Lastmod }}, Version: {{ .GitInfo.AbbreviatedHash }}</em></small>{{ end }}
+{{ if and .GitInfo .IsPage }}<small class="gray"><em>Updated: {{ .Page.Lastmod }}, Version: {{ .GitInfo.AbbreviatedHash }}</em></small>{{ end }}
 {{ partial "footer.html" . }}

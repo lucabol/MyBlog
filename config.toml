@@ -23,6 +23,10 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsStyle = "vs"
 
+# json is to enable search index build
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [permalinks]
     posts = "/:year/:month/:day/:title/"
 
@@ -44,8 +48,14 @@ pygmentsStyle = "vs"
     weight = 4
 
 [[menu.feed]]
+    name = "Search"
+    url = "/search"
+    weight = 2
+
+[[menu.feed]]
     name = "Subscribe"
     url = "/index.xml"
+    weight = 1
 
 [params]
     description = "Blog about programming, C#, F#, .NET Core, Investing and other stuff."
