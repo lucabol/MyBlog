@@ -1,6 +1,6 @@
 ---
 id: 693
-title: Here is a semi(not)-funny video of Matt and I talking about the LINQ to SQL query/update pipeline
+title: Video of Matt and I talking about the LINQ to SQL query/update pipeline
 date: 2007-08-13T12:56:00+00:00
 author: lucabol
 layout: post
