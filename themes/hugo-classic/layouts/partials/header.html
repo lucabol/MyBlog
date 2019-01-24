@@ -11,6 +11,7 @@
       <link rel="stylesheet" href="{{ . | absURL }}">
     {{- end }}
     {{ partial "head_custom.html" . }}
+    {{ template "_internal/google_analytics.html" . }}
   </head>
 
   <body>
