@@ -17,10 +17,6 @@
 {{ .Content }}
 </main>
 
-<aside>
-{{ partial "related.html"}}
-</aside>
-
 {{ template "_internal/disqus.html" . }}
 
 {{ if and .GitInfo .IsPage }}<small class="gray"><em>Updated: {{ .Page.Lastmod }}, Version: {{ .GitInfo.AbbreviatedHash }}</em></small>{{ end }}
