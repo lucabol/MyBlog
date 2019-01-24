@@ -8,6 +8,9 @@ guid: https://lucabolognese.wordpress.com/?p=92
 permalink: /2012/04/27/writing-functional-code-in-c-iv-algebraic-datatypes/
 categories:
   - C
+tags:
+  - C++
+  - Functional Programming
 ---
 And here comes the guilt bit. I have the strong suspicion (but not certainty) that what I am doing here can be done with templates, but didn’t take the time to do it. With that out of the way, let’s go.
 

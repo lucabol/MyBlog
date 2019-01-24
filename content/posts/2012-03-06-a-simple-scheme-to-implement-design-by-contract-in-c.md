@@ -8,6 +8,9 @@ guid: https://lucabolognese.wordpress.com/?p=78
 permalink: /2012/03/06/a-simple-scheme-to-implement-design-by-contract-in-c/
 categories:
   - C
+tags:
+  - C++
+  - Functional Programming
 ---
 Recently I got interested in C++ again. The new lambda functions in C++ 11 open up a world of opportunities for C++ programmers. I’ll talk more about how you can write functional code in C++ 11 in upcoming posts. For now let’s look at design by contract.
 

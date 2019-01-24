@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/09/16/adventure-in-parserland-par
 permalink: /2011/09/16/adventure-in-parserland-parsing-lambda-expressions-in-f-part-v/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 We are now going to look at a solution which is concise, efficient and gives sophisticated error messages. It is also less than 20 lines of code. We’ll be using [FParsec](http://www.quanttec.com/fparsec/).
 

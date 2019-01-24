@@ -8,6 +8,9 @@ guid: https://lucabolognese.wordpress.com/?p=96
 permalink: /2012/06/01/writing-functional-code-in-c-v-miscellaneous-and-conclusions/
 categories:
   - C
+tags:
+  - C++
+  - Functional Programming
 ---
 Just a couple of trivialities and my parting thoughts.
 

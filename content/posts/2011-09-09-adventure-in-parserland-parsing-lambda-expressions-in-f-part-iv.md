@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/09/09/adventure-in-parserland-par
 permalink: /2011/09/09/adventure-in-parserland-parsing-lambda-expressions-in-f-part-iv/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 Let’ now look at the parser. First let’s review the grammar:
 

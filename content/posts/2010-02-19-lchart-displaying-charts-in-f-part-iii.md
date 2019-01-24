@@ -8,6 +8,8 @@ guid: http://lucabolognese.wordpress.com/2010/02/19/lchart-displaying-charts-in-
 permalink: /2010/02/19/lchart-displaying-charts-in-f-part-iii/
 categories:
   - 'F#'
+tags:
+  - 'F#'
 ---
 The last post is [here](/2010/02/17/lchart-displaying-charts-in-f-part-ii/). In this post we’ll look at how things work under the cover and to why I came to believe that they shouldn’t work this way.
 

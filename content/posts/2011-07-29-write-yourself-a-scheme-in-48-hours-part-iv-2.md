@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/07/30/write-yourself-a-scheme-in-
 permalink: /2011/07/29/write-yourself-a-scheme-in-48-hours-part-iv-2/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 We have one loose end to tie in the evaluator: the primitive operators. These are things that the interpreter knows intrinsically. There is a list of them below.
 

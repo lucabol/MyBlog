@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/07/09/write-yourself-a-scheme-in-
 permalink: /2011/07/08/write-yourself-a-scheme-in-48-hours-in-f-part-ii/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 Usually, when I do blog posts that are all about code, I write them ‘bottom up’. I start talking about the most primitive types and functions and build up from there toward higher abstractions. I think this is a pretty common way of doing it.
 

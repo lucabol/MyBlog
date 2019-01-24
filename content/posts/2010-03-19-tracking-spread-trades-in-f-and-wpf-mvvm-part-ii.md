@@ -8,6 +8,9 @@ guid: http://lucabolognese.wordpress.com/2010/03/19/tracking-spread-trades-in-f-
 permalink: /2010/03/19/tracking-spread-trades-in-f-and-wpf-mvvm-part-ii/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Financial
 ---
 I wanted to experiment with MVVM and WPF in F#, so I decided to create a little graphical interface for the csv file that drives the spread tracking application. When I started I thought I needed some kind of a grid with Submit/Cancel buttons, but the more I thought about it, the more I realized that I wouldn’t need them.
 

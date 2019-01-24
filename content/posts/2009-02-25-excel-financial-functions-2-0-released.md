@@ -48,6 +48,9 @@ original_post_id:
   - "283"
 categories:
   - Uncategorized
+tags:
+  - 'F#'
+  - Financial
 ---
 I simply fixed a bug related to the Rate function (wrong name for parameters).
 

@@ -48,6 +48,8 @@ original_post_id:
   - "133"
 categories:
   - Uncategorized
+tags:
+  - 'F#'
 ---
 Download framework [here](http://code.msdn.microsoft.com/LAgent).
 

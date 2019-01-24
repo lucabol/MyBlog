@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/06/30/write-yourself-a-scheme-in-
 permalink: /2011/06/30/write-yourself-a-scheme-in-48-hours-in-f-part-i/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 Hi, I’m back. I’ve finally sorted out the guidelines for blogging in Credit Suisse. 
 

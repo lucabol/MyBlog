@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/08/06/write-yourself-a-scheme-in-
 permalink: /2011/08/05/write-yourself-a-scheme-in-48-hours-in-f-part-vi/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 The evaluator takes as an input a _LispVal_. Where does it come from? There must be something that converts your textual input into it. That is the job of the parser.
 

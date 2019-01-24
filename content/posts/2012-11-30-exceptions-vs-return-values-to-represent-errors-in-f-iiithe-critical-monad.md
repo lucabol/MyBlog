@@ -8,6 +8,8 @@ guid: https://lucabolognese.wordpress.com/?p=107
 permalink: /2012/11/30/exceptions-vs-return-values-to-represent-errors-in-f-iiithe-critical-monad/
 categories:
   - 'F#'
+tags:
+  - 'F#'
 ---
 Code for this post is [here](https://github.com/lucabol/ErrorExceptional).
 

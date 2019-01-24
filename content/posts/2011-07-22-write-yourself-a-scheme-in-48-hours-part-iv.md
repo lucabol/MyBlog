@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/07/23/write-yourself-a-scheme-in-
 permalink: /2011/07/22/write-yourself-a-scheme-in-48-hours-part-iv/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 It is the evaluator turn. It is a big file, let’s see if I can fit it in a single post.
 

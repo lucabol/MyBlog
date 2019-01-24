@@ -10,6 +10,10 @@ categories:
   - C
   - 'F#'
   - Literate programming
+tags:
+  - C
+  - 'F#'
+  - Literate programming
 ---
 Main ideas
 ==========

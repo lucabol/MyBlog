@@ -52,6 +52,7 @@ categories:
   - Uncategorized
 tags:
   - 'C#'
+  - Financial
 ---
 Or maybe not, please do not hold me responsible if you lose money following this system. Having said that, it is my opinion that there are very few concepts that are important in investing. Three big ones are value, diversification and momentum. This post is about the latter two and how to use C# to create a simple trading system that uses both.
 

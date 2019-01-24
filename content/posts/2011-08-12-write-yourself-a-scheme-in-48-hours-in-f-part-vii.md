@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/08/12/write-yourself-a-scheme-in-
 permalink: /2011/08/12/write-yourself-a-scheme-in-48-hours-in-f-part-vii/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 Let’s talk about the environment now.&#160; This is the part of the interpreter that I like the least. It is a global variable and it contains a list of&#160; (string, LispVal) where the LispVal is mutable.
 

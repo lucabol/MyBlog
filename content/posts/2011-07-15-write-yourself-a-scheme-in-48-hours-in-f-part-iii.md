@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/07/16/write-yourself-a-scheme-in-
 permalink: /2011/07/15/write-yourself-a-scheme-in-48-hours-in-f-part-iii/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 Very often my code ends up having the following form: parse an input to create an intermediate data structure and evaluate the structure to produce an output. Strangely, many years ago, when my code was object oriented, that wasn’t the case. Or at least I wasn’t explicitly aware of it.
 

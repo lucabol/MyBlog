@@ -8,6 +8,9 @@ guid: https://lucabolognese.wordpress.com/?p=81
 permalink: /2012/03/23/writing-functional-code-in-c-records/
 categories:
   - C
+tags:
+  - C++
+  - Functional Programming
 ---
 This is the first of a series of posts about writing functional code in C++.&#160; My goal is different from [FC++](http://www.cc.gatech.edu/~yannis/fc++/), which is a full fledged ‘environment’ to write functional code. Instead, I want to experiment with some of the new C++ 11 language features and see if one can build reasonably looking functional code and stay pretty close to the language. The idea is to judiciously use macros and external libraries to build a thin layer on top of the language that doesn’t change the performance characteristics of it (aka it doesn’t slow it down) and integrates fine with existing C++ code.
 

@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/08/26/adventure-in-parserland-par
 permalink: /2011/08/26/adventure-in-parserland-parsing-lambda-expressions-in-f-part-ii/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 The parser starts simple with the following two functions to parse either a string or a file. I use the XXX_Readers_ because I want to lazy read character by character.
 

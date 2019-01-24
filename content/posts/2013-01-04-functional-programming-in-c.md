@@ -9,6 +9,9 @@ permalink: /2013/01/04/functional-programming-in-c/
 categories:
   - C
   - Functional Programming
+tags:
+  - C
+  - Functional Programming
 ---
 This post/program (as I’m writing it in literate style) is a continuation of my previous posts about functional programming in C++. I promise I’m not going to post about doing it in assembly language (I think) ….
 

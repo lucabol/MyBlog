@@ -9,6 +9,9 @@ permalink: /2013/01/11/functional-programming-in-c-implementation/
 categories:
   - C
   - Functional Programming
+tags:
+  - C
+  - Functional Programming
 ---
 ## Cleanup
 Let's start simple with the cleanup function. First we need the usual barrage of includes. `G_BEGIN_DECLS` allows the header to be linked in C++.

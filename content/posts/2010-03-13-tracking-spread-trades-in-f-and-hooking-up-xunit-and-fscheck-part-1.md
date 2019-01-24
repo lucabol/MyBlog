@@ -9,6 +9,9 @@ permalink: /2010/03/13/tracking-spread-trades-in-f-and-hooking-up-xunit-and-fsch
 categories:
   - 'F#'
   - Investing
+tags:
+  - 'F#'
+  - Financial
 ---
 I have a bunch of spread trades open. Spread trades are trades where you buy something and you sell something else generally in the same amount. You hope to profit from the widening of the spread between the price of the two instruments.
   

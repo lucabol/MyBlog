@@ -10,6 +10,8 @@ categories:
   - ASP.Net Web APIs
   - 'F#'
   - Type Providers
+tags:
+  - 'F#'
 ---
 For a good introduction on how to use Web APIs in F#, read here. The starting point for type providers is here. This post is about how I solved a practical problem using these technologies.
 

@@ -11,6 +11,11 @@ categories:
   - 'F#'
   - Functional Programming
   - Literate programming
+tags:
+  - 'C'
+  - 'F#'
+  - Functional Programming
+  - Literate programming
 ---
 ## Main ideas
 This is a port of [LLIte](https://github.com/lucabol/LLite/blob/master/Program.fs) in C. The reason for it is to experiment with writing functional code in standard C and compare the experience with using a functional language like F#. It is in a way a continuation of my previous posts on the topic.

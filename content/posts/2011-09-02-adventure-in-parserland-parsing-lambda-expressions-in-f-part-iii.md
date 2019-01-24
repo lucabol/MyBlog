@@ -8,6 +8,10 @@ guid: https://lucabolognese.wordpress.com/2011/09/02/adventure-in-parserland-par
 permalink: /2011/09/02/adventure-in-parserland-parsing-lambda-expressions-in-f-part-iii/
 categories:
   - 'F#'
+tags:
+  - 'F#'
+  - Lambda expressions
+  - Parsing
 ---
 Let’s start from the lexer. Remember, I wrote this code based on my memory of how a lexer ought to look like. I didn’t read again the relevant chapters in [the Dragon book](http://en.wikipedia.org/wiki/Principles_of_Compiler_Design). But I think it came out all right after all.
 
