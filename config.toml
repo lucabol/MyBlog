@@ -14,14 +14,14 @@ disqusShortname = "lucabol"
 
 relativeURLs = true
 
-# Removes categories taxonomy
-[taxonomies]
-  tag = "tags"
-
 # Code highlighting, see here for style https://xyproto.github.io/splash/docs/longer/all.html
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsStyle = "vs"
+
+# Removes categories taxonomy
+[taxonomies]
+  tag = "tags"
 
 # json is to enable search index build
 [outputs]
