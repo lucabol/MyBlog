@@ -20,6 +20,8 @@ tags:
 ---
 Scenario
 ==============
+Thanks to [Mike](https://github.com/mjrousos) for reviewing this.
+
 You have an application or a particular code path of your application that cannot take the pauses that GC creates.
 Typical examples are real time systems, tick by tick financial apps, embedded systems, etc ...
 
@@ -34,7 +36,7 @@ is implemented)
 The problem with TryStartNoGCRegion
 ==========================================
 There is a GC.TryStartNoGCRegion in .NET. You can use it to stop garbage collection passing a totalBytes parameter that represents
-the maximum amount of memory  that you plan to allocate from the managed heap. Matt describes it 
+the maximum amount of memory  that you plan to allocate from the managed heap. Matt describes it
 [here](https://mattwarren.org/2016/08/16/Preventing-dotNET-Garbage-Collections-with-the-TryStartNoGCRegion-API/).
 
 The problem is that when/if you allocate more than that, garbage collection resumes silently. Your application continues to work,
@@ -61,7 +63,7 @@ namespace LNativeMemory.Tests
 
     // XUnit executes all tests in a class sequentially, so no problem with multi-threading calls to GC
     public class GC2Tests
-    {        
+    {
 ~~~
 
 We need to use a timer to maximize the chances that a GC happens in some of the tests. Also we allocate an amount that should
@@ -71,14 +73,14 @@ Not that it matters any to be zero-allocation in this test, but I like to keep
 [ClrHeapAllocationAnalyzer](https://github.com/Microsoft/RoslynClrHeapAllocationAnalyzer) happy.
 
 BTW: XUnit executes all tests in a class sequentially, so no problem with multi-threading calls to GC.
-        
+
 
 ~~~csharp
         const int sleepTime = 200;
         const int totalBytes = 16 * 1024 * 1024;
         static bool triggered = false;
 
-        
+
 ~~~
 
 First we test that any allocation that doesn't exceed the limit doesn't trigger the call to action.
@@ -103,12 +105,12 @@ First we test that any allocation that doesn't exceed the limit doesn't trigger 
                 GC2.EndNoGCRegion();
                 triggered = false;
             }
-        }       
+        }
 ~~~
 
 Then we test that allocating over the limit does trigger the action. To do so we need to trigger a garbage collection.
 Out best attempt is with the goofy for loop. If you got a better idea, shout.
-         
+
 
 ~~~csharp
         [Fact]
@@ -131,11 +133,11 @@ Out best attempt is with the goofy for loop. If you got a better idea, shout.
                 GC2.EndNoGCRegion();
                 triggered = false;
             }
-        }       
+        }
 ~~~
 
 We also test that we can go back and forth between starting and stopping without messing things up.
-        
+
 
 ~~~csharp
         [Fact]
@@ -146,7 +148,7 @@ We also test that we can go back and forth between starting and stopping without
             {
                 NoAllocationBeforeLimit();
             }
-        }        
+        }
 ~~~
 
 And lastly, we make sure that we can use our little wrapper function, just to be sure everything works.

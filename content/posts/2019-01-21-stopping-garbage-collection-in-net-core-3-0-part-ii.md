@@ -15,6 +15,9 @@ tags:
   - C#
 ---
 Let's see how it's implemented. For why it is implemented, see part I.
+
+Thanks to [Mike](https://github.com/mjrousos) for reviewing this.
+
 ~~~csharp
 using System;
 using System.Diagnostics.Tracing;
@@ -26,7 +29,7 @@ The FxCop code analyzers get upset if I don't declare this, which also impede me
 [assembly: CLSCompliant(true)]
 
 namespace LNativeMemory
-{    
+{
 ~~~
 The first piece of the puzzle is to implement an event listener. It is a not-obvious (for me) class. I don't fully
 understand the lifetime semantics, but the code below seems to do the right thing.
@@ -42,11 +45,11 @@ Instead, I create it before such call, but then I make it 'switch on' just after
         bool _active = false;
 
         internal void Start() { _active = true; }
-        internal void Stop() { _active = false; }       
+        internal void Stop() { _active = false; }
 ~~~
-As described in part one, you pass a delegate at creation time, which is called when garbage collection is restarted.  
+As described in part one, you pass a delegate at creation time, which is called when garbage collection is restarted.
 ~~~csharp
-        internal GcEventListener(Action action) => _action = action ?? throw new ArgumentNullException(nameof(action));        
+        internal GcEventListener(Action action) => _action = action ?? throw new ArgumentNullException(nameof(action));
 ~~~
 We register to all the events coming from .NET. We want to call the delegate at the exact point when garbage collection is turned on again.
 We don't have a clean way to do that (aka there is no runtime event we can hook up to, see [here](https://github.com/dotnet/coreclr/issues/21750),
@@ -65,11 +68,11 @@ might change in the future.
                 _eventSource = eventSource;
                 EnableEvents(eventSource, EventLevel.Verbose, (EventKeywords)(GC_KEYWORD | GCHEAPANDTYPENAMES_KEYWORD | TYPE_KEYWORD));
             }
-        }       
+        }
 ~~~
 
 For each event, I check if the garbage collector has exited the NoGC region. If it has, then let's invoke the delegate.
-        
+
 
 ~~~csharp
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
@@ -80,7 +83,7 @@ For each event, I check if the garbage collector has exited the NoGC region. If 
                 _action?.Invoke();
             }
         }
-    }   
+    }
 ~~~
 Now that we have our event listener, we need to hook it up. The code below implements what I described earlier.
 
@@ -100,7 +103,7 @@ Now that we have our event listener, we need to hook it up. The code below imple
             _evListener.Start();
 
             return succeeded;
-        }       
+        }
 ~~~
 
 As puzzling as this might be, I provisionally believe it to be correct. Apparently, even if the GC is not in a NoGC region, you still need to call
@@ -108,7 +111,7 @@ As puzzling as this might be, I provisionally believe it to be correct. Apparent
 `EndNoGCRegion` will throw an exception, but that's OK. Your next call to `TryStartNoGCRegion` will now succeed.
 
 Now read the above repeatedly until you got. Or just trust that it works somehow.
-        
+
 
 ~~~csharp
         public static void EndNoGCRegion()
@@ -123,7 +126,7 @@ Now read the above repeatedly until you got. Or just trust that it works somehow
 
             }
         }
-    }    
+    }
 ~~~
 This is used as the default behavior for the delegate in the wrapper class below.
 I was made aware by the code analyzer that I shouldn't be throwing an OOF exception here. At first, I dismissed it, but then it hit me. It is right.
@@ -139,9 +142,9 @@ and trying to figure out why. So, always listen to Lint ...
 
     }
 
-    
+
 ~~~
-This is an utility class that implements the `IDisposable` pattern for this scenario. The size of the default ephemeral segment comes from 
+This is an utility class that implements the `IDisposable` pattern for this scenario. The size of the default ephemeral segment comes from
 [here](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals#generations).
 ~~~csharp
     public sealed class NoGCRegion: IDisposable

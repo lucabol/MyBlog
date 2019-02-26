@@ -8,6 +8,8 @@ tags:
 ---
 # Abstract
 
+Thanks to [Mike](https://github.com/mjrousos) for reviewing this.
+
 This is a way to enable compile time customization of classes/functions in the style of C++ template meta-programming as in [Modern C++ Design](https://en.wikipedia.org/wiki/Modern_C%2B%2B_Design).
 In particular, we are going to implement the [policy pattern](https://en.wikipedia.org/wiki/Modern_C%2B%2B_Design#Policy-based_design), which is compile time version of the [strategy pattern](https://en.wikipedia.org/wiki/Strategy_pattern).
 
@@ -181,13 +183,13 @@ MainClass.IncrementRaw()
        IL_0001: ldfld StaticCounterMatch`1<SStandardIncrementer> MainClass::staticCounterM
        IL_0006: callvirt System.Void StaticCounterMatch`1<SStandardIncrementer>::IncrementRaw()
        IL_000b: ret
-       
+
 ; MainClass.StaticCounterInterface()
        IL_0000: ldarg.0
        IL_0001: ldfld StaticCounterInterface`1<SStandardIncrementer> MainClass::staticCounterI
        IL_0006: callvirt System.Void StaticCounterInterface`1<SStandardIncrementer>::Increment()
        IL_000b: ret
-       
+
 ; MainClass.StaticCounterMatch()
        IL_0000: ldarg.0
        IL_0001: ldfld StaticCounterMatch`1<SStandardIncrementer> MainClass::staticCounterM
@@ -207,14 +209,14 @@ BTW: remember that looking at optimized ASM code is like peering into a muddy la
        mov     rax,qword ptr [rcx+20h]
        inc     dword ptr [rax+8]
        ret
-       
+
 ; MainClass.StaticCounterInterface()
        mov     rax,qword ptr [rcx+28h]
        (*)mov     edx,dword ptr [rax]
        add     rax,8
        inc     dword ptr [rax]
        ret
-       
+
 ; MainClass.StaticCounterMatch()
        mov     rax,qword ptr [rcx+20h]
        (*)mov     edx,dword ptr [rax]
@@ -269,5 +271,5 @@ No wonder it is slower.
 # Summary
 
 If you can afford to use the policy pattern instead of the more generic strategy pattern (i.e. compile time vs run time dispatch) and/or you need bare to the metal performance, consider the code above.
-    
+
 As for me, I plan to use it in the near future for a few low level abstractions (i.e. memory allocators).
