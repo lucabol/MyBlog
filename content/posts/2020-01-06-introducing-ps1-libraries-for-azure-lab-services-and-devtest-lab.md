@@ -1,5 +1,5 @@
 ---
-title: Introducing Powershell Libraries for Azure Lab Services and Azure DevTest Labs
+title: Introducing PS1 Libraries for Azure Lab Services and DevTest Labs
 date: 2020-01-06
 author: lucabol
 layout: post
