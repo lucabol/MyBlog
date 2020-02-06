@@ -1,4 +1,4 @@
-baseurl = "http://www.lucabol.com"
+baseurl = "https://www.lucabol.com"
 languageCode = "en-us"
 title = "Lucabol blog"
 theme = "hugo-classic"
@@ -40,7 +40,7 @@ pygmentsStyle = "vs"
     weight = 2
 [[menu.main]]
     name = "Github"
-    url = "http://www.github.com/lucabol"
+    url = "https://www.github.com/lucabol"
     weight = 3
 [[menu.main]]
     name = "Linkedin"
