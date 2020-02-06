@@ -3,6 +3,7 @@ body {
   margin: auto;
   padding: .2em;
   line-height: 1.5em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 /* TOC */
@@ -89,7 +90,11 @@ pre {
   padding: 1em;
   overflow-x: auto;
 }
-code { background: #f9f9f9; }
+code { 
+  background: #f9f9f9;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 85%;
+}
 pre code { background: none; }
 
 /* Images, tables, misc. */
