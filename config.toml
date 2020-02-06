@@ -59,6 +59,4 @@ pygmentsStyle = "vs"
 
 [params]
     description = "Blog about programming, C#, F#, .NET Core, Investing and other stuff."
-    #footer = "[Github](https://github.com/lucabol)"
-    custom_css = ["css/theme-override.css"]
     toc = true
