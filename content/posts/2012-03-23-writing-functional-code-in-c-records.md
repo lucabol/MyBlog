@@ -150,7 +150,7 @@ Can we do something like that? Well, if we are willing to pass the Mutable one a
     </span><span style="background:white;color:blue;">return </span><span style="background:white;color:gray;">p</span><span style="background:white;color:black;">;
 }</span></pre>
 
-But that doesn’t make us happy, does it? The whole point of making things const is that you want them to be const  <img style="border-style:none;" class="wlEmoticon wlEmoticon-smile" alt="Smile" src="http://localhost:8081/testsite/wp-content/uploads/2012/03/wlemoticon-smile.png" />If you pass around mutable ones, who knows what’s going to happen inside the method?
+But that doesn’t make us happy, does it? The whole point of making things const is that you want them to be const.  If you pass around mutable ones, who knows what’s going to happen inside the method?
 
 There is a middle ground that might be acceptable, which is to write functions so that their interface takes immutable records, but inside the function they operate on mutable ones. This is not a bad pattern in general, as having mutable versions of your immutable records might come useful for optimizing certain algorithms. Luckily the casting rules of C++ favour the bold, so the below works:
 

@@ -37,12 +37,12 @@ opengraph_tags:
     <meta property="og:url" content="https://blogs.msdn.microsoft.com/lucabol/2007/01/04/a-tradingportfolio-management-excel-add-in-based-on-the-books-by-ralph-vince/" />
     <meta property="og:site_name" content="Luca Bolognese&#039;s WebLog" />
     <meta property="og:description" content="I like to write code and I still manage to do it even now that it is not my primary job. I never post the things that I write because I don't want to maintain them.&nbsp;Lately Charlie&nbsp;convinced me that I don't have to do that. I can just throw the code out, without much preparation..." />
-    <meta property="og:image" content="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx" />
+    <meta property="og:image" content="https://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="A trading/portfolio management Excel Add-in based on the books by Ralph Vince" />
     <meta name="twitter:url" content="https://blogs.msdn.microsoft.com/lucabol/2007/01/04/a-tradingportfolio-management-excel-add-in-based-on-the-books-by-ralph-vince/" />
     <meta name="twitter:description" content="I like to write code and I still manage to do it even now that it is not my primary job. I never post the things that I write because I don't want to maintain them.&nbsp;Lately Charlie&nbsp;convinced me that I don't have to do that. I can just throw the code out, without much preparation..." />
-    <meta name="twitter:image" content="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx" />
+    <meta name="twitter:image" content="https://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx" />
     
 restapi_import_id:
   - 5c011e0505e67
@@ -79,6 +79,6 @@ This is the list of Excel functions that you get with this add-in. They ends up 
   <font face="Tahoma" size="2"><span style="font-size:10pt;font-family:Tahoma;"></span></font>&nbsp;
 </p>
 
-[<img alt="kick it on DotNetKicks.com" src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx" border="0" />](http://www.dotnetkicks.com/kick/?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx)
+[<img alt="kick it on DotNetKicks.com" src="https://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx" border="0" />](https://www.dotnetkicks.com/kick/?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx)
 
 [TradingLibrary.zip](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Components.PostAttachments/00/01/41/29/46/TradingLibrary.zip)
