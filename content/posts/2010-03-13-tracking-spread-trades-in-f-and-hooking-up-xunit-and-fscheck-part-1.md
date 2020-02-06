@@ -7,10 +7,10 @@ layout: post
 guid: http://lucabolognese.wordpress.com/2010/03/13/tracking-spread-trades-in-f-and-hooking-up-xunit-and-fscheck-part-1/
 permalink: /2010/03/13/tracking-spread-trades-in-f-and-hooking-up-xunit-and-fscheck-part-1/
 categories:
-  - 'F#'
+  - fsharp
   - Investing
 tags:
-  - 'F#'
+  - fsharp
   - Financial
 ---
 I have a bunch of spread trades open. Spread trades are trades where you buy something and you sell something else generally in the same amount. You hope to profit from the widening of the spread between the price of the two instruments.

@@ -7,9 +7,9 @@ layout: post
 guid: https://lucabolognese.wordpress.com/2011/08/06/write-yourself-a-scheme-in-48-hours-in-f-part-vi/
 permalink: /2011/08/05/write-yourself-a-scheme-in-48-hours-in-f-part-vi/
 categories:
-  - 'F#'
+  - fsharp
 tags:
-  - 'F#'
+  - fsharp
   - Lambda expressions
   - Parsing
 ---

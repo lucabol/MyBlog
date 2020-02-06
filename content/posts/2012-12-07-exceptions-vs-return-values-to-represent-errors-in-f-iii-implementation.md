@@ -7,9 +7,9 @@ layout: post
 guid: https://lucabolognese.wordpress.com/?p=109
 permalink: /2012/12/07/exceptions-vs-return-values-to-represent-errors-in-f-iii-implementation/
 categories:
-  - 'F#'
+  - fsharp
 tags:
-  - 'F#'
+  - fsharp
 ---
 The Critical monad is defined as follows. First there is the type that propagates through the monad: 
 

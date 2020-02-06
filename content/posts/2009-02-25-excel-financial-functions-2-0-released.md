@@ -49,7 +49,7 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'F#'
+  - fsharp
   - Financial
 ---
 I simply fixed a bug related to the Rate function (wrong name for parameters).

@@ -48,7 +48,7 @@ categories:
   - Uncategorized
 tags:
   - 'C#'
-  - 'F#'
+  - fsharp
   - Financial
 ---
 Today I released the following library on CodeGallery. It is the result of three months of coding during my paternity leave in Italy. You can get it from [here](http://code.msdn.microsoft.com/FinancialFunctions).

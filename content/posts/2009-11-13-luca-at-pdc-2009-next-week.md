@@ -50,7 +50,7 @@ categories:
   - Uncategorized
 tags:
   - 'C#'
-  - 'F#'
+  - fsharp
   - VB
 ---
 I’ll be in Los Angeles next week for PDC 2009. My session is called “[Future Directions for C# and Visual Basic](http://microsoftpdc.com/Sessions/FT11)” and it comes on Tuesday immediately after the first keynote.

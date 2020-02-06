@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'F#'
+  - fsharp
   - Miscellanea
 ---
 Next Thursday at 1.45pm I will present ["An introduction to Microsoft F#"](https://channel9.msdn.com/pdc2008/TL11/) at PDC 2008. If you are there, please stop by or drop by the lounge area to chat.

@@ -50,7 +50,7 @@ categories:
   - Uncategorized
 tags:
   - 'C#'
-  - 'F#'
+  - fsharp
   - VB
 ---
 The title says it all. If you are interested, go [here](https://channel9.msdn.com/posts/Charles/Luca-Bolognese-C-and-VBNET-Co-Evolution-The-Twain-Shall-Meet/#Page=2).

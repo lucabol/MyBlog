@@ -7,7 +7,7 @@ layout: post
 guid: http://lucabolognese.wordpress.com/?p=34
 permalink: /2010/03/31/i-have-been-deep-fried/
 categories:
-  - 'F#'
+  - fsharp
 tags:
   - Miscellanea
 ---

@@ -49,7 +49,7 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'F#'
+  - fsharp
 ---
 </p> 
 

@@ -7,9 +7,9 @@ layout: post
 guid: https://lucabolognese.wordpress.com/?p=104
 permalink: /2012/11/23/exceptions-vs-return-values-to-represent-errors-in-f-iithe-critical-monad/
 categories:
-  - 'F#'
+  - fsharp
 tags:
-  - 'F#'
+  - fsharp
 ---
 In the previous post, we talked about the difference between Critical and Normal code. In this post we are going to talk about the Critical code part. Ideally, we want:
 

@@ -8,10 +8,10 @@ guid: https://lucabolognese.wordpress.com/?p=100
 permalink: /2012/09/04/retrieving-sql-server-data-with-type-providers-and-exposing-it-with-asp-net-web-apis-in-f/
 categories:
   - ASP.Net Web APIs
-  - 'F#'
+  - fsharp
   - Type Providers
 tags:
-  - 'F#'
+  - fsharp
 ---
 For a good introduction on how to use Web APIs in F#, read here. The starting point for type providers is here. This post is about how I solved a practical problem using these technologies.
 

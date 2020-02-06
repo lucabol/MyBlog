@@ -51,7 +51,7 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'F#'
+  - fsharp
 ---
 I want to use F# as a exploratory data analysis language (like [R](http://www.r-project.org/)). But I don’t know how to get the same nice graphic capabilities. So I decided to create them. Here is a library to draw charts in F#. It steals ideas from [this book](http://www.amazon.com/Grammar-Graphics-Leland-Wilkinson/dp/0387987746) and [this R package](http://had.co.nz/ggplot2/book/). It is nothing more than a wrapper on top of the [Microsoft Chart Controls](http://www.microsoft.com/downloads/details.aspx?familyid=130F7986-BF49-4FE5-9CA8-910AE6EA442C&displaylang=en) to give it a more ‘exploratory’ one line calling syntax. It is also rough work in progress: I don’t wrap all the chart types and there are bugs in the ones I wrap. Also the architecture is all wrong (more on this in another post). But it’s a start and it kind of works. Attached the full code.
 

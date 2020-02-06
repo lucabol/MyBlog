@@ -49,6 +49,6 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'F#'
+  - fsharp
 ---
 My crazy agent framework now works with RC: [http://code.msdn.microsoft.com/LAgent](http://code.msdn.microsoft.com/LAgent "http://code.msdn.microsoft.com/LAgent")

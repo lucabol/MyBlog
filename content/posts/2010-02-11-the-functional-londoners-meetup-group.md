@@ -49,7 +49,7 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'F#'
+  - fsharp
 ---
 If you live in London and work with F#, you should join [http://www.meetup.com/FSharpLondon/](http://www.meetup.com/FSharpLondon/ "http://www.meetup.com/FSharpLondon/")
 

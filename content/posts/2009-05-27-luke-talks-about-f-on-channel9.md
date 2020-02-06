@@ -49,6 +49,6 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'F#'
+  - fsharp
 ---
 Here you go: [https://channel9.msdn.com/posts/Charles/Luke-Hoban-Latest-version-of-F-Released-Whats-the-story-Whats-next/](https://channel9.msdn.com/posts/Charles/Luke-Hoban-Latest-version-of-F-Released-Whats-the-story-Whats-next/ "https://channel9.msdn.com/posts/Charles/Luke-Hoban-Latest-version-of-F-Released-Whats-the-story-Whats-next/")

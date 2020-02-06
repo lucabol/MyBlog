@@ -7,9 +7,9 @@ layout: post
 guid: https://lucabolognese.wordpress.com/?p=102
 permalink: /2012/11/19/exceptions-vs-return-values-to-represent-errors-in-f-i-conceptual-view/
 categories:
-  - 'F#'
+  - fsharp
 tags:
-  - 'F#'
+  - fsharp
 ---
 Recently I’ve been reading numerous articles on the age old question of exceptions vs. return values. There is a vast literature on the topic with very passionate opinions on one side or the other. Below is my view on it.
 

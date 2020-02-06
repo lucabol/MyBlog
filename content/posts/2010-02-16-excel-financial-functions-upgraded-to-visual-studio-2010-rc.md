@@ -49,6 +49,6 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'F#'
+  - fsharp
 ---
 Here is a link to the home page: [http://code.msdn.microsoft.com/FinancialFunctions/Wiki/View.aspx?title=Home](http://code.msdn.microsoft.com/FinancialFunctions/Wiki/View.aspx?title=Home "http://code.msdn.microsoft.com/FinancialFunctions/Wiki/View.aspx?title=Home")

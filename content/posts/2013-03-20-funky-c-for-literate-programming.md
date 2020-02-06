@@ -8,12 +8,12 @@ guid: http://lucabolognese.wordpress.com/?p=138
 permalink: /2013/03/20/funky-c-for-literate-programming/
 categories:
   - C
-  - 'F#'
+  - fsharp
   - Functional Programming
   - Literate programming
 tags:
   - 'C'
-  - 'F#'
+  - fsharp
   - Functional Programming
   - Literate programming
 ---

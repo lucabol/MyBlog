@@ -7,9 +7,9 @@ layout: post
 guid: https://lucabolognese.wordpress.com/2011/08/19/adventure-in-parserland-parsing-lambda-expressions-in-f-part-i/
 permalink: /2011/08/19/adventure-in-parserland-parsing-lambda-expressions-in-f-part-i/
 categories:
-  - 'F#'
+  - fsharp
 tags:
-  - 'F#'
+  - fsharp
   - Lambda expressions
   - Parsing
 ---

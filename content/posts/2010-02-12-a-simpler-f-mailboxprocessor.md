@@ -49,7 +49,7 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'F#'
+  - fsharp
 ---
 I always forget the pattern to use to create a functioning _MailboxProcessor_ in F#. I mean, which piece has to be async and how to structure the recursive loop. When I find myself in that kind of a situation situation, my instincts scream at me: “Wrap it and make it work how your mind expects it to work”. So here is a simplification of the paradigm.
 

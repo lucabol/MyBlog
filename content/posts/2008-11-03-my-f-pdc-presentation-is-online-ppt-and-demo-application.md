@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'F#'
+  - fsharp
 ---
 You can watch it [here](https://channel9.msdn.com/pdc2008/TL11/). Also I attached the demo application I built on stage.
 

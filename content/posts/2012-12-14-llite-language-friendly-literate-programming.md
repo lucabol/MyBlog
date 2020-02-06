@@ -8,11 +8,11 @@ guid: http://lucabolognese.wordpress.com/?p=127
 permalink: /2012/12/14/llite-language-friendly-literate-programming/
 categories:
   - C
-  - 'F#'
+  - fsharp
   - Literate programming
 tags:
   - C
-  - 'F#'
+  - fsharp
   - Literate programming
 ---
 Main ideas
