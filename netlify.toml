@@ -1,0 +1,4 @@
+[build]
+publish = "public"
+command = "hugo --gc --minify --enableGitInfo"
+HUGO_VERSION = "0.53"
