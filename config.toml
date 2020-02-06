@@ -14,11 +14,6 @@ disqusShortname = "lucabol"
 
 relativeURLs = true
 
-# Code highlighting, see here for style https://xyproto.github.io/splash/docs/longer/all.html
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
-pygmentsStyle = "vs"
-
 # Removes categories taxonomy
 [taxonomies]
   tag = "tags"
@@ -57,3 +52,26 @@ pygmentsStyle = "vs"
 [params]
     description = "Blog about programming, C#, F#, .NET Core, Investing and other stuff."
     toc = true
+
+# This theme uses inline html, which needs to be explicitely enabled with the new Goldmark markdown
+# parsing library. See https://gohugo.io/news/0.60.0-relnotes/
+# Also the table of content needs to be enabled to work.
+# While we are at it, we set default highlighting.
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "vs"
+    tabWidth = 4
