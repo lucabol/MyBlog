@@ -27,9 +27,6 @@ pygmentsStyle = "vs"
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
-[permalinks]
-    posts = "/:year/:month/:day/:title/"
-
 [[menu.main]]
     name = "Home"
     url = "/"
