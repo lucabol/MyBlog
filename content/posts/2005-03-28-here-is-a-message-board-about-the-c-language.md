@@ -47,6 +47,6 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
 ---
 Here is the link: <http://www.gotdotnet.com/Community/MessageBoard/MessageBoard.aspx?ID=5627>. Check it out.

@@ -10,9 +10,9 @@ timeline_notification:
   - "1548065149"
 categories:
   - .NET Core
-  - 'C#'
+  - csharp
 tags:
-  - C#
+  - csharp
 ---
 Let's see how it's implemented. For why it is implemented, see part I.
 

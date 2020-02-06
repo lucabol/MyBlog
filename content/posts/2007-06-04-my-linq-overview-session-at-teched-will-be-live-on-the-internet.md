@@ -47,6 +47,6 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
 ---
  at least they told me so. It is at 8.30am Eastern time. I don't know the exact link, but it will be somewhere here: <http://www.microsoft.com/events/teched2007/default.mspx>.

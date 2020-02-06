@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
 ---
 <p class="MsoNormal" style="margin:0;">
   <font face="Tahoma">Matt has </font><a href="http://blogs.msdn.com/mattwar/archive/2007/05/31/the-origin-of-linq-to-sql.aspx"><font face="Tahoma" color="#0000ff">a very good post</font></a><font face="Tahoma"> on the history of object relational framework inside Microsoft. He and I started the whole ObjectSpaces thing together very many years ago (about six and a half). I thought I should add my two cents. <s></s></font>

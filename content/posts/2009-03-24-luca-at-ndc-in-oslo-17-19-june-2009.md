@@ -51,7 +51,7 @@ original_post_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
   - fsharp
 ---
 I’ll be speaking about the future of C# and F#. Oslo brings back so many memories …

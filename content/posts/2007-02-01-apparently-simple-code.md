@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
 ---
 Sometimes what looks simple is complex and what looks complex is simple. See if you can understand how this one calculates all the possible ways to give change for a certain amount of money given some kinds of coins. You MIT guys out there don't count, you probably have read the solution in the same book I have.
 

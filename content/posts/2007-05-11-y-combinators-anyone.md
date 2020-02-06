@@ -47,6 +47,6 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
 ---
 From Mads, our proud C# language PM: <http://blogs.msdn.com/madst/archive/2007/05/11/recursive-lambda-expressions.aspx>.

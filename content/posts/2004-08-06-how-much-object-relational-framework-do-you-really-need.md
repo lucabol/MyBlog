@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
   - Object Orientation
 ---
 It is always interesting for me to look at debates about object relational layers. I propose we define different levels of object relational support:

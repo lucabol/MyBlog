@@ -10,9 +10,9 @@ permalink: /2018/06/04/a-stack-data-structure-implementation-using-span/
 timeline_notification:
   - "1528113420"
 categories:
-  - 'C#'
+  - csharp
 tags:
-  - C#
+  - csharp
 ---
 I am back in Microsoft and today we talk about the code below, which is on github here:
 ```csharp

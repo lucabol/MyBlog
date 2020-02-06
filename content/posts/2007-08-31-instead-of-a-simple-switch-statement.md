@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
 ---
 This&nbsp;is [Luke](http://blogs.msdn.com/lukeh/default.aspx)&#8216;s kind of code. I might be catching the virus
 

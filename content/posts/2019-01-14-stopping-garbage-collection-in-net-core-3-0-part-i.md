@@ -14,9 +14,9 @@ timeline_notification:
   - "1547469263"
 categories:
   - .NET Core
-  - 'C#'
+  - csharp
 tags:
-  - C#
+  - csharp
 ---
 Scenario
 ==============

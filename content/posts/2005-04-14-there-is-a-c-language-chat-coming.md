@@ -47,6 +47,6 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
 ---
 Here it is: [<u><font color="#0000ff" size="2">http://blogs.msdn.com/scottno/archive/2005/04/14/408212.aspx</u></font>](http://blogs.msdn.com/scottno/archive/2005/04/14/408212.aspx)

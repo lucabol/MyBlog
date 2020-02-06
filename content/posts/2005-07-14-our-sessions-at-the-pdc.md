@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
 ---
 Now we can finally blog about our PDC sessions. We have been working for more then a year on this data language integration stuff and it is quite exciting to be able to talk about it publicly. Here are the sessions involved. They are all tied together by a common theme. They are all part of the same big project.
 

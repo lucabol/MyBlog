@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
 ---
 This is a question that came up on our internal alias. I thought it might be generally interesting to illustrate how the compiler picks operators.
 

@@ -4,7 +4,7 @@ date: 2019-12-06
 author: lucabol
 layout: post
 tags:
-  - C#
+  - csharp
   - functional-programming
 ---
 # Abstract

@@ -47,7 +47,7 @@ restapi_import_id:
 categories:
   - Uncategorized
 tags:
-  - 'C#'
+  - csharp
 ---
 Yesterday I found an old email in my mail box that I thought might be generally interesting.
 
