@@ -1,0 +1,76 @@
+baseurl: 'https://www.lucabol.com'
+languageCode: en-us
+title: Lucabol blog
+theme: hugo-classic
+googleAnalytics: UA-133194891-1
+ignoreFiles:
+  - \.Rmd$
+  - _files$
+  - _cache$
+preserveTaxonomyNames: true
+enableEmoji: true
+footnotereturnlinkcontents: ↩
+enableGitInfo: true
+enableRobotsTXT: true
+disqusShortname: lucabol
+relativeURLs: true
+
+# Removes categories taxonomy
+taxonomies:
+  tag: tags
+
+# json is to enable search index build
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 1
+    - name: Tags
+      url: /tags/
+      weight: 2
+    - name: Github
+      url: 'https://www.github.com/lucabol'
+      weight: 3
+    - name: Linkedin
+      url: 'https://www.linkedin.com/in/lucabolognese/'
+      weight: 4
+  feed:
+    - name: Search
+      url: /search
+      weight: 2
+    - name: Subscribe
+      url: /index.xml
+      weight: 1
+
+params:
+  description: 'Blog about programming, C#, F#, .NET Core, Investing and other stuff.'
+  toc: true
+
+# This theme uses inline html, which needs to be explicitely enabled with the new Goldmark markdown
+# parsing library. See https://gohugo.io/news/0.60.0-relnotes/
+# Also the table of content needs to be enabled to work.
+# While we are at it, we set default highlighting.
+markup:
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 1
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    hl_Lines: ''
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: vs
+    tabWidth: 4
