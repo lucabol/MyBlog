@@ -1,2 +1,0 @@
-1. Try moving the Hugo version forward until 'Search' and 'table of content' break
-2. Reinstate netifly.toml
