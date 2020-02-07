@@ -3,10 +3,7 @@ languageCode: en-us
 title: Lucabol blog
 theme: hugo-classic
 googleAnalytics: UA-133194891-1
-ignoreFiles:
-  - \.Rmd$
-  - _files$
-  - _cache$
+ignoreFiles: [\.Rmd$, _files$, _cache$]
 preserveTaxonomyNames: true
 enableEmoji: true
 footnotereturnlinkcontents: ↩
@@ -21,10 +18,7 @@ taxonomies:
 
 # json is to enable search index build
 outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
+  home: [HTML, RSS, JSON]
 
 menu:
   main:
