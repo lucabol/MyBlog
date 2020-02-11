@@ -1,6 +1,7 @@
 ---
 title: "Search"
 description: Can query luca bolognese blog.
+nodisqus: true
 sitemap:
   priority : 0.2
 ---
