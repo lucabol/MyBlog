@@ -12,7 +12,7 @@
 
       {{ range .Site.Menus.feed }}
       {{ $name := lower .Name}}
-      <li class="pull-right">
+      <li class="pull-right {{ if eq $name $title }}current{{ else if eq $section $name }}current{{ else if eq $title (pluralize $name) }}current{{ end }}">
         <a href="{{ .URL }}">~/{{ lower .Name}}</a>
       </li>
       {{end}}

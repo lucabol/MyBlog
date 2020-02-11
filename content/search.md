@@ -1,5 +1,6 @@
 ---
-title: "Search Results"
+title: "Search"
+description: Can query luca bolognese blog.
 sitemap:
   priority : 0.2
 ---

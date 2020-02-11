@@ -79,6 +79,9 @@ header a {
 }
 header a:hover,
 header .current a {
+    color: yellow
+}
+header current a {
     color: #fff
 }
 
