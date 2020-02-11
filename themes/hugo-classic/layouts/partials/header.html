@@ -3,12 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     {{ if .Description }}
       <meta name="description" content="{{ .Description }}">
     {{ else }}
       <meta name="description" content="{{ .Summary | plainify }}">
     {{ end }}
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
+
+    {{ if .IsHome}}
+      <title>{{ .Site.Title }}</title>
+    {{ else }}
+      <title>{{ .Title }} | {{ .Site.Title }}</title>
+    {{ end }}
     <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
     {{ range .Site.Params.custom_css -}}
       <link rel="stylesheet" href="{{ . | absURL }}">
