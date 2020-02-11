@@ -18,7 +18,7 @@
 </main>
 
 {{ if not .Page.Params.nodisqus}}
-  {{ template "_internal/disqus.html" . }}
+  {{ partial "disqus.html" . }}
 {{ end }}
 
 {{ if and .GitInfo .IsPage }}<small class="gray"><em>Updated: {{ .Page.Lastmod }}, Version: {{ .GitInfo.AbbreviatedHash }}</em></small>{{ end }}
