@@ -43,7 +43,7 @@ footer a { text-decoration: none; }
 }
 
 /* To pass goolge Audit SEO for mobile the tap target needs to be bit */
-li a{padding-top:48px;}@media(min-width:60em){li a{line-height:1.2;}}
+li a{line-height:2.3;}@media(min-width:60em){li a{line-height:1.2;}}
 
 a {
   color: #613DC1;
