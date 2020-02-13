@@ -3,38 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ if .Description }}
+    <meta name="description" content="{{ .Description }}">
+    {{ else }}
+    <meta name="description" content="{{ .Summary | plainify }}">
+    {{ end }}
+
+    {{ if .IsHome}}
+    <title>{{ .Site.Title }}</title>
+    {{ else }}
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    {{ end }}
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <!-- Google Analytics. Put here to start preloading earlier -->
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <script async src='js/tracking-code.js'></script>
 
-    {{ if .Description }}
-      <meta name="description" content="{{ .Description }}">
-    {{ else }}
-      <meta name="description" content="{{ .Summary | plainify }}">
-    {{ end }}
-
-    {{ if .IsHome}}
-      <title>{{ .Site.Title }}</title>
-    {{ else }}
-      <title>{{ .Title }} | {{ .Site.Title }}</title>
-    {{ end }}
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
     {{ range .Site.Params.custom_css -}}
       <link rel="stylesheet" href="{{ . | relURL }}">
     {{- end }}
     {{ partial "head_custom.html" . }}
 
-    <!-- Google Analytics -->
-    <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto');
-    ga('send', 'pageview');
-    </script>
-    <script async src='https://www.google-analytics.com/analytics.js'></script>
-    <!-- End Google Analytics -->
   </head>
-
-  <body>
-    <br/>
