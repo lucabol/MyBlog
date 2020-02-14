@@ -15,4 +15,4 @@ const init = () => {
 };
 
 // Set up on onload event
-window.document.onload = init;
+window.addEventListener('load', init);
