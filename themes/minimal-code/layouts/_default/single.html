@@ -22,5 +22,8 @@
   <!-- {{ partial "disqus.html" . }} -->
 {{ end }}
 
-{{ if and .GitInfo .IsPage }}<small class="gray"><em>Updated: {{ .Page.Lastmod }}, Version: {{ .GitInfo.AbbreviatedHash }}</em></small>{{ end }}
+{{ if .IsPage }}<small class="gray"><em>Updated: {{ .Page.Lastmod }}, Version: {{ .GitInfo.AbbreviatedHash }}</em></small>{{ end }}
+
+{{ if gt .WordCount 400 }}
 {{ partial "footer.html" . }}
+{{ end }}
