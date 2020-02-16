@@ -1,20 +1,34 @@
 <style>
+    html {
+        /* Font size has a min of X em and scales as much as viewport */
+        font-size: calc(1vw + 0.7em);
+        font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
+        max-width: 1280px;
+        line-height: 1.5em;
+    }
+    nav a.pull-right, nav a.pull-left {
+        font-family: "Lucida Console", Monaco, SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        padding: 0.0em 0.2em;
+        text-decoration: none;
+    }
+    @media (min-width: 50em) {
         html {
-            /* Font size has a min of X em and scales as much as viewport */
-            font-size: calc(1vw + 0.7em);
-            font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
-            max-width: 1280px;
-            line-height: 1.5em;
+            /* Fonts becomes to big when screen gets super big. */
+            font-size:1.125rem;
         }
-        nav a {
-            font-family: "Lucida Console", Monaco, SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            padding: 0.0em 0.2em;
-            text-decoration: none;
-        }
-        @media (min-width: 50em) {
-            html {
-                /* Fonts becomes to big when screen gets super big. */
-                font-size:1.125rem;
-            }
-        }
+    }
+    main a:link {
+        text-decoration: none;
+        padding: 0.2em;
+        color: #1476b8;
+    }
+    main a:visited {
+        color: #1430b8;
+    }
+    main a:hover {
+        text-decoration: underline;
+    }
+    main a:active {
+        color: #b81414;
+    }
 </style>
