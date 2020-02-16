@@ -3,19 +3,18 @@
         /* Font size has a min of X em and scales as much as viewport */
         font-size: calc(1vw + 0.7em);
         font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
-        max-width: 1280px;
+        max-width: 1200px;
         line-height: 1.5em;
+    }
+    img, iframe, video { max-width: 100%; }
+
+    *, ::before, ::after {
+        box-sizing: border-box;
     }
     nav a.pull-right, nav a.pull-left {
         font-family: "Lucida Console", Monaco, SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
         padding: 0.0em 0.2em;
         text-decoration: none;
-    }
-    @media (min-width: 50em) {
-        html {
-            /* Fonts becomes to big when screen gets super big. */
-            font-size:1.125rem;
-        }
     }
     main a:link {
         text-decoration: none;
@@ -30,5 +29,18 @@
     }
     main a:active {
         color: #b81414;
+    }
+
+    @media (min-width: 50em) {
+        html {
+            /* Fonts becomes to big when screen gets super big. */
+            font-size:1.125rem;
+            margin-left: 10vw;
+            margin-right: 10vw;
+        }
+        img {
+            margin-right: 10vw;
+        }
+
     }
 </style>

@@ -34,13 +34,13 @@ menu:
     - name: Linkdin
       url: 'https://www.linkedin.com/in/lucabolognese/'
       weight: 4
-    - name: Xml
-      url: /index.xml
-      weight: 1
-  feed:
     - name: Search
       url: /search
-      weight: 2
+      weight: 5
+  feed:
+    - name: Rss
+      url: /index.xml
+      weight: 1
 
 params:
   description: 'Blog about programming, C#, F#, .NET Core, Investing and other stuff.'

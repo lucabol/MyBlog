@@ -27,6 +27,7 @@
 
     {{ if eq .Kind "page"}}
       <title>{{ .Title }} | {{ .Site.Title }}</title>
+      {{ partial "post-style.html" }}
     {{ else }}
       <title>{{ .Title }} | {{ .Site.Title }}</title>
       {{ partial "home-style.html" }}
