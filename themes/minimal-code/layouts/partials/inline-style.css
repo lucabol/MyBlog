@@ -1,0 +1,13 @@
+<style>
+html {
+    font-size: calc(1vw + 0.6em);
+}
+nav a {
+    margin: 0.2em;
+}
+@media (min-width: 50em) {
+    html {
+        font-size:1.125em;
+    }
+}
+</style>

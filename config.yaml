@@ -1,7 +1,7 @@
 baseurl: 'https://www.lucabol.com'
 languageCode: en-us
 title: Lucabol blog
-theme: hugo-classic
+theme: minimal-code
 googleAnalytics: UA-133194891-1
 ignoreFiles: [\.Rmd$, _files$, _cache$]
 preserveTaxonomyNames: true
@@ -22,7 +22,7 @@ outputs:
 
 menu:
   main:
-    - name: Home
+    - name: ~
       url: /
       weight: 1
     - name: Tags

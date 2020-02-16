@@ -1,0 +1,15 @@
+<header>
+  <nav>
+      {{ $title := lower .Title }}
+      {{ $section := lower .Section }}
+      {{ range .Site.Menus.main }}
+      {{ $name := lower .Name }}
+      <a class="pull-left {{ if eq $name $title }}current{{ else if eq $section $name }}current{{ else if eq $title (pluralize $name) }}current{{ end }}" href="{{ .URL }}">~/{{ lower .Name }}</a>
+      {{end}}
+
+      {{ range .Site.Menus.feed }}
+      {{ $name := lower .Name}}
+      <a class="pull-right {{ if eq $name $title }}current{{ else if eq $section $name }}current{{ else if eq $title (pluralize $name) }}current{{ end }}" href="{{ .URL }}">~/{{ lower .Name}}</a>
+      {{end}}
+  </nav>
+</header>
