@@ -5,6 +5,7 @@
 
 {{ .Content }}
 
+<main>
 <ul>
   {{ $pages := .Pages }}
   {{ range (where $pages "Section" "!=" "") }}
@@ -14,5 +15,5 @@
   </li>
   {{ end }}
 </ul>
-
+</main>
 {{ partial "footer.html" . }}
