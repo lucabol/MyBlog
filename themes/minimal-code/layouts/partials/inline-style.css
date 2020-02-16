@@ -1,13 +1,19 @@
 <style>
 html {
-    font-size: calc(1vw + 0.6em);
+    font-size: calc(1vw + 0.7em);
+    max-width: 1280px;
 }
 nav a {
-    margin: 0.2em;
+    font-family: monospace;
+    font-size: 1.2 rem;
+    padding: 0.2em;
+}
+.pull-right {
+    float: right;
 }
 @media (min-width: 50em) {
     html {
-        font-size:1.125em;
+        font-size:1.125rem;
     }
 }
 </style>

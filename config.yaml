@@ -28,17 +28,17 @@ menu:
     - name: Tags
       url: /tags/
       weight: 2
-    - name: Github
+    - name: Ghub
       url: 'https://www.github.com/lucabol'
       weight: 3
-    - name: Linkedin
+    - name: Ldin
       url: 'https://www.linkedin.com/in/lucabolognese/'
       weight: 4
   feed:
-    - name: Search
+    - name: Srch
       url: /search
       weight: 2
-    - name: Subscribe
+    - name: Sub
       url: /index.xml
       weight: 1
 
