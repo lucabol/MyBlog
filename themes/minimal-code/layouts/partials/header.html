@@ -11,6 +11,7 @@
 
     {{ if .IsHome}}
     <title>{{ .Site.Title }}</title>
+    {{ partial "home-inline-style.css"}}
     {{ else }}
     <title>{{ .Title }} | {{ .Site.Title }}</title>
     {{ end }}
@@ -20,13 +21,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <script async src='/js/tracking-code.js'></script>
-
     {{ range .Site.Params.custom_css -}}
       <link rel="stylesheet" href="{{ . | relURL }}">
     {{- end }}
 
-    {{ partial "inline-style.css"}}
     {{ partial "menu.html" . }}
 
   </head>

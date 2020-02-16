@@ -1,0 +1,35 @@
+<style>
+html {
+    font-size: calc(1vw + 0.7em);
+    font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
+    max-width: 1280px;
+    line-height: 1.5em;
+}
+main li {
+    list-style-type: none;
+}
+main a:link {
+    text-decoration: none;
+    padding: 0.2em;
+    color: #1476b8;
+}
+main a:visited {
+    color: #1430b8;
+}
+main a:hover {
+    text-decoration: underline;
+}
+main a:active {
+    color: #b81414;
+}
+nav a {
+    font-family: "Lucida Console", Monaco, SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    padding: 0.3em;
+    text-decoration: none;
+}
+@media (min-width: 50em) {
+    html {
+        font-size:1.125rem;
+    }
+}
+</style>

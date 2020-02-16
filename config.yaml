@@ -28,19 +28,19 @@ menu:
     - name: Tags
       url: /tags/
       weight: 2
-    - name: Ghub
+    - name: Github
       url: 'https://www.github.com/lucabol'
       weight: 3
-    - name: Ldin
+    - name: Linkdin
       url: 'https://www.linkedin.com/in/lucabolognese/'
       weight: 4
-  feed:
-    - name: Srch
-      url: /search
-      weight: 2
-    - name: Sub
+    - name: Xml
       url: /index.xml
       weight: 1
+  feed:
+    - name: Search
+      url: /search
+      weight: 2
 
 params:
   description: 'Blog about programming, C#, F#, .NET Core, Investing and other stuff.'

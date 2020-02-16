@@ -2,15 +2,17 @@
 
 {{ .Content }}
 
-<ul>
-  {{ $pages := .Pages }}
-  {{ $pages = .Site.RegularPages }}
-  {{ range (where $pages "Section" "!=" "") }}
-  <li>
-    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-  </li>
-  {{ end }}
-</ul>
+<main>
+  <ul>
+    {{ $pages := .Pages }}
+    {{ $pages = .Site.RegularPages }}
+    {{ range (where $pages "Section" "!=" "") }}
+    <li>
+      <span class="date">{{ .Date.Format "01/2006" }}</span>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</main>
 
 {{ partial "footer.html" . }}
