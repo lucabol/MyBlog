@@ -25,8 +25,8 @@
 </main>
 
 {{ if not .Page.Params.nodisqus}}
-  {{ template "_internal/disqus.html" . }}
-  <!-- {{ partial "disqus.html" . }} -->
+  <!-- {{ template "_internal/disqus.html" . }} -->
+  {{ partial "disqus.html" . }}
 {{ end }}
 
 
