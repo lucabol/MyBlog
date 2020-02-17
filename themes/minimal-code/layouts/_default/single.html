@@ -1,4 +1,13 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+{{ partial "head.html" . }}
+
+<body>
+  <div class="container">
+
+{{ partial "menu.html" . }}
+
 <main>
 <h1><span class="title">{{ .Title }}</span></h1>
 {{ if .Params.date }}<p class="date">{{ .Date.Format "01/2006" }}</p>{{ end }}
@@ -22,3 +31,7 @@
 
 
 {{ partial "footer.html" . }}
+
+  </div>
+</body>
+</html>

@@ -1,4 +1,12 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+{{ partial "head.html" . }}
+
+<body>
+  <div class="container">
+
+{{ partial "menu.html" . }}
 
 <main>
 <h1>{{ .Title }}</h1>
@@ -16,3 +24,7 @@
 </main>
 
 {{ partial "footer.html" . }}
+
+  </div>
+</body>
+</html>

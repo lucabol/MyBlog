@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +26,7 @@
     {{ if eq .Kind "page"}}
       <title>{{ .Title }} | {{ .Site.Title }}</title>
       {{ partial "post-style.html" }}
-    {{ else }}
+    {{ else if not (eq .Kind "home")}}
       <title>{{ .Title }} | {{ .Site.Title }}</title>
       {{ partial "home-style.html" }}
     {{ end }}
@@ -39,5 +37,3 @@
     <link rel="manifest" href="/site.webmanifest">
 
   </head>
-
-  {{ partial "menu.html" . }}
