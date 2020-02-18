@@ -3,6 +3,10 @@
         /* Font size has a min of X em and scales as much as viewport */
         font-size: calc(1vw + 0.7em);
         font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
+        font-variant-ligatures: normal;
+        line-height: 1.4;
+        letter-spacing: 0.01em;
+        text-rendering: optimizeLegibility;
     }
     .container {
         max-width: 1080px;
@@ -10,14 +14,24 @@
     }
     img, iframe, video { max-width: 100%; }
 
-    body {
-        line-height: 1.4;
-        letter-spacing: 0.01em;
+    h1, h2, h3, h4 {
+        line-height: 1;
+        letter-spacing: 0.03em;
+        font-size: 1.2rem
+    }
+    h1:first-of-type {
+        text-transform: uppercase;
+    }
+    #luca-bolognese {
+        font-size: 1.6rem;
+        text-transform: none;
     }
 
-    h1, h2, h3, h4 {
-        line-height: 1em;
-        letter-spacing: 0.03em;
+    p {
+        text-align: justify;
+        hyphens: auto;
+        margin-bottom: 0em;
+        margin-top: 0.7em
     }
 
     nav a.pull-right, nav a.pull-left {
