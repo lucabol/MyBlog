@@ -17,7 +17,7 @@
       {{ $pages := .Pages }}
       {{ $pages = .Site.RegularPages }}
       {{ range first 10 $pages }}
-        <link rel="prerender" href="{{ .RelPermalink }}" />
+        <link media="screen and (min-width: 50em)" rel="prerender" href="{{ .RelPermalink }}" />
       {{ end }}
       
       {{ partial "home-style.html" }}
