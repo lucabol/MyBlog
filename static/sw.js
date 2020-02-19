@@ -1,6 +1,6 @@
 // the cache version gets updated every time there is a new deployment
 const CACHE_VERSION = 10;
-const CURRENT_CACHE = `main-${CACHE_VERSION}`;
+const CURRENT_CACHE = `v${CACHE_VERSION}`;
 
 // these are the routes we are going to cache for offline support
 const cacheFiles = ['/', '/index.html', '/offline/', '/offline/index.html'];
@@ -29,42 +29,29 @@ self.addEventListener('install', evt =>
   )
 );
 
-// fetch the resource from the network
-const fromNetwork = (request, timeout) =>
-  new Promise((fulfill, reject) => {
-    const timeoutId = setTimeout(reject, timeout);
-    fetch(request).then(response => {
-      clearTimeout(timeoutId);
-      fulfill(response);
-      update(request);
-    }, reject);
-  });
+self.addEventListener('fetch', evt =>
+    evt.respondWith(tryFetch(evt.request)))
 
-// fetch the resource from the browser cache
-const fromCache = request =>
-  caches
-    .open(CURRENT_CACHE)
-    .then(cache =>
-      cache
-        .match(request)
-        .then(matching => matching || cache.match('/offline/'))
-    );
+const tryFetch = request =>
+    fetch(request)
+        .then(toCacheAndReturn(request))
+        .catch(fromCacheOrOffline(request))
 
-// cache the current page to make it available for offline
-const update = request =>
-  caches
-    .open(CURRENT_CACHE)
-    .then(cache => {
-      if(request.method === 'GET')
-        return fetch(request).then(response => cache.put(request, response))
-    }
-    );
+const toCacheAndReturn = request => response =>
+    caches
+        .open(CURRENT_CACHE)
+        .then(cache => {
+            if(request.method === 'GET')
+                cache.put(request, response.clone())
+            return response
+        })
 
-// general strategy when making a request (eg if online try to fetch it
-// from the network with a timeout, if something fails serve from cache)
-self.addEventListener('fetch', evt => {
-  evt.respondWith(
-    fromNetwork(evt.request, 10000).catch(() => fromCache(evt.request))
-  );
-  evt.waitUntil(update(evt.request));
-});
+const fromCacheOrOffline = request => err =>
+    caches
+        .open(CURRENT_CACHE)
+        .then(cache => 
+            cache.match(request)
+                 .then(response => response || cache.match("/offline/"))
+                 .catch(error => cache.match("/offline/"))
+        )
+
