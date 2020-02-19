@@ -66,5 +66,5 @@ markup:
     lineNos: false
     lineNumbersInTable: true
     noClasses: true
-    style: vs
+    style: trac
     tabWidth: 4

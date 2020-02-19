@@ -1,63 +1,75 @@
 <style>
+    /* We use the perfect fourth as modular scale 1, 1.333, 1.777, 2.369 */
+    html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
+        vertical-align: baseline;
+        margin: 0;
+        padding: 0;
+    }
     html {
         /* Font size has a min of X em and scales as much as viewport */
-        font-size: calc(1vw + 0.7em);
+        font-size: calc(1vmin + 0.7em);
         font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
         font-variant-ligatures: normal;
         line-height: 1.4;
-        letter-spacing: 0.01em;
         text-rendering: optimizeLegibility;
+        color:black;
     }
     .container {
-        max-width: 1080px;
+        max-width: 1280px;
         margin: 0 auto;
     }
     img, iframe, video { max-width: 100%; }
 
     h1, h2, h3, h4 {
-        line-height: 1;
-        letter-spacing: 0.03em;
-        font-size: 1.2rem
+        font-family: "Lucida Console", Monaco, SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        letter-spacing: -0.03em;
+        font-size: 1.333rem;
+        margin: 1rem 0.5rem 0.5rem 0.5rem;
     }
     h1:first-of-type {
-        text-transform: uppercase;
+        font-size: 1.777rem;
+        line-height: 1;
+        letter-spacing: -0.05em;;
     }
-    #luca-bolognese {
-        font-size: 1.6rem;
-        text-transform: none;
-    }
-
     p {
         text-align: justify;
         hyphens: auto;
-        margin-bottom: 0em;
-        margin-top: 0.7em
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+    hr {
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     }
 
-    nav a.pull-right, nav a.pull-left {
+    nav {
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+    nav a {
         font-family: "Lucida Console", Monaco, SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
         padding: 0.0em 0.2em;
         text-decoration: none;
     }
     main li {
         list-style-type: square;
+        margin: 0rem 0.5rem 0rem 0.5rem;
     }
-    main a:link {
+    a:link {
         text-decoration: none;
+        color:#330000;
     }
-    main a:visited {
+    a:visited {
+        color: gray;
     }
-    main a:hover {
+    a:hover {
         text-decoration: underline;
     }
-    main a:active {
+    a:active {
         color: #b81414;
     }
 
     @media (min-width: 50em) {
         html {
             /* Fonts becomes to big when screen gets super big. */
-            font-size:1.125rem;
+            font-size:1.618rem;
         }
         img {
             margin-right: 10vw;
@@ -66,8 +78,8 @@
     }
     table {
         margin: auto;
+        font-variant-numeric: lining-nums tabular-nums;
     }
     table thead th { border-bottom: 1px solid #ddd; }
-    th, td { padding: 5px; }
-    tr:nth-child(even) { background: #eee }
+    th, td { padding: 0.125em 0.5em 0.25em 0.5em; }
 </style>
