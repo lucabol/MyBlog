@@ -5,4 +5,4 @@ title = "Oops, you are offline."
 type = "offline"
 +++
 
-# You should try to find some internet connection to browse here.
+# You are able to access just the pages that you have visited previously. Go back to the [home page](/)

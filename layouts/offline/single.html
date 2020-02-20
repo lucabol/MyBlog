@@ -1,9 +1,26 @@
-<html>
- <head>
-  <title>{{ .Title }}</title>
- </head>
- <body>
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
- </body>
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+{{ partial "head.html" . }}
+
+<body>
+  <div class="container">
+
+{{ partial "menu.html" . }}
+
+<hr/>
+<main>
+{{ .Content }}
+</main>
+
+{{ if not .Page.Params.nodisqus}}
+  <!-- {{ template "_internal/disqus.html" . }} -->
+  {{ partial "disqus.html" . }}
+{{ end }}
+
+
+{{ partial "footer.html" . }}
+
+  </div>
+</body>
 </html>

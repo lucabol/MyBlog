@@ -11,5 +11,6 @@
       {{ $name := lower .Name}}
       <a class="pull-right{{ if eq $name $title }} current{{ else if eq $section $name }} current{{ else if eq $title (pluralize $name) }} current{{ end }}" href="{{ .URL }}">~/{{ $name }}</a>
       {{end}}
+      <span class="offline">~~ Offline ~~</span>
   </nav>
 </header>

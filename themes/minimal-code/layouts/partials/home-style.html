@@ -12,8 +12,17 @@
     .offline {
         display:none;
     }
-    .offline .show {
-        display: block;
+    .offline.show {
+        display: inline;
+        text-transform: capitalize;
+        color:red;
+        text-decoration: wavy;
+        float:right;
+        border-style: groove;
+        border-color: red;
+    }
+    a.strike {
+        text-decoration: line-through;
     }
     @media (max-width: 50em) {
         main ul {
