@@ -48,25 +48,26 @@
         padding: 0.0em 0.2em;
         text-decoration: none;
     }
-    main li {
-        list-style-type: square;
-        margin: 0rem 0.5rem 0rem 0.5rem;
-    }
-    a:link {
+
+    nav a:link, a.postlink:link {
         text-decoration: none;
-        color:#330000;
+        color:black;
     }
-    a:visited {
-        color: gray;
+    nav a:visited {
+        color:black;
+        text-decoration: none;
     }
-    a:hover {
+    a.postlink:visited {
+        color:#777;
+        text-decoration: none;
+    }
+    nav a:hover, a.postlink:hover {
         text-decoration: underline;
     }
-    a:active {
+    nav a:active, a.postlink:active {
         color: #b81414;
     }
-
-    @media (min-width: 50em) {
+    @media (min-width: 0em) {
         html {
             /* Fonts becomes to big when screen gets super big. */
             font-size:1.333rem;
@@ -75,6 +76,9 @@
             margin-right: 10vw;
         }
 
+    }
+    input {
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     }
     table {
         margin: auto;

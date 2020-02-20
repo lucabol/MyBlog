@@ -17,7 +17,7 @@
     {{ range (where $pages "Section" "!=" "") }}
     <li>
       <span class="date">{{ .Date.Format "2006/06" }}</span>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <a class="postlink" href="{{ .RelPermalink }}">{{ .Title }}</a>
     </li>
     {{ end }}
   </ul>
