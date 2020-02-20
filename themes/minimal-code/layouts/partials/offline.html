@@ -1,0 +1,14 @@
+<script>
+    window.addEventListener('offline', (e) => {
+        console.log("offline called")
+        const els = document.getElementsByClassName('offline')
+        for(const el of els)
+            el.classList.add("show")
+    })
+    window.addEventListener('online', (e) => {
+        console.log("online called")
+        const els = document.getElementsByClassName('offline')
+        for(const el of els)
+            el.classList.remove("show")
+    })
+</script>

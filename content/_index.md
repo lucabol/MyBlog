@@ -7,3 +7,4 @@ description: Blog of Luca Bolognese
 # Luca Bolognese
 
 <hr/>
+<p class="offline">You are offline</p>
