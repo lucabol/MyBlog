@@ -5,23 +5,32 @@
         padding: 0;
     }
     html {
-        font-size: calc(0.6vmin + 0.7em);
-        font-size: min(max(13px, 2.2vw), 18px);
-        font-size: clamp(13px, 2.2vw, 18px);
+        /* Typography rules */
+        /* 1. Fonts: using system provided font, like github */
         --font-family-text: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
         --font-family-code: Consolas, Monaco, SFMono-Regular, "Liberation Mono", Menlo, Courier, monospace;
         --font-family-dropcap: "Edwardian Script ITC", "Brush Script MT", cursive, Georgia, 'Times New Roman', Times, serif;
         --font-family-headers: var(--font-family-code);
         --font-family-menu: var(--font-family-headers);
+        /* 2. Fonts sizes: made responsive so everything else scales with it*/
+        font-size: calc(0.6vmin + 0.7em);
+        font-size: min(max(13px, 2.2vw), 18px);
+        font-size: clamp(13px, 2.2vw, 18px);
+        /* 3. Line height */
+        --line-height: 1.4;
+        /* 4. Line width: as github, larger because of code */
+        --line-width: 60em;
+        /* 5. Color: grayer, like github */
+        --text-color: hsla(210, 12%, 16%, 1);
 
         font-family: var(--font-family-text);
         font-variant-ligatures: normal;
-        line-height: 1.4;
+        line-height: var(--line-height);
         text-rendering: optimizeLegibility;
-        color:black;
+        color: var(--text-color);
     }
     .container {
-        max-width: 1280px;
+        max-width: var(--line-width);
         margin: 0 auto;
     }
     img, iframe, video { max-width: 100%; }
