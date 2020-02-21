@@ -25,6 +25,7 @@
         --line-width: 60em;
         /* 5. Color: grayer, like github */
         --text-color: hsla(93, 14%, 14%, 1);
+        --accent-color: hsl(34, 47%, 50%, 1);
         /* 6. Ratio for modular scale */
         --ratio-scale: calc(5 / 4);
         --title-font-size: calc(1rem * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale));
@@ -63,6 +64,7 @@
     }
     p {
         hyphens: auto;
+        margin: 0 0 var(--line-height-rem) 0;
     }
     hr {
         margin: var(--line-height-rem) 0;
@@ -88,9 +90,7 @@
     nav a:hover, a.postlink:hover {
         text-decoration: underline;
     }
-    nav a:active, a.postlink:active {
-        color: #b81414;
-    }
+
     input {
     }
     table {
