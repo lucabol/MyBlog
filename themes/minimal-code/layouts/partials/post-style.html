@@ -7,11 +7,11 @@
         border: 1px solid #ddd;
         box-shadow: 5px 5px 5px #eee;
         overflow-x: auto;
-        padding: 1em;
-        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        padding: 0 0 0 var(--line-height-rem);
+        margin: var(--line-height-rem) 0;
     }
     main p:first-of-type::first-letter {
-        font-size: 2.369rem;
+        font-size: calc(var(--line-height-rem) * 1);
         font-family: var(--font-family-dropcap);
         line-height: 0.6;
         margin-right:-0.1em;
@@ -24,15 +24,10 @@
     }
     .terms {
         font-variant: small-caps;
-        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
-    }
-    footer {
-        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     }
 
     main li {
         list-style-type: square;
-        margin: 0rem 0.5rem 0rem 0.5rem;
     }
     a:link {
         color:black;
@@ -65,7 +60,7 @@
         text-decoration: none;
         display: inline-block;
         cursor: pointer;
-        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin: var(--line-height-rem) 0;
         font-size:1.333rem
     }
 

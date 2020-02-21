@@ -2,7 +2,6 @@
     main > ul > li {
         list-style-type: none;
         display: flex;
-        margin: 0.0em 0.5em
     }
     main > ul > li > a {
         padding: 0 0.5em;
@@ -22,7 +21,15 @@
         border-style: groove;
         border-color: red;
     }
-    a.postlink.strike {
+    a:link {
+        text-decoration: none;
+        color:black;
+    }
+    a:visited {
+        color:#777;
+        text-decoration: none;
+    }
+    a.strike {
         text-decoration: line-through;
     }
     @media (max-width: 60em) {

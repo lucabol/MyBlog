@@ -9,7 +9,7 @@
 {{ partial "menu.html" . }}
 
 <main>
-<h1><span class="title">{{ .Title }}</span></h1>
+<h1 class="title">{{ .Title }}</h1>
 <span class="terms">
   {{ range $i := (slice "tags") }}
   {{ with ($.Param $i) }}
