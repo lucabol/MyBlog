@@ -41,15 +41,6 @@
     a:active {
         color: #b81414;
     }
-
-    @media print {
-        * {
-            background: none !important;
-        }
-        header {
-            display: none !important;
-        }
-    }
     button {
         background: black;
         border-bottom: 1px solid #000;
@@ -62,6 +53,15 @@
         cursor: pointer;
         margin: var(--line-height-rem) 0;
         font-size:1.333rem
+    }
+
+    @media print {
+        * {
+            background: none !important;
+        }
+        header {
+            display: none !important;
+        }
     }
 
 </style>
