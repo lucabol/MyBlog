@@ -6,22 +6,25 @@
     }
     html {
         /* Typography rules */
-        /* 1. Fonts: using system provided font, like github */
-        --font-family-text: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
-        --font-family-code: Consolas, Monaco, SFMono-Regular, "Liberation Mono", Menlo, Courier, monospace;
-        --font-family-dropcap: "Edwardian Script ITC", "Brush Script MT", cursive, Georgia, 'Times New Roman', Times, serif;
+        /* https://www.cssfontstack.com/ */
+        /* 1. Fonts: widely available, similar x-height & look nice. Alternative is system fonts (i.e. as github does) */
+        --font-family-text: Verdana, Geneva, sans-serif;
+        --font-family-code: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+        --font-family-dropcap: Georgia, 'Times New Roman', Times, serif;
         --font-family-headers: var(--font-family-code);
         --font-family-menu: var(--font-family-headers);
         /* 2. Fonts sizes: made responsive so everything else scales with it*/
         font-size: calc(0.6vmin + 0.7em);
         font-size: min(max(13px, 2.2vw), 18px);
-        font-size: clamp(13px, 2.2vw, 18px);
-        /* 3. Line height */
-        --line-height: 1.4;
+        font-size: clamp(13px, 2.2vw, 16px);
+        /* 3. Line height: Verdana as big x-height, so a bit higher than 1.4 standard */
+        --line-height: 1.5;
         /* 4. Line width: as github, larger because of code */
         --line-width: 60em;
         /* 5. Color: grayer, like github */
-        --text-color: hsla(210, 12%, 16%, 1);
+        --text-color: hsla(93, 14%, 14%, 1);
+        /* 6. Ratio for modular scale */
+        --ratio-scale: calc(5 / 4);
 
         font-family: var(--font-family-text);
         font-variant-ligatures: normal;
@@ -37,17 +40,17 @@
 
     h1, h2, h3, h4 {
         font-family: var(--font-family-headers);
-        letter-spacing: -0.03em;
-        font-size: 1.333rem;
+        letter-spacing: -0.02em;
+        font-size: calc(1rem * var(--ratio-scale) * var(--ratio-scale));
         margin: 1rem 0.5rem 0.5rem 0.5rem;
+        line-height: 1.2;
     }
     h1:first-of-type {
-        font-size: 1.777rem;
+        font-size: calc(1rem * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale));
         line-height: 1;
-        letter-spacing: -0.05em;;
+        letter-spacing: -0.03em;;
     }
     p {
-        text-align: justify;
         hyphens: auto;
         margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     }
@@ -81,12 +84,6 @@
     }
     nav a:active, a.postlink:active {
         color: #b81414;
-    }
-    @media (min-width: 60em) {
-        img {
-            margin-right: 30vw;
-        }
-
     }
     input {
         margin: 0.5rem 0.5rem 0.5rem 0.5rem;
