@@ -10,14 +10,14 @@
 
 <main>
 <h1 class="title">{{ .Title }}</h1>
-<span class="terms">
+<div class="terms">
   {{ range $i := (slice "tags") }}
   {{ with ($.Param $i) }}
   {{ $i | title }}: {{ range $k := . }}<a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a> {{ end }}
   {{ end }}
   {{ end }}
 {{ if .Params.date }}<span class="date">@ {{ .Date.Format "2006/01/01" }}</span>{{ end }}
-</span>
+</div>
 
 {{ partial "toc.html" . }}
 

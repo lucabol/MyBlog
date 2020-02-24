@@ -12,7 +12,7 @@
         --font-family-code: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
         --font-family-dropcap: Georgia, 'Times New Roman', Times, serif;
         --font-family-headers: var(--font-family-text);
-        --font-family-menu: var(--font-family-headers);
+        --font-family-menu: var(--font-family-code);
         /* 2. Fonts sizes: made responsive so everything else scales with it*/
         font-size: calc(0.6vmin + 0.7em);
         font-size: min(max(15px, 2.2vw), 22px);
@@ -26,10 +26,11 @@
         /* 5. Color: grayer, like github */
         --text-color: hsla(93, 14%, 14%, 1);
         --accent-color: hsl(34, 70%, 50%, 1);
+        --accent-color2: hsl(0, 100%, 30%);
         /* 6. Ratio for modular scale */
-        --ratio-scale: calc(5 / 4);
-        --title-font-size: calc(1rem * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale));
-        --h1-font-size: calc(1rem * var(--ratio-scale) * var(--ratio-scale));
+        --ratio-scale: calc(16 / 15);
+        --title-font-size: calc(1rem * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale));
+        --h1-font-size: calc(1rem * var(--ratio-scale));
         --line-height-rem: calc(var(--line-height) * 1rem);
 
         font-family: var(--font-family-text);
@@ -43,50 +44,62 @@
         margin: 0 auto;
     }
     body {
-        margin: var(--line-height-rem) var(--line-height-rem);
+        margin: 0 var(--line-height-rem);
+        /* background-image: linear-gradient(rgba(200, 50, 50, .25) 1px, transparent 1px);
+        background-size: 1px var(--line-height-rem); */ */
     }
     img, iframe, video { max-width: 100%; }
 
     h1, h2, h3, h4 {
         font-family: var(--font-family-headers);
+        text-align: center;
         letter-spacing: -0.02em;
         font-size: var(--h1-font-size);
         line-height: var(--line-height-h1);
         margin: calc((var(--line-height-rem) * 2 - var(--h1-font-size) * var(--line-height-h1)) * 0.75) 0
                 calc((var(--line-height-rem) * 2 - var(--h1-font-size) * var(--line-height-h1)) * 0.25);
     }
+    h1:not(:first-child):before, h2:not(:first-child):before {
+        content: "❧ ";
+        color: var(--accent-color2);
+    }
+    h1:not(:first-child):after, h2:not(:first-child):after {
+        content: " ❧";
+        color: var(--accent-color2);
+        transform: scaleX(-1);
+    }
     h1.title, h1:first-of-type {
         font-size: var(--title-font-size);
         line-height: var(--line-height-title);
+        text-align: initial;
+        text-transform: initial;
+        font-weight: bold;
         letter-spacing: -0.03em;
-        margin: calc((var(--line-height-rem) * 3 - var(--title-font-size) * var(--line-height-title)) * 0.75) 0
-                calc((var(--line-height-rem) * 3 - var(--title-font-size) * var(--line-height-title)) * 0.25);
+        margin: calc((var(--line-height-rem) * 2 - var(--title-font-size) * var(--line-height-title)) * 0.5) 0
+                calc((var(--line-height-rem) * 2 - var(--title-font-size) * var(--line-height-title)) * 0.0);
     }
     p {
         hyphens: auto;
         margin: 0 0 var(--line-height-rem) 0;
     }
+    p:first-of-type::first-line {
+        font-variant: small-caps;
+    }
     hr {
-        margin: var(--line-height-rem) 0;
+        margin: calc((var(--line-height-rem) - 1px) / 2) 0;
     }
 
-    nav {
-        margin: var(--line-height-rem) 0
-    }
-    nav a {
+    nav.menu {
         font-family: var(--font-family-menu);
+        font-weight: 500;
+        margin: calc(var(--line-height-rem) / 2) 0 calc(var(--line-height-rem) / 2);
+    }
+    nav.menu a {
         padding: 0.0em 0.2em;
         text-decoration: none;
+        color: var(--text-color);
     }
 
-    nav a:link {
-        text-decoration: none;
-        color:black;
-    }
-    nav a:visited {
-        color:black;
-        text-decoration: none;
-    }
     nav a:hover, a.postlink:hover {
         text-decoration: underline;
     }

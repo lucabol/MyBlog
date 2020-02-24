@@ -24,19 +24,34 @@
     }
     .terms {
         font-variant: small-caps;
+        margin: calc(var(--line-height-rem) / 2) 0 calc(var(--line-height-rem) / 2);
     }
 
     main li {
         list-style-type: square;
     }
+    nav a:link, nav a:visited {
+        color: var(--text-color);
+    }
     a:link {
-        color:black;
+        color:var(--accent-color2);
+        text-decoration: none;
     }
     a:visited {
-        color:#777;
+        color: var(--accent-color2);
+        text-decoration: none;
     }
     a:hover {
         text-decoration: underline;
+    }
+    p a::after {
+        position: relative;
+        content: "°";
+        margin-left: 0.1em;
+        font-size: 90%;
+        top: -0.1em;
+        font-feature-settings: "caps";
+        font-variant-numeric: normal;
     }
     a:active {
         color: #b81414;
