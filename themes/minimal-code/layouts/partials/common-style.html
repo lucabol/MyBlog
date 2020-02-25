@@ -13,7 +13,7 @@
         --font-family-text: Verdana, Geneva, sans-serif;
         --font-family-code: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
         --font-family-dropcap: Georgia, 'Times New Roman', Times, serif;
-        --font-family-headers: var(--font-family-text);
+        --font-family-headers: var(--font-family-dropcap);
         --font-family-menu: var(--font-family-code);
         /* 2. Fonts sizes: made responsive so everything else scales with it*/
         font-size: calc(0.6vmin + 0.7em);
@@ -30,9 +30,9 @@
         --accent-color: hsl(34, 70%, 50%, 1);
         --accent-color2: hsl(0, 100%, 30%);
         /* 6. Ratio for modular scale */
-        --ratio-scale: calc(16 / 15);
-        --title-font-size: calc(1rem * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale));
-        --h1-font-size: calc(1rem * var(--ratio-scale));
+        --ratio-scale: calc(9 / 8);
+        --title-font-size: calc(1rem *  var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale));
+        --h1-font-size: calc(1rem * var(--ratio-scale) * var(--ratio-scale));
         --line-height-rem: calc(var(--line-height) * 1rem);
 
         font-family: var(--font-family-text);
