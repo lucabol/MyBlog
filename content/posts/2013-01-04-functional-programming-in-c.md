@@ -23,7 +23,7 @@ Also, the C standard library is pretty limited, so I decided to use GLib to comp
 
 So, in summary, this post is about how you can write functional code in C, perhaps with some gcc extensions and certainly with some macro tricks. Let’s call it funkyC (thanks Ian ). I’m going to show how to use it first. Next post I’m going to show how it’s implemented.
 
-## Discriminated unions in C
+# Discriminated unions in C
 With a bit of macro magic, you can get a decent looking discriminated union syntax. First we need to include the correct headers. lutils.h is where all the macros are defined.
 ~~~c
 #include <glib.h>
@@ -109,7 +109,7 @@ static void testCar(Car* c, char const * value) {
 
 }
 ~~~
-## Nested functions and lambda variables
+# Nested functions and lambda variables
 GCC has many other cool extensions. A very simple one is nested functions. It allows you to nest functions :-) Look at the definition of doA and f2 in the function below. Putting together nested functions and block statement expressions allows you, with some macro magic, to define lambda functions in your code (from here ).
 
 Remember that lambdas (aka nested functions) are allocated on the stack. They are very fast, but you cannot store their pointer into a gloal table (unless such table is used while the stack for this function is alive).
@@ -138,7 +138,7 @@ static void testLambda() {
     g_assert_cmpint(b(3), ==, 8);
 }
 ~~~
-## Automatic cleanup of local variables
+# Automatic cleanup of local variables
 This is not a functional topic per se, but something that always annoyed me tremendously about C. The fact that you cannot define the equivalent of the using statement in C#, or destructors in C++. Well, now you can. Or not?
 
 Again, if you are willing to be GCC specific, you can use an attribute (more on this in the upcoming implementation post) to associate a cleanup function that gets called when your variable goes out of scope. In this case, I wrapped the free case in a nice looking macro.
@@ -160,7 +160,7 @@ static void testAutomaticCleanup() {
 
 #endif
 ~~~
-## Data structures
+# Data structures
 GLib comes with a vast library of data structures to use, not too different from the .NET framework or Java. For example, below you have a single linked list …
 ~~~c
 static void testGLib() {
@@ -176,7 +176,7 @@ static void testGLib() {
      g_slist_free(list);
 }
 ~~~
-## Wrapping up
+# Wrapping up
 There you go, rising the level of abstraction of C, still keeping it very fast (if you are willing to be gcc bound).
 
 There are other features in functional programming languages that are not in this post. Maybe I’ll get around to macro my way into them eventually, maybe not.

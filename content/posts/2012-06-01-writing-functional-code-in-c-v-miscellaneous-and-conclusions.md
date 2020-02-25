@@ -14,7 +14,7 @@ tags:
 ---
 Just a couple of trivialities and my parting thoughts.
 
-## Nested functions
+# Nested functions
 
 If your language has lambdas, you don’t need nested functions support because you can implement them using it.
 
@@ -121,7 +121,7 @@ An example of trivial case is below:
 
 That is quite a mouthful, isn’t it? But really the function is not that long. It is all these nested functions that makes it seems so.
 
-## Tuples
+# Tuples
 
 Tuples are another feature toward which I have mixed feelings. They are really useful to return multiple results from a function and for rapid prototyping of concepts. But they are easy to abuse. Creating Records is almost always a better, safer way to craft your code, albeit more verbose.
 
@@ -150,7 +150,7 @@ The standard C++ has an excellent tuple library that makes working with them alm
     </span><span style="background:white;color:#6f008a;">BOOST_CHECK_EQUAL</span><span style="background:white;color:black;">(s11, </span><span style="background:white;color:maroon;">"bob"</span><span style="background:white;color:black;">);
 }</span></pre>
 
-## Conclusion
+# Conclusion
 
 I’m sure there are some fundamental functional features that I haven’t touched on (i.e. currying, more powerful function composition, etc…).&#160; Despite that, I think we have enough material here to start drawing some conclusions. To start with, where is C++ deficient compared to mainstream functional languages _<u>for the sake of writing functional code</u>_ ?
 

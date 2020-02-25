@@ -63,7 +63,7 @@ All posts are here:
   * [Part VIII – Implementing MapReduce (user model)](http://blogs.msdn.com/lucabol/archive/2009/09/04/lagent-an-agent-framework-in-f-part-viii-implementing-mapreduce-user-model.aspx) 
   * [Part IX – Counting words …](http://blogs.msdn.com/lucabol/archive/2009/09/18/lagent-an-agent-framework-in-f-part-ix-counting-words.aspx)&#160; 
 
-#### Custom error management
+# Custom error management
 
 In the last part we saw what happens by default in the framework when an error occurs. But that might not be what you want. You might want to have your sophisticated error detection and recovery distributed algorithm.
 
