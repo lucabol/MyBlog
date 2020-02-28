@@ -1,22 +1,4 @@
 <script>
-    window.addEventListener("load", e => {
-        const style = localStorage.getItem("Style")
-        if(style) {
-            const xpath = "//div[text()='" + style + "']"
-            const styleEl = document
-                .evaluate(xpath, document, null, XPathResult.ANY_TYPE, null)
-                .iterateNext()
-            if(styleEl)
-                setStyle(styleEl);
-            else
-                localStorage.removeItem("Style")
-        }
-        const fontEl = document.querySelector(".dropdown-content")
-        fontEl.addEventListener("click", e => {
-            const el = e.target
-            setStyle(el)
-        })
-    })
     const setProperties = (header, text, code, minSize, maxSize, lheight) => {
         const styles = getComputedStyle(document.documentElement);
         const dh = styles.getPropertyValue("--default-font-family-headers")
@@ -57,4 +39,22 @@
         }
         localStorage.setItem("Style", el.textContent)
     }
+
+    const style = localStorage.getItem("Style")
+    if(style) {
+        const xpath = "//div[text()='" + style + "']"
+        const styleEl = document
+            .evaluate(xpath, document, null, XPathResult.ANY_TYPE, null)
+            .iterateNext()
+        if(styleEl)
+            setStyle(styleEl);
+        else
+            localStorage.removeItem("Style")
+    }
+
+    const fontEl = document.querySelector(".dropdown-content")
+    fontEl.addEventListener("click", e => {
+        const el = e.target
+        setStyle(el)
+    })
 </script>
