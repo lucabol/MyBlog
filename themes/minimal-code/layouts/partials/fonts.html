@@ -18,9 +18,15 @@
         })
     })
     const setProperties = (header, text, code) => {
-        document.documentElement.style.setProperty("--font-family-headers", `${header}, Sans-Serif`)
-        document.documentElement.style.setProperty("--font-family-text", `${text}, Serif`)
-        document.documentElement.style.setProperty("--font-family-code", `${code}, Monospace`)
+        const styles = getComputedStyle(document.documentElement);
+        const dh = styles.getPropertyValue("--default-font-family-headers")
+        const dc = styles.getPropertyValue("--default-font-family-code")
+        const dt = styles.getPropertyValue("--default-font-family-text")
+
+        console.log(dh)
+        document.documentElement.style.setProperty("--font-family-headers", `${header}, ${dh}`)
+        document.documentElement.style.setProperty("--font-family-text", `${text}, ${dt}`)
+        document.documentElement.style.setProperty("--font-family-code", `${code}, ${dc}`)
     }
 
     const setStyle = (el) => {

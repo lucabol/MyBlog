@@ -8,11 +8,12 @@
         /* Typography rules */
         /* https://www.cssfontstack.com/ */
         /* 1. Fonts: widely available, similar x-height & look nice. Alternative is system fonts (i.e. as github does) */
-        /* --font-family-text: 'IBM Plex Sans', 'Source Serif Pro', 'Fira Sans', Verdana, Geneva, sans-serif;
-        --font-family-code: 'IBM Plex Mono', 'Source Code Pro','Fira Mono', "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace; */
-        --font-family-text: Verdana, Geneva, sans-serif;
-        --font-family-code: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
-        --font-family-headers: Georgia, 'Times New Roman', Times, serif;
+        --default-font-family-text: Verdana, Geneva, sans-serif;
+        --default-font-family-code: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+        --default-font-family-headers: Georgia, 'Times New Roman', Times, serif;
+        --font-family-text: var(--default-font-family-text);
+        --font-family-code: var(--default-font-family-code);
+        --font-family-headers: var(--default-font-family-headers);
         --font-family-dropcap: var(--font-family-headers);
         --font-family-menu: var(--font-family-code);
         /* 2. Fonts sizes: made responsive so everything else scales with it*/
