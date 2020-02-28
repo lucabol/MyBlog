@@ -1,15 +1,15 @@
 <script>
     window.addEventListener("load", e => {
         const style = localStorage.getItem("Style")
-        console.log(style)
         if(style) {
             const xpath = "//div[text()='" + style + "']"
-            console.log(xpath)
             const styleEl = document
                 .evaluate(xpath, document, null, XPathResult.ANY_TYPE, null)
                 .iterateNext()
-            console.log(styleEl)
-            setStyle(styleEl);
+            if(styleEl)
+                setStyle(styleEl);
+            else
+                localStorage.removeItem("Style")
         }
         const fontEl = document.querySelector(".dropdown-content")
         fontEl.addEventListener("click", e => {
