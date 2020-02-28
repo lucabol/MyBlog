@@ -9,12 +9,13 @@
         overflow-x: auto;
         padding: 0 0 0 var(--line-height-rem);
         margin: var(--line-height-rem) 0;
+        font-variant-numeric: slashed-zero lining-nums tabular-nums;
     }
     main p:first-of-type::first-letter {
         font-size: calc(var(--line-height-rem) * 1);
         font-family: var(--font-family-dropcap);
         line-height: 0.6;
-        margin-right:-0.1em;
+        color: var(--accent-color2)
     }
     main ul, main ol {
         margin-left: 1em;
@@ -54,7 +55,7 @@
         font-variant-numeric: normal;
     }
     a:active {
-        color: #b81414;
+        color: var(--accent-color2);
     }
     button {
         background: black;

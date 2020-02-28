@@ -28,7 +28,7 @@
         /* 3. Line height: Verdana as big x-height, so a bit higher than 1.4 standard */
         --default-line-height: 1.5;
         --line-height: var(--default-line-height);
-        --line-height-title: calc(var(--line-height) - 0.5);
+        --line-height-title: calc(var(--line-height) - 0.3);
         --line-height-h1: calc(var(--line-height) - 0.3);
         /* 4. Line width: as github, larger because of code */
         --line-width: 60em;
@@ -70,11 +70,11 @@
     }
     h1:not(:first-child):before, h2:not(:first-child):before {
         content: "❧ ";
-        color: var(--accent-color2);
+        color: var(--text-color);
     }
     h1:not(:first-child):after, h2:not(:first-child):after {
         content: " ❧";
-        color: var(--accent-color2);
+        color: var(--text-color);
         transform: scaleX(-1);
     }
     h1.title, h1:first-of-type {
