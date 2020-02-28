@@ -17,6 +17,12 @@
             setStyle(el)
         })
     })
+    const setProperties = (header, text, code) => {
+        document.documentElement.style.setProperty("--font-family-headers", `${header}, Sans-Serif`)
+        document.documentElement.style.setProperty("--font-family-text", `${text}, Serif`)
+        document.documentElement.style.setProperty("--font-family-code", `${code}, Monospace`)
+    }
+
     const setStyle = (el) => {
         const link = el.dataset.link
         const header = el.dataset.header
@@ -34,11 +40,6 @@
             })
         } else {
                 setProperties(header, text, code)
-        }
-        const setProperties = (header, text, code) => {
-            document.documentElement.style.setProperty("--font-family-headers", `${header}, Sans-Serif`)
-            document.documentElement.style.setProperty("--font-family-text", `${text}, Serif`)
-            document.documentElement.style.setProperty("--font-family-code", `${code}, Monospace`)
         }
         localStorage.setItem("Style", el.textContent)
     }
