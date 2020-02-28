@@ -17,16 +17,21 @@
             setStyle(el)
         })
     })
-    const setProperties = (header, text, code) => {
+    const setProperties = (header, text, code, minSize, maxSize, lheight) => {
         const styles = getComputedStyle(document.documentElement);
         const dh = styles.getPropertyValue("--default-font-family-headers")
         const dc = styles.getPropertyValue("--default-font-family-code")
         const dt = styles.getPropertyValue("--default-font-family-text")
+        const dmin = styles.getPropertyValue("--default-min-font-size")
+        const dmax = styles.getPropertyValue("--default-max-font-size")
+        const lh = styles.getPropertyValue("--default-line-height")
 
-        console.log(dh)
-        document.documentElement.style.setProperty("--font-family-headers", `${header}, ${dh}`)
-        document.documentElement.style.setProperty("--font-family-text", `${text}, ${dt}`)
-        document.documentElement.style.setProperty("--font-family-code", `${code}, ${dc}`)
+        document.documentElement.style.setProperty("--font-family-headers", `${header || text || dh}, ${dh}`)
+        document.documentElement.style.setProperty("--font-family-text", `${text || header || dt}, ${dt}`)
+        document.documentElement.style.setProperty("--font-family-code", `${code}, ${dc || text || dc}`)
+        document.documentElement.style.setProperty("--min-font-size", minSize || dmin)
+        document.documentElement.style.setProperty("--max-font-size", maxSize || dmax)
+        document.documentElement.style.setProperty("--line-height", lheight || lh)
     }
 
     const setStyle = (el) => {
@@ -34,6 +39,9 @@
         const header = el.dataset.header
         const text = el.dataset.text
         const code = el.dataset.code
+        const minSize = el.dataset.minsize;
+        const maxSize = el.dataset.maxsize;
+        const lheight = el.dataset.lineheight;
 
         if(link) {
             var fileref = document.createElement("link")
@@ -42,10 +50,10 @@
             fileref.setAttribute("href", link)        
             document.getElementsByTagName("head")[0].appendChild(fileref)
             fileref.addEventListener("load", e => {
-                setProperties(header, text, code)
+                setProperties(header, text, code, minSize, maxSize, lheight)
             })
         } else {
-                setProperties(header, text, code)
+                setProperties(header, text, code, minSize, maxSize, lheight)
         }
         localStorage.setItem("Style", el.textContent)
     }

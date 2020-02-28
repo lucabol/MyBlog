@@ -17,13 +17,19 @@
         --font-family-dropcap: var(--font-family-headers);
         --font-family-menu: var(--font-family-code);
         /* 2. Fonts sizes: made responsive so everything else scales with it*/
+        --default-min-font-size: 15px;
+        --default-max-font-size: 18px;
+        --min-font-size: var(--default-min-font-size);
+        --max-font-size: var(--default-max-font-size);
+
         font-size: calc(0.6vmin + 0.7em);
-        font-size: min(max(15px, 2.2vw), 18px);
-        font-size: clamp(15px, 2.2vw, 18px);
+        font-size: min(max(var(--min-font-size), 2.2vw), var(--max-font-size));
+        font-size: clamp(var(--min-font-size), 2.2vw, var(--max-font-size));
         /* 3. Line height: Verdana as big x-height, so a bit higher than 1.4 standard */
-        --line-height: 1.5;
-        --line-height-title: 1;
-        --line-height-h1: 1.2;
+        --default-line-height: 1.5;
+        --line-height: var(--default-line-height);
+        --line-height-title: calc(var(--line-height) - 0.5);
+        --line-height-h1: calc(var(--line-height) - 0.3);
         /* 4. Line width: as github, larger because of code */
         --line-width: 60em;
         /* 5. Color: grayer, like github */
