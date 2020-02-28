@@ -30,14 +30,15 @@
             fileref.setAttribute("href", link)        
             document.getElementsByTagName("head")[0].appendChild(fileref)
             fileref.addEventListener("load", e => {
-                document.documentElement.style.setProperty("--font-family-headers", `${header}, Sans-Serif`)
-                document.documentElement.style.setProperty("--font-family-text", `${text}, Serif`)
-                document.documentElement.style.setProperty("--font-family-code", `${code}, Monospace`)
+                setProperties(header, text, code)
             })
         } else {
-                document.documentElement.style.setProperty("--font-family-headers", `${header}, Sans-Serif`)
-                document.documentElement.style.setProperty("--font-family-text", `${text}, Serif`)
-                document.documentElement.style.setProperty("--font-family-code", `${code}, Monospace`)
+                setProperties(header, text, code)
+        }
+        const setProperties = (header, text, code) => {
+            document.documentElement.style.setProperty("--font-family-headers", `${header}, Sans-Serif`)
+            document.documentElement.style.setProperty("--font-family-text", `${text}, Serif`)
+            document.documentElement.style.setProperty("--font-family-code", `${code}, Monospace`)
         }
         localStorage.setItem("Style", el.textContent)
     }
