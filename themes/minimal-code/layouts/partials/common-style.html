@@ -12,8 +12,8 @@
         --font-family-code: 'IBM Plex Mono', 'Source Code Pro','Fira Mono', "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace; */
         --font-family-text: Verdana, Geneva, sans-serif;
         --font-family-code: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
-        --font-family-dropcap: Georgia, 'Times New Roman', Times, serif;
-        --font-family-headers: var(--font-family-dropcap);
+        --font-family-headers: Georgia, 'Times New Roman', Times, serif;
+        --font-family-dropcap: var(--font-family-headers);
         --font-family-menu: var(--font-family-code);
         /* 2. Fonts sizes: made responsive so everything else scales with it*/
         font-size: calc(0.6vmin + 0.7em);
@@ -112,4 +112,23 @@
     }
     table thead th { border-bottom: 1px solid #ddd; }
     th, td { padding: 0.125em 0.5em 0.25em 0.5em; }
+
+    .dropdown {
+        display:inline;
+        cursor:pointer;
+        position: absolute;
+    }
+    .dropdown-content {
+        display: none;
+    }
+    .dropdown-content div:hover {
+        text-decoration: underline;
+    }
+    .dropdown:hover .dropdown-content {
+        display:block;
+        cursor: pointer;
+        background-color: white;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
 </style>

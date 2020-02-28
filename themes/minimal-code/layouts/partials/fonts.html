@@ -1,0 +1,44 @@
+<script>
+    window.addEventListener("load", e => {
+        const style = localStorage.getItem("Style")
+        console.log(style)
+        if(style) {
+            const xpath = "//div[text()='" + style + "']"
+            console.log(xpath)
+            const styleEl = document
+                .evaluate(xpath, document, null, XPathResult.ANY_TYPE, null)
+                .iterateNext()
+            console.log(styleEl)
+            setStyle(styleEl);
+        }
+        const fontEl = document.querySelector(".dropdown-content")
+        fontEl.addEventListener("click", e => {
+            const el = e.target
+            setStyle(el)
+        })
+    })
+    const setStyle = (el) => {
+        const link = el.dataset.link
+        const header = el.dataset.header
+        const text = el.dataset.text
+        const code = el.dataset.code
+
+        if(link) {
+            var fileref = document.createElement("link")
+            fileref.setAttribute("rel", "stylesheet")
+            fileref.setAttribute("type", "text/css")
+            fileref.setAttribute("href", link)        
+            document.getElementsByTagName("head")[0].appendChild(fileref)
+            fileref.addEventListener("load", e => {
+                document.documentElement.style.setProperty("--font-family-headers", `${header}, Sans-Serif`)
+                document.documentElement.style.setProperty("--font-family-text", `${text}, Serif`)
+                document.documentElement.style.setProperty("--font-family-code", `${code}, Monospace`)
+            })
+        } else {
+                document.documentElement.style.setProperty("--font-family-headers", `${header}, Sans-Serif`)
+                document.documentElement.style.setProperty("--font-family-text", `${text}, Serif`)
+                document.documentElement.style.setProperty("--font-family-code", `${code}, Monospace`)
+        }
+        localStorage.setItem("Style", el.textContent)
+    }
+</script>

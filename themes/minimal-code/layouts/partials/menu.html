@@ -11,6 +11,13 @@
       {{ $name := lower .Name}}
       <a class="pull-right{{ if eq $name $title }} current{{ else if eq $section $name }} current{{ else if eq $title (pluralize $name) }} current{{ end }}" href="{{ .URL }}">~/{{ $name }}</a>
       {{end}}
+      <div class="dropdown">
+      <a class="pull-left">~/fonts</a>
+        <div class="dropdown-content">
+          <div data-link="" data-header="Georgia" data-text="Verdana" data-code="Lucida Sans Typewriter">Georgia + Verdana + Lucida Sans Typewriter</div>
+          <div data-link="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700|IBM+Plex+Sans:400,700&display=swap" data-header="IBM Plex Mono" data-text="IBM Plex Sans" data-code="IBM Plex Mono">IBM Plex Mono + IBM Plex Sans + IBM Plex Mono</div>
+        </div>
+      </div> 
 
       {{ if .IsHome}}
       <span class="offline">~~ Offline ~~</span>
