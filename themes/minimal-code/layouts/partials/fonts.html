@@ -25,7 +25,7 @@
         const maxSize = el.dataset.maxsize;
         const lheight = el.dataset.lineheight;
 
-        if(link) {
+        if(link && link != '///') {
             var fileref = document.createElement("link")
             fileref.setAttribute("rel", "stylesheet")
             fileref.setAttribute("type", "text/css")
