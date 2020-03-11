@@ -16,6 +16,7 @@
 
 {{ define "sideright"}}
 <div class="terms">
+  <h1>※</h1>
   {{ if .Params.date }}<div class="date">{{ .Date.Format "2006/01/01" }}</div>{{ end }}
   {{ range $i := (slice "tags") }}
   {{ with ($.Param $i) }}

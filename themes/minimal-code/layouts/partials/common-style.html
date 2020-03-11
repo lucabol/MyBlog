@@ -28,7 +28,7 @@
         /* 3. Line height: Verdana as big x-height, so a bit higher than 1.4 standard */
         --default-line-height: 1.5;
         --line-height: var(--default-line-height);
-        --line-height-title: calc(var(--line-height) - 0.3);
+        --line-height-title: calc(var(--line-height) - 0.5);
         --line-height-h1: calc(var(--line-height) - 0.3);
         /* 4. Line width: as github, larger because of code */
         --line-width: 60em;
@@ -84,16 +84,15 @@
     }
 
     @media all and (max-width: 700px) {
-        aside,
-        article,
-        header,
-        footer,
-        .title {
-            grid-column: 1 / 4;
-        }
         .sidebar-left, .sidebar-right {
             display: none;
         }
+    .grid {
+        display: grid;
+        grid-template-columns: 2% 88% 2%;
+        grid-template-rows: auto auto auto auto;
+        grid-gap: 0 var(--line-height-rem);
+    }
     }
 
     body {
@@ -111,6 +110,7 @@
         letter-spacing: -0.02em;
         font-size: var(--h1-font-size);
         line-height: var(--line-height-h1);
+        margin: 0 0 calc(0.3 * var(--line-height-rem)) 0;
     }
 
     h1:first-of-type {
@@ -126,7 +126,7 @@
     }
     p {
         hyphens: auto;
-        margin: 0 0 var(--line-height-rem) 0;
+        margin: 0 0 calc(0.5 * var(--line-height-rem)) 0;
     }
     hr {
         margin: calc((var(--line-height-rem) - 2px) / 2) 0;
