@@ -7,6 +7,7 @@
     html {
         /* Typography rules */
         /* https://www.cssfontstack.com/ */
+
         /* 1. Fonts: widely available, similar x-height & look nice. Alternative is system fonts (i.e. as github does) */
         --default-font-family-text: Verdana, Geneva, sans-serif;
         --default-font-family-code: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
@@ -16,6 +17,7 @@
         --font-family-headers: var(--default-font-family-headers);
         --font-family-dropcap: var(--font-family-headers);
         --font-family-menu: var(--font-family-code);
+
         /* 2. Fonts sizes: made responsive so everything else scales with it*/
         --default-min-font-size: 15px;
         --default-max-font-size: 18px;
@@ -25,22 +27,24 @@
         font-size: calc(0.6vmin + 0.7em);
         font-size: min(max(var(--min-font-size), 2.2vw), var(--max-font-size));
         font-size: clamp(var(--min-font-size), 2.2vw, var(--max-font-size));
+
         /* 3. Line height: Verdana as big x-height, so a bit higher than 1.4 standard */
         --default-line-height: 1.5;
         --line-height: var(--default-line-height);
-        --line-height-title: calc(var(--line-height) - 0.5);
-        --line-height-h1: calc(var(--line-height) - 0.3);
+        --line-height-title: calc(var(--line-height) * 0.75);
+        --line-height-h1: calc(var(--line-height) * 0.75);
         /* 4. Line width: as github, larger because of code */
         --line-width: 60em;
+
         /* 5. Color: grayer, like github */
         --text-color: hsla(93, 14%, 14%, 1);
         --accent-color: hsl(34, 70%, 50%, 1);
         --accent-color2: hsl(0, 100%, 30%);
 
         /* 6. Ratio for modular scale */
-        --ratio-scale: 1.618;
+        --ratio-scale: 1.5;
         --title-font-size: calc(1rem *  var(--ratio-scale));
-        --h1-font-size: calc(1rem * var(--ratio-scale));
+        --h1-font-size: 1rem;
         --line-height-rem: calc(var(--line-height) * 1rem);
 
         font-family: var(--font-family-text);
@@ -51,7 +55,7 @@
     }
     .grid {
         display: grid;
-        grid-template-columns: auto 50% auto;
+        grid-template-columns: auto var(--line-width) auto;
         grid-template-rows: auto auto auto auto;
         grid-gap: 0 var(--line-height-rem);
     }
@@ -87,12 +91,15 @@
         .sidebar-left, .sidebar-right {
             display: none;
         }
-    .grid {
-        display: grid;
-        grid-template-columns: 2% 88% 2%;
-        grid-template-rows: auto auto auto auto;
-        grid-gap: 0 var(--line-height-rem);
-    }
+        .grid {
+            display: grid;
+            grid-template-columns: 2% 88% 2%;
+            grid-template-rows: auto auto auto auto;
+            grid-gap: 0 var(--line-height-rem);
+        }
+        html {
+            --title-font-size: 1.067rem;
+        }
     }
 
     body {
@@ -103,22 +110,19 @@
 
     h1, h2, h3, h4 {
         font-family: var(--font-family-headers);
-        text-transform: lowercase;
-        font-variant: small-caps;
+        font-size: var(--h1-font-size);
+        text-transform: uppercase;
         text-align: left;
         font-weight: normal;
         letter-spacing: -0.02em;
-        font-size: var(--h1-font-size);
         line-height: var(--line-height-h1);
         margin: 0 0 calc(0.3 * var(--line-height-rem)) 0;
     }
 
-    h1:first-of-type {
-        margin-top: 0;
-    }
-
     .title {
+        font-family: var(--font-family-headers);
         font-size: var(--title-font-size);
+        text-transform: uppercase;
         line-height: var(--line-height-title);
         text-align: initial;
         font-weight: bold;
@@ -127,10 +131,11 @@
     }
     p {
         hyphens: auto;
-        margin: 0 0 calc(0.5 * var(--line-height-rem)) 0;
+        margin: 0 0 calc(var(--line-height-rem)) 0;
     }
     hr {
-        margin: calc((var(--line-height-rem) - 2px) / 2) 0;
+        margin: calc(1rem + 1px) 0 0;
+        border-style: normal;
     }
 
     nav.menu {
