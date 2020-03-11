@@ -55,7 +55,7 @@
     }
     .grid {
         display: grid;
-        grid-template-columns: auto var(--line-width) auto;
+        grid-template-columns: 1.5fr min(60%, 60em) 1fr;
         grid-template-rows: auto auto auto auto;
         grid-gap: 0 var(--line-height-rem);
     }
@@ -114,7 +114,7 @@
         text-transform: uppercase;
         text-align: left;
         font-weight: normal;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.01em;
         line-height: var(--line-height-h1);
         margin: 0 0 calc(0.3 * var(--line-height-rem)) 0;
     }
@@ -126,7 +126,7 @@
         line-height: var(--line-height-title);
         text-align: initial;
         font-weight: bold;
-        letter-spacing: -0.03em;
+        letter-spacing: -0.02em;
         margin-bottom: calc(0.3 * var(--line-height-rem));
     }
     p {
