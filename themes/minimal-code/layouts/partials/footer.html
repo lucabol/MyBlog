@@ -1,12 +1,5 @@
-    <footer>
-      {{ with .Site.Params.footer }}
-      <hr/>
-      {{ . | markdownify }}
-      {{ end }}
-      {{ if .GitInfo }}<small class="gray"><em>Updated: {{ .Page.Lastmod }}, Version: {{ .GitInfo.AbbreviatedHash }}</em></small>{{ end }}
-    </footer>
-
-    {{ partial "tracking-code.html"}}
-    {{ partial "sw-install.html"}}
-    {{ partial "offline.html"}}
-    {{ partial "fonts.html"}}
+{{ with .Site.Params.footer }}
+<hr/>
+{{ . | markdownify }}
+{{ end }}
+{{ if .GitInfo }}<small class="gray"><em>Updated: {{ .Page.Lastmod }}, Version: {{ .GitInfo.AbbreviatedHash }}</em></small>{{ end }}

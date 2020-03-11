@@ -36,10 +36,11 @@
         --text-color: hsla(93, 14%, 14%, 1);
         --accent-color: hsl(34, 70%, 50%, 1);
         --accent-color2: hsl(0, 100%, 30%);
+
         /* 6. Ratio for modular scale */
-        --ratio-scale: calc(9 / 8);
-        --title-font-size: calc(1rem *  var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale) * var(--ratio-scale));
-        --h1-font-size: calc(1rem * var(--ratio-scale) * var(--ratio-scale));
+        --ratio-scale: 1.618;
+        --title-font-size: calc(1rem *  var(--ratio-scale));
+        --h1-font-size: calc(1rem * var(--ratio-scale));
         --line-height-rem: calc(var(--line-height) * 1rem);
 
         font-family: var(--font-family-text);
@@ -48,51 +49,87 @@
         text-rendering: optimizeLegibility;
         color: var(--text-color);
     }
-    .container {
-        max-width: 60em;
-        margin: 0 auto;
+    .grid {
+        display: grid;
+        grid-template-columns: auto 50% auto;
+        grid-template-rows: auto auto auto auto;
+        grid-gap: 0 var(--line-height-rem);
     }
+
+    header, footer, article {
+        grid-column: 2 / 3;
+    }
+
+    header {
+        grid-row: 1 / 2;
+    }
+
+    article {
+        grid-row: 3 / 4;
+    }
+
+    .sidebar-left {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+    .sidebar-right {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+    }
+
+    .title {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    @media all and (max-width: 700px) {
+        aside,
+        article,
+        header,
+        footer,
+        .title {
+            grid-column: 1 / 4;
+        }
+        .sidebar-left, .sidebar-right {
+            display: none;
+        }
+    }
+
     body {
-        margin: 0 var(--line-height-rem);
         /* background-image: linear-gradient(rgba(200, 50, 50, .25) 1px, transparent 1px);
-        background-size: 1px var(--line-height-rem); */ */
+        background-size: 1px var(--line-height-rem); */
     }
     img, iframe, video { max-width: 100%; }
 
     h1, h2, h3, h4 {
         font-family: var(--font-family-headers);
-        text-align: center;
+        text-transform: lowercase;
+        font-variant: small-caps;
+        text-align: left;
+        font-weight: normal;
         letter-spacing: -0.02em;
         font-size: var(--h1-font-size);
         line-height: var(--line-height-h1);
-        margin: calc((var(--line-height-rem) * 2 - var(--h1-font-size) * var(--line-height-h1)) * 0.75) 0
-                calc((var(--line-height-rem) * 2 - var(--h1-font-size) * var(--line-height-h1)) * 0.25);
     }
-    h1:not(:first-child):before, h2:not(:first-child):before {
-        content: "❧ ";
-        color: var(--text-color);
+
+    h1:first-of-type {
+        margin-top: 0;
     }
-    h1:not(:first-child):after, h2:not(:first-child):after {
-        content: " ❧";
-        color: var(--text-color);
-        transform: scaleX(-1);
-    }
-    h1.title, h1:first-of-type {
+
+    .title {
         font-size: var(--title-font-size);
         line-height: var(--line-height-title);
         text-align: initial;
-        text-transform: initial;
         font-weight: bold;
         letter-spacing: -0.03em;
-        margin: calc((var(--line-height-rem) * 2 - var(--title-font-size) * var(--line-height-title)) * 0.5) 0
-                calc((var(--line-height-rem) * 2 - var(--title-font-size) * var(--line-height-title)) * 0.0);
     }
     p {
         hyphens: auto;
         margin: 0 0 var(--line-height-rem) 0;
     }
     hr {
-        margin: calc((var(--line-height-rem) - 1px) / 2) 0;
+        margin: calc((var(--line-height-rem) - 2px) / 2) 0;
     }
 
     nav.menu {

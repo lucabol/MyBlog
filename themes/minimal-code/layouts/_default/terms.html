@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-
-{{ partial "head.html" . }}
-
-<body>
-  <div class="container">
-
-{{ partial "menu.html" . }}
-
+{{ define "main"}}
 <main>
-<h1>{{ .Title }}</h1>
 
 <ul class="terms">
   {{ range $key, $value := .Data.Terms }}
@@ -22,9 +12,4 @@
   {{ end }}
 </ul>
 </main>
-
-{{ partial "footer.html" . }}
-
-  </div>
-</body>
-</html>
+{{ end }}

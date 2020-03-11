@@ -1,27 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-
-{{ partial "head.html" . }}
-
-<body>
-  <div class="container">
-
-{{ partial "menu.html" . }}
-
+{{ define "main" }}
 <main>
-<h1 class="title">{{ .Title }}</h1>
-<div class="terms">
-  {{ range $i := (slice "tags") }}
-  {{ with ($.Param $i) }}
-  {{ $i | title }}: {{ range $k := . }}<a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a> {{ end }}
-  {{ end }}
-  {{ end }}
-{{ if .Params.date }}<span class="date">@ {{ .Date.Format "2006/01/01" }}</span>{{ end }}
-</div>
-
-{{ partial "toc.html" . }}
-
-<hr/>
 {{ .Content }}
 </main>
 
@@ -30,9 +8,23 @@
   {{ partial "disqus.html" . }}
 {{ end }}
 
+{{ end }}
 
-{{ partial "footer.html" . }}
+{{ define "sideleft"}}
+  {{ partial "toc.html" . }}
+{{ end }}
 
-  </div>
-</body>
-</html>
+{{ define "sideright"}}
+<div class="terms">
+  {{ if .Params.date }}<div class="date">{{ .Date.Format "2006/01/01" }}</div>{{ end }}
+  {{ range $i := (slice "tags") }}
+  {{ with ($.Param $i) }}
+  {{ $i | title }}: {{ range $k := . }}
+    <div>
+    <a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a>
+    <div>
+  {{ end }}
+  {{ end }}
+  {{ end }}
+</div>
+{{ end }}

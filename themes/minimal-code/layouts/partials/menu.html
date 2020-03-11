@@ -1,27 +1,25 @@
-<header>
-  <nav class="menu">
-      {{ $title := lower .Title }}
-      {{ $section := lower .Section }}
-      {{ range .Site.Menus.main }}
-      {{ $name := lower .Name }}
-      <a class="pull-left{{ if eq $name $title }} current{{ else if eq $section $name }} current{{ else if eq $title (pluralize $name) }} current{{ end }}" href="{{ .URL }}">~/{{ $name }}</a>
-      {{end}}
+<nav class="menu">
+    {{ $title := lower .Title }}
+    {{ $section := lower .Section }}
+    {{ range .Site.Menus.main }}
+    {{ $name := lower .Name }}
+    <a class="pull-left{{ if eq $name $title }} current{{ else if eq $section $name }} current{{ else if eq $title (pluralize $name) }} current{{ end }}" href="{{ .URL }}">~/{{ $name }}</a>
+    {{end}}
 
-      {{ range .Site.Menus.feed }}
-      {{ $name := lower .Name}}
-      <a class="pull-right{{ if eq $name $title }} current{{ else if eq $section $name }} current{{ else if eq $title (pluralize $name) }} current{{ end }}" href="{{ .URL }}">~/{{ $name }}</a>
-      {{end}}
-      <div class="dropdown">
-      <a class="pull-left">~/fonts</a>
-        <div class="dropdown-content">
-          {{ range $i, $r := getCSV "," "static/fonts.csv" }}
-            <div data-link={{ index $r 0 }} data-header={{ index $r 1 }} data-text={{ index $r 2 }} data-code={{ index $r 3 }} data-minsize={{ index $r 4 }} data-maxsize={{ index $r 5 }} data-lineheight={{ index $r 6 }}>{{ index $r 7 }}</div>
-          {{ end }}
-        </div>
-      </div> 
-      {{ if .IsHome}}
-      <span class="offline">~~ Offline ~~</span>
-      {{ end }}
+    {{ range .Site.Menus.feed }}
+    {{ $name := lower .Name}}
+    <a class="pull-right{{ if eq $name $title }} current{{ else if eq $section $name }} current{{ else if eq $title (pluralize $name) }} current{{ end }}" href="{{ .URL }}">~/{{ $name }}</a>
+    {{end}}
+    <div class="dropdown">
+    <a class="pull-left">~/fonts</a>
+      <div class="dropdown-content">
+        {{ range $i, $r := getCSV "," "static/fonts.csv" }}
+          <div data-link={{ index $r 0 }} data-header={{ index $r 1 }} data-text={{ index $r 2 }} data-code={{ index $r 3 }} data-minsize={{ index $r 4 }} data-maxsize={{ index $r 5 }} data-lineheight={{ index $r 6 }}>{{ index $r 7 }}</div>
+        {{ end }}
+      </div>
+    </div> 
+    {{ if .IsHome}}
+    <span class="offline">~~ Offline ~~</span>
+    {{ end }}
 
-  </nav>
-</header>
+</nav>

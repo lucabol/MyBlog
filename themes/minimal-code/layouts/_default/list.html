@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-
-<!-- Used when user clicks on a taxonomy item -->
-{{ partial "head.html" . }}
-
-<body>
-  <div class="container">
-
-{{ partial "menu.html" . }}
-
-<h1>{{ .Title }}</h1>
-
-{{ .Content }}
-
+{{ define "main" }}
 <main>
 <ul>
   {{ $pages := .Pages }}
@@ -24,9 +10,4 @@
   {{ end }}
 </ul>
 </main>
-{{ partial "footer.html" . }}
-
-
-  </div>
-</body>
-</html>
+{{ end }}

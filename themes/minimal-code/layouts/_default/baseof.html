@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+<body>
+    <div class="grid">
+    <header>
+        {{ partial "menu.html" . }}
+    </header>
+
+    <aside class="sidebar-left">
+        {{ block "sideleft" . }}
+        {{ end }}
+    </aside>
+
+    <div class="title">
+        {{ block "title" . }}
+            {{ .Title }}
+        {{ end }}
+        <hr />
+    </div>
+
+    <article>
+        {{ block "main" . }}
+        {{ end }}
+    </article>
+
+    <aside class="sidebar-right">
+        {{ block "sideright" . }}
+        {{ end }}
+    </aside>
+    
+    <footer>
+        {{ partial "footer.html" . }}
+    </footer>
+    </div>
+
+    {{ partial "tracking-code.html"}}
+    {{ partial "sw-install.html"}}
+    {{ partial "offline.html"}}
+    {{ partial "fonts.html"}}
+
+</body>
+</html>
