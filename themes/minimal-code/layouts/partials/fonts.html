@@ -21,9 +21,9 @@
         const header = el.dataset.header
         const text = el.dataset.text
         const code = el.dataset.code
-        const minSize = el.dataset.minsize;
-        const maxSize = el.dataset.maxsize;
-        const lheight = el.dataset.lineheight;
+        const minSize = el.dataset.minsize
+        const maxSize = el.dataset.maxsize
+        const lheight = el.dataset.lineheight
 
         if(link && link != '///') {
             var fileref = document.createElement("link")
@@ -40,7 +40,8 @@
         localStorage.setItem("Style", el.textContent)
     }
 
-    const style = localStorage.getItem("Style")
+    const style = localStorage.getItem("Style") || "Neo-humanist: - Verdana"
+
     if(style) {
         const xpath = "//div[text()='" + style + "']"
         const styleEl = document

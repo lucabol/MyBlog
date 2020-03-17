@@ -14,7 +14,7 @@
     <a class="pull-left">~/fonts</a>
       <div class="dropdown-content">
         {{ range $i, $r := getCSV "," "static/fonts.csv" }}
-          <div data-link={{ index $r 0 }} data-header={{ index $r 1 }} data-text={{ index $r 2 }} data-code={{ index $r 3 }} data-minsize={{ index $r 4 }} data-maxsize={{ index $r 5 }} data-lineheight={{ index $r 6 }}>{{ index $r 7 }}</div>
+          <div data-link={{ index $r 1 }} data-header={{ index $r 2 }} data-text={{ index $r 3 }} data-code={{ index $r 4 }} data-minsize="{{ index $r 5 }}" data-maxsize="{{ index $r 6 }}" data-lineheight="{{ index $r 7 }}">{{ index $r 0 }}</div>
         {{ end }}
       </div>
     </div> 

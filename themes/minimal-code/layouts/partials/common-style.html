@@ -19,8 +19,8 @@
         --font-family-menu: var(--font-family-code);
 
         /* 2. Fonts sizes: made responsive so everything else scales with it*/
-        --default-min-font-size: 15px;
-        --default-max-font-size: 18px;
+        --default-min-font-size: 16px;
+        --default-max-font-size: 22px;
         --min-font-size: var(--default-min-font-size);
         --max-font-size: var(--default-max-font-size);
 
@@ -42,7 +42,7 @@
         --accent-color2: hsl(0, 100%, 30%);
 
         /* 6. Ratio for modular scale */
-        --ratio-scale: 1.5;
+        --ratio-scale: 2.0;
         --title-font-size: calc(1rem *  var(--ratio-scale));
         --h1-font-size: 1rem;
         --line-height-rem: calc(var(--line-height) * 1rem);
@@ -94,11 +94,9 @@
         .grid {
             display: grid;
             grid-template-columns: 2% 88% 2%;
-            grid-template-rows: auto auto auto auto;
-            grid-gap: 0 var(--line-height-rem);
         }
         html {
-            --title-font-size: 1.067rem;
+            --title-font-size: 1.5rem;
         }
     }
 
@@ -122,7 +120,6 @@
     .title {
         font-family: var(--font-family-headers);
         font-size: var(--title-font-size);
-        text-transform: uppercase;
         line-height: var(--line-height-title);
         text-align: initial;
         font-weight: bold;
@@ -131,10 +128,10 @@
     }
     p {
         hyphens: auto;
-        margin: 0 0 calc(var(--line-height-rem)) 0;
+        margin: 0 0 calc(var(--line-height-rem) * 0.5) 0;
     }
     hr {
-        margin: calc(1rem + 1px) 0 0;
+        margin: calc(1rem + 1px) 0 0.5rem;
         border-style: normal;
     }
 
@@ -166,6 +163,10 @@
     }
     .dropdown-content {
         display: none;
+        position: relative;
+        background-color: white;
+        opacity: 1.0;
+        z-index: -1;
     }
     .dropdown-content div {
         padding: 0.1rem ;
