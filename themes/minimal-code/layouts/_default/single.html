@@ -10,11 +10,11 @@
 
 {{ end }}
 
-{{ define "sideleft"}}
+{{ define "sideright"}}
   {{ partial "toc.html" . }}
 {{ end }}
 
-{{ define "sideright"}}
+{{ define "sideleft"}}
 <div class="terms">
   <h1>※</h1>
   {{ if .Params.date }}<div class="date">{{ .Date.Format "2006/01/01" }}</div>{{ end }}

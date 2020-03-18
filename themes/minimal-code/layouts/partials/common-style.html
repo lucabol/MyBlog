@@ -27,6 +27,7 @@
         font-size: calc(0.6vmin + 0.7em);
         font-size: min(max(var(--min-font-size), 2.2vw), var(--max-font-size));
         font-size: clamp(var(--min-font-size), 2.2vw, var(--max-font-size));
+        font-size: 1.5vw;
 
         /* 3. Line height: Verdana as big x-height, so a bit higher than 1.4 standard */
         --default-line-height: 1.5;
@@ -55,7 +56,8 @@
     }
     .grid {
         display: grid;
-        grid-template-columns: 1.5fr min(60%, 60em) 1fr;
+        --mid-column-width: min(60vw, var(--line-width));
+        grid-template-columns: 1fr var(--mid-column-width) 1.5fr;
         grid-template-rows: auto auto auto auto;
         grid-gap: 0 var(--line-height-rem);
     }
@@ -87,7 +89,12 @@
         grid-row: 2 / 3;
     }
 
-    @media all and (max-width: 700px) {
+    @media all and (min-width: 1280px) {
+        html {
+            font-size: var(--max-font-size)
+        }
+    }
+    @media all and (max-width: 1024px) {
         .sidebar-left, .sidebar-right {
             display: none;
         }
@@ -96,6 +103,7 @@
             grid-template-columns: 2% 88% 2%;
         }
         html {
+            font-size: var(--min-font-size);
             --title-font-size: 1.5rem;
         }
     }
