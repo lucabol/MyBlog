@@ -25,6 +25,7 @@
         --max-font-size: var(--default-max-font-size);
 
         font-size: calc(0.6vmin + 0.7em);
+        /* firefox seems to have a problem with the next two, hence the last with media queries */
         font-size: min(max(var(--min-font-size), 2.2vw), var(--max-font-size));
         font-size: clamp(var(--min-font-size), 2.2vw, var(--max-font-size));
         font-size: 1.5vw;
@@ -35,7 +36,7 @@
         --line-height-title: calc(var(--line-height) * 0.75);
         --line-height-h1: calc(var(--line-height) * 0.75);
         /* 4. Line width: as github, larger because of code */
-        --line-width: 60em;
+        --line-width: 35em;
 
         /* 5. Color: grayer, like github */
         --text-color: hsla(93, 14%, 14%, 1);
@@ -53,6 +54,7 @@
         line-height: var(--line-height);
         text-rendering: optimizeLegibility;
         color: var(--text-color);
+        -webkit-font-smoothing: subpixel-antialiased;
     }
     .grid {
         display: grid;
@@ -89,9 +91,14 @@
         grid-row: 2 / 3;
     }
 
-    @media all and (min-width: 1280px) {
+    @media all and (min-width: 1100px) {
         html {
             font-size: var(--max-font-size)
+        }
+        /* Bug in firefox, the min on the midcolumn above doesn't work hence needed below */
+        .grid {
+            display: grid;
+            grid-template-columns: 1.0fr var(--line-width) 1.5fr;
         }
     }
     @media all and (max-width: 1024px) {
@@ -135,7 +142,6 @@
         margin-bottom: calc(0.3 * var(--line-height-rem));
     }
     p {
-        hyphens: auto;
         margin: 0 0 calc(var(--line-height-rem) * 0.5) 0;
     }
     hr {

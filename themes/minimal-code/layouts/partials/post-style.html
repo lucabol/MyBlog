@@ -7,13 +7,13 @@
         margin: var(--line-height-rem) 0;
         font-variant-numeric: slashed-zero lining-nums tabular-nums;
     }
-    main p:first-of-type::first-letter {
+    /*main p:first-of-type::first-letter {
         font-size: calc(var(--line-height-rem) * 1);
         font-family: var(--font-family-dropcap);
         font-style: italic;
         line-height: 0.6;
         color: var(--accent-color2)
-    }
+    }*/
     main ul, main ol {
         margin-left: 1em;
     }
@@ -23,8 +23,8 @@
 
     .terms, .terms h1 {
         font-variant: small-caps;
-        border-left: 1px dotted var(--accent-color2);
-        padding-left: 1rem;
+        border-right: 1px dotted var(--accent-color2);
+        padding-right: 1rem;
         position: sticky;
         top: 0;
         text-align: right;
@@ -74,18 +74,19 @@
     }
 
     #TOC {
-        border-right: 1px dotted var(--accent-color2);
+        font-variant: small-caps;
+        border-left: 1px dotted var(--accent-color2);
         position: sticky;
         top: 0;
     }
     #TOC h1 {
         text-align: left;
-        padding-right: 1rem;
+        padding-left: 1rem;
     }
     #TOC ul {
         list-style-type: none;
         text-align: left;
-        padding-right: 1rem;
+        padding-left: 1rem;
         line-height: var(--line-height);
     }
 
