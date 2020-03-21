@@ -172,7 +172,8 @@
         cursor: pointer;
     }
     
-    @media all and (min-width: 1024px) {
+    /* from: https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile */
+    @media all and (min-width: 1025px) {
         @-moz-document url-prefix() {
             html { font-size: var(--max-font-size); } 
         }
@@ -180,7 +181,7 @@
         }
         .sidebar-left, .sidebar-right { display: block;}
     }
-    @media all and (max-width: 768px) {
+    @media all and (max-width: 801px) {
         @-moz-document url-prefix() {
             html { font-size: var(--min-font-size); } 
         }
@@ -192,7 +193,4 @@
             grid-template-columns: 4% 92% 4%;
         }
     }
-
-
-
 </style>

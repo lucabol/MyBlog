@@ -40,9 +40,11 @@
         localStorage.setItem("Style", el.textContent)
     }
 
-    const style = localStorage.getItem("Style") || "Humanist: Verdana"
+    const defaultFont = "Contemporary: Georgia"
 
-    if(style && style !== "Humanist: Verdana") {
+    const style = localStorage.getItem("Style") || defaultFont
+
+    if(style && style !== defaultFont) {
         const xpath = "//div[text()='" + style + "']"
         const styleEl = document
             .evaluate(xpath, document, null, XPathResult.ANY_TYPE, null)
