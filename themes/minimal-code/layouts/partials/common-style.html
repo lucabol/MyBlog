@@ -1,4 +1,7 @@
 <style>
+
+    /* @import url("normalizer.css") */
+
     html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
         vertical-align: baseline;
         margin: 0;
@@ -20,7 +23,11 @@
         --max-font-size: var(--default-max-font-size);
 
         font-size: clamp(var(--min-font-size), 2.2vw, var(--max-font-size));
-        font-size: 2.0vw;
+        @-moz-document url-prefix() {
+            html {
+                font-size: 2.2vw;
+            } 
+        }
 
         --default-line-height: 1.2;
         --line-height: var(--default-line-height);
@@ -164,16 +171,20 @@
     #random-font:hover  {
         cursor: pointer;
     }
-
+    
     @media all and (min-width: 1024px) {
+        @-moz-document url-prefix() {
+            html { font-size: var(--max-font-size); } 
+        }
         html {
-            font-size: var(--max-font-size)
         }
         .sidebar-left, .sidebar-right { display: block;}
     }
     @media all and (max-width: 768px) {
+        @-moz-document url-prefix() {
+            html { font-size: var(--min-font-size); } 
+        }
         html {
-            font-size: var(--min-font-size);
             --title-font-size: calc(1rem *  var(--ratio-scale));
             --h1-font-size: 1.0rem;
         }
@@ -181,5 +192,7 @@
             grid-template-columns: 4% 92% 4%;
         }
     }
+
+
 
 </style>

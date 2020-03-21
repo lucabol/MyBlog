@@ -3,3 +3,5 @@ pyftsubset .\EBGaramond-VariableFont_wght.ttf --unicodes="U+0020-007F,U+00A0-00F
 pyftsubset .\EBGaramond-Italic-VariableFont_wght.ttf --unicodes="U+0020-007F,U+00A0-00FF,U+0100-017F" --flavor="woff2" --with-zopfli --output-file="EBGaramond-italic-subset.woff2" --layout-features=$ocFeatures
 pyftsubset .\EBGaramond-VariableFont_wght.ttf --unicodes="U+0020-007F,U+00A0-00FF,U+0100-017F" --flavor="woff" --with-zopfli --output-file="EBGaramond-subset.woff" --layout-features=$ocFeatures
 pyftsubset .\EBGaramond-Italic-VariableFont_wght.ttf --unicodes="U+0020-007F,U+00A0-00FF,U+0100-017F" --flavor="woff" --with-zopfli --output-file="EBGaramond-italic-subset.woff" --layout-features=$ocFeatures
+pyftsubset .\FiraCode-VF.ttf --unicodes="U+0020-007F,U+00A0-00FF,U+0100-017F" --flavor="woff" --with-zopfli --output-file="FiraCode-VF.woff" --layout-features=$ocFeatures
+pyftsubset .\FiraCode-VF.ttf --unicodes="U+0020-007F,U+00A0-00FF,U+0100-017F" --flavor="woff2" --with-zopfli --output-file="FiraCode-VF.woff2" --layout-features=$ocFeatures
