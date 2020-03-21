@@ -1,0 +1,12 @@
+@font-face {
+    font-family: profont;
+    src: url('/fonts/ProFontWindows.ttf');
+    font-display: optional;
+    font-weight: normal;
+}
+@font-face {
+    font-family: profont-bold;
+    src: url('/fonts/ProFontWindows-Bold.ttf');
+    font-display: optional;
+    font-weight: bold;
+}

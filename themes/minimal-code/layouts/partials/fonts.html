@@ -40,9 +40,9 @@
         localStorage.setItem("Style", el.textContent)
     }
 
-    const style = localStorage.getItem("Style") || "Neo-humanist: - Verdana"
+    const style = localStorage.getItem("Style") || "Humanist: Verdana"
 
-    if(style) {
+    if(style && style !== "Humanist: Verdana") {
         const xpath = "//div[text()='" + style + "']"
         const styleEl = document
             .evaluate(xpath, document, null, XPathResult.ANY_TYPE, null)
@@ -57,5 +57,24 @@
     fontEl.addEventListener("click", e => {
         const el = e.target
         setStyle(el)
+    })
+
+    const randElem = document.querySelector("#random-font")
+    randElem.addEventListener("click", e => {
+        const parent = document.querySelector(".dropdown-content")
+        const children = parent.childNodes
+        const array = Array.from(children)
+        const randomEl = array[Math.floor(Math.random() * array.length)]
+        setStyle(randomEl)
+    })
+    const which = document.querySelector("#which-font")
+    which.addEventListener("mouseenter", e => {
+        const styles = getComputedStyle(document.documentElement);
+        const which = document.querySelector("#which-font")
+        which.innerHTML = "[" + styles.getPropertyValue("--font-family-text").split(",")[0] + "]"
+    })
+    which.addEventListener("mouseleave", e => {
+        const which = document.querySelector("#which-font")
+        which.innerHTML = "[Which]"
     })
 </script>

@@ -10,6 +10,8 @@
     {{ $name := lower .Name}}
     <a class="pull-right{{ if eq $name $title }} current{{ else if eq $section $name }} current{{ else if eq $title (pluralize $name) }} current{{ end }}" href="{{ .URL }}">~/{{ $name }}</a>
     {{end}}
+    <a id="random-font">[Random]</a>
+    <a id="which-font">[Which]</a>
     <div class="dropdown">
     <a class="pull-left">~/fonts</a>
       <div class="dropdown-content">

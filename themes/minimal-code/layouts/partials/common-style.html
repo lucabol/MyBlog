@@ -5,63 +5,46 @@
         padding: 0;
     }
     html {
-        /* Typography rules */
-        /* https://www.cssfontstack.com/ */
-
-        /* 1. Fonts: widely available, similar x-height & look nice. Alternative is system fonts (i.e. as github does) */
-        --default-font-family-text: Verdana, Geneva, sans-serif;
+        --default-font-family-headers: Verdana, Geneva, sans-serif;
         --default-font-family-code: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
-        --default-font-family-headers: Georgia, 'Times New Roman', Times, serif;
+        --default-font-family-text: Georgia, 'Times New Roman', Times, serif;
         --font-family-text: var(--default-font-family-text);
         --font-family-code: var(--default-font-family-code);
         --font-family-headers: var(--default-font-family-headers);
         --font-family-dropcap: var(--font-family-headers);
         --font-family-menu: var(--font-family-code);
 
-        /* 2. Fonts sizes: made responsive so everything else scales with it*/
         --default-min-font-size: 16px;
         --default-max-font-size: 22px;
         --min-font-size: var(--default-min-font-size);
         --max-font-size: var(--default-max-font-size);
 
-        font-size: calc(0.6vmin + 0.7em);
-        /* firefox seems to have a problem with the next two, hence the last with media queries */
-        font-size: min(max(var(--min-font-size), 2.2vw), var(--max-font-size));
         font-size: clamp(var(--min-font-size), 2.2vw, var(--max-font-size));
-        font-size: 1.5vw;
+        font-size: 2.0vw;
 
-        /* 3. Line height: Verdana as big x-height, so a bit higher than 1.4 standard */
-        --default-line-height: 1.5;
+        --default-line-height: 1.2;
         --line-height: var(--default-line-height);
-        --line-height-title: calc(var(--line-height) * 0.75);
-        --line-height-h1: calc(var(--line-height) * 0.75);
-        /* 4. Line width: as github, larger because of code */
-        --line-width: 35em;
+        
+        --text-color: black;
+        --accent-color: hsl(0, 100%, 30%);
 
-        /* 5. Color: grayer, like github */
-        --text-color: hsla(93, 14%, 14%, 1);
-        --accent-color: hsl(34, 70%, 50%, 1);
-        --accent-color2: hsl(0, 100%, 30%);
-
-        /* 6. Ratio for modular scale */
-        --ratio-scale: 2.0;
-        --title-font-size: calc(1rem *  var(--ratio-scale));
-        --h1-font-size: 1rem;
+        --ratio-scale: 1.414;
+        --title-font-size: calc(1rem *  var(--ratio-scale) * var(--ratio-scale));
+        --h1-font-size: calc(1rem *  var(--ratio-scale));
         --line-height-rem: calc(var(--line-height) * 1rem);
 
         font-family: var(--font-family-text);
-        font-variant-ligatures: normal;
+        font-variant-ligatures: common-ligatures;
         line-height: var(--line-height);
         text-rendering: optimizeLegibility;
         color: var(--text-color);
+
         -webkit-font-smoothing: subpixel-antialiased;
     }
     .grid {
         display: grid;
-        --mid-column-width: min(60vw, var(--line-width));
-        grid-template-columns: 1fr var(--mid-column-width) 1.5fr;
         grid-template-rows: auto auto auto auto;
-        grid-gap: 0 var(--line-height-rem);
+        grid-template-columns: 1.0fr 35rem 1.414fr;
     }
 
     header, footer, article {
@@ -79,11 +62,13 @@
     .sidebar-left {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
+        display: none;
     }
 
     .sidebar-right {
         grid-column: 3 / 4;
         grid-row: 3 / 4;
+        display: none;
     }
 
     .title {
@@ -91,45 +76,24 @@
         grid-row: 2 / 3;
     }
 
-    @media all and (min-width: 1100px) {
-        html {
-            font-size: var(--max-font-size)
-        }
-        /* Bug in firefox, the min on the midcolumn above doesn't work hence needed below */
-        .grid {
-            display: grid;
-            grid-template-columns: 1.0fr var(--line-width) 1.5fr;
-        }
-    }
-    @media all and (max-width: 1024px) {
-        .sidebar-left, .sidebar-right {
-            display: none;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: 2% 88% 2%;
-        }
-        html {
-            font-size: var(--min-font-size);
-            --title-font-size: 1.5rem;
-        }
-    }
-
     body {
         /* background-image: linear-gradient(rgba(200, 50, 50, .25) 1px, transparent 1px);
         background-size: 1px var(--line-height-rem); */
     }
+    #which-font, #random-font { display: none;}
     img, iframe, video { max-width: 100%; }
 
+    h1:first-of-type {
+        margin-top: 0;
+    }
     h1, h2, h3, h4 {
         font-family: var(--font-family-headers);
         font-size: var(--h1-font-size);
-        text-transform: uppercase;
-        text-align: left;
-        font-weight: normal;
-        letter-spacing: -0.01em;
+        font-style:italic;
+        font-weight: 500;
+        letter-spacing: -0.00em;
         line-height: var(--line-height-h1);
-        margin: 0 0 calc(0.3 * var(--line-height-rem)) 0;
+        margin: 0.8rem 0 0.2rem;
     }
 
     .title {
@@ -137,28 +101,27 @@
         font-size: var(--title-font-size);
         line-height: var(--line-height-title);
         text-align: initial;
-        font-weight: bold;
-        letter-spacing: -0.02em;
-        margin-bottom: calc(0.3 * var(--line-height-rem));
+        font-weight: 800;
+        letter-spacing: -0.01em;
     }
     p {
+        font-weight: 410;
+        font-variant-numeric: oldstyle-nums;
         margin: 0 0 calc(var(--line-height-rem) * 0.5) 0;
     }
     hr {
-        margin: calc(1rem + 1px) 0 0.5rem;
-        border-style: normal;
+        border-style: inset;
+        margin: 0.3rem 0;
     }
 
     nav.menu {
         font-family: var(--font-family-menu);
-        margin: calc(var(--line-height-rem) / 2) 0 calc(var(--line-height-rem) / 2);
     }
     nav.menu a {
         padding: 0.0em 0.2em;
         text-decoration: none;
         color: var(--text-color);
     }
-
     nav a:hover, a.postlink:hover {
         text-decoration: underline;
     }
@@ -196,4 +159,25 @@
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
     }
+    #random-font:hover  {
+        cursor: pointer;
+    }
+
+    @media all and (min-width: 1024px) {
+        html {
+            font-size: var(--max-font-size)
+        }
+        .sidebar-left, .sidebar-right { display: block;}
+    }
+    @media all and (max-width: 768px) {
+        html {
+            font-size: var(--min-font-size);
+            --title-font-size: calc(1rem *  var(--ratio-scale));
+            --h1-font-size: 1.0rem;
+        }
+        .grid {
+            grid-template-columns: 4% 92% 4%;
+        }
+    }
+
 </style>

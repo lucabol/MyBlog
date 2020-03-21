@@ -1,0 +1,8 @@
+@font-face {
+    font-family: bahnschrift;
+    src:local('bahnschrift'),
+        url('/fonts/subset-Bahnschrift.woff2') format('woff2'),
+        url('/fonts/subset-Bahnschrift.woff') format('woff');
+    font-display: optional;
+    font-weight: 1 1000;
+}
