@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#ffffff"/>
 
 {{ if .Description }}
@@ -8,7 +8,12 @@
 <meta name="description" content="{{ .Summary | plainify }}">
 {{ end }}
 
-{{ partial "common-style.html" }}
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="/css/normalize.css"> 
+<link rel="stylesheet" href="/css/base.css"> 
 
 {{ if eq .Kind "home"}}
   <title>{{ .Site.Title }}</title>
@@ -20,15 +25,12 @@
     <link media="screen and (min-width: 50em)" rel="prerender" href="{{ .RelPermalink }}" />
   {{ end }}
   
-  {{ partial "home-style.html" }}
 {{ end }}
 
 {{ if eq .Kind "page"}}
   <title>{{ .Title }} | {{ .Site.Title }}</title>
-  {{ partial "post-style.html" }}
 {{ else if not (eq .Kind "home")}}
   <title>{{ .Title }} | {{ .Site.Title }}</title>
-  {{ partial "home-style.html" }}
 {{ end }}
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

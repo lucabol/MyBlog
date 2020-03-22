@@ -22,13 +22,15 @@
         --min-font-size: var(--default-min-font-size);
         --max-font-size: var(--default-max-font-size);
 
+        font-size: 2.4vw;
+/*
         font-size: clamp(var(--min-font-size), 2.2vw, var(--max-font-size));
         @-moz-document url-prefix() {
             html {
                 font-size: 2.2vw;
             } 
         }
-
+*/
         --default-line-height: 1.2;
         --line-height: var(--default-line-height);
         --line-height-title: calc(var(--line-height) * 0.80);
@@ -53,7 +55,7 @@
     .grid {
         display: grid;
         grid-template-rows: auto auto auto auto;
-        grid-template-columns: 1.0fr 35rem 1.414fr;
+        grid-template-columns: 4% 92% 4%;
     }
 
     header, footer, article {
@@ -61,7 +63,7 @@
     }
 
     header {
-        grid-row: 1 / 2;
+        grid-row: 4 / 5;
     }
 
     article {
@@ -171,8 +173,25 @@
     #random-font:hover  {
         cursor: pointer;
     }
+
+    @media all and (max-width:520px) {
+        html {
+            font-size: 15px;
+        }
+    }
+    @media all and (min-width:521px) {
+        .grid {
+            grid-template-columns: 1.0fr 30em 1.5fr;
+        }
+    }
+    @media all and (min-width:920px) {
+        html {
+            font-size: 22px;
+        }
+        .sidebar-left, .sidebar-right { display: block;}
+    }
     
-    /* from: https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile */
+    /*
     @media all and (min-width: 1025px) {
         @-moz-document url-prefix() {
             html { font-size: var(--max-font-size); } 
@@ -193,4 +212,20 @@
             grid-template-columns: 4% 92% 4%;
         }
     }
+    @media all and (max-width: 480px) {
+        html {
+            font-family: var(--default-font-family-text);
+            --font-family-dropcap: var(--font-family-headers);
+        }
+        code {
+            font-family: var(--default-font-family-code);
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: var(--default-font-family-headers);
+        }
+        nav.menu {
+            --font-family-menu: var(--font-family-code);
+        }
+    }
+    */
 </style>

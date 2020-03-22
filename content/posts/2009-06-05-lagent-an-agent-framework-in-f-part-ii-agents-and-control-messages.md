@@ -65,7 +65,7 @@ All posts are here:
   * [Part VIII – Implementing MapReduce (user model)](http://blogs.msdn.com/lucabol/archive/2009/09/04/lagent-an-agent-framework-in-f-part-viii-implementing-mapreduce-user-model.aspx) 
   * [Part IX – Counting words …](http://blogs.msdn.com/lucabol/archive/2009/09/18/lagent-an-agent-framework-in-f-part-ix-counting-words.aspx) 
 
-# Agents
+## Agents
 
 Agents are entities that process messages and keep state between one message and the next. As such they need to be initialized with a lambda that takes a message and a state and returns a new state. In F# pseudo code: msg –> state –> newState. For example the following:
 
@@ -86,7 +86,7 @@ Which produces:
 
 There is no _spawnParallelAgent_, because I couldn’t figure out its usage patterns. Maybe I don’t have enough creativity. Obviously _msg_ and _state_ could be of whatever type (in real application they end up being tuples more often than not).
 
-# Control messages
+## Control messages
 
 You can do things to agents. I’m always adding to them but at this stage they are:
 

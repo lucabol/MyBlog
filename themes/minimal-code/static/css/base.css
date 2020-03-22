@@ -1,0 +1,47 @@
+html {
+    font-family: Georgia, serif;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: #1c1c1c;
+    --modular-ratio: 1.2;
+
+}
+
+body {
+    margin: 1em;
+}
+h3 {
+    font-size: calc(1rem * var(--modular-ratio));
+}
+h2 {
+    font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio));
+}
+h1 {
+    font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio) * var(--modular-ratio));
+}
+
+h1, h2, h3, h4, h5 {
+    line-height: 1.0;
+    font-weight: 800;
+}
+a {
+    color: #1D745A;
+}
+
+/*Layout*/
+#to_nav {
+}
+
+/* Font-size set with: https://www.madebymike.com.au/writing/fluid-type-calc-examples/ */
+/* clamp doesn't seem to work on firefox yet, so no https://css-tricks.com/simplified-fluid-typography/ */
+@media screen and (min-width: 20rem) { /* 320px */
+  html {
+    font-size: calc(0.875rem + 0.5 * ((100vw - 20rem) / 60));
+  }
+}
+
+@media screen and (min-width: 80rem) { /* 1280px */
+  html {
+    font-size: 1.375rem;
+  }
+}

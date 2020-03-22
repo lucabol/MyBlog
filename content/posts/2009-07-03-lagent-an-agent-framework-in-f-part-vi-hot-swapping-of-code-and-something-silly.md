@@ -63,7 +63,7 @@ All posts are here:
   * [Part VIII – Implementing MapReduce (user model)](http://blogs.msdn.com/lucabol/archive/2009/09/04/lagent-an-agent-framework-in-f-part-viii-implementing-mapreduce-user-model.aspx) 
   * [Part IX – Counting words …](http://blogs.msdn.com/lucabol/archive/2009/09/18/lagent-an-agent-framework-in-f-part-ix-counting-words.aspx)&#160; 
 
-# Hot swapping of code
+## Hot swapping of code
 
 Let’s get back a couple of steps and consider what happens when you get an error. Sure, your agent will continue processing messages, but it might be doing the wrong thing. Your message handling code might be buggy.
 
@@ -115,7 +115,7 @@ And parallelWorkers:
 <pre class="code">parallelEcho &lt;-- SetWorkerHandler(<span style="color:blue;">fun </span>msg <span style="color:blue;">-&gt; </span>tprint (<span style="color:maroon;">"I'm new and " </span>+ msg))
 messages |&gt; Seq.iter (<span style="color:blue;">fun </span>msg <span style="color:blue;">-&gt; </span>parallelEcho &lt;-- msg)</pre>
 
-# A silly interlude
+## A silly interlude
 
 As a way to show some agents talking to each other, here is a simple program that simulates marital interactions (of the worst kind):
 

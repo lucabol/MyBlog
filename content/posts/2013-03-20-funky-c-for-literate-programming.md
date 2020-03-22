@@ -17,7 +17,7 @@ tags:
   - Functional Programming
   - Literate programming
 ---
-# Main ideas
+## Main ideas
 This is a port of [LLIte](https://github.com/lucabol/LLite/blob/master/Program.fs) in C. The reason for it is to experiment with writing functional code in standard C and compare the experience with using a functional language like F#. It is in a way a continuation of my previous posts on the topic.
 
 I will be using glib and an header of convenient macros/functions to help me (lutils.h). I don’t think that is cheating. Any modern C praticoner has its bag of tricks …
@@ -37,7 +37,7 @@ Don’t tell me this is not idiomatic C. I already know that.
 
 #include "lutils.h"
 ~~~
-# Lack of tuples
+## Lack of tuples
 In the snippet below I overcomed such deficiency by declaring a struct. Using the new constructor syntax makes initializing a static table simple.
 ~~~c
 typedef struct LangSymbols { char language[40]; char start[10]; char end[10];} LangSymbols;
@@ -51,7 +51,7 @@ LangSymbols* s_lang_params_table[] = {
     NULL
 };
 ~~~
-# Folding over arrays
+## Folding over arrays
 I need to gather all the languages, aka perform a fold over the array. You might have noticed the propensity to add a NULL terminator marker to arrays (as for strings). This allows me to avoid passing a size to functions and makes simpler writing utility macros (as foreach below) more simply.
 
 In the rest of the program, every time I end a function with _z, it is because I consider it generally usable and I add a version of it without the _z to lutils.h.
@@ -93,10 +93,10 @@ LangSymbols* lang_find_symbols(LangSymbols** symbols, char* lang) {
     return array_find(symbols, !strcmp((*symbols)->language, lang));
 }
 ~~~
-# Deallocating stuff
+## Deallocating stuff
 You might wonder why I don’t seem overly worried about deallocating the memory that I allocate. I haven’t gone crazy(yet). You’ll see.
 
-# Discriminated unions
+## Discriminated unions
 Here are the discriminated unions macros from a previous blog post of mine. I’ll need a couple of these and pre-declare two functions.
 ~~~c
 union_decl(CodeSymbols, Indented, Surrounded)
@@ -118,7 +118,7 @@ union_decl(Block, Code, Narrative)
     union_type(Narrative,   char* narrative)
 union_end(Block);
 ~~~
-# Main data structure
+## Main data structure
 We want to use higher level abstractions that standard C arrays, hence we’ll pick a convenient data structure to use in the rest of the code. A queue lets you to insert at the front and back, with just a one pointer overhead over a single linked list. Hence it is my data structure of choice for this program.
 ~~~c
 static
@@ -138,7 +138,7 @@ char* str_after_prefix(char* src, char* prefix) {
     return src;
 }
 ~~~
-# Tokenizer
+## Tokenizer
 The structure of the function is identical to the F# version. The big bread-winners are statement expressions and local functions …
 
 It is interesting how you can replicate the shape of an F# function by substituting ternary operators for match statements.
@@ -201,7 +201,7 @@ GQueue* tokenize(Options* options, char* source) {
     return tokenize_rec(source, g_queue_new(), 1);
 }
 ~~~
-# Parser
+## Parser
 This again has a similar structure to the F# version, just longer. It is very long because it contains 3 (nested) functions which are on the verbose side in C.
 
 The creation of a error macro is unfortunate. I just don’t know how to adapt g_assert_e so that it works for not pointer returning functions.
@@ -292,7 +292,7 @@ GQueue* parse(Options* options, GQueue* tokens) {
     return parse_rec(g_queue_new(), tokens);
 }
 ~~~
-# Flattener
+## Flattener
 This follows the usual practice of representing fold as foreach statments (and maps to). Pheraps I shall build better abstractions for them at some point. I also introduce a little macro to simplify writing of GFunc lambdas, given how pervasive they are.
 
 Again, note how heavy ternary operated this is …
@@ -532,7 +532,7 @@ char* translate(Options* options, char* source) {
     return stringify(blocks);
 }
 ~~~
-# Parsing the command line
+## Parsing the command line
 In glib there is a command line parser that accept options in unix-like format and automatically produces professional --help messages and such. We shoudl really have something like this in .NET. Pheraps we do and I’m not aware of it?
 ~~~c
 typedef struct CmdOptions { char* input_file; char* output_file; Options* options;} CmdOptions;
@@ -656,7 +656,7 @@ char* skip_utf8_bom(char* str) {
                                                               (char*) b;
 }
 ~~~
-# Not freeing memory (again)
+## Not freeing memory (again)
 The reason I haven’t been freeing memory all along is because I was planning on using an arena allocator (a kind of linear allocator).
 
 Memory management is fully hortogonal to the style of programming described in this post. You can do it whatever way you prefer, but there is a certain affinity between an arena allocator (or garbage collection) and functional programming because of the temporary objects created in expressions. You could create the temporary objects explicitely, but that would diminish the conciseness of the paradigm.
@@ -703,7 +703,7 @@ void destroy_arena_allocator() {
 
 #endif
 ~~~
-# Summary
+## Summary
 I have to say, it didn’t feel too cumbersome to structure C code in a functional way, assuming that you can use GLib and a couple of GCC extensions to the language. It certainly doesn’t have the problems that C++ has in terms of debugging STL failures.
 
 There are a couple of things I don’t like about GLib and I’m working on an hobby project to overcome them. Eventually I’ll post it.

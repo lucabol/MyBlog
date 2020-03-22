@@ -5,4 +5,4 @@ title = "Oops, you are offline."
 type = "offline"
 +++
 
-# You are able to access just the pages that you have visited previously. Go back to the [home page](/)
+## You are able to access just the pages that you have visited previously. Go back to the [home page](/)

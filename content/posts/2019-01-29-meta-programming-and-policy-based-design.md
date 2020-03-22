@@ -6,7 +6,7 @@ layout: post
 tags:
   - csharp
 ---
-# Abstract
+## Abstract
 
 Thanks to [Mike](https://github.com/mjrousos) for reviewing this.
 
@@ -20,7 +20,7 @@ Too good to be true? Read on!
 BTW1: none of this is new. It has been floating around in various forms. But I have never seen explained fully and associated to the policy pattern.
 BTW2: it is also related to the uber cool [Shape proposal for C#](https://github.com/dotnet/csharplang/issues/164), where it becomes an implementation detail.
 
-# Implementation
+## Implementation
 
 First, the usual plethora of namespaces ... BenchmarkDotNet is really heavy into separating abstractions in different namespaces ...
 
@@ -143,7 +143,7 @@ public  class MainClass
 }
 ~~~
 
-# Results
+## Results
 
 Please note that the results are valid just for the tested configuration.
 
@@ -174,7 +174,7 @@ Notice that these numbers are really low. In fact the order of the first 4 lines
 
 But why? Let's look at the generated code.
 
-# IL and ASM
+## IL and ASM
 
 First let's look at IL for a few of the methods
 ~~~assembly
@@ -268,7 +268,7 @@ Notice the machinations the Jitter performs, very likely related to dynamic disp
 
 No wonder it is slower.
 
-# Summary
+## Summary
 
 If you can afford to use the policy pattern instead of the more generic strategy pattern (i.e. compile time vs run time dispatch) and/or you need bare to the metal performance, consider the code above.
 

@@ -37,10 +37,9 @@ menu:
     - name: Search
       url: /search
       weight: 5
-  feed:
     - name: Rss
       url: /index.xml
-      weight: 1
+      weight: 6
 
 params:
   description: 'Blog about programming, C#, F#, .NET Core, Investing and other stuff.'

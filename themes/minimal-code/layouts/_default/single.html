@@ -1,7 +1,6 @@
 {{ define "main" }}
-<main>
+
 {{ .Content }}
-</main>
 
 {{ if not .Page.Params.nodisqus}}
   <!-- {{ template "_internal/disqus.html" . }} -->
@@ -15,17 +14,14 @@
 {{ end }}
 
 {{ define "sideleft"}}
-<div class="terms">
-  <h1>※</h1>
-  {{ if .Params.date }}<div class="date">{{ .Date.Format "2006/01/01" }}</div>{{ end }}
+  <header><h1>Tags</h1></header>
   {{ range $i := (slice "tags") }}
-  {{ with ($.Param $i) }}
-  {{ $i | title }}: {{ range $k := . }}
-    <div>
-    <a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a>
-    <div>
+    {{ with ($.Param $i) }}
+    <ul>
+      {{ range $k := . }}
+          <li><a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
   {{ end }}
-  {{ end }}
-  {{ end }}
-</div>
 {{ end }}

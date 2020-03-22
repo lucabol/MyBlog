@@ -1,47 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
     <head>
         {{ partial "head.html" . }}
     </head>
 <body>
-    <div class="grid">
     <header>
-        {{ partial "menu.html" . }}
+        <a id="to_nav" href="#primary_nav">Menu</a>
     </header>
-
-    <aside class="sidebar-left">
-        {{ block "sideleft" . }}
-        {{ end }}
-    </aside>
-
-    <div class="title">
-        <hr />
+    <main>
+        <h1 id="title">
         {{ block "title" . }}
             {{ .Title }}
         {{ end }}
-        <hr />
-    </div>
+        </h1>
+        {{ if .Params.date }}<div class="date">{{ .Date.Format "2006/01/01" }}</div>{{ end }}
 
-    <article>
         {{ block "main" . }}
         {{ end }}
-    </article>
 
-    <aside class="sidebar-right">
-        {{ block "sideright" . }}
-        {{ end }}
-    </aside>
-    
+        <aside class="sidebar-left">
+            {{ block "sideleft" . }}
+            {{ end }}
+        </aside>
+
+        <aside class="sidebar-right">
+            {{ block "sideright" . }}
+            {{ end }}
+        </aside>
+
+    </main>
+    <nav id="primary_nav">
+        {{ partial "menu.html" . }}
+    </nav>
+    <a href="#top">Top</a>
     <footer>
         {{ partial "footer.html" . }}
     </footer>
-    </div>
 
-    {{ partial "tracking-code.html"}}
+    <!-- {{ partial "tracking-code.html"}}
     {{ partial "sw-install.html"}}
     {{ partial "offline.html"}}
-    {{ partial "fonts.html"}}
+    {{ partial "fonts.html"}} -->
 
 </body>
 </html>

@@ -71,7 +71,7 @@ All posts are here:
 
 
 
-# Introduction
+## Introduction
 
 I like to try out different programming paradigms. I started out as an object oriented programmer. In university, I used Prolog. I then learned functional programming. I also experimented with various shared memory parallel paradigms (i.e. async, tasks and such). I now want to learn more about message based parallel programming ([Erlang](http://www.amazon.com/Programming-Erlang-Software-Concurrent-World/dp/193435600X) style). I’m convinced that doing so makes me a better programmer. Plus, I enjoy it …
 
@@ -81,7 +81,7 @@ In this case, I built myself a little agent framework based on F# _MailboxProces
 
 Notice that there are serious efforts in this space (as [Axum](http://blogs.msdn.com/maestroteam/)). This is not one of them. It’s just a simple thing I enjoy working on between one meeting and the next.
 
-# Workers and ParallelWorkers
+## Workers and ParallelWorkers
 
 The two major primitives are spawning an agent and posting a message.
 

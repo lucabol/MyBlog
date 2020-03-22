@@ -13,7 +13,7 @@ tags:
   - C
   - Functional Programming
 ---
-# Cleanup
+## Cleanup
 Let's start simple with the cleanup function. First we need the usual barrage of includes. `G_BEGIN_DECLS` allows the header to be linked in C++.
 ~~~c
 #ifndef L_UTILS_INCLUDED
@@ -39,7 +39,7 @@ auto_clean is a building block that you can use to plug in your own cleanup func
 #define auto_clean(f)   __attribute((cleanup(f)))
 #define auto_free       auto_clean(__autofree)
 ~~~
-# Lambdas
+## Lambdas
 I took this one from here.
 
 If you think about it, a lambda is just an expression that returns a function. This macro creates a nested function, called fn, inside a statement expression and returns it. Unfortunately these features are gcc specific.
@@ -54,7 +54,7 @@ Remember that lambdas are not allocated on the heap, so you have to be careful o
 
 #endif
 ~~~
-# Unions
+## Unions
 A union type is what you would expect: a struct that contains an unnamed union and a field to specify which type it is. We need the list of types in union_decl to create the kind enum. The usage of __VA_ARGS__ allows to use whatever syntax you want to go into the enum (i.e. specify int values).
 
 Having to specify the the types here is unfortunate as you are going to need to specify it in the union_case macros as well.

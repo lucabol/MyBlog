@@ -63,7 +63,7 @@ All posts are here:
   * [Part VIII – Implementing MapReduce (user model)](http://blogs.msdn.com/lucabol/archive/2009/09/04/lagent-an-agent-framework-in-f-part-viii-implementing-mapreduce-user-model.aspx) 
   * [Part IX – Counting words …](http://blogs.msdn.com/lucabol/archive/2009/09/18/lagent-an-agent-framework-in-f-part-ix-counting-words.aspx) 
 
-# Timeout management
+## Timeout management
 
 Timeouts are very important in message based systems. In essence, if you are not getting messages for a certain period of time, that usually means something. It might be that something crashed, that other agents think that you are not online, or any other number of things. Hence the need to set timeouts and react when they are triggered.
 

@@ -63,7 +63,7 @@ All posts are here:
   * [Part VIII – Implementing MapReduce (user model)](http://blogs.msdn.com/lucabol/archive/2009/09/04/lagent-an-agent-framework-in-f-part-viii-implementing-mapreduce-user-model.aspx) 
   * [Part IX – Counting words …](http://blogs.msdn.com/lucabol/archive/2009/09/18/lagent-an-agent-framework-in-f-part-ix-counting-words.aspx) 
 
-# Default error management
+## Default error management
 
 What happens when an error occurs? Well, ideally you want to notify someone and continue processing messages. By default you want to print the error and as much information as you can about it.
 
