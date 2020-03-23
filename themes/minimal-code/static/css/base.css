@@ -1,37 +1,139 @@
+html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     font-family: Georgia, serif;
     font-size: 0.875rem;
     line-height: 1.4;
-    color: #1c1c1c;
+    --default-color: #1c1c1c;
     --modular-ratio: 1.2;
+    --accent-color: #1D745A; 
 
+    color: var(--default-color);
 }
 
 body {
-    margin: 1em;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 2% 96% 2%;
+}
+header, main, nav, footer, #to_top {
+    grid-column: 2/3;
+}
+
+p + p {
+    margin: 1rem 0;
+}
+
+ul, ol {
+    margin: 0 1rem;
+}
+
+/* Navigation Styling */
+nav ul, nav ol {
+    margin: 0rem 0 0.5rem;
+}
+nav li {
+    list-style-type: none;
+}
+nav li a {
+    margin: 0;
 }
 h3 {
     font-size: calc(1rem * var(--modular-ratio));
 }
-h2 {
+h2, h3, h4, h5 {
     font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio));
+    font-style: italic;
+    font-weight: 450;
 }
 h1 {
     font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio) * var(--modular-ratio));
-}
-
-h1, h2, h3, h4, h5 {
-    line-height: 1.0;
     font-weight: 800;
+    line-height: 1.0;
 }
-a {
-    color: #1D745A;
+hr {
+    margin: 0.5rem 0;
 }
 
-/*Layout*/
+h2, h3, h4, h5 {
+    line-height: 1.0;
+    margin: 1.0rem 0 0.5rem;
+}
+nav h1, aside h1 {
+    font-size: calc(1rem * var(--modular-ratio));
+    margin: 1.0rem 0 0.2rem;
+}
+a:link {
+    color:var(--accent-color);
+    text-decoration: none;
+}
+a:visited {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+p a::after {
+    position: relative;
+    content: "°";
+    margin-left: 0.1em;
+    font-size: 90%;
+    top: -0.1em;
+    font-feature-settings: "caps";
+    font-variant-numeric: normal;
+}
+a:active {
+    color: var(--accent-color);
+}
+pre {
+    margin: 1rem 1rem;
+}
+code {
+    font-family: "Lucida Sans TypeWriter", "Lucida Console", monospace;
+    font-size: 0.85rem;
+}
+
+button {
+    border-radius: 25px;
+    border: none;
+    color: var(--accent-color);
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin: 1.0rem 0 0.5rem;
+    font-size:1.2rem
+}
 #to_nav {
+    float:right;
 }
 
+#disqus-container {
+    margin: 1.0rem 0;
+}
+
+.post-list {
+    list-style-type: none;
+    margin:0;
+    font-weight: 350;
+}
+.post-list > li {
+    display:flex;
+}
+.post-link:link, .post-link:visited {
+    margin: 0 0.5rem;
+    color: var(--default-color);
+}
+.post-date {
+    font-variant-numeric: tabular-nums;
+    font-variant-caps: all-petite-caps;
+}
 /* Font-size set with: https://www.madebymike.com.au/writing/fluid-type-calc-examples/ */
 /* clamp doesn't seem to work on firefox yet, so no https://css-tricks.com/simplified-fluid-typography/ */
 @media screen and (min-width: 20rem) { /* 320px */

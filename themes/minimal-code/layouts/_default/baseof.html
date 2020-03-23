@@ -5,15 +5,17 @@
     </head>
 <body>
     <header>
+        {{ if .Params.date }}<span id="blog_date">{{ .Date.Format "2006/01/01" }}</span> {{ else }}<span>❧</span>{{ end }}
         <a id="to_nav" href="#primary_nav">Menu</a>
     </header>
     <main>
+        <hr>
         <h1 id="title">
         {{ block "title" . }}
             {{ .Title }}
         {{ end }}
         </h1>
-        {{ if .Params.date }}<div class="date">{{ .Date.Format "2006/01/01" }}</div>{{ end }}
+        <hr>
 
         {{ block "main" . }}
         {{ end }}
@@ -32,7 +34,7 @@
     <nav id="primary_nav">
         {{ partial "menu.html" . }}
     </nav>
-    <a href="#top">Top</a>
+    <a id="to_top" href="#top">Top</a>
     <footer>
         {{ partial "footer.html" . }}
     </footer>

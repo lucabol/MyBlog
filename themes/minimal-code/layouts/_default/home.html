@@ -3,13 +3,13 @@ Luca Bolognese
 {{ end }}
 
 {{ define "main" }}
-  <ul>
+  <ul class="post-list">
     {{ $pages := .Pages }}
     {{ $pages = .Site.RegularPages }}
     {{ range (where $pages "Section" "!=" "") }}
     <li>
-      <time class="date">{{ .Date.Format "2006.01" }}</time>
-      <a class="postlink" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <time class="post-date">{{ .Date.Format "2006.01" }}</time>
+      <a class="post-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
     </li>
     {{ end }}
   </ul>

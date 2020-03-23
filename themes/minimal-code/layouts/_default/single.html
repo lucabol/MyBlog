@@ -17,11 +17,13 @@
   <header><h1>Tags</h1></header>
   {{ range $i := (slice "tags") }}
     {{ with ($.Param $i) }}
-    <ul>
-      {{ range $k := . }}
-          <li><a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a></li>
-      {{ end }}
-    </ul>
+    <nav>
+      <ul>
+        {{ range $k := . }}
+            <li><a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
     {{ end }}
   {{ end }}
 {{ end }}
