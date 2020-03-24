@@ -5,7 +5,7 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
 }
 
 html {
-    font-family: Georgia, serif;
+    font-family: "EB Garamond", Georgia, serif;
     font-size: 0.9375rem; /* 15px */
     line-height: 1.4;
     --default-color: #1c1c1c;
@@ -57,6 +57,9 @@ nav li a {
 h3 {
     font-size: calc(1rem * var(--modular-ratio));
 }
+h1, h2, h3, h4, h5 {
+    font-family: "EB Garamond Italic", Georgia, serif;
+}
 h2, h3, h4, h5 {
     font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio));
     font-style: italic;
@@ -106,7 +109,7 @@ pre {
     overflow-x: auto;
 }
 code {
-    font-family: "Lucida Sans TypeWriter", "Lucida Console", monospace;
+    font-family: "Fira Code VF", "Lucida Sans TypeWriter", "Lucida Console", monospace;
     font-size: 0.85rem;
 }
 
@@ -157,6 +160,32 @@ button {
 }
 #primary_nav a {
     font-variant-caps: all-petite-caps;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src:
+        url('/fonts/EBGaramond-subset.woff2') format('woff2'),
+        url('/fonts/EBGaramond-subset.woff') format('woff'),
+        url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
+    font-weight: 1 1000;
+}
+@font-face {
+    font-family: 'EB Garamond Italic';
+    src:
+        url('/fonts/EBGaramond-italic-subset.woff2') format('woff2'),
+        url('/fonts/EBGaramond-italic-subset.woff') format('woff'),
+        url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 1 1000;
+}
+
+@font-face {
+  font-family: 'Fira Code VF';
+  src: url('/fonts/FiraCode-VF.woff2') format('woff2-variations'),
+       url('/fonts/FiraCode-VF.woff') format('woff-variations'),
+       url('/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
 }
 
 /* Font-size set with: https://www.madebymike.com.au/writing/fluid-type-calc-examples/ */
