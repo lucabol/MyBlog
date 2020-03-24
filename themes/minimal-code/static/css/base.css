@@ -31,6 +31,9 @@ header {
 footer {
     grid-row: 4 / 5;
 }
+p {
+    font-weight: 410;
+}
 p + p {
     margin: 1rem 0;
 }
@@ -59,11 +62,11 @@ h3 {
 }
 h1, h2, h3, h4, h5 {
     font-family: "EB Garamond Italic", Georgia, serif;
+    font-weight: 500;
 }
 h2, h3, h4, h5 {
     font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio));
     font-style: italic;
-    font-weight: 450;
 }
 h1 {
     font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio) * var(--modular-ratio));
@@ -110,7 +113,8 @@ pre {
 }
 code {
     font-family: "Fira Code VF", "Lucida Sans TypeWriter", "Lucida Console", monospace;
-    font-size: 0.85rem;
+    font-weight: 400;
+    font-size: 0.80rem;
 }
 
 button {
@@ -137,7 +141,6 @@ button {
 .post-list {
     list-style-type: none;
     margin:0;
-    font-weight: 350;
 }
 .post-list > li {
     display:flex;
