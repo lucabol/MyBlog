@@ -38,9 +38,13 @@ p + p {
 ul, ol {
     margin: 0 1rem;
 }
-#to_top {
+#to_top, #logo {
     color: var(--accent-color);
 }
+#logo {
+    font-style: italic;
+}
+
 nav ul, nav ol {
     margin: 0rem 0 0.5rem;
 }

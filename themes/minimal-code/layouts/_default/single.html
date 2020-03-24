@@ -17,7 +17,9 @@
 <div id="tags">
   <header>
     <h1>Tags</h1>
+      {{ if (slice "tags") }}
     <h2>※</h2>
+    {{ end }}
   </header>
   {{ range $i := (slice "tags") }}
     {{ with ($.Param $i) }}
