@@ -169,6 +169,7 @@ button {
         url('/fonts/EBGaramond-subset.woff') format('woff'),
         url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
     font-weight: 1 1000;
+    font-display: swap;
 }
 @font-face {
     font-family: 'EB Garamond Italic';
@@ -177,6 +178,7 @@ button {
         url('/fonts/EBGaramond-italic-subset.woff') format('woff'),
         url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
     font-weight: 1 1000;
+    font-display: swap;
 }
 
 @font-face {
