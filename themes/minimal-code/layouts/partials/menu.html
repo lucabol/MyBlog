@@ -6,7 +6,7 @@
 <ul>
 {{ range .Site.Menus.main }}
   {{ $name := lower .Name }}
-  <li><a href="{{ .URL }}">~/{{ $name }}</a></li>
+  <li><a href="{{ .URL }}">{{ $name }}</a></li>
 {{end}}
 
 <!-- <a id="random-font">[Random]</a>

@@ -14,7 +14,11 @@
 {{ end }}
 
 {{ define "sideleft"}}
-  <header><h1>Tags</h1></header>
+<div id="tags">
+  <header>
+    <h1>Tags</h1>
+    <h2>※</h2>
+  </header>
   {{ range $i := (slice "tags") }}
     {{ with ($.Param $i) }}
     <nav>
@@ -26,4 +30,5 @@
     </nav>
     {{ end }}
   {{ end }}
+</div>
 {{ end }}

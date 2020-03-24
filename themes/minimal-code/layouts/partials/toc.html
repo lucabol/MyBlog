@@ -1,6 +1,7 @@
 {{ if and (gt .WordCount 400 ) .TableOfContents .Site.Params.toc}}
     <header>
         <h1>Table of contents</h1>
+        <h2>※</h2>
     </header>
     <!-- See: https://gist.github.com/skyzyx/a796d66f6a124f057f3374eff0b3f99a -->
     {{- $headers := findRE "<h[1-4].*?>(.|\n])+?</h[1-4]>" .Content -}}

@@ -22,7 +22,7 @@ outputs:
 
 menu:
   main:
-    - name: ~
+    - name: Home
       url: /
       weight: 1
     - name: Tags
