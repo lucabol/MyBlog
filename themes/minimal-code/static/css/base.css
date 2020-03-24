@@ -6,7 +6,7 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
 
 html {
     font-family: "EB Garamond", Georgia, serif;
-    font-size: 0.9375rem; /* 15px */
+    font-size: 1rem;
     line-height: 1.4;
     --default-color: #1c1c1c;
     --modular-ratio: 1.2;
@@ -152,11 +152,14 @@ button {
 .post-date {
     font-variant-numeric: tabular-nums;
     font-variant-caps: all-petite-caps;
+    font-size: 0.73rem;
+    padding: 0.27rem 0 0;
 }
 #blog_date {
     color: var(--accent-color);
     font-variant-numeric: tabular-nums;
     font-variant-caps: all-petite-caps;
+    font-size: 0.73rem;
 }
 #TOC h2,#tags h2 {
     display: none;
@@ -198,13 +201,10 @@ button {
 @media screen and (min-width: 20rem) { /* 320px */
   html {
     font-size: 1.15rem; /* fallback */
-    font-size: calc(0.9375rem + 0.5 * ((100vw - 20rem) / 60));
+    font-size: calc(1rem + 0.5 * ((100vw - 20rem) / 60));
   }
 }
-@media screen and (min-width: 45rem) { /* 600px often used*/
-    body {
-        grid-template-columns: 1.0fr 37.5rem 1.414fr;
-    }
+@media screen and (min-width: 35rem) {
     #to_nav, #primary_nav h1 {
         display: none;
     }
@@ -223,6 +223,9 @@ button {
 @media screen and (min-width: 80rem) { /* 1280px */
     html {
         font-size: 1.375rem;
+    }
+    body {
+        grid-template-columns: 1.0fr 37.5rem 1.414fr;
     }
     #sidebar-left {
         grid-column: 1 / 2;
