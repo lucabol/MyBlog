@@ -3,18 +3,19 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
     margin: 0;
     padding: 0;
 }
-
 html {
     font-family: "EB Garamond", Georgia, serif;
-    font-size: 1rem;
+    --min-font-size: 1rem;
+    --max-font-size: 1.25rem;
+
+    font-size: var(--min-font-size);
     line-height: 1.4;
+    font-weight: 410;
     --default-color: #1c1c1c;
     --modular-ratio: 1.2;
     --accent-color: rgb(153,0,0); 
-
     color: var(--default-color);
 }
-
 body {
     padding: 1rem;
     display: grid;
@@ -200,8 +201,8 @@ button {
 /* clamp doesn't seem to work on firefox yet, so no https://css-tricks.com/simplified-fluid-typography/ */
 @media screen and (min-width: 20rem) { /* 320px */
   html {
-    font-size: 1.15rem; /* fallback */
-    font-size: calc(1rem + 0.5 * ((100vw - 20rem) / 60));
+    /* formula is min-font-size + (max-font-size - min-font-size) * ((100vw - first-break) / (second-break - first-break)) */
+    font-size: calc(var(--min-font-size) + 0.25 * ((100vw - 20rem) / 60));
   }
 }
 @media screen and (min-width: 35rem) {
@@ -222,7 +223,7 @@ button {
 
 @media screen and (min-width: 80rem) { /* 1280px */
     html {
-        font-size: 1.375rem;
+        font-size: var(--max-font-size);
     }
     body {
         grid-template-columns: 1.0fr 37.5rem 1.414fr;
