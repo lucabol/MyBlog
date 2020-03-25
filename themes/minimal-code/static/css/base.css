@@ -4,17 +4,22 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
     padding: 0;
 }
 html {
-    font-family: "EB Garamond", Georgia, serif;
     --min-font-size: 1.125rem;
     --max-font-size: 1.375rem;
+    --default-color: #1c1c1c;
+    --modular-ratio: 1.2;
+    --accent-color: rgb(153,0,0); 
+    --font-text: "EB Garamond", Georgia, serif;
+    --font-code: "Fira Code VF", "Lucida Sans TypeWriter", "Lucida Console", monospace;
 
     font-size: var(--min-font-size);
     line-height: 1.4;
     font-weight: 410;
-    --default-color: #1c1c1c;
-    --modular-ratio: 1.2;
-    --accent-color: rgb(153,0,0); 
+    font-family: var(--font-text);
     color: var(--default-color);
+
+    text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures;
 }
 body {
     padding: 1rem;
@@ -22,6 +27,8 @@ body {
     grid-template-columns: 2% 96% 2%;
     grid-template-rows: auto auto auto auto;
     grid-gap: 0.1em;
+    /* background-image: linear-gradient(rgba(200, 50, 50, .25) 1px, transparent 1px);
+    background-size: 1px var(--line-height-rem); */
 }
 header, footer, main, nav, footer, #to_top, #sidebar-left, #sidebar-right, #title {
     grid-column: 2/3;
@@ -32,13 +39,19 @@ header {
 footer {
     grid-row: 4 / 5;
 }
-p {
-    font-weight: 410;
-}
 p + p {
     margin: 1rem 0;
 }
 
+main p:first-of-type::first-letter {
+    font-family: var(--font-text);
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 0.6;
+    color: var(--accent-color);
+    font-variant-ligatures: discretionary-ligatures historical-ligatures;
+    font-feature-settings: "swsh";
+}
 ul, ol {
     margin: 0 1rem;
 }
@@ -113,7 +126,7 @@ pre {
     overflow-x: auto;
 }
 code {
-    font-family: "Fira Code VF", "Lucida Sans TypeWriter", "Lucida Console", monospace;
+    font-family: var(--font-code);
     font-weight: 400;
     font-size: 0.80rem;
 }
@@ -158,6 +171,7 @@ button {
 }
 #blog_date {
     color: var(--accent-color);
+    font-weight: 500;
     font-variant-numeric: tabular-nums;
     font-variant-caps: all-petite-caps;
     font-size: 0.73rem;
@@ -275,4 +289,12 @@ button {
     }
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) { /* retina */
+}
+@media print {
+    * {
+        background: none !important;
+    }
+    #sidebar-left, #sidebar-right, #primary_nav, #to_top, #to_nav {
+        display: none !important;
+    }
 }
