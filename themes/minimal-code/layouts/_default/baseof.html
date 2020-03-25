@@ -7,6 +7,7 @@
     <header>
         {{ if .Params.date }}<span id="blog_date">{{ .Date.Format "2006/01/01" }}</span>
         {{ else }}<span id="logo">❧</span>{{ end }}
+        <span class="offline">~~ Offline ~~</span>
         <a id="to_nav" href="#primary_nav">Menu</a>
     <hr>
     <h1 id="title">
@@ -44,10 +45,10 @@
         {{ partial "footer.html" . }}
     </footer>
 
-    <!-- {{ partial "tracking-code.html"}}
+    {{ partial "tracking-code.html"}}
     {{ partial "sw-install.html"}}
     {{ partial "offline.html"}}
-    {{ partial "fonts.html"}} -->
+    {{ partial "fonts.html"}}
 
 </body>
 </html>

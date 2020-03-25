@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+{{ .Content }}
+
+{{ if not .Page.Params.nodisqus}}
+  <!-- {{ template "_internal/disqus.html" . }} -->
+  {{ partial "disqus.html" . }}
+{{ end }}
+
+{{ end }}
+
+{{ define "sideright"}}
+  {{ partial "toc.html" . }}
+{{ end }}
+
+{{ define "sideleft"}}
+<div id="tags">
+  <header>
+    <h1>Tags</h1>
+      {{ if (slice "tags") }}
+    <h2>※</h2>
+    {{ end }}
+  </header>
+  {{ range $i := (slice "tags") }}
+    {{ with ($.Param $i) }}
+    <nav>
+      <ul>
+        {{ range $k := . }}
+            <li><a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
