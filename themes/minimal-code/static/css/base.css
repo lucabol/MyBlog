@@ -24,7 +24,7 @@ html {
 body {
     padding: 1rem;
     display: grid;
-    grid-template-columns: 4% 92% 4%;
+    grid-template-columns: 3% 94% 3%;
     grid-template-rows: auto auto auto auto;
     grid-gap: 0.1em;
     /* background-image: linear-gradient(rgba(200, 50, 50, .25) 1px, transparent 1px);
