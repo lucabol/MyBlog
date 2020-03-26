@@ -4,18 +4,28 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
     padding: 0;
 }
 html {
-    --min-font-size: 1.125rem;
-    --max-font-size: 1.375rem;
+    --default-font-family-text: "EB Garamond", Georgia, serif;
+    --default-font-family-code: "Fira Code VF", "Lucida Sans TypeWriter", "Lucida Console", monospace;
+    --default-font-family-headers: "EB Garamond Italic", Georgia, serif;
+    --default-min-font-size: 1.125rem;
+    --default-max-font-size: 1.375rem;
     --default-color: #1c1c1c;
-    --modular-ratio: 1.2;
     --accent-color: rgb(153,0,0); 
-    --font-text: "EB Garamond", Georgia, serif;
-    --font-code: "Fira Code VF", "Lucida Sans TypeWriter", "Lucida Console", monospace;
+    --modular-ratio: 1.2;
+
+    --font-family-text: var(--default-font-family-text);
+    --font-family-code: var(--default-font-family-code);
+    --font-family-headers: var(--default-font-family-headers);
+    --font-family-dropcap: var(--font-family-headers);
+    --font-family-menu: var(--font-family-headers);
+
+    --min-font-size: var(--default-min-font-size);
+    --max-font-size: var(--default-max-font-size);
 
     font-size: var(--min-font-size);
     line-height: 1.4;
     font-weight: 410;
-    font-family: var(--font-text);
+    font-family: var(--font-family-text);
     color: var(--default-color);
 
     text-rendering: optimizeLegibility;
@@ -44,7 +54,7 @@ p + p {
 }
 
 main p:first-of-type::first-letter {
-    font-family: var(--font-text);
+    font-family: var(--font-family-headers);
     font-size: 2rem;
     font-style: italic;
     line-height: 0.6;
@@ -75,7 +85,8 @@ h3 {
     font-size: calc(1rem * var(--modular-ratio));
 }
 h1, h2, h3, h4, h5 {
-    font-family: "EB Garamond Italic", Georgia, serif;
+    font-family: var(--font-family-headers);
+    font-style: italic;
     font-weight: 500;
 }
 h2, h3, h4, h5 {
@@ -126,7 +137,7 @@ pre {
     overflow-x: auto;
 }
 code {
-    font-family: var(--font-code);
+    font-family: var(--font-family-code);
     font-weight: 400;
     font-size: 0.80rem;
 }
@@ -182,6 +193,40 @@ button {
 #primary_nav a {
     font-variant-caps: all-petite-caps;
 }
+.dropdown {
+    display:inline;
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 1em;
+    background-color: white;
+    opacity: 1.0;
+    z-index: 1;
+    min-width: 25ch;
+}
+.dropdown-content div {
+    padding: 0.1rem ;
+    margin: 0.1rem;
+}
+.dropdown-content div:hover {
+    text-decoration: underline;
+}
+.dropdown:hover .dropdown-content {
+    display:block;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+#random-font, #which-font {
+    display: none;
+}
+#random-font:hover  {
+    cursor: pointer;
+}
 
 @font-face {
     font-family: 'EB Garamond';
@@ -190,6 +235,7 @@ button {
         url('/fonts/EBGaramond-subset.woff') format('woff'),
         url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
     font-weight: 1 1000;
+    font-style: normal;
     font-display: swap;
 }
 @font-face {
@@ -199,6 +245,7 @@ button {
         url('/fonts/EBGaramond-italic-subset.woff') format('woff'),
         url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
     font-weight: 1 1000;
+    font-style: italic;
     font-display: swap;
 }
 
@@ -208,7 +255,6 @@ button {
        url('/fonts/FiraCode-VF.woff') format('woff-variations'),
        url('/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
   font-weight: 300 700;
-  font-style: normal;
 }
 
 .offline {
@@ -243,6 +289,12 @@ a.strike {
     #primary_nav li {
         display:inline;
         margin: 0 0.2em;
+    }
+    .dropdown-content {
+        bottom: auto;
+        top: auto;
+        left: auto;
+        right: 0;
     }
 }
 /* Font-size set with: https://www.madebymike.com.au/writing/fluid-type-calc-examples/ */

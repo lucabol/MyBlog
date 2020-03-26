@@ -5,6 +5,8 @@
         url('/fonts/EBGaramond-subset.woff') format('woff'),
         url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
     font-weight: 1 1000;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: 'EB Garamond Italic';
@@ -13,6 +15,8 @@
         url('/fonts/EBGaramond-italic-subset.woff') format('woff'),
         url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
     font-weight: 1 1000;
+    font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -21,5 +25,4 @@
        url('/fonts/FiraCode-VF.woff') format('woff-variations'),
        url('/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
   font-weight: 300 700;
-  font-style: normal;
 }
