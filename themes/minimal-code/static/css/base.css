@@ -53,6 +53,16 @@ p + p {
     margin: 1rem 0;
 }
 
+main a.first-link::first-letter {
+    font-family: var(--font-family-headers);
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-style: italic;
+    line-height: 0.6;
+    color: var(--accent-color);
+    font-variant-ligatures: discretionary-ligatures historical-ligatures;
+    font-feature-settings: "swsh";
+}
 main p:first-of-type::first-letter {
     font-family: var(--font-family-headers);
     font-size: 2rem;
@@ -65,7 +75,7 @@ main p:first-of-type::first-letter {
 ul, ol {
     margin: 0 1rem;
 }
-#to_top, #logo {
+#to_top {
     color: var(--accent-color);
 }
 #logo {
