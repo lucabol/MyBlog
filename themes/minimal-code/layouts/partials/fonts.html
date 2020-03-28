@@ -44,16 +44,14 @@
 
     const style = localStorage.getItem("Style") || defaultFont
 
-    if(style && style !== defaultFont) {
-        const xpath = "//div[text()='" + style + "']"
-        const styleEl = document
-            .evaluate(xpath, document, null, XPathResult.ANY_TYPE, null)
-            .iterateNext()
-        if(styleEl)
-            setStyle(styleEl);
-        else
-            localStorage.removeItem("Style")
-    }
+    const xpath = "//div[text()='" + style + "']"
+    const styleEl = document
+        .evaluate(xpath, document, null, XPathResult.ANY_TYPE, null)
+        .iterateNext()
+    if(styleEl)
+        setStyle(styleEl);
+    else
+        localStorage.removeItem("Style")
 
     const fontEl = document.querySelector(".dropdown-content")
     fontEl.addEventListener("click", e => {

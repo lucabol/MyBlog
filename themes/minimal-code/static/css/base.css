@@ -4,9 +4,9 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
     padding: 0;
 }
 html {
-    --default-font-family-text: "EB Garamond", Georgia, serif;
-    --default-font-family-code: "Fira Code VF", "Lucida Sans TypeWriter", "Lucida Console", monospace;
-    --default-font-family-headers: "EB Garamond Italic", Georgia, serif;
+    --default-font-family-text: Georgia, serif;
+    --default-font-family-code: "Lucida Sans TypeWriter", "Lucida Console", monospace;
+    --default-font-family-headers: Georgia, serif;
     --default-min-font-size: 1.125rem;
     --default-max-font-size: 1.375rem;
     --default-line-height: 1.4;
@@ -240,35 +240,6 @@ button {
 }
 #random-font:hover  {
     cursor: pointer;
-}
-
-@font-face {
-    font-family: 'EB Garamond';
-    src:
-        url('/fonts/EBGaramond-subset.woff2') format('woff2'),
-        url('/fonts/EBGaramond-subset.woff') format('woff'),
-        url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
-    font-weight: 1 1000;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'EB Garamond Italic';
-    src:
-        url('/fonts/EBGaramond-italic-subset.woff2') format('woff2'),
-        url('/fonts/EBGaramond-italic-subset.woff') format('woff'),
-        url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
-    font-weight: 1 1000;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-  font-family: 'Fira Code VF';
-  src: url('/fonts/FiraCode-VF.woff2') format('woff2-variations'),
-       url('/fonts/FiraCode-VF.woff') format('woff-variations'),
-       url('/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
-  font-weight: 300 700;
 }
 
 .offline {
