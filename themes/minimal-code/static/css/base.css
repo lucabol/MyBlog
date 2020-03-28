@@ -9,21 +9,25 @@ html {
     --default-font-family-headers: "EB Garamond Italic", Georgia, serif;
     --default-min-font-size: 1.125rem;
     --default-max-font-size: 1.375rem;
+    --default-line-height: 1.4;
     --default-color: #1c1c1c;
     --accent-color: rgb(153,0,0); 
-    --modular-ratio: 1.2;
+    --modular-ratio-s: 1.067; /* Minor second */
+    --modular-ratio-b: 1.2; /* Minor third */
+    --modular-ratio: var(--modular-ratio-s);
 
     --font-family-text: var(--default-font-family-text);
     --font-family-code: var(--default-font-family-code);
     --font-family-headers: var(--default-font-family-headers);
     --font-family-dropcap: var(--font-family-headers);
     --font-family-menu: var(--font-family-headers);
+    --line-height: var(--default-line-height);
 
     --min-font-size: var(--default-min-font-size);
     --max-font-size: var(--default-max-font-size);
 
     font-size: var(--min-font-size);
-    line-height: 1.4;
+    line-height: var(--line-height);
     font-weight: 410;
     font-family: var(--font-family-text);
     color: var(--default-color);
@@ -313,6 +317,7 @@ a.strike {
   html {
     /* formula is min-font-size + (max-font-size - min-font-size) * ((100vw - first-break) / (second-break - first-break)) */
     font-size: calc(var(--min-font-size) + 0.25 * ((100vw - 20rem) / 60));
+    --modular-ratio: var(--modular-ratio-b);
   }
 }
 
