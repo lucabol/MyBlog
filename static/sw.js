@@ -29,6 +29,7 @@ self.addEventListener('install', evt =>
   )
 );
 
+// https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#stale-while-revalidate
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.open(CURRENT_CACHE).then(function(cache) {
