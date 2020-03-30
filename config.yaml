@@ -16,9 +16,14 @@ relativeURLs: true
 taxonomies:
   tag: tags
 
+outputFormats:
+  css:
+    path: /css/
+    baseName: fonts
+
 # json is to enable search index build
 outputs:
-  home: [HTML, RSS, JSON]
+  home: [HTML, RSS, JSON, CSS]
 
 menu:
   main:
