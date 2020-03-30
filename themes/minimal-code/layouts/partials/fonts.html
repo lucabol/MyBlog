@@ -30,12 +30,10 @@
             fileref.setAttribute("rel", "stylesheet")
             fileref.setAttribute("type", "text/css")
             fileref.setAttribute("href", link)
-            // fileref.setAttribute("rel", "preload")
-            // fileref.setAttribute("href", link)
-            // fileref.setAttribute("as", "style")
             document.getElementsByTagName("head")[0].appendChild(fileref)
-            fileref.addEventListener("load", e => {
                 setProperties(header, text, code, minSize, maxSize, lheight)
+            fileref.addEventListener("load", e => {
+                // setProperties(header, text, code, minSize, maxSize, lheight)
             })
         } else {
                 setProperties(header, text, code, minSize, maxSize, lheight)
