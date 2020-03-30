@@ -39,7 +39,11 @@ const tryFetch = request =>
             cache.match(request)
             .then(response => response)
             .catch(errror => fetch(request)
-                                .then(toCacheAndReturn(request))
+                                .then(cache => {
+                                  if(request.method === 'GET')
+                                      cache.put(request, response.clone())
+                                  return response
+                                })
                                 .catch(fromCacheOrOffline(request))
             ))
     : fetch(request)
