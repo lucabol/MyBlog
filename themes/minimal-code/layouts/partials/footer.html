@@ -2,4 +2,3 @@
 <hr/>
 {{ . | markdownify }}
 {{ end }}
-{{ if .GitInfo }}<small class="gray"><em>Updated: {{ .Page.Lastmod }}, Version: {{ .GitInfo.AbbreviatedHash }}</em></small>{{ end }}
