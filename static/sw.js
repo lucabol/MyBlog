@@ -33,20 +33,7 @@ self.addEventListener('fetch', evt =>
     evt.respondWith(tryFetch(evt.request)))
 
 const tryFetch = request =>
-    request.url.endsWith(".woff") || request.url.endsWith(".woff2")
-    ? caches.open(CURRENT_CACHE)
-        .then(cache => 
-            cache.match(request)
-            .then(response => response)
-            .catch(errror => fetch(request)
-                                .then(cache => {
-                                  if(request.method === 'GET')
-                                      cache.put(request, response.clone())
-                                  return response
-                                })
-                                .catch(fromCacheOrOffline(request))
-            ))
-    : fetch(request)
+    fetch(request)
         .then(toCacheAndReturn(request))
         .catch(fromCacheOrOffline(request))
 
