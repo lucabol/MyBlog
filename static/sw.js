@@ -29,29 +29,17 @@ self.addEventListener('install', evt =>
   )
 );
 
-self.addEventListener('fetch', evt =>
-    evt.respondWith(tryFetch(evt.request)))
-
-const tryFetch = request =>
-    fetch(request)
-        .then(toCacheAndReturn(request))
-        .catch(fromCacheOrOffline(request))
-
-const toCacheAndReturn = request => response =>
-    caches
-        .open(CURRENT_CACHE)
-        .then(cache => {
-            if(request.method === 'GET')
-                cache.put(request, response.clone())
-            return response
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.open(CURRENT_CACHE).then(function(cache) {
+      return cache.match(event.request).then(function(response) {
+        var fetchPromise = fetch(event.request).then(function(networkResponse) {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
         })
-
-const fromCacheOrOffline = request => err =>
-    caches
-        .open(CURRENT_CACHE)
-        .then(cache => 
-            cache.match(request)
-                 .then(response => response || cache.match("/offline/"))
-                 .catch(error => cache.match("/offline/"))
-        )
+        return response || fetchPromise;
+      })
+    })
+  );
+});
 
