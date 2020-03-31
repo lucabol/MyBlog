@@ -2,7 +2,7 @@
     const children = document.querySelectorAll(".dropdown-content div")
     const allStyles = Array.from(children).map(c => c.innerText)
 
-    const defaultStyle = "Cardo"
+    const defaultStyle = "TimesNewRoman"
     const retrievedStyle = localStorage.getItem("Style")
     const style = allStyles.includes(retrievedStyle) ? retrievedStyle : defaultStyle
     document.documentElement.className = style;
