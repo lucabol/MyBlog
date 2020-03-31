@@ -100,12 +100,11 @@ h3 {
 }
 h1, h2, h3, h4, h5 {
     font-family: var(--font-family-headers);
-    font-style: italic;
-    font-weight: 500;
 }
 h2, h3, h4, h5 {
     font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio));
     font-style: italic;
+    font-weight: 500;
 }
 h1 {
     font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio) * var(--modular-ratio));
