@@ -6,7 +6,7 @@ const CURRENT_CACHE = `v${CACHE_VERSION}`;
 const cacheFiles = ['/', '/index.html', '/offline/', '/offline/index.html'];
 
 // these are the file type to cache with stale while revalidate
-const staleTypes = [/^font\//i]
+const staleTypes = ['.woff', 'woff2', 'ttf']
 
 // on activation we clean up the previously registered service workers
 self.addEventListener('activate', evt =>
@@ -33,34 +33,25 @@ self.addEventListener('install', evt =>
 );
 
 // https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#stale-while-revalidate
-self.addEventListener('fetch', function(event) {
-  if(event.request.method === "GET") {
-    event.respondWith(
-      caches.open(CURRENT_CACHE).then(function(cache) {
-        return cache.match(event.request).then(function(response) {
-          var fetchPromise = fetch(event.request).then(function(networkResponse) {
-            console.log(`cached: ${networkResponse.headers.get('content-type')}`)
-            // Just add to the cache the stale types
-            if(networkResponse.status < 400 && networkResponse.headers.has('content-type') && networkResponse.headers.get('content-type').match(staleTypes)) {
-              cache.put(event.request, networkResponse.clone());
-            }
-            return networkResponse;
-          })
-          return response || fetchPromise;
+self.addEventListener('fetch', event => {
+  if(event.request.method === 'GET' ) 
+    if(staleTypes.some(v => event.request.url.includes(v))) {
+      // For fonts returns it from cache and asynchronously download the latest one in case it changed
+      event.respondWith(caches.open(CURRENT_CACHE).then(cache => cache.match(event.request).then(response => {
+        const fetchPromise = fetch(event.request).then(networkResponse => {
+          if(networkResponse.status < 400) cache.put(event.request, networkResponse.clone())
+          return networkResponse
         })
-        .catch(function(networkResponse) {
-            console.log(`network: ${networkResponse.headers.get('content-type')}`)
-          return fetch(event.request).then(function(networkResponse) {
-            // Just add to the cache the stale types
-            if(networkResponse.status < 400 && networkResponse.headers.has('content-type') && networkResponse.headers.get('content-type').match(staleTypes)) {
-              cache.put(event.request, networkResponse.clone());
-            }
-            return networkResponse;
-          })
-
+        return response || fetchPromise
+      })))
+    } else {
+      // For all the rest return it from the network, cache it and, if network error from cache
+      event.respondWith(fetch(event.request).then(networkResponse => {
+        const clonedResponse = networkResponse.clone()
+        caches.open(CURRENT_CACHE).then(cache => {
+          cache.put(event.request, clonedResponse)
         })
-      })
-    );
-  }
-});
-
+        return networkResponse;
+      }).catch(e => caches.open(CURRENT_CACHE).then(cache => cache.match(event.request))))
+    }
+})
