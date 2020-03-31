@@ -5,8 +5,13 @@
     font-weight: normal;
 }
 @font-face {
-    font-family: profont-bold;
+    font-family: profont;
     src: url('/fonts/ProFontWindows-Bold.ttf');
     font-display: optional;
     font-weight: bold;
+}
+.Profont {
+    --font-family-headers: profont, serif;
+    --font-family-text: 'Georgia', 'CooperHewitt', serif;
+    --font-family-code: profont, monospace;
 }

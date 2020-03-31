@@ -1,8 +1,13 @@
 @font-face {
-    font-family: bahnschrift;
-    src:local('bahnschrift'),
+    font-family: Bahnschrift;
+    src:
         url('/fonts/subset-Bahnschrift.woff2') format('woff2'),
         url('/fonts/subset-Bahnschrift.woff') format('woff');
     font-display: optional;
     font-weight: 1 1000;
+}
+.Bahnschrift {
+    --font-family-headers: Bahnschrift, serif;
+    --font-family-text: Bahnschrift, serif;
+    --font-family-code: 'Fira Code VF', monospace;
 }

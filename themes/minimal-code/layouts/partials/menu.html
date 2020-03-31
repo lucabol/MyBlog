@@ -1,22 +1,22 @@
 <header>
   <h1>Menu</h1>
 </header>
-{{ $title := lower .Title }}
+{{- $title := lower .Title }}
 {{ $section := lower .Section }}
 <ul>
-{{ range .Site.Menus.main }}
-  {{ $name := lower .Name }}
+{{- range .Site.Menus.main }}
+  {{- $name := lower .Name }}
   <li><a href="{{ .URL }}">{{ $name }}</a></li>
-{{end}}
+{{- end }}
 
   <li class="dropdown">
     <a>theme</a>
       <div class="dropdown-content">
-        {{ range $i, $r := getCSV "," "static/fonts.csv" }}
-          {{ if ge $i 1 }}
-            <div data-link={{ index $r 1 }} data-header={{ index $r 2 }} data-text={{ index $r 3 }} data-code={{ index $r 4 }} data-minsize="{{ index $r 5 }}" data-maxsize="{{ index $r 6 }}" data-lineheight="{{ index $r 7 }}">{{ index $r 0 }}</div>
-          {{ end }}
-        {{ end }}
+        {{- range sort (readDir "/static/fonts/") }}
+            {{- if eq (path.Ext .Name) ".css" }}
+              <div>{{ index (split .Name ".") 0 }}</div>
+            {{- end }}
+        {{- end }}
       </div>
   </li>
 </ul>

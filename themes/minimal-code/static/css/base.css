@@ -4,9 +4,9 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
     padding: 0;
 }
 html {
-    --default-font-family-text: TimesNewRoman, "Times New Roman", Georgia, serif;
+    --default-font-family-text: TimesNewRoman, "Times New Roman", serif;
     --default-font-family-code: "Courier New", "Lucida Sans TypeWriter", "Lucida Console", monospace;
-    --default-font-family-headers: Georgia, serif;
+    --default-font-family-headers: TimesNewRoman, "Times New Roman", serif;
     --default-min-font-size: 1.125rem;
     --default-max-font-size: 1.375rem;
     --default-line-height: 1.4;

@@ -39,7 +39,7 @@ self.addEventListener('fetch', event => {
       // For fonts returns it from cache and asynchronously download the latest one in case it changed
       event.respondWith(caches.open(CURRENT_CACHE).then(cache => cache.match(event.request).then(response => {
         const fetchPromise = fetch(event.request).then(networkResponse => {
-          if(networkResponse.status < 400) cache.put(event.request, networkResponse.clone())
+          if(networkResponse.status < 400 && event.request.url.indexOf('http') === 0) cache.put(event.request, networkResponse.clone())
           return networkResponse
         })
         return response || fetchPromise
@@ -49,6 +49,9 @@ self.addEventListener('fetch', event => {
       event.respondWith(fetch(event.request).then(networkResponse => {
         const clonedResponse = networkResponse.clone()
         caches.open(CURRENT_CACHE).then(cache => {
+          if(!(event.request.url.indexOf('http') === 0)){
+            return;
+          }
           cache.put(event.request, clonedResponse)
         })
         return networkResponse;

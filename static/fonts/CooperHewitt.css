@@ -17,3 +17,8 @@
     font-weight: normal;
     font-style: italic;
 }
+.CooperHewitt {
+    --font-family-headers: 'CooperHewitt', serif;
+    --font-family-text: 'CooperHewitt', serif;
+    --font-family-code: 'Fira Code VF', monospace;
+}

@@ -8,7 +8,7 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'EB Garamond Italic';
+    font-family: 'EB Garamond';
     src:
         url('/fonts/EBGaramond-italic-subset.woff2') format('woff2'),
         url('/fonts/EBGaramond-italic-subset.woff') format('woff'),
@@ -23,4 +23,9 @@
        url('/fonts/FiraCode-VF.woff') format('woff-variations'),
        url('/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
     font-weight: 300 700;
+}
+.EBGaramond {
+    --font-family-headers: 'EB Garamond', serif;
+    --font-family-text: 'EB Garamond', 'CooperHewitt', serif;
+    --font-family-code: 'Fira Code VF', monospace;
 }
