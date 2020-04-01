@@ -1,6 +1,6 @@
 <script>
-    const children = document.querySelectorAll(".dropdown-content div")
-    const allStyles = Array.from(children).map(c => c.innerText)
+    const children = document.querySelectorAll(".font-name")
+    const allStyles = Array.from(children).map(c => c.innerHTML)
 
     const defaultStyle = "TimesNewRoman"
     const retrievedStyle = localStorage.getItem("Style")

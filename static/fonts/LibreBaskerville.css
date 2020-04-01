@@ -1,21 +1,21 @@
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'LibreBaskerville';
     src:
-        url('/fonts/Cardo104s.ttf') format('truetype');
+        url('/fonts/LibreBaskerville-Regular.ttf') format('truetype');
     font-weight: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'LibreBaskerville';
     src:
-        url('/fonts/Cardoi99.ttf') format('truetype');
+        url('/fonts/LibreBaskerville-Italic.ttf') format('truetype');
     font-style: italic;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'LibreBaskerville';
     src:
-        url('/fonts/Cardob101.ttf') format('truetype');
+        url('/fonts/LibreBaskerville-Bold.ttf') format('truetype');
     font-weight: bold;
     font-display: swap;
 }
@@ -29,8 +29,10 @@
     font-display: swap;
 }
 
-.Cardo {
-    --font-family-headers: 'Cardo', serif;
-    --font-family-text: 'Cardo', serif;
+.LibreBaskerville {
+    --font-family-headers: 'LibreBaskerville', serif;
+    --font-family-text: 'LibreBaskerville', serif;
     --font-family-code: 'Fira Code VF', monospace;
+    --min-font-size: 1.0625rem;
+    --max-font-size: 1.3125rem;
 }

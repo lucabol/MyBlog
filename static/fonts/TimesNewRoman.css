@@ -1,5 +1,5 @@
 .TimesNewRoman {
-    --font-family-headers: "Times New Roman", serif;
-    --font-family-text: "Times New Roman", serif;
-    --font-family-code: 'Lucida Sans TypeWriter', monospace;
+    --font-family-headers: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+    --font-family-text: var(--font-family-headers);
+    --font-family-code: Lucida Sans Typewriter, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
 }

@@ -1,25 +1,18 @@
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'Prata';
     src:
-        url('/fonts/Cardo104s.ttf') format('truetype');
-    font-weight: normal;
+        url('/fonts/Prata-Regular.ttf') format('truetype');
+    font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'Prata';
     src:
-        url('/fonts/Cardoi99.ttf') format('truetype');
+        url('/fonts/CrimsonPro-Italic-VF.ttf') format('truetype');
+    font-weight: 1 1000;
     font-style: italic;
     font-display: swap;
 }
-@font-face {
-    font-family: 'Cardo';
-    src:
-        url('/fonts/Cardob101.ttf') format('truetype');
-    font-weight: bold;
-    font-display: swap;
-}
-
 @font-face {
   font-family: 'Fira Code VF';
   src: url('/fonts/FiraCode-VF.woff2') format('woff2-variations'),
@@ -28,9 +21,8 @@
     font-weight: 300 700;
     font-display: swap;
 }
-
-.Cardo {
-    --font-family-headers: 'Cardo', serif;
-    --font-family-text: 'Cardo', serif;
+.Prata {
+    --font-family-headers: 'Prata', serif;
+    --font-family-text: 'Prata', 'CooperHewitt', serif;
     --font-family-code: 'Fira Code VF', monospace;
 }

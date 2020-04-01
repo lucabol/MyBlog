@@ -14,7 +14,7 @@
       <div class="dropdown-content">
         {{- range sort (readDir "/static/fonts/") }}
             {{- if eq (path.Ext .Name) ".css" }}
-              <div>{{ index (split .Name ".") 0 }}</div>
+              <div class="font-name">{{ index (split .Name ".") 0 }}</div>
             {{- end }}
         {{- end }}
       </div>

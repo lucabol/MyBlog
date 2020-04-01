@@ -5,6 +5,7 @@
         url('/fonts/subset-Bahnschrift.woff') format('woff');
     font-display: optional;
     font-weight: 1 1000;
+    font-display: swap;
 }
 .Bahnschrift {
     --font-family-headers: Bahnschrift, serif;

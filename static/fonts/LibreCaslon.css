@@ -1,24 +1,29 @@
 @font-face {
-    font-family: 'EB Garamond';
+    font-family: 'Libre Caslon';
     src:
-        url('/fonts/EBGaramond-subset.woff2') format('woff2'),
-        url('/fonts/EBGaramond-subset.woff') format('woff'),
-        url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
-    font-weight: 1 1000;
+        url('/fonts/LibreCaslonText-Roman-VF.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'EB Garamond';
+    font-family: 'Libre Caslon';
     src:
         url('/fonts/EBGaramond-italic-subset.woff2') format('woff2'),
         url('/fonts/EBGaramond-italic-subset.woff') format('woff'),
         url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
-    font-weight: 1 1000;
     font-style: italic;
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Libre Caslon';
+    src:
+        url('/fonts/LibreCaslonDisplay-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+}
 @font-face {
   font-family: 'Fira Code VF';
   src: url('/fonts/FiraCode-VF.woff2') format('woff2-variations'),
@@ -27,8 +32,8 @@
     font-weight: 300 700;
     font-display: swap;
 }
-.EBGaramond {
-    --font-family-headers: 'EB Garamond', serif;
-    --font-family-text: 'EB Garamond', 'CooperHewitt', serif;
+.LibreCaslon {
+    --font-family-headers: 'Libre Caslon', serif;
+    --font-family-text: 'Libre Caslon', serif;
     --font-family-code: 'Fira Code VF', monospace;
 }

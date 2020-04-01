@@ -1,22 +1,18 @@
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'GoudyStM';
     src:
-        url('/fonts/Cardo104s.ttf') format('truetype');
+        url('/fonts/GoudyStM-webfont.woff') format('woff'),
+        url('/fonts/GoudyStM-webfont.ttf') format('truetype');
     font-weight: normal;
+    font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'GoudyStM';
     src:
-        url('/fonts/Cardoi99.ttf') format('truetype');
+        url('/fonts/GoudyStM-Italic-webfont.woff') format('woff'),
+        url('/fonts/GoudyStM-Italic-webfont.ttf') format('truetype');
     font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Cardo';
-    src:
-        url('/fonts/Cardob101.ttf') format('truetype');
-    font-weight: bold;
     font-display: swap;
 }
 
@@ -28,9 +24,8 @@
     font-weight: 300 700;
     font-display: swap;
 }
-
-.Cardo {
-    --font-family-headers: 'Cardo', serif;
-    --font-family-text: 'Cardo', serif;
+.GoudyStM {
+    --font-family-headers: 'GoudyStM', serif;
+    --font-family-text: 'GoudyStM', serif;
     --font-family-code: 'Fira Code VF', monospace;
 }

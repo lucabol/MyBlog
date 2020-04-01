@@ -1,22 +1,17 @@
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'CrimsonPro';
     src:
-        url('/fonts/Cardo104s.ttf') format('truetype');
-    font-weight: normal;
+        url('/fonts/CrimsonPro-Roman-VF.ttf') format('truetype');
+    font-weight: 1 1000;
+    font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'CrimsonPro';
     src:
-        url('/fonts/Cardoi99.ttf') format('truetype');
+        url('/fonts/CrimsonPro-Italic-VF.ttf') format('truetype');
+    font-weight: 1 1000;
     font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Cardo';
-    src:
-        url('/fonts/Cardob101.ttf') format('truetype');
-    font-weight: bold;
     font-display: swap;
 }
 
@@ -28,9 +23,8 @@
     font-weight: 300 700;
     font-display: swap;
 }
-
-.Cardo {
-    --font-family-headers: 'Cardo', serif;
-    --font-family-text: 'Cardo', serif;
+.CrimsonPro {
+    --font-family-headers: 'CrimsonPro', serif;
+    --font-family-text: 'CrimsonPro', 'CooperHewitt', serif;
     --font-family-code: 'Fira Code VF', monospace;
 }

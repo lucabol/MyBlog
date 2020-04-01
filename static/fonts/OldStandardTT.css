@@ -1,21 +1,21 @@
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'OldStandardTT';
     src:
-        url('/fonts/Cardo104s.ttf') format('truetype');
+        url('/fonts/OldStandardTT-Regular.ttf') format('truetype');
     font-weight: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'OldStandardTT';
     src:
-        url('/fonts/Cardoi99.ttf') format('truetype');
+        url('/fonts/OldStandardTT-Italic.ttf') format('truetype');
     font-style: italic;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Cardo';
+    font-family: 'OldStandardTT';
     src:
-        url('/fonts/Cardob101.ttf') format('truetype');
+        url('/fonts/OldStandardTT-Bold.ttf') format('truetype');
     font-weight: bold;
     font-display: swap;
 }
@@ -29,8 +29,9 @@
     font-display: swap;
 }
 
-.Cardo {
-    --font-family-headers: 'Cardo', serif;
-    --font-family-text: 'Cardo', serif;
+.OldStandardTT {
+    --font-family-headers: 'OldStandardTT', serif;
+    --font-family-text: 'OldStandardTT', serif;
     --font-family-code: 'Fira Code VF', monospace;
+    --dropcap-weight: 600;
 }
