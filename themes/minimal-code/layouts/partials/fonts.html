@@ -1,6 +1,6 @@
 <script>
     const children = document.querySelectorAll(".font-name")
-    const allStyles = Array.from(children).map(c => c.innerHTML)
+    const allStyles = Array.from(children).map(c => c.dataset.classname)
 
     const defaultStyle = "TimesNewRoman"
     const retrievedStyle = localStorage.getItem("Style")
@@ -10,11 +10,12 @@
     const fontEl = document.querySelector(".dropdown-content")
     fontEl.addEventListener("click", e => {
         const el = e.target
-        const style = el.innerText
+        const style = el.dataset.classname
         document.documentElement.className = style;
         localStorage.setItem("Style", style)
     })
 
+/*
     const randElem = document.querySelector("#random-font")
     randElem.addEventListener("click", e => {
         const randomEl = array[Math.floor(Math.random() * array.length)]
@@ -31,4 +32,5 @@
         const which = document.querySelector("#which-font")
         which.innerHTML = "[Which]"
     })
+*/
 </script>

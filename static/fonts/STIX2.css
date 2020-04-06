@@ -1,0 +1,24 @@
+@font-face {
+    font-family: STIX2;
+    src: url('/fonts/STIX2Text-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: STIX2;
+    src: url('/fonts/STIX2Text-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-display: swap;
+}
+@font-face {
+    font-family: STIX2;
+    src: url('/fonts/STIX2Text-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: optional;
+}
+.STIX2 {
+    --font-family-headers: 'STIX2', serif;
+    --font-family-text: 'STIX2', serif;
+    --font-family-code: 'Fira Code VF', monospace;
+}

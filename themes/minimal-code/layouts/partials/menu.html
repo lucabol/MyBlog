@@ -12,9 +12,16 @@
   <li class="dropdown">
     <a>theme</a>
       <div class="dropdown-content">
+        {{- $styles := slice }}
         {{- range sort (readDir "/static/fonts/") }}
             {{- if eq (path.Ext .Name) ".css" }}
-              <div class="font-name">{{ index (split .Name ".") 0 }}</div>
+              {{- $descr := index (split (readFile (path.Join "/static/fonts" .Name)) "\n") 0 }}
+              {{- $className := index (split .Name ".") 0 }}
+              {{- if eq (substr $descr 0 2) "/*" }}
+                <div class="font-name" data-classname="{{ $className }}" >{{ substr $descr 3 -3 }}</div>
+              {{- else }}
+                <div class="font-name" data-classname={{ $className }}>{{ $className }}</div>
+              {{- end }}
             {{- end }}
         {{- end }}
       </div>
