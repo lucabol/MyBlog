@@ -13,16 +13,20 @@
     <a>theme</a>
       <div class="dropdown-content">
         {{- $styles := slice }}
-        {{- range sort (readDir "/static/fonts/") }}
+        {{- $d := "^" }}
+        {{- range readDir "/static/fonts/" }}
             {{- if eq (path.Ext .Name) ".css" }}
               {{- $descr := index (split (readFile (path.Join "/static/fonts" .Name)) "\n") 0 }}
               {{- $className := index (split .Name ".") 0 }}
               {{- if eq (substr $descr 0 2) "/*" }}
-                <div class="font-name" data-classname="{{ $className }}" >{{ substr $descr 3 -3 }}</div>
+                {{- $styles = $styles | append (print (substr $descr 3 -3) $d $className) }}
               {{- else }}
-                <div class="font-name" data-classname={{ $className }}>{{ $className }}</div>
+                {{- $styles = $styles | append (print $className $d $className) }}
               {{- end }}
             {{- end }}
+        {{- end }}
+        {{- range $st := (sort $styles) }}
+                <div class="font-name" data-classname="{{ index (split $st $d) 1 }}" >{{ index (split $st $d) 0 }}</div>
         {{- end }}
       </div>
   </li>
