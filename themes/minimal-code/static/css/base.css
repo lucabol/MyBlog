@@ -9,34 +9,177 @@ html {
     --font-family-title: var(--font-family-headers);
     --font-family-headers: var(--font-family-text);
     --font-family-dropcap: var(--font-family-headers);
+    --font-family-tags: var(--font-family-text);
+    --font-family-logo: var(--font-family-text);
 
+    /* https://us6.campaign-archive.com/?u=0019faab58713ad49bce9acc3&id=9bb186f72f */
+    /* breakpoint variables */
+    --bp-small: 25;
+    --bp-medium: 45;
+    --bp-large: 55;
+    --bp-xlarge: 65;
+
+    /* set px value sizes */
+    /* initial px value for text */
+    --rem-px: 16;
+
+    /* EDIT HERE to set px value sizes */
+    --p-size-s-px: 18;
+    --p-size-l-px: 22;
+    --h1-size-s-px: 24;
+    --h1-size-l-px: 32;
+    --h2-size-s-px: 20;
+    --h2-size-l-px: 28;
+
+    /* values to scale across breakpoint range */
+    --p-wdth-min: 90;
+    --p-wdth-max: 100;
+    --p-wght-min: 350;
+    --p-wght-max: 410;
+
+    /* default starting scale value */
+    --p-wdth: var(--p-wdth-min);
+    --p-wght: var(--p-wght-min);
+
+    /* calcs to create values for the formulas */
+    --h1-size-min: calc( var(--h1-size-s-px) / var(--rem-px) );
+    --h1-size-max: calc( var(--h1-size-l-px) / var(--rem-px) );
+    --h1-lh-min: 1.05;
+    --h1-lh-max: 1.1;
+    
+    /* values to scale across breakpoint range */
+    --h1-wdth-min: 75;
+    --h1-wdth-max: 85;
+    --h1-wght-min: 800;
+    --h1-wght-max: 225;
+
+    /* default starting scale value */
+    --h1-wdth: var(--h1-wdth-min);
+    --h1-wght: var(--h1-wght-min);
+
+    /* calcs to create values for the formulas */
+    --h2-size-min: calc( var(--h2-size-s-px) / var(--rem-px) );
+    --h2-size-max: calc( var(--h2-size-l-px) / var(--rem-px) );
+    --h2-lh-min: 1.05;
+    --h2-lh-max: 1.1;
+    
+    /* values to scale across breakpoint range */
+    --h2-wdth-min: 85;
+    --h2-wdth-max: 100;
+    --h2-wght-min: 450;
+    --h2-wght-max: 550;
+
+    /* default starting scale value */
+    --h2-wdth: var(--h2-wdth-min);
+    --h2-wght: var(--h2-wght-min);
     --min-font-size: 1.125rem;
     --max-font-size: 1.375rem;
-    --min-line-height: 1.3;
-    --max-line-height: 1.4;
+    --min-line-height: 1.2;
+    --max-line-height: 1.5;
 
+    /* calcs to create values for the formulas */
+    --p-size-min: calc( var(--p-size-s-px) / var(--rem-px) );
+    --p-size-max: calc( var(--p-size-l-px) / var(--rem-px) );
+    --p-lh-min: 1.3;
+    --p-lh-max: 1.6;
+  
     --color: #1c1c1c;
     --accent-color: rgb(153,0,0); 
 
-    --modular-ratio-s: 1.067; /* Minor second */
+        --modular-ratio-s: 1.067; /* Minor second */
     --modular-ratio-b: 1.2; /* Minor third */
     --modular-ratio: var(--modular-ratio-s);
 
-    --text-weight: 400;
-    --headers-weight: 500;
-    --title-weight: 800;
-    --dropcap-weight: var(--title-weight);
-    --code-weight: var(--text-weight);
 
     font-family: var(--font-family-text);
     font-size: var(--min-font-size);
     line-height: var(--min-line-height);
-    color: var(--color);
     font-weight: var(--text-weight);
+
+    color: var(--color);
 
     text-rendering: optimizeLegibility;
     font-variant-ligatures: common-ligatures;
+
+    font-size: calc( var(--p-size-min) * 1rem);
+    line-height: var(--p-lh-min); 
+    /* JS will scale the next two values dynamically */
+    font-stretch: calc( var(--p-wdth) * 1%);
+    font-weight: var(--p-wght);
 }
+@media screen and (min-width: 25em) {
+    html {
+        /* use formula to scale from low value to high between breakpoints */
+        line-height: calc(( var(--p-lh-min) * 1em ) + ( var(--p-lh-max) - var(--p-lh-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+        font-size: calc(( var(--p-size-min) * 1em ) + ( var(--p-size-max) - var(--p-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    }
+    }
+    @media (min-width: 65em) {
+    html {
+        /* set high end values to cap scale for largest screens */
+        font-size: calc( var(--p-size-max) * 1em);
+        font-stretch: calc( var(--p-wdth-max) * 1%);
+        font-weight: var(--p-wght-max);
+        line-height: var(--p-lh-max);
+    }
+}
+h2, h3, h4, h5 {
+    font-family: var(--font-family-headers);
+    font-style: italic;
+
+    /* set low-end scale values for smallest screens */
+    font-size: calc( var(--h2-size-min) * 1rem);
+    line-height: var(--h2-lh-min); 
+    /* JS will scale the next two values dynamically */
+    font-stretch: calc( var(--h2-wdth) * 1%);
+    font-weight: var(--h2-wght);
+
+    margin: 1.0rem 0 0.5rem;
+}
+@media screen and (min-width: 25em) {
+    h2, h3, h4, h5  {
+        /* use formula to scale from low value to high between breakpoints */
+        line-height: calc(( var(--h2-lh-min) * 1em ) + ( var(--h2-lh-max) - var(--h2-lh-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+        font-size: calc(( var(--h2-size-min) * 1em ) + ( var(--h2-size-max) - var(--h2-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) ))); 
+    } 
+    }
+    @media screen and (min-width: 65em) {
+    h2, h3, h4, h5  {
+        /* set high end values to cap scale for largest screens */
+        font-size: calc( var(--h2-size-max) * 1em);
+        font-stretch: calc( var(--h2-wdth-max) * 1%);
+        font-weight: var(--h2-wght-max);
+        line-height: var(--h2-lh-max);
+    } 
+}
+
+h1 {
+    font-family: var(--font-family-title);
+
+    /* set low-end scale values for smallest screens */
+    font-size: calc( var(--h1-size-min) * 1rem);
+    line-height: var(--h1-lh-min); 
+    /* JS will scale the next two values dynamically */
+    font-stretch: calc( var(--h1-wdth) * 1%);
+    font-weight: var(--h1-wght);
+}
+@media screen and (min-width: 25em) {
+    h1 {
+        /* use formula to scale from low value to high between breakpoints */
+        line-height: calc(( var(--h1-lh-min) * 1em ) + ( var(--h1-lh-max) - var(--h1-lh-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+        font-size: calc(( var(--h1-size-min) * 1em ) + ( var(--h1-size-max) - var(--h1-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) ))); 
+    } 
+}
+@media screen and (min-width: 65em) {
+    h1 {
+        /* set high end values to cap scale for largest screens */
+        font-size: calc( var(--h1-size-max) * 1em);
+        font-stretch: calc( var(--h1-wdth-max) * 1%);
+        font-weight: var(--h1-wght-max); 
+        line-height: var(--h1-lh-max); 
+    }
+}
+
 body {
     padding: 1rem;
     display: grid;
@@ -60,7 +203,7 @@ p + p {
 }
 
 main a.first-link::first-letter {
-    font-family: var(--font-family-headers);
+    font-family: var(--font-family-dropcap);
     font-size: 1.5rem;
     font-weight: var(--dropcap-weight);
     font-style: italic;
@@ -70,7 +213,7 @@ main a.first-link::first-letter {
     font-feature-settings: "swsh";
 }
 main p:first-of-type::first-letter {
-    font-family: var(--font-family-headers);
+    font-family: var(--font-family-dropcap);
     font-size: 3rem;
     font-weight: var(--dropcap-weight);
     font-style: italic;
@@ -89,7 +232,7 @@ ul, ol {
     color: var(--accent-color);
 }
 #logo {
-    font-style: italic;
+    font-family: var(--font-family-logo);
 }
 
 nav ul, nav ol {
@@ -100,21 +243,6 @@ nav li {
 }
 nav li a {
     margin: 0;
-}
-h3 {
-    font-size: calc(1rem * var(--modular-ratio));
-}
-h2, h3, h4, h5 {
-    font-family: var(--font-family-headers);
-    font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio));
-    font-style: italic;
-    font-weight: var(--headers-weight);
-}
-h1 {
-    font-family: var(--font-family-title);
-    font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio) * var(--modular-ratio));
-    font-weight: var(--title-weight);
-    line-height: 1.0;
 }
 hr {
     margin: 0.5rem 0;
@@ -127,12 +255,7 @@ a, a:visited {
 a:hover {
     text-decoration: underline;
 }
-h2, h3, h4, h5 {
-    line-height: 1.0;
-    margin: 1.0rem 0 0.5rem;
-}
 nav h1, aside h1 {
-    font-size: calc(1rem * var(--modular-ratio));
     margin: 1.0rem 0 0.2rem;
 }
 main a:link {
@@ -156,7 +279,6 @@ pre {
 }
 code {
     font-family: var(--font-family-code);
-    font-weight: var(--code-weight);
     font-size: 0.80rem;
 }
 
@@ -174,7 +296,7 @@ button {
 }
 #to_nav {
     float:right;
-    font-variant-caps: all-petite-caps;
+    font-variant-caps: all-small-caps;
 }
 
 #disqus-container {
@@ -182,8 +304,8 @@ button {
 }
 
 .post-list {
-    list-style-type: none;
     margin:0;
+    list-style-type:upper-latin;
 }
 .post-list > li {
     display:flex;
@@ -194,19 +316,17 @@ button {
 }
 .post-date {
     font-variant-numeric: tabular-nums;
-    font-variant-caps: all-petite-caps;
 }
 #blog_date {
     color: var(--color);
-    font-weight: var(--headers-weight);
     font-variant-numeric: tabular-nums;
-    font-variant-caps: all-petite-caps;
+    font-variant-caps: all-small-caps;
 }
 #TOC h2,#tags h2 {
     display: none;
 }
 #primary_nav a {
-    font-variant-caps: all-petite-caps;
+    font-variant-caps: all-small-caps;
 }
 .dropdown {
     display:inline;
@@ -220,7 +340,7 @@ button {
     background-color: white;
     opacity: 1.0;
     z-index: 1;
-    min-width: 25ch;
+    min-width: 30ch;
     visibility: hidden;
     transition: 0.2s 1s;
 }
@@ -285,21 +405,8 @@ a.strike {
         right: 0;
     }
 }
-/* Font-size set with: https://www.madebymike.com.au/writing/fluid-type-calc-examples/ */
-/* clamp doesn't seem to work on firefox yet, so no https://css-tricks.com/simplified-fluid-typography/ */
-@media screen and (min-width: 20em) { /* 320px */
-  html {
-    /* formula is min-font-size + (max-font-size - min-font-size) * ((100vw - first-break) / (second-break - first-break)) */
-    font-size: calc(var(--min-font-size) + 0.25 * ((100vw - 20rem) / 60));
-    --modular-ratio: var(--modular-ratio-b);
-  }
-}
 
 @media screen and (min-width: 80em) { /* 1280px */
-    html {
-        font-size: var(--max-font-size);
-        --line-height: var(--max-line-height)
-    }
     #sidebar-left {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
@@ -310,9 +417,12 @@ a.strike {
     }
     #TOC h1, #tags h1 {
         display: none;
-  }
+    }
+    #TOC, #tags {
+        font-family: var(--font-family-tags)
+    }
     #TOC {
-        font-variant-caps: all-petite-caps;
+        font-variant-caps: all-small-caps;
         border-left: 1px dotted var(--accent-color);
         position: sticky;
         text-align: left;
@@ -322,7 +432,7 @@ a.strike {
         line-height: 1rem;
     }
     #tags {
-        font-variant-caps: all-petite-caps;
+        font-variant-caps: all-small-caps;
         border-right: 1px dotted var(--accent-color);
         position: sticky;
         text-align: right;
@@ -333,16 +443,6 @@ a.strike {
     }
     #tags h2, #TOC h2 {
         display: block;
-    }
-}
-@media screen and (min-width: 120em) { /* 1920px */
-    html {
-        font-size: 1.5rem;
-    }
-}
-@media screen and (min-width: 160em) { /* 2560px */
-    html {
-        font-size: 1.7rem;
     }
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) { /* retina */

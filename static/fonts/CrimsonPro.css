@@ -1,3 +1,4 @@
+/* 1. Se Garalde: Crimson Pro */
 @font-face {
     font-family: 'CrimsonPro';
     src:
@@ -27,4 +28,5 @@
     --font-family-headers: 'CrimsonPro', serif;
     --font-family-text: 'CrimsonPro', 'CooperHewitt', serif;
     --font-family-code: 'Fira Code VF', monospace;
+    --text-weight: 390;
 }
