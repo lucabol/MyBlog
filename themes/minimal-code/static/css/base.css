@@ -3,7 +3,7 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
     margin: 0;
     padding: 0;
 }
-html {
+body {
     --font-family-text: TimesNewRoman, "Times New Roman", serif;
     --font-family-code: "Courier New", "Lucida Sans TypeWriter", "Lucida Console", monospace;
     --font-family-title: var(--font-family-headers);
@@ -27,9 +27,9 @@ html {
     --p-size-s-px: 18;
     --p-size-l-px: 22;
     --h1-size-s-px: 24;
-    --h1-size-l-px: 32;
+    --h1-size-l-px: 42;
     --h2-size-s-px: 20;
-    --h2-size-l-px: 28;
+    --h2-size-l-px: 34;
 
     /* values to scale across breakpoint range */
     --p-wdth-min: 90;
@@ -72,14 +72,6 @@ html {
     --h2-wght-min: 500;
     --h2-wght-max: 400;
 
-    /* default starting scale value */
-    --h2-wdth: var(--h2-wdth-min);
-    --h2-wght: var(--h2-wght-min);
-    --min-font-size: 1.125rem;
-    --max-font-size: 1.375rem;
-    --min-line-height: 1.2;
-    --max-line-height: 1.5;
-
     /* calcs to create values for the formulas */
     --p-size-min: calc( var(--p-size-s-px) / var(--rem-px) );
     --p-size-max: calc( var(--p-size-l-px) / var(--rem-px) );
@@ -89,21 +81,14 @@ html {
     --color: #1c1c1c;
     --accent-color: rgb(153,0,0); 
 
-        --modular-ratio-s: 1.067; /* Minor second */
-    --modular-ratio-b: 1.2; /* Minor third */
-    --modular-ratio: var(--modular-ratio-s);
-
-
     font-family: var(--font-family-text);
-    font-size: var(--min-font-size);
-    line-height: var(--min-line-height);
-    font-weight: var(--text-weight);
-
     color: var(--color);
 
     text-rendering: optimizeLegibility;
     font-variant-ligatures: common-ligatures;
 
+}
+body {
     font-size: calc( var(--p-size-min) * 1rem);
     line-height: var(--p-lh-min); 
     /* JS will scale the next two values dynamically */
@@ -111,14 +96,14 @@ html {
     font-weight: var(--p-wght);
 }
 @media screen and (min-width: 25em) {
-    html {
+    body {
         /* use formula to scale from low value to high between breakpoints */
         line-height: calc(( var(--p-lh-min) * 1em ) + ( var(--p-lh-max) - var(--p-lh-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
         font-size: calc(( var(--p-size-min) * 1em ) + ( var(--p-size-max) - var(--p-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
     }
     }
     @media (min-width: 65em) {
-    html {
+    body {
         /* set high end values to cap scale for largest screens */
         font-size: calc( var(--p-size-max) * 1em);
         font-stretch: calc( var(--p-wdth-max) * 1%);
@@ -149,7 +134,7 @@ h2, h3, h4, h5 {
     @media screen and (min-width: 65em) {
     h2, h3, h4, h5  {
         /* set high end values to cap scale for largest screens */
-        font-size: calc( var(--h2-size-max) * 1em);
+        font-size: calc( var(--h2-size-max) * 1rem);
         font-stretch: calc( var(--h2-wdth-max) * 1%);
         font-weight: var(--h2-wght-max);
         line-height: var(--h2-lh-max);
@@ -176,7 +161,7 @@ h1 {
 @media screen and (min-width: 65em) {
     h1 {
         /* set high end values to cap scale for largest screens */
-        font-size: calc( var(--h1-size-max) * 1em);
+        font-size: calc( var(--h1-size-max) * 1rem);
         font-stretch: calc( var(--h1-wdth-max) * 1%);
         font-weight: var(--h1-wght-max); 
         line-height: var(--h1-lh-max); 
@@ -207,30 +192,22 @@ p + p {
 
 main a.first-link::first-letter {
     font-family: var(--font-family-dropcap);
-    font-size: 1.5em;
-    font-weight: var(--dropcap-weight);
+    font-size: 1.0em;
     font-style: italic;
     line-height: 0.6;
-    color: var(--accent-color);
     font-variant-ligatures: discretionary-ligatures historical-ligatures;
     font-feature-settings: "swsh";
 }
 main p:first-of-type::first-letter {
     font-family: var(--font-family-dropcap);
-    font-size: 3em;
-    font-weight: var(--dropcap-weight);
+    font-size: 1.0em;
     font-style: italic;
-    line-height: 0.8;
-    float: left;
-    padding-right: 0.15em;
-    margin-top: 0.7rem;
-    color: var(--accent-color);
+    padding-right: 0.05em;
     font-variant-ligatures: discretionary-ligatures historical-ligatures;
     font-feature-settings: "swsh";
 }
 main p:first-of-type::first-line {
     font-style: italic;
-    font-weight: var(--dropcap-weight);
 }
 ul, ol {
     margin: 0 1rem;
@@ -434,7 +411,7 @@ a.strike {
         display: none;
     }
     #TOC, #tags {
-        font-family: var(--font-family-tags)
+        font-family: var(--font-family-tags);
     }
     #TOC {
         font-variant-caps: all-small-caps;
@@ -458,6 +435,7 @@ a.strike {
     }
     #tags h2, #TOC h2 {
         display: block;
+        margin-bottom: 1rem;
     }
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) { /* retina */

@@ -5,13 +5,13 @@
     const defaultStyle = "TimesNewRoman"
     const retrievedStyle = localStorage.getItem("Style")
     const style = allStyles.includes(retrievedStyle) ? retrievedStyle : defaultStyle
-    document.documentElement.className = style;
+    document.body.className = style;
 
     const fontEl = document.querySelector(".dropdown-content")
     fontEl.addEventListener("click", e => {
         const el = e.target
         const style = el.dataset.classname
-        document.documentElement.className = style;
+        document.body.className = style;
         localStorage.setItem("Style", style)
     })
 
