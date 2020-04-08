@@ -1,7 +1,7 @@
 /* 5. Se Didone: Computer Modern */
 @font-face {
     font-family: CM;
-    src: url('/fonts/ComputerModern/cmr12.ttf') format('truetype');
+    src: url('/fonts/ComputerModern/cmr8.ttf') format('truetype');
     font-weight: normal;
     font-display: swap;
 }
@@ -31,12 +31,25 @@
     font-display: swap;
 }
 @font-face {
-    font-family: "Euler Initials";
-    src: url('/fonts/ComputerModern/eusm10.ttf') format('truetype');
+    font-family: CM;
+    src: local('Times New Roman');
+    unicode-range: U+00B0, U+00B6;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: CM;
+    src: local('Times New Roman');
+    unicode-range: U+00B0, U+00B6;
+    font-style: italic;
     font-display: swap;
 }
 .CM {
     --font-family-headers: 'CM', serif;
     --font-family-text: 'CM', serif;
     --font-family-code: 'CM TypeWriter', monospace;
+    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
+    --p-wght-min: 390;
+    --p-wght-max: 450;
+    --code-size: 1.0rem;
 }

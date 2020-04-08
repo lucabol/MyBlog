@@ -32,4 +32,8 @@
     --font-family-headers: 'EB Garamond', serif;
     --font-family-text: 'EB Garamond', 'CooperHewitt', serif;
     --font-family-code: 'Fira Code VF', monospace;
+    --p-size-s-px: 19;
+    --p-size-l-px: 23;
+    --p-wght-min: 360;
+    --p-wght-max: 410;
 }

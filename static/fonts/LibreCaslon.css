@@ -3,7 +3,7 @@
     font-family: 'Libre Caslon';
     src:
         url('/fonts/LibreCaslonText-Roman-VF.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 400 700;
     font-style: normal;
     font-display: swap;
 }
@@ -13,12 +13,13 @@
         url('/fonts/EBGaramond-italic-subset.woff2') format('woff2'),
         url('/fonts/EBGaramond-italic-subset.woff') format('woff'),
         url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 1 1000;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Libre Caslon';
+    font-family: 'Libre Caslon 1';
     src:
         url('/fonts/LibreCaslonDisplay-Regular.ttf') format('truetype');
     font-style: normal;
@@ -37,4 +38,6 @@
     --font-family-headers: 'Libre Caslon', serif;
     --font-family-text: 'Libre Caslon', serif;
     --font-family-code: 'Fira Code VF', monospace;
+    --p-wght-min: 400;
+    --p-wght-max: 400;
 }

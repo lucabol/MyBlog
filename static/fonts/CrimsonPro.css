@@ -26,7 +26,11 @@
 }
 .CrimsonPro {
     --font-family-headers: 'CrimsonPro', serif;
+    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
     --font-family-text: 'CrimsonPro', 'CooperHewitt', serif;
     --font-family-code: 'Fira Code VF', monospace;
-    --text-weight: 390;
+    --p-size-s-px: 19;
+    --p-size-l-px: 23;
+    --p-wght-min: 330;
+    --p-wght-max: 390;
 }

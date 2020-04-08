@@ -1,0 +1,12 @@
+/* 4. Se Transitional: Lucida Bright */
+.Lucida {
+    --font-family-headers: "Lucida Bright", Georgia, serif;
+    --font-family-text: var(--font-family-headers);
+    --font-family-code: Lucida Sans Typewriter, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
+    --p-size-s-px: 16;
+    --p-size-l-px: 20;
+    --p-wght-min: 300;
+    --p-wght-max: 400;
+    --code-size: 1.0rem;
+}

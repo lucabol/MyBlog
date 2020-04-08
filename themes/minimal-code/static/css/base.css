@@ -50,12 +50,15 @@ html {
     /* values to scale across breakpoint range */
     --h1-wdth-min: 75;
     --h1-wdth-max: 85;
-    --h1-wght-min: 800;
-    --h1-wght-max: 225;
+    --h1-wght-min: 900;
+    --h1-wght-max: 700;
 
     /* default starting scale value */
     --h1-wdth: var(--h1-wdth-min);
     --h1-wght: var(--h1-wght-min);
+
+    --dropcap-weight: var(--h1-wght);
+    --code-size: 0.8rem;
 
     /* calcs to create values for the formulas */
     --h2-size-min: calc( var(--h2-size-s-px) / var(--rem-px) );
@@ -66,8 +69,8 @@ html {
     /* values to scale across breakpoint range */
     --h2-wdth-min: 85;
     --h2-wdth-max: 100;
-    --h2-wght-min: 450;
-    --h2-wght-max: 550;
+    --h2-wght-min: 500;
+    --h2-wght-max: 400;
 
     /* default starting scale value */
     --h2-wdth: var(--h2-wdth-min);
@@ -204,7 +207,7 @@ p + p {
 
 main a.first-link::first-letter {
     font-family: var(--font-family-dropcap);
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: var(--dropcap-weight);
     font-style: italic;
     line-height: 0.6;
@@ -214,16 +217,20 @@ main a.first-link::first-letter {
 }
 main p:first-of-type::first-letter {
     font-family: var(--font-family-dropcap);
-    font-size: 3rem;
+    font-size: 3em;
     font-weight: var(--dropcap-weight);
     font-style: italic;
     line-height: 0.8;
     float: left;
     padding-right: 0.15em;
-    margin-top: 0.1rem;
+    margin-top: 0.7rem;
     color: var(--accent-color);
     font-variant-ligatures: discretionary-ligatures historical-ligatures;
     font-feature-settings: "swsh";
+}
+main p:first-of-type::first-line {
+    font-style: italic;
+    font-weight: var(--dropcap-weight);
 }
 ul, ol {
     margin: 0 1rem;
@@ -279,7 +286,7 @@ pre {
 }
 code {
     font-family: var(--font-family-code);
-    font-size: 0.80rem;
+    font-size: var(--code-size);
 }
 
 button {
@@ -358,6 +365,14 @@ button {
     visibility: visible;
     transition-delay: 0s;
 }
+
+.visibleMenu {
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    visibility: visible;
+    transition-delay: 0s;
+}
 #random-font, #which-font {
     display: none;
 }
@@ -383,7 +398,7 @@ a.strike {
 
 @media screen and (min-width: 35em) {
     body {
-        grid-template-columns: 1.0fr 35em 1.414fr;
+        grid-template-columns: 1.0fr 70ch 1.414fr;
     }
     #to_nav, #primary_nav h1 {
         display: none;
