@@ -1,6 +1,42 @@
 /* 4. Se Transitional: Lucida Bright */
+@font-face {
+    font-family: LucidaBr;
+    src:
+        local('Lucida Bright'),
+        url('/fonts/lbrite.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: LucidaBr;
+    src:
+        local('Lucida Bright'),
+        url('/fonts/lbritei.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: LucidaBr;
+    src:
+        local('Lucida Bright'),
+        url('/fonts/lbritedi.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: LucidaBr;
+    src:
+        local('Lucida Bright'),
+        url('/fonts/lbrited.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
 .Lucida {
-    --font-family-headers: "Lucida Bright", Georgia, serif;
+    --font-family-headers: LucidaBr, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, Georgia, serif;
     --font-family-text: var(--font-family-headers);
     --font-family-code: Lucida Sans Typewriter, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
