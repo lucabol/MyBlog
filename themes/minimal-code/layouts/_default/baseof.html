@@ -8,6 +8,7 @@
         {{ if .Params.date }}<span id="blog_date">{{ .Date.Format "2006/01/01" }}</span>
         {{ else }}<span id="logo">❧</span>{{ end }}
         <span class="offline">~~ Offline ~~</span>
+        {{- partial "theme.html" }}
         <a id="to_nav" href="#primary_nav">Menu</a>
     <hr>
     <h1 id="title">
