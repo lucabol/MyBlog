@@ -58,7 +58,6 @@ body {
     --h1-wght: var(--h1-wght-min);
 
     --dropcap-weight: var(--h1-wght);
-    --code-size: 0.8rem;
 
     /* calcs to create values for the formulas */
     --h2-size-min: calc( var(--h2-size-s-px) / var(--rem-px) );
@@ -87,9 +86,12 @@ body {
     text-rendering: optimizeLegibility;
     font-variant-ligatures: common-ligatures;
 
-}
-body {
-    font-size: calc( var(--p-size-min) * 1rem);
+    --p-size: calc( var(--p-size-min) * 1rem);
+    --code-factor: 0.8;
+    --code-weight: 400;
+
+    font-size: var(--p-size); 
+
     line-height: var(--p-lh-min); 
     /* JS will scale the next two values dynamically */
     font-stretch: calc( var(--p-wdth) * 1%);
@@ -99,13 +101,14 @@ body {
     body {
         /* use formula to scale from low value to high between breakpoints */
         line-height: calc(( var(--p-lh-min) * 1em ) + ( var(--p-lh-max) - var(--p-lh-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
-        font-size: calc(( var(--p-size-min) * 1em ) + ( var(--p-size-max) - var(--p-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+        --p-size: calc(( var(--p-size-min) * 1em ) + ( var(--p-size-max) - var(--p-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
     }
     }
     @media (min-width: 65em) {
     body {
         /* set high end values to cap scale for largest screens */
-        font-size: calc( var(--p-size-max) * 1em);
+        --p-size: calc( var(--p-size-max) * 1rem);
+
         font-stretch: calc( var(--p-wdth-max) * 1%);
         font-weight: var(--p-wght-max);
         line-height: var(--p-lh-max);
@@ -263,7 +266,8 @@ pre {
 }
 code {
     font-family: var(--font-family-code);
-    font-size: var(--code-size);
+    font-size: calc(var(--p-size) * var(--code-factor));
+    font-weight: var(--code-weight);
 }
 
 button {
@@ -315,7 +319,7 @@ button {
 .dropdown {
     font-variant-caps: all-small-caps;
     position: absolute;
-    margin: 0 0 0 0.3rem;
+    margin: 0 0 0 0.5rem;
 }
 .dropdown-content {
     cursor: pointer;

@@ -5,7 +5,7 @@
     </head>
 <body>
     <header>
-        {{ if .Params.date }}<span id="blog_date">{{ .Date.Format "2006/01/01" }}</span>
+        {{ if .Params.date }}<span id="blog_date">@ {{ .Date.Format "2006/01/01" }}</span>
         {{ else }}<span id="logo">❧</span>{{ end }}
         <span class="offline">~~ Offline ~~</span>
         {{- partial "theme.html" }}

@@ -3,4 +3,5 @@
     --font-family-headers: Georgia, serif;
     --font-family-text: Georgia, serif;
     --font-family-code: Lucida Sans Typewriter, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --code-factor: 1;
 }
