@@ -4,13 +4,13 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
     padding: 0;
 }
 body {
-    --font-family-text: TimesNewRoman, "Times New Roman", serif;
-    --font-family-code: "Courier New", "LucidaTy", "Lucida Console", monospace;
-    --font-family-title: var(--font-family-headers);
+    --font-family-text: LucidaBr, TimesNewRoman, "Times New Roman", serif;
+    --font-family-code: LucidaTy, "Courier New", "LucidaTy", "Lucida Console", monospace;
     --font-family-headers: var(--font-family-text);
-    --font-family-dropcap: var(--font-family-headers);
+    --font-family-title: var(--font-family-headers);
+    --font-family-dropcap: LucidaCa, TimesNewRoman, "Times New Roman", serif;
     --font-family-tags: var(--font-family-text);
-    --font-family-logo: var(--font-family-text);
+    --font-family-logo: var(--font-family-dropcap);
 
     /* https://us6.campaign-archive.com/?u=0019faab58713ad49bce9acc3&id=9bb186f72f */
     /* breakpoint variables */
