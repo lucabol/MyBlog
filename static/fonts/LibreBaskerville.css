@@ -26,7 +26,7 @@
     --font-family-text: 'LibreBaskerville', serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
-    --p-lh-min: 1.4;
+    --p-lh-min: 1.5;
     --p-lh-max: 1.7;
     --p-size-s-px: 15;
     --p-size-l-px: 19;
@@ -37,4 +37,6 @@
     --p-wght-min: 300;
     --p-wght-max: 400;
     --code-factor: 1;
+    --p-lh-min: 1.4;
+    --p-lh-max: 1.7;
 }

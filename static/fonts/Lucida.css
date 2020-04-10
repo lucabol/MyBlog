@@ -90,4 +90,6 @@
     --p-wght-min: 300;
     --p-wght-max: 400;
     --code-factor: 0.9;
+    --p-lh-min: 1.5;
+    --p-lh-max: 1.7;
 }
