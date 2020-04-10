@@ -11,7 +11,7 @@
 @font-face {
     font-family: LucidaBr;
     src:
-        local('Lucida Bright'),
+        local('Lucida Bright Italic'),
         url('/fonts/lbritei.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
@@ -20,7 +20,7 @@
 @font-face {
     font-family: LucidaBr;
     src:
-        local('Lucida Bright'),
+        local('Lucida Bright Demibold'),
         url('/fonts/lbritedi.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
@@ -29,17 +29,62 @@
 @font-face {
     font-family: LucidaBr;
     src:
-        local('Lucida Bright'),
+        local('Lucida Bright Demibold Italic'),
         url('/fonts/lbrited.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
+@font-face {
+    font-family: LucidaTy;
+    src:
+        local('Lucida Sans Typewriter Bold'),
+        url('/fonts/ltypeb.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: LucidaTy;
+    src:
+        local('Lucida Sans Typewriter Regular'),
+        url('/fonts/ltype.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: LucidaTy;
+    src:
+        local('Lucida Sans Typewriter Oblique'),
+        url('/fonts/ltypeo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: LucidaTy;
+    src:
+        local('Lucida Sans Typewriter Bold Oblique'),
+        url('/fonts/ltypebo.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: LucidaCa;
+    src:
+        local('Lucida Calligraphy Italic'),
+        url('/fonts/lcallig.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
 .Lucida {
     --font-family-headers: LucidaBr, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, Georgia, serif;
     --font-family-text: var(--font-family-headers);
-    --font-family-code: Lucida Sans Typewriter, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
-    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --font-family-dropcap: LucidaCa, "Times New Roman", serif;
     --p-size-s-px: 16;
     --p-size-l-px: 20;
     --p-wght-min: 300;

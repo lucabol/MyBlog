@@ -5,7 +5,7 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
 }
 body {
     --font-family-text: TimesNewRoman, "Times New Roman", serif;
-    --font-family-code: "Courier New", "Lucida Sans TypeWriter", "Lucida Console", monospace;
+    --font-family-code: "Courier New", "LucidaTy", "Lucida Console", monospace;
     --font-family-title: var(--font-family-headers);
     --font-family-headers: var(--font-family-text);
     --font-family-dropcap: var(--font-family-headers);

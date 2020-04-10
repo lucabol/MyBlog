@@ -2,7 +2,7 @@
 @font-face {
     font-family: Bahnschrift;
     src:
-        url('/fonts/Bahnschrift.ttf') format('truetype');
+        url('/fonts/bahnschrift.ttf') format('truetype');
     font-display: optional;
     font-weight: 1 1000;
     font-stretch: 1% 500%;
@@ -11,7 +11,7 @@
 .Bahnschrift {
     --font-family-headers: Bahnschrift, serif;
     --font-family-text: Bahnschrift, serif;
-    --font-family-code: Lucida Sans Typewriter, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --p-wght-min: 300;
     --p-wght-max: 350;
     --code-factor: 0.9;

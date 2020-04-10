@@ -20,7 +20,7 @@
 .GoudyStM {
     --font-family-headers: 'GoudyStM', serif;
     --font-family-text: 'GoudyStM', serif;
-    --font-family-code: Lucida Sans Typewriter, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
     --p-wght-min: 440;
     --p-wght-max: 500;

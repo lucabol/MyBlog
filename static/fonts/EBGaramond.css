@@ -23,7 +23,7 @@
 .EBGaramond {
     --font-family-headers: 'EB Garamond', serif;
     --font-family-text: 'EB Garamond', 'CooperHewitt', serif;
-    --font-family-code: Lucida Sans Typewriter, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --p-size-s-px: 19;
     --p-size-l-px: 23;
     --p-wght-min: 360;
