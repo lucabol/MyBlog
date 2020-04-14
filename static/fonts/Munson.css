@@ -1,0 +1,35 @@
+/* f. Sl Clarendon: Munson */
+@font-face {
+    font-family: Munson;
+    src: url('/fonts/Munson_Roman.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: Munson;
+    src: url('/fonts/Munson_Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: Munson;
+    src: url('/fonts/Munson_Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: Munson;
+    src: url('/fonts/Munson_BoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+.Munson {
+    --font-family-headers: Munson, serif;
+    --font-family-text: Munson, serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --code-factor: 0.9;
+}
