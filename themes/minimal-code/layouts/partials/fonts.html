@@ -1,4 +1,13 @@
 <script>
+    const th = document.querySelector("#theme")
+    th.addEventListener("click", e => {
+        const x = document.querySelector(".dropdown-content")
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    })
     const children = document.querySelectorAll(".font-name")
     const allStyles = Array.from(children).map(c => c.dataset.classname)
 

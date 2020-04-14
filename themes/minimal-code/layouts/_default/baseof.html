@@ -5,11 +5,19 @@
     </head>
 <body>
     <header>
-        {{ if .Params.date }}<span id="blog_date">@ {{ .Date.Format "2006/01/01" }}</span>
-        {{ else }}<span id="logo">❧</span>{{ end }}
-        <span class="offline">~~ Offline ~~</span>
-        {{- partial "theme.html" }}
-        <a id="to_nav" href="#primary_nav">Menu</a>
+        <div id="topnav">
+            {{ if .Params.date }}<a id="blog_date" href="#home">@ {{ .Date.Format "2006/01/01" }}</a>
+            {{ else }}<a href="#home" id="logo">❧</a>{{ end }}
+            <span class="offline">~~ Offline ~~</span>
+            <span class="rightnav">
+                <a id="theme">theme</a>
+                {{- partial "theme.html" }}
+                <a id="to_nav">Menu</a>
+                <nav id="primary_nav">
+                    {{ partial "menu.html" . }}
+                </nav>
+            </span>
+        </div>
     <hr>
     <h1 id="title">
     {{ block "title" . }}
@@ -38,9 +46,6 @@
         </section>
     </aside>
 
-    <nav id="primary_nav">
-        {{ partial "menu.html" . }}
-    </nav>
     <a id="to_top" href="#top">Top</a>
     <footer>
         {{ partial "footer.html" . }}
@@ -51,6 +56,7 @@
     {{ partial "sw-install.html"}}
     {{ partial "offline.html"}}
     {{ partial "dynamic-typography.html"}}
+    {{ partial "menu_script.html" }}
 
 </body>
 </html>

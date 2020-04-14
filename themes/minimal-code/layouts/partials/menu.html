@@ -1,12 +1,6 @@
-<header>
-  <h1>Menu</h1>
-</header>
 {{- $title := lower .Title }}
 {{ $section := lower .Section }}
-<ul>
 {{- range .Site.Menus.main }}
   {{- $name := lower .Name }}
-  <li><a href="{{ .URL }}">{{ $name }}</a></li>
+  <a href="{{ .URL }}">{{ $name }}</a>
 {{- end }}
-<a id="random-font">Random</a>
-<a id="which-font">Which</a>
