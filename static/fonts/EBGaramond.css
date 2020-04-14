@@ -2,7 +2,7 @@
 @font-face {
     font-family: 'EB Garamond';
     src:
-        url('/fonts/EBGaramond-subset.woff2') format('woff2'),
+        url('/fonts/EBGaramond-subset.woff2') format('woff2-variations'),
         url('/fonts/EBGaramond-subset.woff') format('woff'),
         url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
     font-weight: 1 1000;
@@ -12,7 +12,7 @@
 @font-face {
     font-family: 'EB Garamond';
     src:
-        url('/fonts/EBGaramond-italic-subset.woff2') format('woff2'),
+        url('/fonts/EBGaramond-italic-subset.woff2-variations') format('woff2'),
         url('/fonts/EBGaramond-italic-subset.woff') format('woff'),
         url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
     font-weight: 1 1000;

@@ -4,7 +4,6 @@
     src:
         local('Bahnschrift')
         url('/fonts/bahnschrift.ttf') format('truetype');
-    font-display: optional;
     font-weight: 1 1000;
     font-stretch: 1% 500%;
     font-display: swap;
