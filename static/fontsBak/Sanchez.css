@@ -1,0 +1,19 @@
+/* c. Sl Geometric: Sanchez (Rockwell) */
+@font-face {
+    font-family: Sanchez;
+    src: url('/fonts/Sanchez-Regular.ttf') format('truetype');
+    font-display: swap;
+    font-weight: normal;
+}
+@font-face {
+    font-family: Sanchez;
+    src: url('/fonts/Sanchez-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-display: swap;
+}
+.Sanchez {
+    --font-family-headers: 'Sanchez', serif;
+    --font-family-text: 'Sanchez', serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --code-factor: 0.9;
+}

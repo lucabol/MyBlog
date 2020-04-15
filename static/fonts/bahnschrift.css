@@ -2,8 +2,9 @@
 @font-face {
     font-family: BahnschriftFont;
     src:
-        local('Bahnschrift')
-        url('/fonts/bahnschrift.ttf') format('truetype');
+        local('bahnschrift'),
+        url('/fonts/bahnschrift.woff2') format('woff2'),
+        url('/fonts/bahnschrift.woff') format('woff');
     font-weight: 1 1000;
     font-stretch: 1% 500%;
     font-display: swap;
