@@ -6,8 +6,10 @@
 <body>
     <header>
         <div id="topnav">
-            {{ if .Params.date }}<a id="blog_date" href="#home">@ {{ .Date.Format "2006/01/01" }}</a>
-            {{ else }}<a href="#home" id="logo">❧</a>{{ end }}
+            <a id="logo" href="/">❧</a>
+            {{ if .Params.date }}
+                <time id="blog_date" > {{ .Date.Format "2006/01/01" }}</time>
+            {{ end }}
             <span class="offline">~~ Offline ~~</span>
             <span class="rightnav">
                 <a id="theme">theme</a>

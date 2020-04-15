@@ -3,7 +3,7 @@
     th.addEventListener("click", e => {
         const x = document.querySelector(".dropdown-content")
         if (x.style.display === "block") {
-            x.style.display = "none";
+            x.removeAttribute("style")
         } else {
             x.style.display = "block";
         }

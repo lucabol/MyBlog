@@ -205,7 +205,7 @@ main p:first-of-type::first-letter {
     font-family: var(--font-family-dropcap);
     font-size: 1.0em;
     font-style: italic;
-    padding-right: 0.05em;
+    padding-right: 0.05em; 
     font-variant-ligatures: discretionary-ligatures historical-ligatures;
     font-feature-settings: "swsh";
 }
@@ -220,6 +220,7 @@ ul, ol {
 }
 #logo {
     font-family: var(--font-family-logo);
+    color: var(--accent-color);
 }
 
 nav ul, nav ol {
@@ -282,11 +283,6 @@ button {
     margin: 1.0rem 0 0.5rem;
     font-size:1.2rem
 }
-#to_nav {
-    font-variant-caps: all-small-caps;
-    float: right;
-}
-
 #disqus-container {
     margin: 1.0rem 0;
 }
@@ -317,13 +313,8 @@ button {
     overflow: hidden;
     position: relative;
 }
-#to_nav {
-    position: relative;
-}
-
 .rightnav {
     float: right;
-    margin: 0 0.9rem;
 }
 #topnav a {
     font-variant-caps: all-small-caps;
@@ -336,7 +327,10 @@ button {
     background-color: white;
     border: 2px solid;
     border-radius: 25px;
-    padding: 5px 10px;
+    padding: 0 0 0 10px;
+}
+#to_nav {
+    display: inline;
 }
 #primary_nav {
     right: 0;
@@ -355,7 +349,6 @@ button {
 #random-font:hover  {
     cursor: pointer;
 }
-
 .offline {
     display:none;
 }
