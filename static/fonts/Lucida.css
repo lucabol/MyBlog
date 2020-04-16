@@ -3,6 +3,7 @@
     font-family: LucidaBr;
     src:
         local('Lucida Bright'),
+        url('/fonts/lbrite.woff2') format('woff2'),
         url('/fonts/lbrite.woff') format('woff');
     font-weight: normal;
     font-style: normal;
@@ -12,6 +13,7 @@
     font-family: LucidaBr;
     src:
         local('Lucida Bright Italic'),
+        url('/fonts/lbritei.woff2') format('woff2'),
         url('/fonts/lbritei.woff') format('woff');
     font-weight: normal;
     font-style: italic;
@@ -21,6 +23,7 @@
     font-family: LucidaBr;
     src:
         local('Lucida Bright Demibold'),
+        url('/fonts/lbritedi.woff2') format('woff2'),
         url('/fonts/lbritedi.woff') format('woff');
     font-weight: bold;
     font-style: italic;
@@ -30,6 +33,7 @@
     font-family: LucidaBr;
     src:
         local('Lucida Bright Demibold Italic'),
+        url('/fonts/lbrited.woff2') format('woff2'),
         url('/fonts/lbrited.woff') format('woff');
     font-weight: bold;
     font-style: normal;
@@ -39,6 +43,7 @@
     font-family: LucidaTy;
     src:
         local('Lucida Sans Typewriter Bold'),
+        url('/fonts/ltypeb.woff2') format('woff2'),
         url('/fonts/ltypeb.woff') format('woff');
     font-weight: bold;
     font-style: normal;
@@ -48,6 +53,7 @@
     font-family: LucidaTy;
     src:
         local('Lucida Sans Typewriter Regular'),
+        url('/fonts/ltype.woff2') format('woff2'),
         url('/fonts/ltype.woff') format('woff');
     font-weight: normal;
     font-style: normal;
