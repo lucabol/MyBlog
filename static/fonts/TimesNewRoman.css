@@ -1,6 +1,4 @@
-/* 4. Se Transitional: TNRoman */
+/* 4. Se Transitional: Times New Roman */
 .TimesNewRoman {
-    --font-family-headers: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
-    --font-family-text: var(--font-family-headers);
     --code-factor: 0.9;
 }
