@@ -1,28 +1,32 @@
 /* 9. Sa Humanist: URW Classico (Optima) */
 @font-face {
     font-family: URWClassico;
-    src: url('/fonts/URWClassico-Regular.ttf') format('truetype');
+    src: url('/fonts/URWClassico-Regular.woff2') format('woff2'),
+    url('/fonts/URWClassico-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: URWClassico;
-    src: url('/fonts/URWClassico-Italic.ttf') format('truetype');
+    src: url('/fonts/URWClassico-Italic.woff2') format('woff2'),
+    url('/fonts/URWClassico-Italic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: URWClassico;
-    src: url('/fonts/URWClassico-Bold.ttf') format('truetype');
+    src: url('/fonts/URWClassico-Bold.woff2') format('woff2'),
+    url('/fonts/URWClassico-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: URWClassico;
-    src: url('/fonts/URWClassico-BoldItalic.ttf') format('truetype');
+    src: url('/fonts/URWClassico-BoldItalic.woff2') format('woff2'),
+    url('/fonts/URWClassico-BoldItalic.woff') format('woff');
     font-weight: bold;
     font-style: italic;
     font-display: swap;

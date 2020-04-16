@@ -1,33 +1,33 @@
 /* 5. Se Didone: Computer Modern */
 @font-face {
     font-family: CM;
-    src: url('/fonts/ComputerModern/cmr8.ttf') format('truetype');
+    src: url('/fonts/ComputerModern/cmr8.woff') format('woff');
     font-weight: normal;
     font-display: swap;
 }
 @font-face {
     font-family: CM;
-    src: url('/fonts/ComputerModern/cmbx12.ttf') format('truetype');
+    src: url('/fonts/ComputerModern/cmbx12.woff') format('woff');
     font-weight: bold;
     font-display: swap;
 }
 @font-face {
     font-family: CM;
-    src: url('/fonts/ComputerModern/cmti10.ttf') format('truetype');
+    src: url('/fonts/ComputerModern/cmti10.woff') format('woff');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: "CM TypeWriter";
-    src: url('/fonts/ComputerModern/cmtt12.ttf') format('truetype');
+    src: url('/fonts/ComputerModern/cmtt12.woff') format('woff');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: "CM SmallCaps";
-    src: url('/fonts/ComputerModern/cmcsc8.ttf') format('truetype');
+    src: url('/fonts/ComputerModern/cmcsc8.woff') format('woff');
     font-display: swap;
 }
 @font-face {

@@ -5,6 +5,7 @@
 @font-face {
 	font-family: 'PTSerif';
 	src:
+	     url('/fonts/PTF55F_W.woff2') format('woff2'),
 	     url('/fonts/PTF55F_W.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
@@ -12,6 +13,7 @@
 @font-face {
 	font-family: 'PTSerif';
 	src:
+	     url('/fonts/PTF56F_W.woff2') format('woff2'),
 	     url('/fonts/PTF56F_W.woff') format('woff');
 	font-weight: normal;
 	font-style: italic;
@@ -19,6 +21,7 @@
 @font-face {
 	font-family: 'PTSerif';
 	src:
+	     url('/fonts/PTF75F_W.woff2') format('woff2'),
 	     url('/fonts/PTF75F_W.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;
@@ -26,6 +29,7 @@
 @font-face {
 	font-family: 'PTSerif';
 	src:
+	     url('/fonts/PTF76F_W.woff2') format('woff2'),
 	     url('/fonts/PTF76F_W.woff') format('woff');
 	font-weight: bold;
 	font-style: italic;
@@ -33,6 +37,7 @@
 @font-face {
 	font-family: 'PTMono';
 	src:
+	     url('/fonts/PTM55F_W.woff2') format('woff2'),
 	     url('/fonts/PTM55F_W.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
@@ -40,6 +45,7 @@
 @font-face {
 	font-family: 'PTMono';
 	src:
+	     url('/fonts/PTM75F_W.woff2') format('woff2'),
 	     url('/fonts/PTM75F_W.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;

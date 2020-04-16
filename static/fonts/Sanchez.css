@@ -1,13 +1,15 @@
 /* c. Sl Geometric: Sanchez (Rockwell) */
 @font-face {
     font-family: Sanchez;
-    src: url('/fonts/Sanchez-Regular.ttf') format('truetype');
+    src: url('/fonts/Sanchez-Regular.woff2') format('woff2'),
+    url('/fonts/Sanchez-Regular.woff') format('woff');
     font-display: swap;
     font-weight: normal;
 }
 @font-face {
     font-family: Sanchez;
-    src: url('/fonts/Sanchez-Italic.ttf') format('truetype');
+    src: url('/fonts/Sanchez-Italic.woff2') format('woff2'),
+    url('/fonts/Sanchez-Italic.woff') format('woff');
     font-style: italic;
     font-display: swap;
 }

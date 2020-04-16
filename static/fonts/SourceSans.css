@@ -2,7 +2,8 @@
 @font-face {
     font-family: SourceSansPro;
     src:
-        url('/fonts/SourceSansVariable-Roman.ttf') format('truetype');
+        url('/fonts/SourceSansVariable-Roman.woff2') format('woff2'),
+        url('/fonts/SourceSansVariable-Roman.woff') format('woff');
     font-weight: 1 1000;
     font-style: normal;
     font-display: swap;
@@ -10,7 +11,8 @@
 @font-face {
     font-family: SourceSansPro;
     src:
-        url('/fonts/SourceSansVariable-Italic.ttf') format('truetype');
+        url('/fonts/SourceSansVariable-Italic.woff2') format('woff2'),
+        url('/fonts/SourceSansVariable-Italic.woff') format('woff');
     font-weight: 1 1000;
     font-style: italic;
     font-display: swap;
@@ -18,7 +20,8 @@
 @font-face {
     font-family: SourceCodePro;
     src:
-        url('/fonts/SourceCodeVariable-Roman.ttf') format('truetype');
+        url('/fonts/SourceCodeVariable-Roman.woff2') format('woff2'),
+        url('/fonts/SourceCodeVariable-Roman.woff') format('woff');
     font-weight: 1 1000;
     font-style: normal;
     font-display: swap;
@@ -26,7 +29,8 @@
 @font-face {
     font-family: SourceCodePro;
     src:
-        url('/fonts/SourceCodeVariable-Italic.ttf') format('truetype');
+        url('/fonts/SourceCodeVariable-Italic.woff2') format('woff2'),
+        url('/fonts/SourceCodeVariable-Italic.woff') format('woff');
     font-weight: 1 1000;
     font-style: italic;
     font-display: swap;

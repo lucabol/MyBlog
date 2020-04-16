@@ -2,8 +2,8 @@
 @font-face {
     font-family: 'GoudyStM';
     src:
-        url('/fonts/GoudyStM-webfont.woff') format('woff'),
-        url('/fonts/GoudyStM-webfont.ttf') format('truetype');
+        url('/fonts/GoudyStM-webfont.woff2') format('woff2'),
+        url('/fonts/GoudyStM-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -11,8 +11,8 @@
 @font-face {
     font-family: 'GoudyStM';
     src:
-        url('/fonts/GoudyStM-Italic-webfont.woff') format('woff'),
-        url('/fonts/GoudyStM-Italic-webfont.ttf') format('truetype');
+        url('/fonts/GoudyStM-Italic-webfont.woff2') format('woff2'),
+        url('/fonts/GoudyStM-Italic-webfont.woff') format('woff');
     font-style: italic;
     font-display: swap;
 }

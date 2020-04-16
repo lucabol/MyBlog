@@ -2,7 +2,8 @@
 @font-face {
     font-family: 'Libre Caslon';
     src:
-        url('/fonts/LibreCaslonText-Roman-VF.ttf') format('truetype');
+        url('/fonts/LibreCaslonText-Roman-VF.woff2') format('woff2'),
+        url('/fonts/LibreCaslonText-Roman-VF.woff') format('woff');
     font-weight: 400 700;
     font-style: normal;
     font-display: swap;
@@ -13,7 +14,7 @@
     src:
         url('/fonts/EBGaramond-italic-subset.woff2') format('woff2-variations'),
         url('/fonts/EBGaramond-italic-subset.woff') format('woff'),
-        url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+        url('/fonts/EBGaramond-Italic-VariableFont_wght.woff') format('woff');
     font-weight: 1 1000;
     font-style: italic;
     font-display: swap;
@@ -22,7 +23,8 @@
 @font-face {
     font-family: 'Libre Caslon 1';
     src:
-        url('/fonts/LibreCaslonDisplay-Regular.ttf') format('truetype');
+        url('/fonts/LibreCaslonDisplay-Regular.woff2') format('woff2'),
+        url('/fonts/LibreCaslonDisplay-Regular.woff') format('woff');
     font-style: normal;
     font-weight: bold;
     font-display: swap;

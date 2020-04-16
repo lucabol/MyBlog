@@ -1,13 +1,13 @@
 /* Z. Sa Monospace: Profont */
 @font-face {
     font-family: profont;
-    src: url('/fonts/ProFontWindows.ttf');
+    src: url('/fonts/ProFontWindows.woff');
     font-display: optional;
     font-weight: normal;
 }
 @font-face {
     font-family: profont;
-    src: url('/fonts/ProFontWindows-Bold.ttf');
+    src: url('/fonts/ProFontWindows-Bold.woff');
     font-display: optional;
     font-weight: bold;
 }

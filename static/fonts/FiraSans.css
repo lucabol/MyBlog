@@ -1,26 +1,30 @@
 /* a. Sa Humanist: Fira Sans (FF Meta) */
 @font-face {
     font-family: FiraSans;
-    src: url('/fonts/FiraSans-Book.woff2') format('woff2');
+    src: url('/fonts/FiraSans-Book.woff') format('woff'),
+    url('/fonts/FiraSans-Book.woff2') format('woff2');
     font-weight: normal;
     font-display: swap;
 }
 @font-face {
     font-family: FiraSans;
-    src: url('/fonts/FiraSans-Bold.woff2') format('woff2');
+    src: url('/fonts/FiraSans-Bold.woff') format('woff'),
+    url('/fonts/FiraSans-Bold.woff2') format('woff2');
     font-weight: bold;
     font-display: swap;
 }
 @font-face {
     font-family: FiraSans;
-    src: url('/fonts/FiraSans-BookItalic.woff2') format('woff2');
+    src: url('/fonts/FiraSans-BookItalic.woff') format('woff'),
+    url('/fonts/FiraSans-BookItalic.woff2') format('woff2');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: FiraSans;
-    src: url('/fonts/FiraSans-BoldItalic.woff2') format('woff2');
+    src: url('/fonts/FiraSans-BoldItalic.woff') format('woff'),
+    url('/fonts/FiraSans-BoldItalic.woff2') format('woff2');
     font-weight: bold;
     font-style: italic;
     font-display: swap;
@@ -29,7 +33,7 @@
   font-family: 'Fira Code VF';
   src: url('/fonts/FiraCode-VF.woff2') format('woff2-variations'),
        url('/fonts/FiraCode-VF.woff') format('woff-variations'),
-       url('/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
+       url('/fonts/FiraCode-VariableFont_wght.woff') format('woff');
     font-weight: 300 700;
     font-display: swap;
 }

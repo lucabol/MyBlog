@@ -2,21 +2,24 @@
 @font-face {
     font-family: 'LibreBaskerville';
     src:
-        url('/fonts/LibreBaskerville-Regular.ttf') format('truetype');
+        url('/fonts/LibreBaskerville-Regular.woff2') format('woff2'),
+        url('/fonts/LibreBaskerville-Regular.woff') format('woff');
     font-weight: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'LibreBaskerville';
     src:
-        url('/fonts/LibreBaskerville-Italic.ttf') format('truetype');
+        url('/fonts/LibreBaskerville-Italic.woff2') format('woff2'),
+        url('/fonts/LibreBaskerville-Italic.woff') format('woff');
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: 'LibreBaskerville';
     src:
-        url('/fonts/LibreBaskerville-Bold.ttf') format('truetype');
+        url('/fonts/LibreBaskerville-Bold.woff2') format('woff2'),
+        url('/fonts/LibreBaskerville-Bold.woff') format('woff');
     font-weight: bold;
     font-display: swap;
 }

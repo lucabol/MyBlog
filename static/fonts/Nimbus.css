@@ -2,7 +2,8 @@
 @font-face {
     font-family: 'Nimbus';
     src:
-        url('/fonts/NimbusSans-Regular.ttf') format('truetype');
+        url('/fonts/NimbusSans-Regular.woff2') format('woff2'),
+        url('/fonts/NimbusSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -10,7 +11,8 @@
 @font-face {
     font-family: 'Nimbus';
     src:
-        url('/fonts/NimbusSans-Italic.ttf') format('truetype');
+        url('/fonts/NimbusSans-Italic.woff2') format('woff2'),
+        url('/fonts/NimbusSans-Italic.woff') format('woff');
     font-style: italic;
     font-weight: normal;
     font-display: swap;
@@ -18,7 +20,8 @@
 @font-face {
     font-family: 'Nimbus';
     src:
-        url('/fonts/NimbusSans-Bold.ttf') format('truetype');
+        url('/fonts/NimbusSans-Bold.woff2') format('woff2'),
+        url('/fonts/NimbusSans-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -26,7 +29,8 @@
 @font-face {
     font-family: 'Nimbus';
     src:
-        url('/fonts/NimbusSans-BoldItalic.ttf') format('truetype');
+        url('/fonts/NimbusSans-BoldItalic.woff2') format('woff2'),
+        url('/fonts/NimbusSans-BoldItalic.woff') format('woff');
     font-weight: bold;
     font-style: italic;
     font-display: swap;
@@ -35,7 +39,8 @@
 @font-face {
     font-family: 'NimbusMonoPS';
     src:
-        url('/fonts/NimbusMonoPS-Regular.ttf') format('truetype');
+        url('/fonts/NimbusMonoPS-Regular.woff2') format('woff2'),
+        url('/fonts/NimbusMonoPS-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -43,7 +48,8 @@
 @font-face {
     font-family: 'NimbusMonoPS';
     src:
-        url('/fonts/NimbusMonoPS-Italic.ttf') format('truetype');
+        url('/fonts/NimbusMonoPS-Italic.woff2') format('woff2'),
+        url('/fonts/NimbusMonoPS-Italic.woff') format('woff');
     font-style: italic;
     font-weight: normal;
     font-display: swap;
@@ -51,7 +57,8 @@
 @font-face {
     font-family: 'NimbusMonoPS';
     src:
-        url('/fonts/NimbusMonoPS-Bold.ttf') format('truetype');
+        url('/fonts/NimbusMonoPS-Bold.woff2') format('woff2'),
+        url('/fonts/NimbusMonoPS-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -59,7 +66,8 @@
 @font-face {
     font-family: 'NimbusMonoPS';
     src:
-        url('/fonts/NimbusMonoPS-BoldItalic.ttf') format('truetype');
+        url('/fonts/NimbusMonoPS-BoldItalic.woff2') format('woff2'),
+        url('/fonts/NimbusMonoPS-BoldItalic.woff') format('woff');
     font-weight: bold;
     font-style: italic;
     font-display: swap;

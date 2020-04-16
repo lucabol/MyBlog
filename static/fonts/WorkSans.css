@@ -2,7 +2,8 @@
 @font-face {
     font-family: 'WorkSans';
     src:
-        url('/fonts/WorkSans[wght].ttf') format('truetype');
+        url('/fonts/WorkSans[wght].woff2') format('woff2'),
+        url('/fonts/WorkSans[wght].woff') format('woff');
     font-weight: 1 1000;
     font-style: normal;
     font-display: swap;
@@ -10,7 +11,8 @@
 @font-face {
     font-family: 'WorkSans';
     src:
-        url('/fonts/WorkSans-Italic[wght].ttf') format('truetype');
+        url('/fonts/WorkSans-Italic[wght].woff2') format('woff2'),
+        url('/fonts/WorkSans-Italic[wght].woff') format('woff');
     font-weight: 1 1000;
     font-style: italic;
     font-display: swap;

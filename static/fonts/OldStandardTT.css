@@ -2,21 +2,24 @@
 @font-face {
     font-family: 'OldStandardTT';
     src:
-        url('/fonts/OldStandardTT-Regular.ttf') format('truetype');
+        url('/fonts/OldStandardTT-Regular.woff2') format('woff2'),
+        url('/fonts/OldStandardTT-Regular.woff') format('woff');
     font-weight: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'OldStandardTT';
     src:
-        url('/fonts/OldStandardTT-Italic.ttf') format('truetype');
+        url('/fonts/OldStandardTT-Italic.woff2') format('woff2'),
+        url('/fonts/OldStandardTT-Italic.woff') format('woff');
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: 'OldStandardTT';
     src:
-        url('/fonts/OldStandardTT-Bold.ttf') format('truetype');
+        url('/fonts/OldStandardTT-Bold.woff2') format('woff2'),
+        url('/fonts/OldStandardTT-Bold.woff') format('woff');
     font-weight: bold;
     font-display: swap;
 }

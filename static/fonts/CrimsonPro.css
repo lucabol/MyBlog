@@ -2,7 +2,8 @@
 @font-face {
     font-family: 'CrimsonPro';
     src:
-        url('/fonts/CrimsonPro-Roman-VF.ttf') format('truetype');
+        url('/fonts/CrimsonPro-Roman-VF.woff2') format('woff2'),
+        url('/fonts/CrimsonPro-Roman-VF.woff') format('woff');
     font-weight: 1 1000;
     font-style: normal;
     font-display: swap;
@@ -10,7 +11,8 @@
 @font-face {
     font-family: 'CrimsonPro';
     src:
-        url('/fonts/CrimsonPro-Italic-VF.ttf') format('truetype');
+        url('/fonts/CrimsonPro-Italic-VF.woff2') format('woff2'),
+        url('/fonts/CrimsonPro-Italic-VF.woff') format('woff');
     font-weight: 1 1000;
     font-style: italic;
     font-display: swap;
