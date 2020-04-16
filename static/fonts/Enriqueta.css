@@ -14,9 +14,8 @@
     font-display: swap;
 }
 .Enriqueta {
-    --font-family-headers: LucidaTy, serif;
+    --font-family-headers: 'Enriqueta',LucidaTy, serif;
     --font-family-text: 'Enriqueta', serif;
-    --font-family-title: 'Enriqueta', serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --code-factor: 0.9;
 }

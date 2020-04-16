@@ -79,13 +79,11 @@
         local('Lucida Calligraphy Italic'),
         url('/fonts/lcallig.woff2') format('woff2'),
         url('/fonts/lcallig.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
     font-display: swap;
 }
 .Lucida {
     --font-family-headers: LucidaBr, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, Georgia, serif;
-    --font-family-text: var(--font-family-headers);
+    --font-family-text: LucidaBr, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, Georgia, serif;
     --p-size-s-px: 16;
     --p-size-l-px: 20;
     --p-wght-min: 300;
