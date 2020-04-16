@@ -86,8 +86,6 @@
 .Lucida {
     --font-family-headers: LucidaBr, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, Georgia, serif;
     --font-family-text: var(--font-family-headers);
-    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
-    --font-family-dropcap: LucidaCa, "Times New Roman", serif;
     --p-size-s-px: 16;
     --p-size-l-px: 20;
     --p-wght-min: 300;

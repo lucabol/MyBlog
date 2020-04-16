@@ -76,7 +76,5 @@
     --font-family-headers: 'Nimbus', serif;
     --font-family-text: 'Nimbus', serif;
     --font-family-code: NimbusMonoPS, LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
-    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
-    --dropcap-weight: 600;
     --code-factor:0.9;
 }

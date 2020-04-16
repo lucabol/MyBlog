@@ -13,9 +13,7 @@
 }
 .Profont {
     --font-family-headers: profont, serif;
-    --font-family-text: "Lucida Bright", Georgia, serif;
     --font-family-code: profont, monospace;
-    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
     --p-size-s-px: 16;
     --p-size-l-px: 20;
     --p-wght-min: 300;
