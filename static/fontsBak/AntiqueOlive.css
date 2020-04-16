@@ -1,0 +1,41 @@
+/* 9. Sa Geometric: Antique Olive*/
+@font-face {
+    font-family: AntiqueOlive;
+    src: url('/fonts/URW Antique Olive W01 Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: AntiqueOliveLight;
+    src: url('/fonts/URW Antique Olive W01 Light.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: AntiqueOlive;
+    src: url('/fonts/URW Antique Olive W01 Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-display: swap;
+}
+@font-face {
+    font-family: AntiqueOlive;
+    src: url('/fonts/URW Antique Olive W01 Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: optional;
+}
+@font-face {
+    font-family: AntiqueOliveSC;
+    src: url('/fonts/URW Antique Olive W01_SC.ttf') format('truetype');
+    font-weight: normal;
+    font-display: optional;
+}
+.AntiqueOlive {
+    --font-family-headers: 'AntiqueOlive', serif;
+    --font-family-text: 'AntiqueOliveLight', serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --font-family-tags:  'AntiqueOliveSC', serif;
+    --code-factor: 0.9;
+    --p-wght-min: 300;
+    --p-wght-max: 400;
+}

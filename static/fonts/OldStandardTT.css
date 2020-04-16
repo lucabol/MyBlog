@@ -1,0 +1,34 @@
+/* 5. Se Didone: Old Standard TT (Filosofia, Scotch Modern) */
+@font-face {
+    font-family: 'OldStandardTT';
+    src:
+        url('/fonts/OldStandardTT-Regular.woff2') format('woff2'),
+        url('/fonts/OldStandardTT-Regular.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'OldStandardTT';
+    src:
+        url('/fonts/OldStandardTT-Italic.woff2') format('woff2'),
+        url('/fonts/OldStandardTT-Italic.woff') format('woff');
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'OldStandardTT';
+    src:
+        url('/fonts/OldStandardTT-Bold.woff2') format('woff2'),
+        url('/fonts/OldStandardTT-Bold.woff') format('woff');
+    font-weight: bold;
+    font-display: swap;
+}
+
+.OldStandardTT {
+    --font-family-headers: 'OldStandardTT', serif;
+    --font-family-text: 'OldStandardTT', serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
+    --dropcap-weight: 600;
+    --code-factor:0.9;
+}

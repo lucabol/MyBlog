@@ -1,0 +1,42 @@
+/* 4. Se Transitional: Libre Bask. (Mrs Eaves) */
+@font-face {
+    font-family: 'LibreBaskerville';
+    src:
+        url('/fonts/LibreBaskerville-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'LibreBaskerville';
+    src:
+        url('/fonts/LibreBaskerville-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'LibreBaskerville';
+    src:
+        url('/fonts/LibreBaskerville-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-display: swap;
+}
+
+.LibreBaskerville {
+    --font-family-headers: 'LibreBaskerville', serif;
+    --font-family-text: 'LibreBaskerville', serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
+    --p-lh-min: 1.5;
+    --p-lh-max: 1.7;
+    --p-size-s-px: 15;
+    --p-size-l-px: 19;
+    --h1-size-s-px: 21;
+    --h1-size-l-px: 39;
+    --h2-size-s-px: 17;
+    --h2-size-l-px: 31;
+    --p-wght-min: 300;
+    --p-wght-max: 400;
+    --code-factor: 1;
+    --p-lh-min: 1.4;
+    --p-lh-max: 1.7;
+}

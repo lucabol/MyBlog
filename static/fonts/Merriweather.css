@@ -1,0 +1,29 @@
+/* d. Sl Humanist: Merriweather (Chapparal) */
+@font-face {
+    font-family: 'Merriweather';
+    src:
+        url('/fonts/MerriweatherGX.woff2') format('woff2'),
+        url('/fonts/MerriweatherGX.woff') format('woff');
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src:
+        url('/fonts/MerriweatherItalicGX.woff2') format('woff2'),
+        url('/fonts/MerriweatherItalicGX.woff') format('woff');
+    font-weight: 1 1000;
+    font-style: italic;
+    font-display: swap;
+}
+
+.Merriweather {
+    --font-family-headers: 'Merriweather', serif;
+    --font-family-text: 'Merriweather', serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --p-wght-min: 100;
+    --p-wght-max: 100;
+    --code-factor: 0.9;
+}

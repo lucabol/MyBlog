@@ -1,19 +1,31 @@
+/* 9. Sa Geometric: Cooper Hewitt (Calibre) */
 @font-face {
     font-family: CooperHewitt;
-    src: url('/fonts/CooperHewitt-Book.woff') format('woff');
-    font-display: optional;
+    src: url('/fonts/CooperHewitt-Book.woff2') format('woff2'),
+    url('/fonts/CooperHewitt-Book.woff') format('woff');
     font-weight: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: CooperHewitt;
-    src: url('/fonts/CooperHewitt-Bold.woff') format('woff');
-    font-display: optional;
+    src: url('/fonts/CooperHewitt-Bold.woff2') format('woff2'),
+    url('/fonts/CooperHewitt-Bold.woff') format('woff');
     font-weight: bold;
+    font-display: swap;
 }
 @font-face {
     font-family: CooperHewitt;
-    src: url('/fonts/CooperHewitt-BookItalic.woff') format('woff');
-    font-display: optional;
+    src: url('/fonts/CooperHewitt-BookItalic.woff2') format('woff2'),
+    url('/fonts/CooperHewitt-BookItalic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
+    font-display: optional;
+}
+.CooperHewitt {
+    --font-family-headers: 'CooperHewitt', serif;
+    --font-family-text: 'CooperHewitt', serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --code-factor: 0.9;
+    --p-lh-min: 1.5;
+    --p-lh-max: 1.7;
 }

@@ -1,6 +1,7 @@
+Name,Link,Headers,Text,Code,Size,Line, Line2
 "Humanist: Jenson","https://use.typekit.net/ewp5xpy.css","adobe-jenson-pro","adobe-jenson-pro","Consolas",,,
 "Humanist: Garamond","https://use.typekit.net/ree1epk.css","garamond-premier-pro","garamond-premier-pro","Consolas",,,
-"Humanist: EB Garamond","/fonts/EBGaramond.css","EB Garamond Italic","EB Garamond","Fira Code VF",,,
+"Humanist: EB Garamond","///","EB Garamond Italic","EB Garamond","Fira Code VF",,,
 "Humanist: Adobe Calson","https://use.typekit.net/laj1qje.css","adobe-caslon-pro","adobe-caslon-pro","Consolas",,,
 "Humanist: Goudy Old Style","https://use.typekit.net/qge2rer.css","goudy-old-style","goudy-old-style","Consolas",,,
 "Humanist: Big Calson","https://use.typekit.net/paf4fsd.css","big-caslon-fb","big-caslon-fb","Consolas",,,
@@ -14,14 +15,14 @@
 "Rational: Didot","https://use.typekit.net/orz0nog.css","linotype-didot","linotype-didot","Consolas",,,
 "Rational: Filosofia","https://use.typekit.net/bep3fzz.css","filosofia","filosofia","Consolas",,,
 "Contemporary: Georgia","///","Georgia","Georgia","Consolas",,,
-"Contemporary: Charter","/fonts/Charter.css","Charter","Charter","Consolas",,,
+"Contemporary: Charter","///","Charter","Charter","Consolas",,,
 "Contemporary: Miller","https://use.typekit.net/lid1xby.css","Miller-text","Miller-text","Consolas",,,
 "Contemporary: FF Meta","https://use.typekit.net/abi7mvo.css","ff-meta-serif-web-pro","ff-meta-serif-web-pro","Consolas",,,
 "Contemporary: Skolar","https://use.typekit.net/pjy6urd.css","skolar-latin","skolar-latin","Consolas",,,
 "Grotesque: Bureau Grot","https://use.typekit.net/lij3bmo.css","bureau-grot","bureau-grot","Consolas",,,
 "Neo-grotesque: Source","https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Source+Sans+Pro:400,700&display=optional","Source Sans Pro","Source Sans Pro","Source Code Pro",,,
 "Neo-grotesque: IBM Plex","https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400, 700|IBM+Plex+Sans:400, 700&display=optional","IBM Plex Sans","IBM Plex Sans","IBM Plex Mono",,,
-"Neo-grothesque: CooperHewitt","/fonts/CooperHewitt.css","CooperHewitt","CooperHewitt","Consolas",,,
+"Neo-grothesque: CooperHewitt","///","CooperHewitt","CooperHewitt","Consolas",,,
 "Neo-grothesque: Helvetica","///","Helvetica","Helvetica","Consolas",,,
 "Geometric: Futura","https://use.typekit.net/rim0wpd.css","futura-pt","futura-pt","Consolas",,,
 "Geometric: Din","https://use.typekit.net/wmy7rqy.css","urw-din","urw-din","Consolas",,,
@@ -36,4 +37,5 @@
 "Slab: FF Unit Slab","https://use.typekit.net/mhn2ktn.css","unit-slab","unit-slab","Lucida Sans Typewriter",,,
 "Slab: Adelle","https://use.typekit.net/qiw8szw.css","adelle","adelle","Lucida Sans Typewriter",,,
 "Slab: Freight Micro","https://use.typekit.net/ixn8vbr.css","freight-micro-pro","freight-micro-pro","Lucida Sans Typewriter",,,
-"Profont","/fonts/profont.css","profont-bold","profont","profont","15px","21px","1.5"
+"Profont","///","profont-bold","profont","profont","15px","21px","1.5"
+"Old Style: Cardo","///","Cardo Italic","Cardo","Fira Code VF",,,

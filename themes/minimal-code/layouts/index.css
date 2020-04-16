@@ -1,0 +1,6 @@
+{{ range (readDir "/static/fonts/" )}}
+    {{ if eq (path.Ext .Name) ".css" }}
+        {{ readFile (path.Join "/static/fonts/" .Name) }}
+    {{ else }}
+    {{ end }}
+{{ end }}

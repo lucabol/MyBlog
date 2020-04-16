@@ -1,0 +1,45 @@
+/* 9. Sa Humanist: Source Sans (Balto, Adelle Sans) */
+@font-face {
+    font-family: SourceSansPro;
+    src:
+        url('/fonts/SourceSansVariable-Roman.woff2') format('woff2'),
+        url('/fonts/SourceSansVariable-Roman.woff') format('woff');
+    font-weight: 1 1000;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: SourceSansPro;
+    src:
+        url('/fonts/SourceSansVariable-Italic.woff2') format('woff2'),
+        url('/fonts/SourceSansVariable-Italic.woff') format('woff');
+    font-weight: 1 1000;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: SourceCodePro;
+    src:
+        url('/fonts/SourceCodeVariable-Roman.woff2') format('woff2'),
+        url('/fonts/SourceCodeVariable-Roman.woff') format('woff');
+    font-weight: 1 1000;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: SourceCodePro;
+    src:
+        url('/fonts/SourceCodeVariable-Italic.woff2') format('woff2'),
+        url('/fonts/SourceCodeVariable-Italic.woff') format('woff');
+    font-weight: 1 1000;
+    font-style: italic;
+    font-display: swap;
+}
+
+.SourceSans {
+    --font-family-headers: SourceSansPro, serif;
+    --font-family-text: SourceSansPro, serif;
+    --font-family-code: SourceCodePro, LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --p-wght-min: 340;
+    --p-wght-max: 390;
+}

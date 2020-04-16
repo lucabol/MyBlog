@@ -1,72 +1,35 @@
 <script>
-    const setProperties = (header, text, code, minSize, maxSize, lheight) => {
-        const styles = getComputedStyle(document.documentElement);
-        const dh = styles.getPropertyValue("--default-font-family-headers")
-        const dc = styles.getPropertyValue("--default-font-family-code")
-        const dt = styles.getPropertyValue("--default-font-family-text")
-        const dmin = styles.getPropertyValue("--default-min-font-size")
-        const dmax = styles.getPropertyValue("--default-max-font-size")
-        const lh = styles.getPropertyValue("--default-line-height")
-
-        document.documentElement.style.setProperty("--font-family-headers", `${header || text || dh}, ${dh}`)
-        document.documentElement.style.setProperty("--font-family-text", `${text || header || dt}, ${dt}`)
-        document.documentElement.style.setProperty("--font-family-code", `${code}, ${dc || text || dc}`)
-        document.documentElement.style.setProperty("--min-font-size", minSize || dmin)
-        document.documentElement.style.setProperty("--max-font-size", maxSize || dmax)
-        document.documentElement.style.setProperty("--line-height", lheight || lh)
-    }
-
-    const setStyle = (el) => {
-        const link = el.dataset.link
-        const header = el.dataset.header
-        const text = el.dataset.text
-        const code = el.dataset.code
-        const minSize = el.dataset.minsize
-        const maxSize = el.dataset.maxsize
-        const lheight = el.dataset.lineheight
-
-        if(link && link != '///') {
-            var fileref = document.createElement("link")
-            fileref.setAttribute("rel", "stylesheet")
-            fileref.setAttribute("type", "text/css")
-            fileref.setAttribute("href", link)
-            document.getElementsByTagName("head")[0].appendChild(fileref)
-                setProperties(header, text, code, minSize, maxSize, lheight)
-            fileref.addEventListener("load", e => {
-                // setProperties(header, text, code, minSize, maxSize, lheight)
-            })
+    const th = document.querySelector("#theme")
+    th.addEventListener("click", e => {
+        const x = document.querySelector(".dropdown-content")
+        if (x.style.display === "block") {
+            x.removeAttribute("style")
         } else {
-                setProperties(header, text, code, minSize, maxSize, lheight)
+            x.style.display = "block";
         }
-        localStorage.setItem("Style", el.textContent)
-    }
+    })
+    const children = document.querySelectorAll(".font-name")
+    const allStyles = Array.from(children).map(c => c.dataset.classname)
 
-    const defaultFont = "Humanist: EB Garamond"
-
-    const style = localStorage.getItem("Style") || defaultFont
-
-    const xpath = "//div[text()='" + style + "']"
-    const styleEl = document
-        .evaluate(xpath, document, null, XPathResult.ANY_TYPE, null)
-        .iterateNext()
-    if(styleEl)
-        setStyle(styleEl);
-    else
-        localStorage.removeItem("Style")
+    const defaultStyle = "TimesNewRoman"
+    const retrievedStyle = localStorage.getItem("Style")
+    const style = allStyles.includes(retrievedStyle) ? retrievedStyle : defaultStyle
+    document.body.className = style;
 
     const fontEl = document.querySelector(".dropdown-content")
     fontEl.addEventListener("click", e => {
         const el = e.target
-        setStyle(el)
+        const style = el.dataset.classname
+        document.body.className = style;
+        localStorage.setItem("Style", style)
     })
 
+/*
     const randElem = document.querySelector("#random-font")
     randElem.addEventListener("click", e => {
-        const parent = document.querySelector(".dropdown-content")
-        const children = parent.childNodes
-        const array = Array.from(children)
         const randomEl = array[Math.floor(Math.random() * array.length)]
-        setStyle(randomEl)
+        document.documentElement.className = style;
+        localStorage.setItem("Style", style)
     })
     const which = document.querySelector("#which-font")
     which.addEventListener("mouseenter", e => {
@@ -78,4 +41,5 @@
         const which = document.querySelector("#which-font")
         which.innerHTML = "[Which]"
     })
+*/
 </script>

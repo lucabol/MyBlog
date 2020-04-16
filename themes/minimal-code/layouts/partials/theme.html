@@ -1,0 +1,18 @@
+<div class="dropdown-content">
+  {{- $styles := slice }}
+  {{- $d := "^" }}
+  {{- range readDir "/static/fonts/" }}
+      {{- if eq (path.Ext .Name) ".css" }}
+        {{- $descr := index (split (readFile (path.Join "/static/fonts" .Name)) "\n") 0 }}
+        {{- $className := index (split .Name ".") 0 }}
+        {{- if eq (substr $descr 0 2) "/*" }}
+          {{- $styles = $styles | append (print (substr $descr 3 -3) $d $className) }}
+        {{- else }}
+          {{- $styles = $styles | append (print $className $d $className) }}
+        {{- end }}
+      {{- end }}
+  {{- end }}
+  {{- range $st := (sort $styles) }}
+          <a class="font-name" data-classname="{{ index (split $st $d) 1 }}" >{{ index (split $st $d) 0 }}</a>
+  {{- end }}
+</div>

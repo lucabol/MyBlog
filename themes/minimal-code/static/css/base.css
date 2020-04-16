@@ -3,38 +3,174 @@ html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header
     margin: 0;
     padding: 0;
 }
-html {
-    --default-font-family-text: TimesNewRoman, "Times New Roman", Georgia, serif;
-    --default-font-family-code: "Courier New", "Lucida Sans TypeWriter", "Lucida Console", monospace;
-    --default-font-family-headers: Georgia, serif;
-    --default-min-font-size: 1.125rem;
-    --default-max-font-size: 1.375rem;
-    --default-line-height: 1.4;
-    --default-color: #1c1c1c;
+body {
+    --font-family-text: LucidaBr, TimesNewRoman, "Times New Roman", serif;
+    --font-family-code: LucidaTy, "Courier New", "LucidaTy", "Lucida Console", monospace;
+    --font-family-headers: var(--font-family-text);
+    --font-family-title: var(--font-family-headers);
+    --font-family-dropcap: LucidaCa, TimesNewRoman, "Times New Roman", serif;
+    --font-family-tags: var(--font-family-text);
+    --font-family-logo: var(--font-family-dropcap);
+
+    /* https://us6.campaign-archive.com/?u=0019faab58713ad49bce9acc3&id=9bb186f72f */
+    /* breakpoint variables */
+    --bp-small: 25;
+    --bp-medium: 45;
+    --bp-large: 55;
+    --bp-xlarge: 65;
+
+    /* set px value sizes */
+    /* initial px value for text */
+    --rem-px: 16;
+
+    /* EDIT HERE to set px value sizes */
+    --p-size-s-px: 18;
+    --p-size-l-px: 22;
+    --h1-size-s-px: 24;
+    --h1-size-l-px: 42;
+    --h2-size-s-px: 20;
+    --h2-size-l-px: 34;
+
+    /* values to scale across breakpoint range */
+    --p-wdth-min: 90;
+    --p-wdth-max: 100;
+    --p-wght-min: 350;
+    --p-wght-max: 410;
+
+    /* default starting scale value */
+    --p-wdth: var(--p-wdth-min);
+    --p-wght: var(--p-wght-min);
+
+    /* calcs to create values for the formulas */
+    --h1-size-min: calc( var(--h1-size-s-px) / var(--rem-px) );
+    --h1-size-max: calc( var(--h1-size-l-px) / var(--rem-px) );
+    --h1-lh-min: 1.05;
+    --h1-lh-max: 1.1;
+    
+    /* values to scale across breakpoint range */
+    --h1-wdth-min: 75;
+    --h1-wdth-max: 85;
+    --h1-wght-min: 900;
+    --h1-wght-max: 700;
+
+    /* default starting scale value */
+    --h1-wdth: var(--h1-wdth-min);
+    --h1-wght: var(--h1-wght-min);
+
+    --dropcap-weight: var(--h1-wght);
+
+    /* calcs to create values for the formulas */
+    --h2-size-min: calc( var(--h2-size-s-px) / var(--rem-px) );
+    --h2-size-max: calc( var(--h2-size-l-px) / var(--rem-px) );
+    --h2-lh-min: 1.05;
+    --h2-lh-max: 1.1;
+    
+    /* values to scale across breakpoint range */
+    --h2-wdth-min: 85;
+    --h2-wdth-max: 100;
+    --h2-wght-min: 500;
+    --h2-wght-max: 400;
+
+    /* calcs to create values for the formulas */
+    --p-size-min: calc( var(--p-size-s-px) / var(--rem-px) );
+    --p-size-max: calc( var(--p-size-l-px) / var(--rem-px) );
+    --p-lh-min: 1.3;
+    --p-lh-max: 1.6;
+  
+    --color: #1c1c1c;
     --accent-color: rgb(153,0,0); 
-    --modular-ratio-s: 1.067; /* Minor second */
-    --modular-ratio-b: 1.2; /* Minor third */
-    --modular-ratio: var(--modular-ratio-s);
 
-    --font-family-text: var(--default-font-family-text);
-    --font-family-code: var(--default-font-family-code);
-    --font-family-headers: var(--default-font-family-headers);
-    --font-family-dropcap: var(--font-family-headers);
-    --font-family-menu: var(--font-family-headers);
-    --line-height: var(--default-line-height);
-
-    --min-font-size: var(--default-min-font-size);
-    --max-font-size: var(--default-max-font-size);
-
-    font-size: var(--min-font-size);
-    line-height: var(--line-height);
-    font-weight: 410;
     font-family: var(--font-family-text);
-    color: var(--default-color);
+    color: var(--color);
 
     text-rendering: optimizeLegibility;
     font-variant-ligatures: common-ligatures;
+
+    --p-size: calc( var(--p-size-min) * 1rem);
+    --code-factor: 0.8;
+    --code-weight: 400;
+
+    font-size: var(--p-size); 
+
+    line-height: var(--p-lh-min); 
+    /* JS will scale the next two values dynamically */
+    font-stretch: calc( var(--p-wdth) * 1%);
+    font-weight: var(--p-wght);
 }
+@media screen and (min-width: 25em) {
+    body {
+        /* use formula to scale from low value to high between breakpoints */
+        line-height: calc(( var(--p-lh-min) * 1em ) + ( var(--p-lh-max) - var(--p-lh-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+        --p-size: calc(( var(--p-size-min) * 1em ) + ( var(--p-size-max) - var(--p-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    }
+    }
+    @media (min-width: 65em) {
+    body {
+        /* set high end values to cap scale for largest screens */
+        --p-size: calc( var(--p-size-max) * 1rem);
+
+        font-stretch: calc( var(--p-wdth-max) * 1%);
+        font-weight: var(--p-wght-max);
+        line-height: var(--p-lh-max);
+    }
+}
+h2, h3, h4, h5 {
+    font-family: var(--font-family-headers);
+    font-style: italic;
+
+    /* set low-end scale values for smallest screens */
+    font-size: calc( var(--h2-size-min) * 1rem);
+    line-height: var(--h2-lh-min); 
+    /* JS will scale the next two values dynamically */
+    font-stretch: calc( var(--h2-wdth) * 1%);
+    font-weight: var(--h2-wght);
+
+    margin: 1.0rem 0 0.5rem;
+}
+@media screen and (min-width: 25em) {
+    h2, h3, h4, h5  {
+        /* use formula to scale from low value to high between breakpoints */
+        line-height: calc(( var(--h2-lh-min) * 1em ) + ( var(--h2-lh-max) - var(--h2-lh-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+        font-size: calc(( var(--h2-size-min) * 1em ) + ( var(--h2-size-max) - var(--h2-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) ))); 
+    } 
+    }
+    @media screen and (min-width: 65em) {
+    h2, h3, h4, h5  {
+        /* set high end values to cap scale for largest screens */
+        font-size: calc( var(--h2-size-max) * 1rem);
+        font-stretch: calc( var(--h2-wdth-max) * 1%);
+        font-weight: var(--h2-wght-max);
+        line-height: var(--h2-lh-max);
+    } 
+}
+
+h1 {
+    font-family: var(--font-family-title);
+
+    /* set low-end scale values for smallest screens */
+    font-size: calc( var(--h1-size-min) * 1rem);
+    line-height: var(--h1-lh-min); 
+    /* JS will scale the next two values dynamically */
+    font-stretch: calc( var(--h1-wdth) * 1%);
+    font-weight: var(--h1-wght);
+}
+@media screen and (min-width: 25em) {
+    h1 {
+        /* use formula to scale from low value to high between breakpoints */
+        line-height: calc(( var(--h1-lh-min) * 1em ) + ( var(--h1-lh-max) - var(--h1-lh-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+        font-size: calc(( var(--h1-size-min) * 1em ) + ( var(--h1-size-max) - var(--h1-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) ))); 
+    } 
+}
+@media screen and (min-width: 65em) {
+    h1 {
+        /* set high end values to cap scale for largest screens */
+        font-size: calc( var(--h1-size-max) * 1rem);
+        font-stretch: calc( var(--h1-wdth-max) * 1%);
+        font-weight: var(--h1-wght-max); 
+        line-height: var(--h1-lh-max); 
+    }
+}
+
 body {
     padding: 1rem;
     display: grid;
@@ -58,23 +194,23 @@ p + p {
 }
 
 main a.first-link::first-letter {
-    font-family: var(--font-family-headers);
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-family: var(--font-family-dropcap);
+    font-size: 1.0em;
     font-style: italic;
     line-height: 0.6;
-    color: var(--accent-color);
     font-variant-ligatures: discretionary-ligatures historical-ligatures;
     font-feature-settings: "swsh";
 }
 main p:first-of-type::first-letter {
-    font-family: var(--font-family-headers);
-    font-size: 2rem;
+    font-family: var(--font-family-dropcap);
+    font-size: 1.0em;
     font-style: italic;
-    line-height: 0.6;
-    color: var(--accent-color);
+    padding-right: 0.05em; 
     font-variant-ligatures: discretionary-ligatures historical-ligatures;
     font-feature-settings: "swsh";
+}
+main p:first-of-type::first-line {
+    font-style: italic;
 }
 ul, ol {
     margin: 0 1rem;
@@ -83,7 +219,8 @@ ul, ol {
     color: var(--accent-color);
 }
 #logo {
-    font-style: italic;
+    font-family: var(--font-family-logo);
+    color: var(--accent-color);
 }
 
 nav ul, nav ol {
@@ -95,40 +232,18 @@ nav li {
 nav li a {
     margin: 0;
 }
-h3 {
-    font-size: calc(1rem * var(--modular-ratio));
-}
-h1, h2, h3, h4, h5 {
-    font-family: var(--font-family-headers);
-    font-style: italic;
-    font-weight: 500;
-}
-h2, h3, h4, h5 {
-    font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio));
-    font-style: italic;
-}
-h1 {
-    font-size: calc(1rem * var(--modular-ratio) * var(--modular-ratio) * var(--modular-ratio));
-    font-weight: 800;
-    line-height: 1.0;
-}
 hr {
     margin: 0.5rem 0;
 }
 
 a, a:visited {
-    color: var(--default-color);
+    color: var(--color);
     text-decoration: none;
 }
 a:hover {
     text-decoration: underline;
 }
-h2, h3, h4, h5 {
-    line-height: 1.0;
-    margin: 1.0rem 0 0.5rem;
-}
 nav h1, aside h1 {
-    font-size: calc(1rem * var(--modular-ratio));
     margin: 1.0rem 0 0.2rem;
 }
 main a:link {
@@ -152,8 +267,8 @@ pre {
 }
 code {
     font-family: var(--font-family-code);
-    font-weight: 400;
-    font-size: 0.80rem;
+    font-size: calc(var(--p-size) * var(--code-factor));
+    font-weight: var(--code-weight);
 }
 
 button {
@@ -168,72 +283,65 @@ button {
     margin: 1.0rem 0 0.5rem;
     font-size:1.2rem
 }
-#to_nav {
-    float:right;
-    font-variant-caps: all-petite-caps;
-}
-
 #disqus-container {
     margin: 1.0rem 0;
 }
 
 .post-list {
-    list-style-type: none;
     margin:0;
+    list-style-type:upper-latin;
 }
 .post-list > li {
     display:flex;
 }
 .post-link:link, .post-link:visited {
     margin: 0 0.5rem;
-    color: var(--default-color);
+    color: var(--color);
 }
 .post-date {
     font-variant-numeric: tabular-nums;
-    font-variant-caps: all-petite-caps;
-    font-size: 0.73rem;
-    padding: 0.27rem 0 0;
 }
 #blog_date {
-    color: var(--default-color);
-    font-weight: 500;
+    color: var(--color);
     font-variant-numeric: tabular-nums;
-    font-variant-caps: all-petite-caps;
-    font-size: 0.73rem;
+    font-variant-caps: all-small-caps;
 }
 #TOC h2,#tags h2 {
     display: none;
 }
-#primary_nav a {
-    font-variant-caps: all-petite-caps;
-}
-.dropdown {
-    display:inline;
+.topnav {
+    overflow: hidden;
     position: relative;
 }
-.dropdown-content {
-    display: none;
-    cursor: pointer;
-    position: absolute;
-    left: 0;
-    bottom: 1em;
-    background-color: white;
-    opacity: 1.0;
-    z-index: 1;
-    min-width: 25ch;
+.rightnav {
+    float: right;
 }
-.dropdown-content div {
+#topnav a {
+    font-variant-caps: all-small-caps;
+    cursor: pointer;
+    margin: 0 0.2rem;
+}
+.dropdown-content, #primary_nav {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 0 0 0 10px;
+}
+#to_nav {
+    display: inline;
+}
+#primary_nav {
+    right: 0;
+}
+.dropdown-content a, #primary_nav a {
+    display: block;
     padding: 0.1rem ;
     margin: 0.1rem;
 }
-.dropdown-content div:hover {
+.dropdown-content a:hover {
     text-decoration: underline;
-}
-.dropdown:hover .dropdown-content {
-    display:block;
-    cursor: pointer;
-    background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 #random-font, #which-font {
     display: none;
@@ -241,7 +349,6 @@ button {
 #random-font:hover  {
     cursor: pointer;
 }
-
 .offline {
     display:none;
 }
@@ -258,44 +365,24 @@ a.strike {
     text-decoration: line-through;
 }
 
-@media screen and (min-width: 80ch) {
+@media screen and (min-width: 35em) {
     body {
-        grid-template-columns: 1.0fr 75ch 1.414fr;
-    }
-    #to_nav, #primary_nav h1 {
-        display: none;
+        grid-template-columns: 1.0fr 70ch 1.414fr;
     }
     #primary_nav {
         grid-row: 1 / 2;
+        display: inline;
+        position: relative;
+        border: none;
+        padding: 0;
     }
-    #primary_nav ul {
-        float: right;
+    #primary_nav a {
+        display: inline;
     }
-    #primary_nav li {
-        display:inline;
-        margin: 0 0.2em;
-    }
-    .dropdown-content {
-        bottom: auto;
-        top: auto;
-        left: auto;
-        right: 0;
-    }
-}
-/* Font-size set with: https://www.madebymike.com.au/writing/fluid-type-calc-examples/ */
-/* clamp doesn't seem to work on firefox yet, so no https://css-tricks.com/simplified-fluid-typography/ */
-@media screen and (min-width: 20rem) { /* 320px */
-  html {
-    /* formula is min-font-size + (max-font-size - min-font-size) * ((100vw - first-break) / (second-break - first-break)) */
-    font-size: calc(var(--min-font-size) + 0.25 * ((100vw - 20rem) / 60));
-    --modular-ratio: var(--modular-ratio-b);
-  }
+    #to_nav { display: none;}
 }
 
-@media screen and (min-width: 80rem) { /* 1280px */
-    html {
-        font-size: var(--max-font-size);
-    }
+@media screen and (min-width: 80em) { /* 1280px */
     #sidebar-left {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
@@ -306,39 +393,33 @@ a.strike {
     }
     #TOC h1, #tags h1 {
         display: none;
-  }
+    }
+    #TOC, #tags {
+        font-family: var(--font-family-tags);
+    }
     #TOC {
-        font-variant-caps: all-petite-caps;
+        font-variant-caps: all-small-caps;
         border-left: 1px dotted var(--accent-color);
         position: sticky;
         text-align: left;
         top: 0;
         margin-left: 1rem;
         padding-left: 1rem;
-        line-height: 1rem;
+        line-height: 1.5rem;
     }
     #tags {
-        font-variant-caps: all-petite-caps;
+        font-variant-caps: all-small-caps;
         border-right: 1px dotted var(--accent-color);
         position: sticky;
         text-align: right;
         top: 0;
         margin-right: 1rem;
         padding-right: 1rem;
-        line-height: 1rem;
+        line-height: 1.5rem;
     }
     #tags h2, #TOC h2 {
         display: block;
-    }
-}
-@media screen and (min-width: 120rem) { /* 1920px */
-    html {
-        font-size: 1.5rem;
-    }
-}
-@media screen and (min-width: 160rem) { /* 2560px */
-    html {
-        font-size: 1.7rem;
+        margin-bottom: 1rem;
     }
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) { /* retina */

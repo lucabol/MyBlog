@@ -1,0 +1,74 @@
+/* a. Sa Humanist: Nimbus (Helvetica) */
+@font-face {
+    font-family: 'Nimbus';
+    src:
+        url('/fonts/NimbusSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Nimbus';
+    src:
+        url('/fonts/NimbusSans-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Nimbus';
+    src:
+        url('/fonts/NimbusSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Nimbus';
+    src:
+        url('/fonts/NimbusSans-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NimbusMonoPS';
+    src:
+        url('/fonts/NimbusMonoPS-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NimbusMonoPS';
+    src:
+        url('/fonts/NimbusMonoPS-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NimbusMonoPS';
+    src:
+        url('/fonts/NimbusMonoPS-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NimbusMonoPS';
+    src:
+        url('/fonts/NimbusMonoPS-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+.Nimbus {
+    --font-family-headers: 'Nimbus', serif;
+    --font-family-text: 'Nimbus', serif;
+    --font-family-code: NimbusMonoPS, LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
+    --dropcap-weight: 600;
+    --code-factor:0.9;
+}

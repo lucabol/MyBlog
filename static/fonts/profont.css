@@ -1,12 +1,24 @@
+/* Z. Sa Monospace: Profont */
 @font-face {
     font-family: profont;
-    src: url('/fonts/ProFontWindows.ttf');
+    src: url('/fonts/ProFontWindows.woff');
     font-display: optional;
     font-weight: normal;
 }
 @font-face {
-    font-family: profont-bold;
-    src: url('/fonts/ProFontWindows-Bold.ttf');
+    font-family: profont;
+    src: url('/fonts/ProFontWindows-Bold.woff');
     font-display: optional;
     font-weight: bold;
+}
+.Profont {
+    --font-family-headers: profont, serif;
+    --font-family-text: "Lucida Bright", Georgia, serif;
+    --font-family-code: profont, monospace;
+    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
+    --p-size-s-px: 16;
+    --p-size-l-px: 20;
+    --p-wght-min: 300;
+    --p-wght-max: 400;
+    --code-factor: 1.1;
 }

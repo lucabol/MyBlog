@@ -1,8 +1,19 @@
+/* 9. Sa Geometric: Bahnschrift */
 @font-face {
-    font-family: bahnschrift;
-    src:local('bahnschrift'),
-        url('/fonts/subset-Bahnschrift.woff2') format('woff2'),
-        url('/fonts/subset-Bahnschrift.woff') format('woff');
-    font-display: optional;
+    font-family: BahnschriftFont;
+    src:
+        local('bahnschrift'),
+        url('/fonts/bahnschrift.woff2') format('woff2'),
+        url('/fonts/bahnschrift.woff') format('woff');
     font-weight: 1 1000;
+    font-stretch: 1% 500%;
+    font-display: swap;
+}
+.Bahnschrift {
+    --font-family-headers: BahnschriftFont, serif;
+    --font-family-text: BahnschriftFont, serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --p-wght-min: 300;
+    --p-wght-max: 350;
+    --code-factor: 0.9;
 }

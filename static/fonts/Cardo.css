@@ -1,0 +1,34 @@
+/* 1. Se Old Style: Cardo (Minion, Gallard, Centaur) */
+@font-face {
+    font-family: 'Cardo';
+    src:
+        url('/fonts/Cardo104s.woff2') format('woff2'),
+        url('/fonts/Cardo104s.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Cardo';
+    src:
+        url('/fonts/Cardoi99.woff2') format('woff2'),
+        url('/fonts/Cardoi99.woff') format('woff');
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Cardo';
+    src:
+        url('/fonts/Cardob101.woff2') format('woff2'),
+        url('/fonts/Cardob101.woff') format('woff');
+    font-weight: bold;
+    font-display: swap;
+}
+
+
+.Cardo {
+    --font-family-headers: 'Cardo', TimesNewRoman, "Times New Roman", serif;
+    --font-family-text: 'Cardo',  TimesNewRoman, "Times New Roman", serif;
+    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
+    --font-family-logo: TimesNewRoman, "Times New Roman", serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+}

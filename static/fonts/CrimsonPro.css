@@ -1,0 +1,30 @@
+/* 1. Se Old Style: Crimson Pro (Century, Palatino, Plantin, Sabon) */
+@font-face {
+    font-family: 'CrimsonPro';
+    src:
+        url('/fonts/CrimsonPro-Roman-VF.woff2') format('woff2'),
+        url('/fonts/CrimsonPro-Roman-VF.woff') format('woff');
+    font-weight: 1 1000;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'CrimsonPro';
+    src:
+        url('/fonts/CrimsonPro-Italic-VF.woff2') format('woff2'),
+        url('/fonts/CrimsonPro-Italic-VF.woff') format('woff');
+    font-weight: 1 1000;
+    font-style: italic;
+    font-display: swap;
+}
+
+.CrimsonPro {
+    --font-family-headers: 'CrimsonPro', serif;
+    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
+    --font-family-text: 'CrimsonPro', 'CooperHewitt', serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --p-size-s-px: 19;
+    --p-size-l-px: 23;
+    --p-wght-min: 330;
+    --p-wght-max: 390;
+}
