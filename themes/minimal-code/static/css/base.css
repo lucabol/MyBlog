@@ -8,7 +8,7 @@ body {
     --font-family-code: LucidaTy, "Lucida Console", "Courier New", monospace;
     --font-family-headers: var(--font-family-text);
     --font-family-title: var(--font-family-text);
-    --font-family-dropcap: LucidaCa, TimesNewRoman, "Times New Roman", serif;
+    --font-family-dropcap: TimesNewRoman, "Times New Roman", serif;
     --font-family-tags: var(--font-family-text);
     --font-family-logo: var(--font-family-text);
 
@@ -197,7 +197,7 @@ main a.first-link::first-letter {
     font-family: var(--font-family-dropcap);
     font-size: 1.0em;
     font-style: italic;
-    padding-right: 0.15em; 
+    padding-right: 0.05em; 
     line-height: 0.6;
     font-variant-ligatures: discretionary-ligatures historical-ligatures;
     font-feature-settings: "swsh";
@@ -206,7 +206,7 @@ main p:first-of-type::first-letter {
     font-family: var(--font-family-dropcap);
     font-size: 1.0em;
     font-style: italic;
-    padding-right: 0.15em; 
+    padding-right: 0.05em; 
     font-variant-ligatures: discretionary-ligatures historical-ligatures;
     font-feature-settings: "swsh";
 }
