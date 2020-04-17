@@ -1,0 +1,37 @@
+/* 1. Se Old Style: Gentium */
+@font-face {
+    font-family: Gentium;
+    src: url('/fonts/GentiumPlus-R.woff2') format('woff2'),
+    url('/fonts/GentiumPlus-R.woff') format('woff');
+    font-display: swap;
+    font-weight: normal;
+}
+@font-face {
+    font-family: Gentium;
+    src: url('/fonts/GentiumPlus-I.woff2') format('woff2'),
+    url('/fonts/GentiumPlus-I.woff') format('woff');
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: Gentium;
+    src: url('/fonts/GenBasBI.woff2') format('woff2'),
+    url('/fonts/GenBasBI.woff') format('woff');
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+}
+@font-face {
+    font-family: Gentium;
+    src: url('/fonts/GenBasB.woff2') format('woff2'),
+    url('/fonts/GenBasB.woff') format('woff');
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+}
+.Gentium {
+    --font-family-headers: 'Gentium', serif;
+    --font-family-text: 'Gentium', serif;
+    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+    --code-factor: 0.9;
+}
