@@ -1,7 +1,0 @@
-/* 4. Se Transitional: TNRoman */
-.TimesNewRoman {
-    --font-family-headers: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
-    --font-family-text: var(--font-family-headers);
-    --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
-    --code-factor: 0.9;
-}
