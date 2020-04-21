@@ -122,7 +122,6 @@ This achieves that we set up to do at the start of the series:
 
 You can also decide to manage your contingencies immediately after calling a function. Perhaps there is a way to recover from the problem. For example, if the user is not in the database, you might want to add a standard one:
 
-<pre class="code"><span style="background:white;color:blue;"><font color="#000000" face="Lucida Sans Unicode">
 
 <pre class="code"><span style="background:white;color:blue;">let </span><span style="background:white;color:black;">createAndReturnUser userName = </span><span style="background:white;color:blue;">critical </span><span style="background:white;color:black;">{ </span><span style="background:white;color:blue;">return </span><span style="background:white;color:black;">{Name = userName; Age = 43}}<br />
 </span>&lt;/font>let &lt;/span><span style="background:white;color:black;">tryFetchUser4 userName =

@@ -118,7 +118,7 @@ body {
 h2:first-of-type {
     margin: 0;
 }
-h2, h3, h4, h5 {
+h1, h2, h3, h4, h5 {
     font-family: var(--font-family-headers);
     font-style: normal;
 
@@ -132,14 +132,14 @@ h2, h3, h4, h5 {
     margin: 1.0rem 0 0.0rem;
 }
 @media screen and (min-width: 25em) {
-    h2, h3, h4, h5  {
+    h1, h2, h3, h4, h5  {
         /* use formula to scale from low value to high between breakpoints */
         line-height: calc(( var(--h2-lh-min) * 1em ) + ( var(--h2-lh-max) - var(--h2-lh-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
         font-size: calc(( var(--h2-size-min) * 1em ) + ( var(--h2-size-max) - var(--h2-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) ))); 
     } 
     }
     @media screen and (min-width: 65em) {
-    h2, h3, h4, h5  {
+    h1, h2, h3, h4, h5  {
         /* set high end values to cap scale for largest screens */
         font-size: calc( var(--h2-size-max) * 1rem);
         font-stretch: calc( var(--h2-wdth-max) * 1%);
@@ -148,7 +148,7 @@ h2, h3, h4, h5 {
     } 
 }
 
-h1 {
+h1#title {
     font-family: var(--font-family-title);
 
     /* set low-end scale values for smallest screens */
@@ -163,14 +163,14 @@ h1 {
     padding: 5px 0;
 }
 @media screen and (min-width: 25em) {
-    h1 {
+    h1#title {
         /* use formula to scale from low value to high between breakpoints */
         line-height: calc(( var(--h1-lh-min) * 1em ) + ( var(--h1-lh-max) - var(--h1-lh-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
         font-size: calc(( var(--h1-size-min) * 1em ) + ( var(--h1-size-max) - var(--h1-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) ))); 
     } 
 }
 @media screen and (min-width: 65em) {
-    h1 {
+    h1#title {
         /* set high end values to cap scale for largest screens */
         font-size: calc( var(--h1-size-max) * 1rem);
         font-stretch: calc( var(--h1-wdth-max) * 1%);
@@ -361,9 +361,9 @@ a.strike {
     text-decoration: line-through;
 }
 
-@media screen and (min-width: 35em) {
+@media screen and (min-width: 36em) {
     body {
-        grid-template-columns: 1.0fr 720px 1.414fr;
+        grid-template-columns: 1.0fr 33em 1.414fr;
     }
     #primary_nav {
         grid-row: 1 / 2;
