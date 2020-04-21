@@ -10,7 +10,6 @@
     font-display: swap;
 }
 .bahnschrift {
-    --font-family-headers: BahnschriftFont, serif;
     --font-family-text: BahnschriftFont, serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --p-wght-min: 300;

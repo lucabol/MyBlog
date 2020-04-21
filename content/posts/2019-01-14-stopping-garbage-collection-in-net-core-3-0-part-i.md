@@ -19,22 +19,21 @@ tags:
   - csharp
 ---
 Scenario
-==============
+----
 Thanks to [Mike](https://github.com/mjrousos) for reviewing this.
 
 You have an application or a particular code path of your application that cannot take the pauses that GC creates.
 Typical examples are real time systems, tick by tick financial apps, embedded systems, etc ...
 
 Disclaimer
-==============
+----
 For any normal kind of applications, *YOU DON'T NEED TO DO THIS*. You are likely to make your application run slower or blow up memory.
 If you have an hot path in your application (i.e. you are creating an editor with Intellisense), use the GC latency modes.
 Use the code below just under extreme circumstance as it is untested, error prone and wacky.
 You are probably better off waiting for an official way of doing it (i.e. when [this](https://github.com/dotnet/coreclr/issues/21750)
 is implemented)
 
-The problem with TryStartNoGCRegion
-==========================================
+## The problem with TryStartNoGCRegion
 There is a GC.TryStartNoGCRegion in .NET. You can use it to stop garbage collection passing a totalBytes parameter that represents
 the maximum amount of memory  that you plan to allocate from the managed heap. Matt describes it
 [here](https://mattwarren.org/2016/08/16/Preventing-dotNET-Garbage-Collections-with-the-TryStartNoGCRegion-API/).
@@ -43,7 +42,7 @@ The problem is that when/if you allocate more than that, garbage collection resu
 but with different performance characteristics from what you expected.
 
 The idea
-==============
+----
 The main idea is to use [ETW events](https://docs.microsoft.com/en-us/windows/desktop/etw/about-event-tracing) to detect when a
 GC occurs and to call an user provided delegate at that point. You can then do whatever you want in the delegate (i.e. shutdown the process,
 send email to support, start another NoGC region, etc...).
@@ -51,7 +50,7 @@ send email to support, start another NoGC region, etc...).
 Also, I have wrapped the whole StartNoGCRegion/EndNoGCRegion in an IDisposable wrapper for easy of use.
 
 The tests
-==============
+----
 Let's start by looking at how you use it.
 
 ~~~csharp

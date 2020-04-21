@@ -32,7 +32,6 @@
     font-display: swap;
 }
 .Munson {
-    --font-family-headers: Munson, serif;
     --font-family-text: Munson, serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --code-factor: 0.9;

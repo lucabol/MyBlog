@@ -44,7 +44,6 @@
     font-display: swap;
 }
 .Gentium {
-    --font-family-headers: 'Gentium', serif;
     --font-family-text: 'Gentium', serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --code-factor: 0.9;

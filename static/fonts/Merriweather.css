@@ -20,7 +20,6 @@
 }
 
 .Merriweather {
-    --font-family-headers: 'Merriweather', serif;
     --font-family-text: 'Merriweather', serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --p-wght-min: 100;

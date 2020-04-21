@@ -28,8 +28,8 @@ body {
     --p-size-l-px: 24;
     --h1-size-s-px: 18;
     --h1-size-l-px: 42;
-    --h2-size-s-px: 18;
-    --h2-size-l-px: 26;
+    --h2-size-s-px: 16;
+    --h2-size-l-px: 24;
 
     /* values to scale across breakpoint range */
     --p-wdth-min: 90;
@@ -68,8 +68,8 @@ body {
     /* values to scale across breakpoint range */
     --h2-wdth-min: 85;
     --h2-wdth-max: 100;
-    --h2-wght-min: 400;
-    --h2-wght-max: 400;
+    --h2-wght-min: 500;
+    --h2-wght-max: 600;
 
     /* calcs to create values for the formulas */
     --p-size-min: calc( var(--p-size-s-px) / var(--rem-px) );
@@ -115,6 +115,9 @@ body {
     }
 }
 
+h2:first-of-type {
+    margin: 0;
+}
 h2, h3, h4, h5 {
     font-family: var(--font-family-headers);
     font-style: normal;
@@ -126,7 +129,7 @@ h2, h3, h4, h5 {
     font-stretch: calc( var(--h2-wdth) * 1%);
     font-weight: var(--h2-wght);
 
-    margin: 0.0rem 0 0.0rem;
+    margin: 1.0rem 0 0.0rem;
 }
 @media screen and (min-width: 25em) {
     h2, h3, h4, h5  {

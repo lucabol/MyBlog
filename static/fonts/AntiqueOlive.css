@@ -36,7 +36,6 @@
     font-display: optional;
 }
 .AntiqueOlive {
-    --font-family-headers: 'AntiqueOlive', serif;
     --font-family-text: 'AntiqueOliveLight', serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --font-family-ui:  'AntiqueOliveSC', serif;

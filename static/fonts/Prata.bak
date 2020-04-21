@@ -23,7 +23,6 @@
     font-display: swap;
 }
 .Prata {
-    --font-family-headers: 'Prata', serif;
     --font-family-text: 'Prata', 'CooperHewitt', serif;
     --font-family-code: 'Fira Code VF', monospace;
 }

@@ -19,7 +19,6 @@
     font-display: optional;
 }
 .STIX2 {
-    --font-family-headers: 'STIX2', serif;
     --font-family-text: 'STIX2', serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --code-factor: 0.9;

@@ -12,7 +12,6 @@
     font-weight: bold;
 }
 .Profont {
-    --font-family-headers: profont, serif;
     --font-family-code: profont, monospace;
     --p-size-s-px: 16;
     --p-size-l-px: 20;

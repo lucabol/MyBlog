@@ -30,7 +30,6 @@
     font-display: swap;
 }
 .LibreCaslon {
-    --font-family-headers: 'Libre Caslon', serif;
     --font-family-text: 'Libre Caslon', serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --p-wght-min: 400;

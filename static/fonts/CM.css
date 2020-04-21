@@ -45,7 +45,6 @@
     font-display: swap;
 }
 .CM {
-    --font-family-headers: 'CM', serif;
     --font-family-text: 'CM', serif;
     --font-family-code: 'CM TypeWriter', monospace;
     --p-wght-min: 390;

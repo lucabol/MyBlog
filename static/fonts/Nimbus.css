@@ -73,7 +73,6 @@
     font-display: swap;
 }
 .Nimbus {
-    --font-family-headers: 'Nimbus', serif;
     --font-family-text: 'Nimbus', serif;
     --font-family-code: NimbusMonoPS, LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --code-factor:0.9;
