@@ -24,11 +24,11 @@
 {{ if eq .Kind "home"}}
   <title>{{ .Site.Title }}</title>
 
-  <!-- Pre-render the first 10 pages (cheater) -->
+  <!-- Pre-render the first 10 pages (cheater). Removed as it stops preloading of fonts. -->
   {{ $pages := .Pages }}
   {{ $pages = .Site.RegularPages }}
   {{ range first 10 $pages }}
-    <link media="screen and (min-width: 50em)" rel="prerender" href="{{ .RelPermalink }}" />
+    <!-- <link media="screen and (min-width: 50em)" rel="prerender" href="{{ .RelPermalink }}" /> -->
   {{ end }}
   
 {{ end }}
