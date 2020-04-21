@@ -37,11 +37,6 @@
 }
 
 .SourcePro {
-    --font-family-headers: SourceSerifPro, serif;
-    --font-family-text: SourceSerifPro, serif;
-    --font-family-code: SourceCodePro, LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --p-wght-min: 370;
     --p-wght-max: 430;
-    --h1-wght-min: 900;
-    --h1-wght-max: 700;
 }

@@ -22,8 +22,8 @@
     --font-family-headers: 'LibreBodoni', serif;
     --font-family-text: 'LibreBodoni', serif;
     --font-family-code: 'Fira Code VF', monospace;
-    --p-size-s-px: 16;
-    --p-size-l-px: 20;
+    --p-size-s-px: 14;
+    --p-size-l-px: 22;
     --p-wght-min: 300;
     --p-wght-max: 400;
 }

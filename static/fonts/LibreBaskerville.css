@@ -30,12 +30,12 @@
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --p-lh-min: 1.5;
     --p-lh-max: 1.7;
-    --p-size-s-px: 15;
-    --p-size-l-px: 19;
+    --p-size-s-px: 12;
+    --p-size-l-px: 21;
     --h1-size-s-px: 21;
     --h1-size-l-px: 39;
     --h2-size-s-px: 17;
-    --h2-size-l-px: 31;
+    --h2-size-l-px: 22;
     --p-wght-min: 300;
     --p-wght-max: 400;
     --code-factor: 1;

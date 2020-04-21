@@ -21,8 +21,10 @@
 .CrimsonPro {
     --font-family-headers: 'CrimsonPro', serif;
     --font-family-text: 'CrimsonPro', 'CooperHewitt', serif;
-    --p-size-s-px: 19;
-    --p-size-l-px: 23;
+    --p-size-s-px: 17;
+    --p-size-l-px: 25;
     --p-wght-min: 340;
     --p-wght-max: 400;
+    --p-lh-min: 1.2;
+    --p-lh-max: 1.2;
 }

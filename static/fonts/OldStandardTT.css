@@ -28,4 +28,6 @@
     --font-family-headers: 'OldStandardTT', serif;
     --font-family-text: 'OldStandardTT', serif;
     --code-factor:0.9;
+    --p-lh-min: 1.2;
+    --p-lh-max: 1.2;
 }

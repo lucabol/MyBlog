@@ -1,0 +1,10 @@
+/* 4. Se Transitional: Century Supra */
+.CenturySupra {
+    --font-family-text: "Century Supra T4", TimesNewRoman, "Times New Roman", Baskerville, serif;
+    --font-family-code: "Triplicate T4", "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+    --font-family-dropcap: "Century Supra C4", TimesNewRoman, "Times New Roman", serif;
+    --font-family-headers: var(--font-family-text);
+    --font-family-title: "Concourse T6";
+    --font-family-ui: "Concourse C3";
+    --font-family-logo: var(--font-family-text);
+}
