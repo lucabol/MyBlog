@@ -26,10 +26,10 @@ body {
     /* EDIT HERE to set px value sizes */
     --p-size-s-px: 16;
     --p-size-l-px: 24;
-    --h1-size-s-px: 18;
+    --h1-size-s-px: 20;
     --h1-size-l-px: 42;
-    --h2-size-s-px: 16;
-    --h2-size-l-px: 24;
+    --h2-size-s-px: 18;
+    --h2-size-l-px: 28;
 
     /* values to scale across breakpoint range */
     --p-wdth-min: 90;
@@ -68,8 +68,8 @@ body {
     /* values to scale across breakpoint range */
     --h2-wdth-min: 85;
     --h2-wdth-max: 100;
-    --h2-wght-min: 500;
-    --h2-wght-max: 600;
+    --h2-wght-min: 450;
+    --h2-wght-max: 450;
 
     /* calcs to create values for the formulas */
     --p-size-min: calc( var(--p-size-s-px) / var(--rem-px) );
@@ -157,10 +157,10 @@ h1#title {
     /* JS will scale the next two values dynamically */
     font-stretch: calc( var(--h1-wdth) * 1%);
     font-weight: var(--h1-wght);
-    margin: 0.0rem 0 1.0rem;
     border-top: 1px solid var(--color);
     border-bottom: 1px solid var(--color);
     padding: 5px 0;
+    margin: 0.5rem 0 0.5rem;
 }
 @media screen and (min-width: 25em) {
     h1#title {
@@ -173,8 +173,8 @@ h1#title {
     h1#title {
         /* set high end values to cap scale for largest screens */
         font-size: calc( var(--h1-size-max) * 1rem);
-        font-stretch: calc( var(--h1-wdth-max) * 1%);
-        font-weight: var(--h1-wght-max); 
+        font-stretch: calc( var(--h2-wdth-max) * 1%);
+        font-weight: var(--h2-wght-max); 
         line-height: var(--h1-lh-max); 
     }
 }
