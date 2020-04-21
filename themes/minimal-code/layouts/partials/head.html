@@ -19,17 +19,18 @@
 <link rel="stylesheet" href="/css/base.css"> 
 <link rel="stylesheet" href="/css/fonts.css">
 
-
 {{ if eq .Kind "home"}}
   <title>{{ .Site.Title }}</title>
-
   <!-- Pre-render the first 10 pages (cheater). Removed as it stops preloading of fonts. -->
   {{ $pages := .Pages }}
   {{ $pages = .Site.RegularPages }}
   {{ range first 10 $pages }}
     <link media="screen and (min-width: 50em)" rel="prerender" href="{{ .RelPermalink }}" />
   {{ end }}
-  
+{{ else }}
+  <link rel="preload" href="/fonts/SourceCodeVariable-Roman.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/fonts/SourceCodeVariable-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/fonts/SourceSerifVariable-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 {{ end }}
 
 {{ if eq .Kind "page"}}
