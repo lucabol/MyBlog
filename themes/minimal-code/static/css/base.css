@@ -372,7 +372,15 @@ a.strike {
     #primary_nav a {
         display: inline;
     }
-    #to_nav { display: none;}
+    #to_nav {
+        display: none;
+    }
+    .post-link:link, .post-link:visited {
+        margin: 0 0.5rem;
+        color: var(--color);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
 
 @media screen and (min-width: 80em) { /* 1280px */
