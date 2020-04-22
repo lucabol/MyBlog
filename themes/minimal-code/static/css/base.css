@@ -25,11 +25,11 @@ body {
 
     /* EDIT HERE to set px value sizes */
     --p-size-s-px: 16;
+    --h2-size-s-px: 16;
+    --h1-size-s-px: 20.25;
     --p-size-l-px: 24;
-    --h1-size-s-px: 20;
-    --h1-size-l-px: 42;
-    --h2-size-s-px: 18;
-    --h2-size-l-px: 28;
+    --h2-size-l-px: 24;
+    --h1-size-l-px: 47.986;
 
     /* values to scale across breakpoint range */
     --p-wdth-min: 90;
@@ -68,8 +68,8 @@ body {
     /* values to scale across breakpoint range */
     --h2-wdth-min: 85;
     --h2-wdth-max: 100;
-    --h2-wght-min: 450;
-    --h2-wght-max: 450;
+    --h2-wght-min: 550;
+    --h2-wght-max: 700;
 
     /* calcs to create values for the formulas */
     --p-size-min: calc( var(--p-size-s-px) / var(--rem-px) );
@@ -115,9 +115,6 @@ body {
     }
 }
 
-h2:first-of-type {
-    margin: 0;
-}
 h1, h2, h3, h4, h5 {
     font-family: var(--font-family-headers);
     font-style: normal;
@@ -159,7 +156,7 @@ h1#title {
     font-weight: var(--h1-wght);
     border-top: 1px solid var(--color);
     border-bottom: 1px solid var(--color);
-    padding: 5px 0;
+    padding: 0.5rem 0;
     margin: 0.5rem 0 0.5rem;
 }
 @media screen and (min-width: 25em) {
@@ -173,8 +170,8 @@ h1#title {
     h1#title {
         /* set high end values to cap scale for largest screens */
         font-size: calc( var(--h1-size-max) * 1rem);
-        font-stretch: calc( var(--h2-wdth-max) * 1%);
-        font-weight: var(--h2-wght-max); 
+        font-stretch: calc( var(--h1-wdth-max) * 1%);
+        font-weight: var(--h1-wght-max); 
         line-height: var(--h1-lh-max); 
     }
 }
@@ -206,7 +203,7 @@ main p:first-of-type::first-line {
     
 }
 ul, ol {
-    margin: 0 1rem;
+    margin: 0 2.5rem;
 }
 #to_top {
     color: var(--accent-color);
@@ -229,12 +226,15 @@ hr {
     margin: 0.5rem 0;
 }
 
-a, a:visited {
+a, a:visited, a:active {
     color: var(--color);
     text-decoration: none;
 }
 a:hover {
     text-decoration: underline;
+}
+p a, p a:visited, p a:active {
+    color: var(--accent-color);
 }
 nav h1, aside h1 {
     margin: 1.0rem 0 0.2rem;
@@ -250,9 +250,6 @@ p a::after {
     top: -0.1em;
     font-feature-settings: "caps";
     font-variant-numeric: normal;
-}
-a:active {
-    color: var(--accent-color);
 }
 pre {
     margin: 1rem 1rem;

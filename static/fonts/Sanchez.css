@@ -14,7 +14,6 @@
     font-display: swap;
 }
 .Sanchez {
-    --font-family-headers: 'Sanchez', serif;
     --font-family-text: 'Sanchez', serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --code-factor: 0.9;

@@ -18,7 +18,6 @@
 }
 
 .GoudyStM {
-    --font-family-headers: 'GoudyStM', serif;
     --font-family-text: 'GoudyStM', serif;
     --font-family-code: LucidaTy, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
     --p-wght-min: 440;

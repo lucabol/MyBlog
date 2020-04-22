@@ -1,4 +1,3 @@
-
 function SubsetFile {
     param($completeFile, $outputFile)
     $ocFeatures = "dlig,pcap,c2pc,case,swsh,onum,pnum,smcp"
