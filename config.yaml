@@ -7,7 +7,6 @@ ignoreFiles: [\.Rmd$, _files$, _cache$]
 preserveTaxonomyNames: true
 enableEmoji: true
 footnotereturnlinkcontents: ↩
-enableGitInfo: true
 enableRobotsTXT: true
 disqusShortname: lucabol
 relativeURLs: true
