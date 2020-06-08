@@ -1,0 +1,23 @@
+/* 0. KiteOne */
+@font-face {
+    font-family: KiteOne;
+    src:
+        local('KiteOne'),
+        url('/fonts/KiteOne-Regular.ttf') format('truetype');
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: KiteOne;
+    src:
+        local('KiteOne'),
+        url('/fonts/KiteOne-Regular.ttf') format('truetype');
+    font-display: swap;
+    font-style: italic;
+}
+.KiteOne {
+    --font-family-text: KiteOne, serif;
+    --font-family-title: Cardo;
+    --h2-size-s-px: 22;
+    --code-factor: 0.9;
+}
