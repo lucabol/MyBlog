@@ -20,17 +20,18 @@
                 </nav>
             </span>
         </div>
-    <h1 id="title">
-    {{ block "title" . }}
-        {{ .Title }}
-    {{ end }}
-    </h1>
-
     </header>
 
     <main>
-        {{ block "main" . }}
-        {{ end }}
+        <article>
+            <h1 id="title">
+            {{ block "title" . }}
+                {{ .Title }}
+            {{ end }}
+            </h1>
+            {{ block "main" . }}
+            {{ end }}
+        </article>
 
     </main>
 

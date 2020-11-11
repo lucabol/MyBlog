@@ -3,6 +3,7 @@
         <h1>Table of contents</h1>
         <h2>¶</h2>
     </header>
+    <nav id="TableOfContents">
     <!-- See: https://gist.github.com/skyzyx/a796d66f6a124f057f3374eff0b3f99a -->
     {{- $headers := findRE "<h[1-4].*?>(.|\n])+?</h[1-4]>" .Content -}}
     {{- $has_headers := ge (len $headers) 1 -}}
@@ -20,7 +21,6 @@
     {{- $firstHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers 0) 1) 0)) -}}
 
     {{- $.Scratch.Set "bareul" slice -}}
-    <nav id="TableOfContents">
     <ul>
     {{- range seq (sub $firstHeaderLevel $largest) -}}
         <ul>
