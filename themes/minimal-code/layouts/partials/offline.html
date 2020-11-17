@@ -1,11 +1,11 @@
 <script>
-    window.addEventListener('offline', function(e) {
+    window.addEventListener('offline', (e) => {
         const els = document.getElementsByClassName('offline')
         for(const el of els)
             el.classList.add("show")
         window.caches.keys().then(strikeNonCached)
     })
-    window.addEventListener('online', function(e) {
+    window.addEventListener('online', (e) => {
         const els = document.getElementsByClassName('offline')
         for(const el of els)
             el.classList.remove("show")
@@ -15,9 +15,9 @@
             a.classList.remove('strike')
     })
 
-    const strikeNonCached = function(cacheKeys) {
+    const strikeNonCached = cacheKeys => {
         caches.open(cacheKeys[0]).then(cache =>
-            cache.keys().then(function(keys) {
+            cache.keys().then(keys => {
                 const as = document.querySelectorAll('main a')
                 const urls = keys.map(k => k.url)
                 for(const a of as)

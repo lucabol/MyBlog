@@ -1,6 +1,6 @@
 <script>
   const el = document.querySelector("#to_nav")
-  el.addEventListener("click", function(e) {
+  el.addEventListener("click", e => {
     const x = document.querySelector("#primary_nav")
     if (x.style.display === "block") {
       x.removeAttribute("style")
@@ -8,7 +8,7 @@
       x.style.display = "block";
     }
   })
-  window.addEventListener('click', function(e) {
+  window.addEventListener('click', e => {
     const x = document.querySelector("#primary_nav")
     const y = document.querySelector("#to_nav")
     if (!y.contains(e.target) && x.style.display === "block") {
