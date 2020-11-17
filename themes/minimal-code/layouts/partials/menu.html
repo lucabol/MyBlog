@@ -2,5 +2,5 @@
 {{ $section := lower .Section }}
 {{- range .Site.Menus.main }}
   {{- $name := lower .Name }}
-  <a href="{{ .URL }}">{{ $name }}</a>
+  <a href="{{ .URL }}" id="{{ $name }}">{{ $name }}</a>
 {{- end }}
