@@ -4,8 +4,9 @@
         {{ partial "head.html" . }}
     </head>
 <body>
-    <!-- Avoid FOUC in Firefox https://stackoverflow.com/questions/21147149/flash-of-unstyled-content-fouc-in-firefox-only-is-ff-slow-renderer -->
+    <!-- Avoid FOUC in Firefox with js disabled https://stackoverflow.com/questions/21147149/flash-of-unstyled-content-fouc-in-firefox-only-is-ff-slow-renderer
     <script>0</script>
+    -->
     <header>
         <div id="topnav">
             <a id="logo" href="/">❧</a>
@@ -55,7 +56,7 @@
     </footer>
 
     {{ partial "fonts.html"}}
-    {{ partial "tracking-code.html"}}
+    <!--{{ partial "tracking-code.html"}}-->
     {{ partial "sw-install.html"}}
     {{ partial "offline.html"}}
     {{ partial "dynamic-typography.html"}}
