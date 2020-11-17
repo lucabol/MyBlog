@@ -1,4 +1,8 @@
+/* css for the base experience */
+#theme,#search, #to_nav, #disqus-button, .dropdown-content, .offline { display: none;}
 /* css for the modern experience */
+
+@media only all {
 #theme, #search, #to_nav {display: inline;}
 #disqus-button {display:block}
 
@@ -428,6 +432,7 @@ a.strike {
     }
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) { /* retina */
+}
 }
 @media print {
     * {
