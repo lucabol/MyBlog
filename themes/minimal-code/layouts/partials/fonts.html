@@ -1,6 +1,6 @@
 <script>
     const th = document.querySelector("#theme")
-    th.addEventListener("click", e => {
+    th.addEventListener("click", function(e) {
         const x = document.querySelector(".dropdown-content")
         if (x.style.display === "block") {
             x.removeAttribute("style")
@@ -17,7 +17,7 @@
     document.body.className = style;
 
     const fontEl = document.querySelector(".dropdown-content")
-    fontEl.addEventListener("click", e => {
+    fontEl.addEventListener("click", function(e) {
         const el = e.target
         const style = el.dataset.classname
         document.body.className = style;
@@ -26,18 +26,18 @@
 
 /*
     const randElem = document.querySelector("#random-font")
-    randElem.addEventListener("click", e => {
+    randElem.addEventListener("click", function(e) {
         const randomEl = array[Math.floor(Math.random() * array.length)]
         document.documentElement.className = style;
         localStorage.setItem("Style", style)
     })
     const which = document.querySelector("#which-font")
-    which.addEventListener("mouseenter", e => {
+    which.addEventListener("mouseenter", function(e) {
         const styles = getComputedStyle(document.documentElement);
         const which = document.querySelector("#which-font")
         which.innerHTML = "[" + styles.getPropertyValue("--font-family-text").split(",")[0] + "]"
     })
-    which.addEventListener("mouseleave", e => {
+    which.addEventListener("mouseleave", function(e) {
         const which = document.querySelector("#which-font")
         which.innerHTML = "[Which]"
     })
