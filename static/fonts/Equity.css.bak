@@ -1,9 +1,0 @@
-/* 4. Se Transitional: Equity */
-.Equity {
-    --font-family-text: "Equity Text A", TimesNewRoman, "Times New Roman", Baskerville, serif;
-    --font-family-code: "Triplicate T4", "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
-    --font-family-dropcap: "Equity Text A", TimesNewRoman, "Times New Roman", serif;
-    --font-family-title: "Concourse T6";
-    --font-family-ui: "Concourse C3";
-    --font-family-logo: var(--font-family-text);
-}

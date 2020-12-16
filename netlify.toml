@@ -1,5 +1,2 @@
 [build]
-  HUGO_VERSION = "0.64.0"
-[[redirects]]
-  from = "/2019/01/29/meta-programming-in-c-with-jit-dead-code-removal-and-inlining/"
-  to = "/posts/2019-01-29-meta-programming-and-policy-based-design/"
+  publish = "_site"

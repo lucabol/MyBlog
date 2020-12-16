@@ -1,6 +1,0 @@
-{{- $title := lower .Title }}
-{{ $section := lower .Section }}
-{{- range .Site.Menus.main }}
-  {{- $name := lower .Name }}
-  <a href="{{ .URL }}" id="{{ $name }}">{{ $name }}</a>
-{{- end }}

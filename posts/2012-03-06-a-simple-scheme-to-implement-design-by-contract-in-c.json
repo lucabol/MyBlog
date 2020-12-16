@@ -1,0 +1,112 @@
+{
+    "disqus": {
+        "path": "/posts/2012-03-06-a-simple-scheme-to-implement-design-by-contract-in-c/",
+        "commentCount": 11,
+        "comments": [
+            {
+                "postId": "4303143017",
+                "parentPostId": null,
+                "date": "2012-03-10T18:00:51Z",
+                "author": "bentsch",
+                "avatar": "",
+                "message": "<p>Generally, I like the idea.<br>But you might want to consider what Herb Sutter has to say about this: <a href=\"http://www.gotw.ca/gotw/047.htm\" rel=\"nofollow noopener\" title=\"http://www.gotw.ca/gotw/047.htm\">http://www.gotw.ca/gotw/047...</a><br>Ben</p>",
+                "replies": [
+                    {
+                        "postId": "4303143215",
+                        "parentPostId": "4303143017",
+                        "date": "2012-03-11T10:38:45Z",
+                        "author": "lucabol",
+                        "avatar": "",
+                        "message": "<p>Thanks for the link. It is hard to disagree with Herb, but I'll try :-)<br>He doesn't like using uncaught_exception in a destructor on practical and moral grounds.<br>1. On practical grounds, doing so is not composable in certain scenarios. Meaning that using RIIA objects that rely on it in destructors needs to be done carefully. That is true, but that doesn't disqualify the solution. Many things are useful, but need to be used carefully. In the case exposed in this blog, that is not a problem. The behavior would be correct.<br>2. On moral grounds, you often need to report errors differently if you are already in an error condition. I.E. you don't want to send e-mail to your user twice, you don't want to report the second (bogus) error in a parser, you don't want to allocate memory if you got an out-of-mem exception etc ...<br>More generally, I fail to see a better way to manage errors in releasing resources in RIIA. All the ones I've seen (i.e. logging to file) are gross hacks that don't compose at all.<br>But if you still are un-convinced by my argument, feel free to change the throwing code with an assert and things work pretty much the same.</p>",
+                        "replies": [
+                            {
+                                "postId": "4303143654",
+                                "parentPostId": "4303143215",
+                                "date": "2012-03-11T23:37:11Z",
+                                "author": "bentsch",
+                                "avatar": "",
+                                "message": "<p>Yes, I would definitely use an assertion, bypassing this whole problem.<br>But I wonder why you use exceptions at all? From my understanding (which might be wrong, as I have never read any books about dbc) a violated contract indicates a programmer's error (a bug), not an exceptional situation. Thus, if your post-condition is violated your data is very likely to be in an inconsistent state. How would you even react to such a dbc-exception being caught?<br>Ben.</p>",
+                                "replies": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "postId": "4303143015",
+                "parentPostId": null,
+                "date": "2012-03-12T09:05:49Z",
+                "author": "lucabol",
+                "avatar": "",
+                "message": "<p>If you leave them on in Release mode (which seems to be more frequently done for precondition), then you want to treat them as any other error (i.e. clean up resources, logging and reporting to user).<br>In Debug, it probably doesn't makes a difference. I believe that's true of exceptions in general.</p>",
+                "replies": [
+                    {
+                        "postId": "4303143216",
+                        "parentPostId": "4303143015",
+                        "date": "2012-03-12T19:06:08Z",
+                        "author": "bentsch",
+                        "avatar": "",
+                        "message": "<p>You should distinguish carefully between runtime errors that lie outside of your program (occurring most often when acquiring or accessing a resource, e.g. a file can not be opened) and bugs (incorrect code, in this case contract violations).<br>The first case can and should be treated via exceptions. These can be handled at run-time. The latter can not be safely dealt with via exception handling, as your program is already in an inconsistent state. If unlucky, you might totally crash your program when throwing an exception as your destructors' preconditions might be invalid. If even unluckier, you might end up with a program whose data only gives the impression of being consistent.<br>My take on violated contracts in release mode would be to implement a functionality that is orthogonal to exception handling by providing an appropriate callback function. This callback function would then inform the user, log the error, try to write out any data that could help the user restore is work later on (which might already fail badly), possibly clean up and finally... call std::terminate().<br>Ben.</p>",
+                        "replies": []
+                    }
+                ]
+            },
+            {
+                "postId": "4303143014",
+                "parentPostId": null,
+                "date": "2012-03-12T20:09:15Z",
+                "author": "lucabol",
+                "avatar": "",
+                "message": "<p>It is not possible to draw the line so sharply. What is a resource error for one user of your library, might be a coding error for another. That's why most programming environent (i.e. .NET, Java, PHP, ...) have an invalid argument exception that gets thrown when a precondition is violated.<br>You distinguish between the two cases by catching the different kinds of exception and doing something different about them. The catching is done outside of your library, which is the only place where you have enough information to really know what to do. Who knows, for the space shuttle, calling terminate() for a bug might not be the right action. You don't know what to do, the user of your library does.</p>",
+                "replies": []
+            },
+            {
+                "postId": "4303143016",
+                "parentPostId": null,
+                "date": "2012-03-13T22:58:47Z",
+                "author": "bentsch",
+                "avatar": "",
+                "message": "<p>I see your point.<br>Although I would try to treat the two error sources differently in production code, I agree that in library code it might not always be possible to make a clear distinction.<br>Thanks for the feedback.<br>Ben.</p>",
+                "replies": [
+                    {
+                        "postId": "4303143213",
+                        "parentPostId": "4303143016",
+                        "date": "2012-03-13T23:10:37Z",
+                        "author": "bentsch",
+                        "avatar": "",
+                        "message": "<p>.... though having thought about it for a second I would tend to go for the callback approach instead of the exception path in library code: After all, you can still implement a callback handler which throws an exception. But it's not possible the other way around.</p>",
+                        "replies": []
+                    }
+                ]
+            },
+            {
+                "postId": "4303143019",
+                "parentPostId": null,
+                "date": "2012-03-14T00:01:59Z",
+                "author": "lucabol",
+                "avatar": "",
+                "message": "<p>Frankly, I don't see the advantages of a callback approach compared to an exception approach. In both cases you let the user decide which code runs when an error occurs. Both approaches let's you differentiate between different categories of errors. The callback approach has the drawbacks of being significantly more cumbersome to use.<br>Most 'modern' libraries out there (.net, java, etc...) go for the exception approach. Most of the old style ones go for a 'returning an error code' approach. There are advantages and disadvantages in both approaches (topic for another post), but I don't see the need for a third one.<br>Good (?) thing about C++ is that it allows us vast latitude on how we do things ...</p>",
+                "replies": [
+                    {
+                        "postId": "4303143214",
+                        "parentPostId": "4303143019",
+                        "date": "2012-03-14T20:46:47Z",
+                        "author": "bentsch",
+                        "avatar": "",
+                        "message": "<p>\"In both cases you let the user decide which code runs when an error occurs. Both approaches let's you differentiate between different categories of errors.\"<br>That is exactly not the case. You have no idea what destructors will be called.<br>\"...I don't see the need for a third one.\"<br>It's actually not a new approach. Think of is as enabling assertions for your release build (maybe the term callback was misleading). Also, when operator new() fails a similar approach is taken in calling an error handler, which can be changed using std::set_new_handler().<br>From my point of view exceptions signal error conditions that might be recoverable. Now while we can discuss about pre-conditions this is clearly not the case when your class invariant is broken or your post-condition is invalid. And then you're trying to fix bugs at runtime.<br>Ben.</p>",
+                        "replies": []
+                    }
+                ]
+            },
+            {
+                "postId": "4303143012",
+                "parentPostId": null,
+                "date": "2012-03-15T14:39:04Z",
+                "author": "lucabol",
+                "avatar": "",
+                "message": "<p>Hi Ben,<br>Le'ts just agree to disagree here. I think we are running in circles.<br>In the end, it is trivial to plug whatever error reporting mechanism you feel is best in this framework.<br>Cheers,<br>.luca</p>",
+                "replies": []
+            }
+        ]
+    }
+}

@@ -1,0 +1,12 @@
+<header class="center-intrinsic stack">
+    <h1>{{ title | addNbsp | safe }}</h1>
+    <a href="/about" aria-label="About Luca"><img inline src="/img/gavatar64.svg" alt="Luca happy face" height="64" width="64" /></a>
+    <span class="margin-top:-2"><p>Luca - <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time></p></span>
+    {% set tcontent = content | toc %}
+
+    {% if tcontent %}
+        <nav class="box border:solidthick tocbox">
+            {{ tcontent | safe }}
+        </nav>
+    {% endif %}
+</header>

@@ -1,0 +1,55 @@
+---
+title: Luca Bolognese Blog
+---
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "z-seo.njk" %}
+
+    <!-- favicon inline don't get picked up by browser, fluidicon is for mac -->
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="/fluidicon.png" rel="fluid-icon" title="Lucabol">
+
+    <link inline rel="stylesheet" href="{{ '/css/base.css' | url }}" text="text/css">
+    <link inline media="only all" rel="stylesheet" href="{{ '/css/main.css' | url }}" text="text/css">
+
+    <link inline rel="stylesheet" href="{{ '/css/hitheme/a11y-dark.css' | url }}" type="text/css" media="print" onload="this.media='all'">
+
+  </head>
+
+  <body>
+    <div class="center">
+      <div class="stack">
+        {% if not home %}
+          <div id="to-home" class="center-intrinsic">
+            <img inline width="2rem" height="2rem" src="/img/startdown.svg">
+              <a href="#to-bottom" class="to-home">Home</a>
+            </img>
+          </div>
+        {% endif %}
+
+        <main id="main" class="stack">
+          {{ content | safe }}
+        </main>
+
+        {% if not home %}
+          <footer id="footer" class="stack">
+
+            {% include "z-navigation.html" %}
+            {% include "z-menu-icons.html" %}
+            {% include "z-search-base.njk" %}
+            <div class="center-intrinsic">
+                <a id="to-bottom" href="#to-home" class="to-home">Top</a>
+                <img inline width="2rem" height="2rem" src="/img/startup.svg"> </img>
+            </div>
+            </footer>
+        {% endif %}
+    </div>
+  </div>
+
+  </body>
+</html>

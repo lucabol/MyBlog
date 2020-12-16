@@ -1,0 +1,13 @@
+<nav class="font-size:1 box border:solidthick tocbox">
+    <h2>Content</h2>
+    {% set navPages = collections.all | eleventyNavigation %}
+    <ul>
+    {% for entry in navPages %}
+        {% if loop.index0 != 0 or not home %}
+            <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
+                <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</nav>

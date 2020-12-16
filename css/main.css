@@ -1,0 +1,375 @@
+/*** SETTINGS ***/
+html {
+    --min-font-size:     15px;
+    --max-font-size:     24px;
+    --base-line-height:  1.3;
+    --h-line-height:     1.0;
+    --measure:           65ch;
+    --system-serif:      Georgia, Cambria, "Times New Roman", Times, serif;
+    --system-sans:       -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --system-mono:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --h-weight: 700;
+
+    /* modular */
+    --ratio: var(--base-line-height);
+    --s-5: calc(var(--s-4) / var(--ratio));
+    --s-4: calc(var(--s-3) / var(--ratio));
+    --s-3: calc(var(--s-2) / var(--ratio));
+    --s-2: calc(var(--s-1) / var(--ratio));
+    --s-1: calc(var(--s0) / var(--ratio));
+    --s0: 1rem;
+    --s1: calc(var(--ratio) * var(--s0));
+    --s2: calc(var(--ratio) * var(--s1));
+    --s3: calc(var(--ratio) * var(--s2));
+    --s4: calc(var(--ratio) * var(--s3));
+    --s5: calc(var(--ratio) * var(--s4));
+
+    /* color palette */
+    --color-dark:#050505;
+    --color-darkish:#404040;
+    --color-lightish:#e6e6e6;
+    --color-light:#fafafa;
+    --color-mid:grey;
+
+    --color-brand:           var(--color-dark);
+
+    --color-highlight:       rgba(255, 255, 255, 0.05);
+    --color-shadow:          rgba(0, 0, 0, 0.05);
+
+    --color-bg-page:     var(--color-light);
+    --color-ui:          var(--color-mid);
+    --color-text:        var(--color-dark);
+
+    --color-link:        var(--color-brand);
+    --color-link-hover:  var(--color-brand-shadow);
+
+    --color-btn:         var(--color-brand);
+    --color-btn-hover:   var(--color-brand-shadow);
+
+    --border-thin: var(--s-5);
+    --border-thick: var(--s-3);
+    --border-radius: 0.4em;
+}
+
+/*** RESETS ***/
+
+*,:after,:before{
+    box-sizing:border-box;
+    background-color:inherit;
+    font-family:inherit;
+    color:inherit;
+    overflow-wrap:break-word;
+    margin:0;
+    padding:0;
+    border:0 solid
+}
+[hidden] {
+ display:none
+}
+[hidden] + * {
+ margin-top:0!important
+}
+ol, ul {
+    list-style-type: square;
+    list-style-position: inside;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*** ATOMIC ELEMENTS STYLING ***/
+
+html {
+    font-family: var(--system-serif);
+    font-size: 16px;
+    font-size: clamp(var(--min-font-size), 2.2vw, var(--max-font-size));
+    line-height: var(--base-line-height);
+    scroll-behavior:smooth;
+    background-color: var(--color-light);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--system-sans);
+    line-height: var(--h-line-height);
+    hyphens: auto;
+    font-weight: var(--h-weight);
+}
+h1 {
+    text-align: center;
+    font-size: var(--s3);
+}
+h2 {
+    font-size: var(--s2);
+}
+h3, h4, h5, h6 {
+    font-size: var(--s1);
+}
+
+button {
+    outline: var(--border-thin) solid transparent;
+    outline-offset: calc(var(--border-thin)*-1);
+    font-size: inherit;
+    font-weight: var(--h-weight);
+    display: inline-block;
+    cursor: pointer;
+    font-family: var(--system-sans);
+    padding: var(--s-1) var(--s2);
+    border-width: var(--border-thin);
+    border-radius: var(--border-radius);
+    filter: invert(100%);
+}
+input, textarea {
+    outline: var(--border-thin) solid transparent;
+    outline-offset: calc(var(--border-thin)*-1);
+    border: var(--border-thin) solid;    
+    font-size: inherit;
+    display: inline-block;
+}
+summary {
+    font-size: var(--s1);
+    font-weight: var(--h-weight);
+    font-family: var(--system-sans);
+    cursor: pointer;
+}
+
+a, nav .error a {
+    text-decoration: underline;
+    text-decoration-thickness:.125em;
+    color: var(--color-brand);
+}
+a:focus {
+    outline:none
+}
+a:focus:not(:active){
+    outline: var(--border-thin) solid
+}
+[tabindex="-1"]:focus {
+    outline:none
+}
+/*** ELEMENTS RELATIONSHIPS ***/
+
+* + p, * + ul, * + ol, * + pre {
+    margin-top: var(--s0);
+}
+* + h2, * + h3, * + h4, * + h5, * + h6 {
+    margin-top: var(--s1);
+}
+
+/*** SPECIFIC COMPONENTS ***/
+
+/* list of links */
+.grid.postgrid {
+    grid-template-columns: 4ch auto auto;
+}
+.postlinks li {
+    font-size: var(--s1);
+}
+.postlinks * + li {
+    padding-top: var(--s-4);
+}
+.postlinks a {
+    text-decoration: none;
+}
+.postdetails * {
+    color: var(--color-ui);
+}
+
+/* toc name on the border */
+.tocbox li + li {
+    padding-top: var(--s-4);
+}
+.tocbox li {
+    font-size: var(--s1);
+}
+.tocbox ul, .tocbox ol {
+    margin: 0;
+    font-variant-caps: all-small-caps;
+}
+.tocbox a {
+    text-decoration: none;
+}
+.tocbox {
+    position: relative;
+}
+.tocbox > :first-child {
+    position: absolute;
+    right: 1rem;
+    top: -.75em;
+    text-transform: uppercase;
+    font-family: var(--system-sans);
+    font-weight: var(--h-weight);
+    padding: 0 .5rem;
+    font-size: var(--s0);
+    line-height: var(--h-line-height);
+}
+
+/* Comments */
+.static-comments-reply {
+    margin: 1em 0 3em;
+}
+.static-comments-reply > .static-comments-reply {
+    margin-top: 2em;
+    /* This is where the threading magic happens */
+    padding-left: 1.5em;
+    border-left: 4px solid #eee;
+}
+.static-comments-title {
+    float: left;
+    margin: 0;
+}
+.static-comments-img {
+    float: left;
+    max-width: 30px;
+    margin-right: 1em;
+    border-radius: 50%;
+}
+.static-comments-msg {
+    clear: both;
+    line-height: 1.7;
+    margin-top: 1em;
+}
+.static-comments-date {
+    float: left;
+    clear: left;
+    font-size: 0.8125em; /* 13px /16 */
+}
+@media (min-width: 25em) { /* 400px */
+    .static-comments-date {
+        float: right;
+        clear: none;
+    }
+}
+
+/* Clearfixes */
+.static-comments-hed:before,
+.static-comments-hed:after,
+.static-comments-msg:before,
+.static-comments-msg:after {
+    content: " ";
+    display: table;
+}
+.static-comments-hed:after,
+.static-comments-msg:after {
+    clear: both;
+}
+
+/*** LAYOUT ***/
+
+.cluster {
+  --space: var(--s-1);
+  overflow: hidden;
+}
+
+.cluster > * {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: calc(var(--space) / 2 * -1);
+}
+
+.cluster > * > * {
+  margin: calc(var(--space) / 2);
+}
+
+.center {
+    box-sizing: content-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--measure);
+    padding-left: var(--s1);
+    padding-right: var(--s1);
+}
+.center-intrinsic {
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--measure);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stack {
+  --space: var(--s1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stack > * {
+  margin-top: 0;
+  margin-bottom: 0;
+} 
+
+.stack > * + * {
+  margin-top: var(--space);
+}
+.smallspace {
+    --space: var(--s-5);
+}
+.box {
+  --border-box: var(--border-thin);
+  border-radius: 6px;
+  padding: var(--s1);
+  border: var(--border-box) transparent;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 0.5rem;
+}
+
+@supports (width: min(250px, 100%)) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  }
+}
+/*** OVERRIDES ***/
+.font-size\:0 {
+    font-size: var(--s0)!important;
+}
+.font-size\:1 {
+    font-size: var(--s1)!important;
+}
+.text-decoration\:none {
+    text-decoration: none!important;
+}
+.font-variant-caps\:all-small-caps {
+    font-variant-caps: all-small-caps!important;
+}
+.text-align\:center {
+    text-align: center!important;
+}
+.margin-top\:-2 {
+    margin-top: var(--s-2)!important;
+}
+
+.align-items\:baseline {
+    align-items: baseline!important;
+}
+.padding\:-1 {
+    padding: var(--s-1)!important;
+}
+.vh {
+    clip-path:inset(100%)!important;
+    clip:rect(1px,1px,1px,1px)!important;
+    height:1px!important;
+    overflow:hidden!important;
+    position:absolute!important;
+    white-space:nowrap!important;
+    width:1px!important
+}
+.justenhance {
+    display: initial!important;
+}
+.border\:solidthick {
+    border: var(--border-thick) solid!important;
+}

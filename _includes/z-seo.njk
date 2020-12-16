@@ -1,0 +1,48 @@
+    {% set descr %}
+        {% if description %} {{ description }}
+        {% else %} {{ content | excerpt }}
+        {% endif %}
+    {% endset %}
+    {% set titl %}
+        {%- if title -%}
+            {{title}} - {{site.title}}
+        {%- elseif renderData.title -%}
+            {{renderData.title}} - {{site.title}}
+        {%-else-%}
+            {{site.title}} {{site.strapline}}
+        {%- endif -%}
+    {% endset %}
+
+    <title>
+        {{ titl }}
+    </title>
+
+    <meta name="description" content="{{descr}}">
+    <meta name="robots" content="index,follow">
+    <meta name="generator" content="Eleventy">
+    <meta name="subject" content="{{ tags[0] }}">
+
+    {%- block seo -%}
+    <!--Twitter Card-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{site.twitter}}">
+    <meta name="twitter:creator" content="@{{site.twitter}}">
+    <meta name="twitter:url" content="{{site.baseURL}}{{page.url}}">
+    <meta name="twitter:title" content="{{titl}}">
+    <meta name="twitter:description" content="{{ descr }}">
+    
+    <!--Schema-->
+    <link rel="author" href="{{site.baseURL}}">
+    <link rel="publisher" href="{{site.baseURL}}">
+    <meta itemprop="name" content="{{titl}}">
+    <meta itemprop="description" content="{{ descr }}">
+    
+    <!-- Facebook OpenGraph -->
+    <meta property="og:url" content="{{site.baseURL}}{{page.url}}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{titl}}">
+    <meta property="og:description" content="{{ descr }}">
+    <meta property="og:site_name" content="{{titl}}">
+    <meta property="og:locale" content="en_GB">
+    <meta property="article:author" content="{{site.baseURL}}">
+    {%- endblock -%}

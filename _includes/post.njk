@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+{% include "z-post-header.njk" %}
+
+<div class="content-text">
+    {{ content | safe }}
+</div>
+
+<div class="stack">
+    {% set showTagsTitle = true %}
+    {% set tagslist = tags %}
+    {% include "z-tagcluster.njk" %}
+
+    {% include "z-comments.njk" %}
+</div>

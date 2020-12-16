@@ -1,0 +1,56 @@
+{
+    "disqus": {
+        "path": "/posts/2014-10-31-building-a-stock-alert-system-with-google-script/",
+        "commentCount": 5,
+        "comments": [
+            {
+                "postId": "4303142918",
+                "parentPostId": null,
+                "date": "2017-10-17T09:19:43Z",
+                "author": "Tonio",
+                "avatar": "",
+                "message": "<p>Hi,<br>Thanks for sharing.<br>Do I need to have the sheet open and manually run the macro to update price data and trigger alert or does it work in the cloud, with my computer shutdown and me away? I could then receive the emails on my smartphone and take proper action, which would be fantastic!</p>",
+                "replies": [
+                    {
+                        "postId": "4303143065",
+                        "parentPostId": "4303142918",
+                        "date": "2017-10-17T11:38:55Z",
+                        "author": "lucabol",
+                        "avatar": "",
+                        "message": "<p>Hi Tonio, it works in the cloud. Just change the email to send emails to.</p>",
+                        "replies": []
+                    }
+                ]
+            },
+            {
+                "postId": "4303142910",
+                "parentPostId": null,
+                "date": "2018-06-07T02:52:20Z",
+                "author": "JC",
+                "avatar": "",
+                "message": "<p>Hi, as a non-technical person, I was wondering, does the script run by itself or do you need to manually click \"run\" each time in Script Editor?<br>The price triggers for some stocks were reached on Day 1, and the email was sent. But on Day 2, even though it was still within the triggered price, the email wasn't sent, and when I went into the Script Editor to click \"Run\" , the email was sent. Am I doing something wrong in the set up? Do I need to go into \"Publish\" menu and \"Deploy as..\" something?</p>",
+                "replies": [
+                    {
+                        "postId": "4303143068",
+                        "parentPostId": "4303142910",
+                        "date": "2018-06-07T05:41:40Z",
+                        "author": "lucabol",
+                        "avatar": "",
+                        "message": "<p>Hi, I thought this would be copied when you copy the spreadsheet, but maybe not. Go to File/Spreadsheet Settings/Calculation and set Recalculation to 'On change and every minute'. This is how I have it set up.</p>",
+                        "replies": [
+                            {
+                                "postId": "4303143527",
+                                "parentPostId": "4303143068",
+                                "date": "2018-06-09T04:34:19Z",
+                                "author": "JC",
+                                "avatar": "",
+                                "message": "<p>You are right that the Spreadsheet Settings was copied over, so that's not the issue.<br>I'n happy to say I found a workaround after I Googled around! I added a Project Trigger in the Code to run your checkStop function every 5 minutes, and that seems to work! Super stoked. Thank you for the help and providing this template!</p>",
+                                "replies": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

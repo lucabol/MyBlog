@@ -1,0 +1,12 @@
+{% if tagslist %}
+    <div class="">
+        <nav class="align-items:baseline font-size:1">
+            <h2 class="font-size:1">Tags</h2>
+            <ul>
+            {% for tag in tagslist %}
+                <li class="font-variant-caps:all-small-caps">#<a class="text-decoration:none" href="/tags/{{ tag | lower | safe }}">{{ tag | upper | safe }}</a></li>
+            {% endfor %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}
