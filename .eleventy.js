@@ -8,6 +8,8 @@ const markdownItAnchor = require('markdown-it-anchor')
 const pluginTOC = require('eleventy-plugin-nesting-toc')
 const fs = require('fs')
 
+require('dotenv').config()
+
 const   dev  = global.dev  = (process.env.ELEVENTY_ENV === 'development')
 
 /* INLINE FAVICON */
@@ -214,4 +216,13 @@ module.exports = function(eleventyConfig) {
     title = title.replace(/"(.*)"/g, '\\"$1\\"');
     return title;
   })
+
+  // WebMentions
+  eleventyConfig.addFilter("getWebmentionsForUrl", (webmentions, url) =>
+      webmentions.children.filter(entry => entry['wm-target'] === url))
+  eleventyConfig.addFilter("size", (mentions) => !mentions ? 0 : mentions.length)
+  eleventyConfig.addFilter("webmentionsByType", (mentions, mentionType) =>
+      mentions.filter(entry => !!entry[mentionType]))
+  eleventyConfig.addFilter("readableDateFromISO", (dateStr, formatStr = "dd LLL yyyy 'at' hh:mma") => 
+      DateTime.fromISO(dateStr).toFormat(formatStr))
 }

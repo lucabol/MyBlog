@@ -30,6 +30,8 @@
     "dotenv": "^8.2.0",
     "eleventy-plugin-nesting-toc": "^1.2.0",
     "eleventy-plugin-toc": "^1.1.0",
-    "markdown-it-anchor": "^6.0.1"
+    "lodash": "^4.17.20",
+    "markdown-it-anchor": "^6.0.1",
+    "node-fetch": "^2.6.1"
   }
 }
