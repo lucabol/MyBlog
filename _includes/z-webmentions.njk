@@ -73,7 +73,7 @@
     <form action="https://webmention.io/www.lucabol.com/webmention" method="post" class="form-webmention">
         <label for="form-webmention-source">URL</label><br>
         <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required>
-        <input type="hidden" name="target" value="https://www.lucabol.com/{{ page.url }}">
+        <input type="hidden" name="target" value="https://www.lucabol.com{{ page.url }}">
         <button type="submit" class="button button-small">Send</button>
     </form>
     </div>
