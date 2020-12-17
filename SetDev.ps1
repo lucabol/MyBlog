@@ -1,0 +1,1 @@
+$env:ELEVENTY_ENV = 'development'
