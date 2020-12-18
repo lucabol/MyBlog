@@ -1,6 +1,6 @@
     {% set descr %}
         {% if description %} {{ description }}
-        {% else %} {{ content | excerpt }}
+        {% else %} {{ content | description }}
         {% endif %}
     {% endset %}
 

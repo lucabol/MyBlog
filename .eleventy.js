@@ -7,6 +7,7 @@ const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 const pluginTOC = require('eleventy-plugin-nesting-toc')
 const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language")
+const description = require('eleventy-plugin-description')
 const fs = require('fs')
 
 require('dotenv').config()
@@ -252,4 +253,6 @@ module.exports = function(eleventyConfig) {
 
     return displayLabel;
   });
+
+  eleventyConfig.addPlugin(description);
 } 
