@@ -33,8 +33,10 @@
     "eleventy-plugin-description": "^0.1.2",
     "eleventy-plugin-nesting-toc": "^1.2.0",
     "eleventy-plugin-toc": "^1.1.0",
+    "eleventy-plugin-typeset": "github:liamfiddler/eleventy-plugin-typeset",
     "lodash": "^4.17.20",
     "markdown-it-anchor": "^6.0.1",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "typeset": "^0.3.1"
   }
 }
