@@ -1,13 +1,14 @@
-<nav class="font-size:1 box border:solidthick tocbox">
-    <h2>Content</h2>
-    {% set navPages = collections.all | eleventyNavigation %}
-    <ul>
-    {% for entry in navPages %}
-        {% if loop.index0 != 0 or not home %}
-            <li{% if entry.url == page.url %} class="my-active-class"{% endif %}>
-                <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-            </li>
-        {% endif %}
-    {% endfor %}
-    </ul>
+{# <nav class="font-size:1 box border:solidthick tocbox"> #}
+<nav class="font-size:1 cluster font-variant-caps:all-small-caps">
+        <h2 class="vh">Navigation</h2>
+        {% set navPages = collections.all | eleventyNavigation %}
+        <ul class="justify-content:center">
+        {% for entry in navPages %}
+            {% if loop.index0 != 0 or not home %}
+                <li class="{% if entry.url == page.url %} my-active-class{% endif %} list-style-type:none">
+                    <a class=" text-decoration:none" href="{{ entry.url | url }}">{{ entry.title }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
 </nav>

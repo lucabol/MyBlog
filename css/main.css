@@ -394,3 +394,9 @@ a:focus:not(:active){
 .border\:solidthick {
     border: var(--border-thick) solid!important;
 }
+.list-style-type\:none {
+    list-style-type: none!important;
+}
+.justify-content\:center {
+    justify-content: center!important;
+}

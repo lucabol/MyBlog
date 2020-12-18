@@ -3,15 +3,6 @@
         {% else %} {{ content | excerpt }}
         {% endif %}
     {% endset %}
-    {% set titl %}
-        {%- if title -%}
-            {{title}} - {{site.title}}
-        {%- elseif renderData.title -%}
-            {{renderData.title}} - {{site.title}}
-        {%-else-%}
-            {{site.title}} {{site.strapline}}
-        {%- endif -%}
-    {% endset %}
 
     <title>
         {{ titl }}

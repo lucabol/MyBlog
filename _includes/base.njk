@@ -11,6 +11,16 @@ title: Luca Bolognese Blog
     <link rel="webmention" href="https://webmention.io/www.lucabol.com/webmention" />
     <link rel="pingback" href="https://webmention.io/www.lucabol.com/xmlrpc" />
 
+    {% set titl %}
+        {%- if title -%}
+            {{title}} - {{site.title}}
+        {%- elseif renderData.title -%}
+            {{renderData.title}} - {{site.title}}
+        {%-else-%}
+            {{site.title}} {{site.strapline}}
+        {%- endif -%}
+    {% endset %}
+
     {% include "z-seo.njk" %}
 
     <!-- favicon inline don't get picked up by browser, fluidicon is for mac -->
@@ -27,27 +37,23 @@ title: Luca Bolognese Blog
   <body>
     <div class="center">
       <div class="stack">
+        <h1 class="vh">{{ titl }}</h1>
         {% if not home %}
-          <div id="to-home" class="center-intrinsic">
-            <img inline width="2rem" height="2rem" src="/img/startdown.svg">
-              <a href="#to-bottom" class="to-home">Home</a>
-            </img>
-          </div>
+          {% include "z-navigation.html" %}
         {% endif %}
 
-        <main id="main" class="stack">
+        <main id="main">
           {{ content | safe }}
         </main>
 
         {% if not home %}
           <footer id="footer" class="stack">
 
-            {% include "z-navigation.html" %}
             {% include "z-menu-icons.html" %}
             {% include "z-search-base.njk" %}
+            {% include "z-navigation.html" %}
             <div class="center-intrinsic">
-                <a id="to-bottom" href="#to-home" class="to-home">Top</a>
-                <img inline width="2rem" height="2rem" src="/img/startup.svg"> </img>
+                <a id="to-bottom" href="#top" class="to-home">Top</a>
             </div>
             </footer>
         {% endif %}
