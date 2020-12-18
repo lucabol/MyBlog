@@ -231,7 +231,7 @@ module.exports = function(eleventyConfig) {
   module.exports = function(eleventyConfig) { eleventyConfig.addPlugin(inclusiveLangPlugin)}
   
   const defaults = {
-    wpm: 275,
+    wpm: 400,
     showEmoji: true,
     emoji: "☕",
     label: "min. read",
