@@ -6,6 +6,7 @@ const { inlineSource } = require('inline-source')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 const pluginTOC = require('eleventy-plugin-nesting-toc')
+const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language")
 const fs = require('fs')
 
 require('dotenv').config()
@@ -225,4 +226,30 @@ module.exports = function(eleventyConfig) {
       mentions.filter(entry => !!entry[mentionType]))
   eleventyConfig.addFilter("readableDateFromISO", (dateStr, formatStr = "dd LLL yyyy 'at' hh:mma") => 
       DateTime.fromISO(dateStr).toFormat(formatStr))
-}
+  
+  module.exports = function(eleventyConfig) { eleventyConfig.addPlugin(inclusiveLangPlugin)}
+  
+  const defaults = {
+    wpm: 275,
+    showEmoji: true,
+    emoji: "☕",
+    label: "min. read",
+    bucketSize: 5,
+  };
+
+  eleventyConfig.addFilter("emojiReadTime", (content) => {
+    const { wpm, showEmoji, emoji, label, bucketSize } = {
+      ...defaults
+    };
+    const minutes = Math.ceil(content.trim().split(/\s+/).length / wpm);
+    const buckets = Math.round(minutes / bucketSize) || 1;
+
+    const displayLabel = `${minutes} ${label}`;
+
+    if (showEmoji) {
+      return `${new Array(buckets || 1).fill(emoji).join("")}  ${displayLabel}`;
+    }
+
+    return displayLabel;
+  });
+} 
