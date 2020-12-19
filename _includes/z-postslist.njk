@@ -1,22 +1,19 @@
 <ul class="postlinks">
-{% set lastYear = 1500 %}
-{% for post in postslist | reverse %}
-  <li class="grid postgrid">
-      {% set thisYear = (post.date | yearFromDate) %}
-      {% if lastYear != thisYear %}
-        {% set lastYear = thisYear %}
-        <time datetime="{{ post.date | htmlDateString }}">{{ thisYear }}</time>
-      {% else %}
-        <div></div>
-      {% endif %}
-
-      {% set webmentionUrl %}{{ post.url | url | absoluteUrl(site.url) }}{% endset %}
-      {% set mentions = webmentions | getWebmentionsForUrl(metadata.url + webmentionUrl) %}
-      {% set mentionsSize = mentions | size %}
-      <a href="{{ post.url | url }}">{{ post.data.title }}
-        {%set comments = commentsCounts[post.url] + mentionsSize %} 
-        {% if comments > 0 %}<span title="{{ comments }} comment{% if comments != 1 %}s{% endif %}">📢 {{ comments }}</span>{% endif %}
-      </a>
-  </li>
-{% endfor %}
+  {% for year, posts in postslist | reverse | groupByYear %}
+    <li class="list-style-type:none">{{year}}
+      <ul>
+      {% for post in posts %}
+          <li>
+            {% set webmentionUrl %}{{ post.url | url | absoluteUrl(site.url) }}{% endset %}
+            {% set mentions = webmentions | getWebmentionsForUrl(metadata.url + webmentionUrl) %}
+            {% set mentionsSize = mentions | size %}
+            <a href="{{ post.url | url }}">{{ post.data.title }}
+              {%set comments = commentsCounts[post.url] + mentionsSize %} 
+              {% if comments > 0 %}<span title="{{ comments }} comment{% if comments != 1 %}s{% endif %}">📢 {{ comments }}</span>{% endif %}
+            </a>          
+          </li>
+      {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
 </ul>

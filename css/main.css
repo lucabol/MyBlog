@@ -72,7 +72,7 @@ html {
  margin-top:0!important
 }
 ol, ul {
-    list-style-type: square;
+    list-style-type: circle;
     list-style-position: inside;
 }
 blockquote, q {
@@ -189,20 +189,17 @@ a:focus:not(:active){
 .webmention-text a {font-size: 14px; margin-left: 4px;}
 
 /* list of links */
-.grid.postgrid {
-    grid-template-columns: 4ch auto auto;
-}
 .postlinks li {
     font-size: var(--s1);
 }
-.postlinks * + li {
+.postlinks li {
     padding-top: var(--s-4);
 }
 .postlinks a {
     text-decoration: none;
 }
-.postdetails * {
-    color: var(--color-ui);
+.postlinks li ul li {
+    padding-left: var(--s2);
 }
 
 /* toc name on the border */

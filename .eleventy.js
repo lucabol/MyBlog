@@ -230,7 +230,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("readableDateFromISO", (dateStr, formatStr = "dd LLL yyyy 'at' hh:mma") => 
       DateTime.fromISO(dateStr).toFormat(formatStr))
   
-  module.exports = function(eleventyConfig) { eleventyConfig.addPlugin(inclusiveLangPlugin)}
+// eleventyConfig.addPlugin(inclusiveLangPlugin)
   
   const defaults = {
     wpm: 400,
@@ -258,4 +258,17 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPlugin(description)
   eleventyConfig.addPlugin(typesetPlugin({only: '.content-text'}))
+
+  eleventyConfig.addFilter("groupByYear", function(posts) {
+    var map = new Map() 
+    posts.forEach( p => {
+      const year = DateTime.fromJSDate(p.date, {zone: 'utc'}).year
+      p.year = year
+      if(!map.has(year)) {
+        map.set(year, [])
+      }
+      map.get(year).push(p)
+    })
+    return map
+  })
 } 
