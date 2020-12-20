@@ -96,7 +96,7 @@ const inlineFunc = async (content, outputPath) => {
     if (!String(outputPath).endsWith('.html')) return content
 
     return await inlineSource(content, {
-        compress: true,
+        compress: false,
         handlers: [favicon] /* inlines favicon */
     })
 }
@@ -148,7 +148,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addTransform("inline", inlineFunc)
 
-    eleventyConfig.addTransform("htmlminify", htmlminifyFunc)
+    //eleventyConfig.addTransform("htmlminify", htmlminifyFunc)
 
     eleventyConfig.addCollection("tagList", function(collection) {
         let tagSet = new Set();
