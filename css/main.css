@@ -74,6 +74,7 @@ html {
 ol, ul {
     list-style-type: circle;
     list-style-position: inside;
+    margin: initial;
 }
 blockquote, q {
 	quotes: none;
@@ -191,15 +192,13 @@ a:focus:not(:active){
 /* list of links */
 .postlinks li {
     font-size: var(--s1);
-}
-.postlinks li {
     padding-top: var(--s-4);
 }
 .postlinks a {
     text-decoration: none;
 }
 .postlinks li ul li {
-    padding-left: var(--s2);
+    margin-left: var(--s2);
 }
 
 /* toc name on the border */
