@@ -96,7 +96,7 @@ const inlineFunc = async (content, outputPath) => {
     if (!String(outputPath).endsWith('.html')) return content
 
     return await inlineSource(content, {
-        compress: false,
+        compress: true,
         handlers: [favicon] /* inlines favicon */
     })
 }
