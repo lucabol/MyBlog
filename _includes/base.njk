@@ -30,14 +30,14 @@ title: Luca Bolognese Blog
     <link inline rel="stylesheet" href="{{ '/css/base.css' | url }}" text="text/css">
     <link inline media="only all" rel="stylesheet" href="{{ '/css/main.css' | url }}" text="text/css">
 
-    <link inline rel="stylesheet" href="{{ '/css/hitheme/a11y-dark.css' | url }}" type="text/css" media="print" onload="this.media='all'">
+    <link inline rel="stylesheet" href="{{ '/css/hitheme/a11y-dark.css' | url }}" type="text/css" media="print" onload="this.media='only all'">
 
   </head>
 
   <body>
     <div class="center">
       <div class="stack">
-        <h1 class="vh">{{ titl }}</h1>
+        <h1 class="vh justenhance">{{ titl }}</h1>
         {% if not home %}
           {% include "z-navigation.html" %}
         {% endif %}

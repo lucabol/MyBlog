@@ -1,5 +1,6 @@
 .justEnhance {
     display: none;
+    height: 0;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
