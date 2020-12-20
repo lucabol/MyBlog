@@ -96,7 +96,7 @@ const inlineFunc = async (content, outputPath) => {
     if (!String(outputPath).endsWith('.html')) return content
 
     return await inlineSource(content, {
-        compress: true,
+        compress: false,
         handlers: [favicon] /* inlines favicon */
     })
 }
@@ -144,6 +144,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addCollection("posts", ca => ca.getFilteredByGlob("posts/*.md"))
 
     eleventyConfig.addWatchTarget('js', './js/')
+    eleventyConfig.addWatchTarget('img', './img/')
 
     eleventyConfig.addTransform("inline", inlineFunc)
 
