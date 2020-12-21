@@ -96,7 +96,7 @@ const inlineFunc = async (content, outputPath) => {
     if (!String(outputPath).endsWith('.html')) return content
 
     return await inlineSource(content, {
-        compress: false, /* comressing images breaks adding a fallback image inside the svg as discussed in https://css-tricks.com/a-complete-guide-to-svg-fallbacks/*/
+        compress: false, /* comressing images breaks adding a fallback image inside the svg as discussed in https://css-tricks.com/a-complete-guide-to-svg-fallbacks/ */
         handlers: [favicon] /* inlines favicon */
     })
 }
