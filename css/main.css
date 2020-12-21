@@ -76,6 +76,14 @@ ol, ul {
     list-style-position: inside;
     margin: initial;
 }
+dt {
+    margin-top: var(--s1);
+    font-size: var(--s1);
+    padding-top: var(--s-4);
+}
+dd {
+    margin-left: var(--s2);
+}
 blockquote, q {
 	quotes: none;
 }
@@ -208,6 +216,7 @@ a:focus:not(:active){
 }
 .postlinks li ul li {
     margin-left: var(--s2);
+    list-style-position: outside;
 }
 
 /* toc name on the border */

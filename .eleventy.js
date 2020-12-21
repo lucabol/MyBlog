@@ -10,6 +10,7 @@ const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language")
 const description = require('eleventy-plugin-description')
 const typesetPlugin = require('eleventy-plugin-typeset')
 const typeset = require('typeset')
+const yaml = require("js-yaml")
 const fs = require('fs')
 
 require('dotenv').config()
@@ -273,4 +274,6 @@ module.exports = function(eleventyConfig) {
     })
     return map
   })
+  
+  eleventyConfig.addDataExtension("yaml", contents => yaml.safeLoad(contents))
 } 

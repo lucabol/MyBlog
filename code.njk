@@ -1,9 +1,14 @@
 ---
 layout: home.njk
-permalink: false
-title: 'code'
+title: 'Code'
 eleventyNavigation:
-  url: /under-construction.html
-  key: code
+  key: Code
   order: 3
 ---
+<h1>{{ title }}</h1>
+<dl class="">
+  {% for p in projects %}
+    <dt><a href="{{ site.githubURL + p.name }}">{{ p.name }}</a></dt>
+    <dd>{{ p.desc }}</dd>
+  {% endfor %}
+</dl>
