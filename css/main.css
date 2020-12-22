@@ -207,9 +207,10 @@ a:focus:not(:active){
 .webmention-text a {font-size: 14px; margin-left: 4px;}
 
 /* list of links */
-.postlinks li {
+.postlinks > li {
     font-size: var(--s1);
     padding-top: var(--s-4);
+    list-style-position: inside;
 }
 .postlinks a {
     text-decoration: none;
@@ -225,6 +226,7 @@ a:focus:not(:active){
 }
 .tocbox li {
     font-size: var(--s1);
+    list-style-position: outside;
 }
 .tocbox ul, .tocbox ol {
     margin: 0;
