@@ -9,6 +9,6 @@ eleventyNavigation:
 <dl class="">
   {% for p in projects %}
     <dt><a href="{{ site.githubURL + p.name }}">{{ p.name }}</a></dt>
-    <dd>{{ p.desc }}</dd>
+    <dd>{{ p.desc | safe }}</dd>
   {% endfor %}
 </dl>
