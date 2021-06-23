@@ -1,6 +1,6 @@
 ---
 title: Introduction to Functional Programming in F#
-date: 2021-08-25
+date: 2021-05-23
 author: lucabol
 layout: post
 tags:

@@ -12,6 +12,7 @@ const typesetPlugin = require('eleventy-plugin-typeset')
 const typeset = require('typeset')
 const yaml = require("js-yaml")
 const fs = require('fs')
+const Image = require("@11ty/eleventy-img")
 
 require('dotenv').config()
 
@@ -117,7 +118,29 @@ const htmlminifyFunc = (content, outputPath = '.html') => {
 
 }
 
+async function imageShortcode(src, alt, sizes) {
+  let metadata = await Image(src, {
+    widths: [300, 600],
+    formats: ["avif", "jpeg"]
+  });
+
+  let imageAttributes = {
+    alt,
+    sizes,
+    loading: "lazy",
+    decoding: "async",
+  };
+
+  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+  return Image.generateHTML(metadata, imageAttributes, {
+    whitespaceMode: "inline"
+  });
+}
+
 module.exports = function(eleventyConfig) {
+    eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode)
+    eleventyConfig.addLiquidShortcode("image", imageShortcode)
+    eleventyConfig.addJavaScriptFunction("image", imageShortcode)
 
     eleventyConfig.setQuietMode(true)
 
