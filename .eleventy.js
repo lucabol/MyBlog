@@ -120,8 +120,8 @@ const htmlminifyFunc = (content, outputPath = '.html') => {
 
 async function imageShortcode(src, alt, sizes) {
   let metadata = await Image(src, {
-    widths: [300, 600],
-    formats: ["avif", "jpeg"]
+    widths: [null],
+    formats: [null]
   });
 
   let imageAttributes = {
