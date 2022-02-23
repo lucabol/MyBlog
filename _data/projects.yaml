@@ -1,3 +1,17 @@
+- name: Forth.Net
+  desc: A Forth cli and library for .NET, token threaded, saves and load to a concise binary file.
+- name: lupo
+  desc: Rust based stock porfolio tracker as a CLI.
+- name: Italiko
+  desc: A font I created reproducing old handwriting Italic manuals.
+- name: Streamline
+  desc: Reads lines from a stream without allocating faster than StreamReader.ReadLine.
+- name: TheWar
+  desc: Benchmarks the same program in zig, rust and csharp.
+- name: ThreeSoulsOfCSharp
+  desc: Three different style of writing the same program with benchmarks.
+- name: bareDotfiles
+  desc: My dot files.
 - name: MyBlog
   desc: This blog, made with Eleventy, progressive enhancement and stuff.
 - name: RandomEmails
