@@ -4,7 +4,9 @@ date: 2022-03-07
 author: lucabol
 layout: post
 tags:
-  - forth, csharp, parsing
+  - forth
+  - csharp
+  - Parsing
 ---
 
  ## Abstract

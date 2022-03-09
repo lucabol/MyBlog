@@ -4,7 +4,9 @@ date: 2022-02-23
 author: lucabol
 layout: post
 tags:
-  - forth, csharp, parsing
+  - forth
+  - csharp
+  - Parsing
 ---
 An implementation of the [Forth](https://en.wikipedia.org/wiki/Forth_(programming_language)) programming language for the [.Net Framework](https://en.wikipedia.org/wiki/.NET_Framework).
 You can use it as a C# library, interactively with a CLI or compile the code to a compact binary format.
