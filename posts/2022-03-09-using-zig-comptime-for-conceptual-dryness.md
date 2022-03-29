@@ -1,4 +1,4 @@
----
+-"~/.local/share/nvim/swap//%home%lucabol%dev%MyBlog%posts%2022-03-09-using-zig-comptime-for-conceptual-dryness.md.swp--
 title: Using Zig comptime for conceptual dryness
 date: 2022-03-09
 author: lucabol
@@ -8,7 +8,7 @@ tags:
   - zig
 ---
 
- On [github](https://github.com/lucabol/Zig-Forth).
+ On [github](https://github.com/lucabol/Zig-Forth/tree/blog).
 
  While writing my C# Forth, I grew unhappy about the conceptual repetition in the code.
  To add a new Forth word, you have to add a new value to the enumerator that represents the opcode,
