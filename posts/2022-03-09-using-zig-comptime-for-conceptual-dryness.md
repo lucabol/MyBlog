@@ -1,3 +1,4 @@
+---
 title: Using Zig comptime for conceptual dryness
 date: 2022-03-09
 author: lucabol
