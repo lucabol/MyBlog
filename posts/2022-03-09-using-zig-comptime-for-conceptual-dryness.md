@@ -1,4 +1,3 @@
--"~/.local/share/nvim/swap//%home%lucabol%dev%MyBlog%posts%2022-03-09-using-zig-comptime-for-conceptual-dryness.md.swp--
 title: Using Zig comptime for conceptual dryness
 date: 2022-03-09
 author: lucabol
