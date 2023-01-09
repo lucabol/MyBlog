@@ -22,7 +22,7 @@
     "imagemin-pngquant": "^9.0.1",
     "imagemin-svgo": "^8.0.0",
     "inline-source": "^7.2.0",
-    "luxon": "^1.25.0",
+    "luxon": "^2.5.2",
     "rollup": "^2.35.1",
     "rollup-plugin-terser": "^7.0.2",
     "utils": "^0.3.1"
