@@ -152,6 +152,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("*.png")
     eleventyConfig.addPassthroughCopy("*.ico")
     eleventyConfig.addPassthroughCopy("*.svg")
+    eleventyConfig.addPassthroughCopy("fonts")
     eleventyConfig.addPassthroughCopy("wp-content/")
     eleventyConfig.addPlugin(eleventyNavigationPlugin)
     eleventyConfig.addPlugin(pluginRss);

@@ -7,8 +7,8 @@ html {
     --base-line-height:  1.3;
     --h-line-height:     1.0;
     --measure:           65ch;
-    --system-serif:      Georgia, georgiasubset, serif;
-    --system-sans:       Trebuchet MS, trebucbdsubset, sans-serif;      
+    --system-serif:      MyGeorgia,  serif;
+    --system-sans:       MyTrebuchet, sans-serif;      
     --system-mono:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --h-weight: 800;
 
@@ -54,23 +54,23 @@ html {
 }
 
 @font-face {
-    font-family: 'georgiasubset';
-    src: url('fonts/georgiasubset.eot');
-    src: url('fonts/georgiasubset.eot') format('embedded-opentype'),
-         url('fonts/georgiasubset.woff2') format('woff2'),
-         url('fonts/georgiasubset.woff') format('woff'),
-         url('fonts/georgiasubset.ttf') format('truetype'),
-         url('fonts/georgiasubset.svg#georgiasubset') format('svg');
+    font-family: 'MyGeorgia';
+    src: local('Georgia'),
+         url('/fonts/georgiasubset.eot') format('embedded-opentype'),
+         url('/fonts/georgiasubset.woff2') format('woff2'),
+         url('/fonts/georgiasubset.woff') format('woff'),
+         url('/fonts/georgiasubset.ttf') format('truetype'),
+         url('/fonts/georgiasubset.svg#georgiasubset') format('svg');
 }
 
 @font-face {
-    font-family: 'trebucbdsubset';
-    src: url('fonts/trebucbdsubset.eot');
-    src: url('fonts/trebucbdsubset.eot') format('embedded-opentype'),
-         url('fonts/trebucbdsubset.woff2') format('woff2'),
-         url('fonts/trebucbdsubset.woff') format('woff'),
-         url('fonts/trebucbdsubset.ttf') format('truetype'),
-         url('fonts/trebucbdsubset.svg#trebucbdsubset') format('svg');
+    font-family: 'MyTrebuchet';
+    src: local('Trebuchet MS'),
+         url('/fonts/trebucbdsubset.eot') format('embedded-opentype'),
+         url('/fonts/trebucbdsubset.woff2') format('woff2'),
+         url('/fonts/trebucbdsubset.woff') format('woff'),
+         url('/fonts/trebucbdsubset.ttf') format('truetype'),
+         url('/fonts/trebucbdsubset.svg#trebucbdsubset') format('svg');
 }
 
 /*** RESETS ***/
