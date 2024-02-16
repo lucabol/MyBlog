@@ -103,14 +103,15 @@ html, body {
     font-family: var(--system-serif);
     font-size: 16px;
     font-size: clamp(var(--min-font-size), 2.2vw, var(--max-font-size));
+    font-variant-ligatures: discretionary-ligatures;
     line-height: var(--base-line-height);
     scroll-behavior:smooth;
     background-color: var(--color-light);
     /* resetting base styles */
     margin: initial;
     max-width: initial;
-	color: initial;
-	padding: initial;
+    color: initial;
+    padding: initial;
 }
 h1,h2,h3 {
 	line-height: initial;
