@@ -114,6 +114,7 @@ html, body {
     padding: initial;
 }
 h1,h2,h3 {
+  font-variant-ligatures: no-discretionary-ligatures;
 	line-height: initial;
 }
 /* end of resetting base styles */
