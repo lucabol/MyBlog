@@ -9,7 +9,7 @@ categories:
   - C
 tags:
   - C++
-  - functional programming
+  - functional
 ---
 Function composition is at the core of functional programming. You start by being very confident that certain very small functions are correct, you compose them in well known ways and you end up being very confident that your final program is correct.
 

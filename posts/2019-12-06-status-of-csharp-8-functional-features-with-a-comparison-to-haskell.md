@@ -5,7 +5,7 @@ author: lucabol
 layout: post
 tags:
   - csharp
-  - functional programming
+  - functional
 ---
 ## Abstract
 Writing C# functional code has become easier with each new release of the language (i.e. nullable ref types, tuples, switch expr, ...).

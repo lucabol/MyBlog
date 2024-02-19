@@ -9,7 +9,7 @@ categories:
   - C
 tags:
   - C++
-  - functional programming
+  - functional
 ---
 Just a couple of trivialities and my parting thoughts.
 

@@ -8,7 +8,7 @@ guid: http://lucabolognese.wordpress.com/?p=138
 tags:
   - 'C'
   - fsharp
-  - functional programming
+  - functional
   - Literate programming
 ---
 ## Main ideas

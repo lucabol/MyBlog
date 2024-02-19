@@ -9,7 +9,7 @@ categories:
   - C
 tags:
   - C++
-  - functional programming
+  - functional
 ---
 Recently I got interested in C++ again. The new lambda functions in C++ 11 open up a world of opportunities for C++ programmers. I’ll talk more about how you can write functional code in C++ 11 in upcoming posts. For now let’s look at design by contract.
 

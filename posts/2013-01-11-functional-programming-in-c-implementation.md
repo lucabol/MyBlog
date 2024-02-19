@@ -7,10 +7,10 @@ layout: post
 guid: https://lucabolognese.wordpress.com/?p=135
 categories:
   - C
-  - Functional Programming
+  - Functional
 tags:
   - C
-  - functional programming
+  - functional
 ---
 ## Cleanup
 Let's start simple with the cleanup function. First we need the usual barrage of includes. `G_BEGIN_DECLS` allows the header to be linked in C++.

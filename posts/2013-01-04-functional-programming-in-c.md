@@ -7,10 +7,10 @@ layout: post
 guid: https://lucabolognese.wordpress.com/?p=134
 categories:
   - C
-  - Functional Programming
+  - Functional
 tags:
   - C
-  - functional programming
+  - functional
 ---
 This post/program (as I’m writing it in literate style) is a continuation of my previous posts about functional programming in C++. I promise I’m not going to post about doing it in assembly language (I think) ….
 

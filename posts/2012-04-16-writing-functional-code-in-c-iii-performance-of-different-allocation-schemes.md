@@ -9,7 +9,7 @@ categories:
   - C
 tags:
   - C++
-  - functional programming
+  - functional
 ---
 Now we know how to represent records and we know how to operate on them using a nice F# like syntax. But how do we store our record in a data structure in the first place?
 

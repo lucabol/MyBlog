@@ -5,7 +5,7 @@ author: lucabol
 layout: post
 tags:
   - racket
-  - functional programming
+  - functional
 ---
   This is my first attempt at writing Racket or LISP code. It might be ugly ...
   For now, let's build a web crawler, next, I shall write myself a language.
