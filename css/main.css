@@ -127,7 +127,6 @@ html, body {
     line-height: var(--base-line-height);
     scroll-behavior:smooth;
     background-color: var(--color-light);
-    hyphens: auto;
     /* resetting base styles */
     margin: initial;
     max-width: initial;
