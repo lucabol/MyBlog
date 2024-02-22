@@ -127,6 +127,7 @@ html, body {
     line-height: var(--base-line-height);
     scroll-behavior:smooth;
     background-color: var(--color-light);
+    hyphens: auto;
     /* resetting base styles */
     margin: initial;
     max-width: initial;
@@ -141,7 +142,6 @@ h1,h2,h3 {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--system-sans);
     line-height: var(--h-line-height);
-    hyphens: auto;
     text-wrap: balance;
     font-weight: var(--h-weight);
 }
