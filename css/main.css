@@ -30,7 +30,7 @@ html {
     --color-dark:#050505;
     --color-darkish:#404040;
     --color-lightish:#e6e6e6;
-    --color-light:#fafafa;
+    --color-light:rgba(0,0,0,0);
     --color-mid:grey;
 
     --color-brand:           var(--color-dark);
