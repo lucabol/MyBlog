@@ -1,22 +1,160 @@
-.justEnhance {
-    display: none;
-    height: 0;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-/* Let's make it snappy. From: http://bettermotherfuckingwebsite.com/ */
-body {
-	margin: 40px auto;
-	max-width: 650px;
-	line-height: 1.6;
-	font-size: 18px;
-	color: #444;
-	padding: 0 10px
+html, body {
+  font-family:  MyGeorgia,  serif; 
+  font-size: 16px;
+  font-size: clamp(15px, 2.2vw, 24px);
+  font-variant-ligatures: discretionary-ligatures;
+	line-height:  1.3;
+	max-width:      65ch;
+
+  margin:         0 auto;
+  padding:        0 0.5rem;
+
+  scroll-behavior:smooth;
 }
 
-h1,h2,h3 {
-	line-height: 1.2
+h1,h2,h3,h4 {
+  font-size:  1.5rem;
+	line-height:            1.0;
+  font-family:            MyTrebuchet, sans-serif;
+  font-variant-ligatures: no-discretionary-ligatures;
+  text-wrap: balance;
 }
+
+h1 {
+  font-size:  2.25rem;
+  text-align: center;
+}
+
+a {
+  text-decoration-thickness:  .125em;
+  color:                      inherit;
+}
+
+/* Navigation */
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+nav ul li {
+  list-style-type: none;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+nav ul li a {
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+/* Button in the footer */
+button {
+    outline: 1px solid transparent;
+    outline-offset: 1px;
+    font-size: inherit;
+    display: inline-block;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 1px;
+    filter: invert(100%);
+}
+
+input, textarea {
+    outline: 1px solid transparent;
+    outline-offset: 1px;
+    border: 1px solid;    
+    font-size: inherit;
+    display: inline-block;
+}
+
+/* Nicer spacing for footer items */
+footer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+/* Hide some elements for the sake of giving information to blind users without others seeing them */
+.vh {
+    clip-path:inset(100%)!important;
+    clip:rect(1px,1px,1px,1px)!important;
+    height:1px!important;
+    overflow:hidden!important;
+    position:absolute!important;
+    white-space:nowrap!important;
+    width:1px!important
+}
+
+/* List of links */
+.postlinks > li {
+    font-size: 1.5rem;
+    list-style-type: none;
+    list-style-position: inside;
+}
+.postlinks a {
+    text-decoration: none;
+}
+.postlinks li ul li {
+    list-style-position: outside;
+}
+
+/* For typeset.js https://github.com/davidmerfield/Typeset */
+/*
+ Small Capitals
+ https://en.wikipedia.org/wiki/Small_caps 
+*/
+
+.small-caps {font-variant: small-caps;}
+
+/*
+ Optical margin alignment for particular letters 
+ https://en.wikipedia.org/wiki/Optical_margin_alignment
+*/
+
+.pull-T, .pull-V, .pull-W, .pull-Y {margin-left: -0.07em}
+.push-T, .push-V, .push-W, .push-Y {margin-right: 0.07em}
+
+.pull-O, .pull-C, .pull-o, .pull-c {margin-left: -0.04em}
+.push-O, .push-C, .push-o, .push-c {margin-right: 0.04em}
+
+.pull-A {margin-left: -0.03em}
+.push-A {margin-right: 0.03em}
+
+/* 
+ Quotation mark 
+ https://en.wikipedia.org/wiki/Quotation_mark
+*/
+
+/* Single quotation marks (') */
+.pull-single{margin-left:-.27em}
+.push-single{margin-right:.27em}
+
+.pull-double, .push-double,
+.pull-single, .push-single {display: inline-block}
+
+/* Double quotation marks (") */
+.pull-double{margin-left:-.46em}
+.push-double{margin-right:.46em}
+
+/* Font families */
+@font-face {
+    font-family: 'MyGeorgia';
+    src: local('Georgia'),
+         url('/fonts/georgiasubset.eot') format('embedded-opentype'),
+         url('/fonts/georgiasubset.woff2') format('woff2'),
+         url('/fonts/georgiasubset.woff') format('woff'),
+         url('/fonts/georgiasubset.ttf') format('truetype'),
+         url('/fonts/georgiasubset.svg#georgiasubset') format('svg');
+}
+
+@font-face {
+    font-family: 'MyTrebuchet';
+    src: local('Trebuchet MS'),
+         url('/fonts/trebucbdsubset.eot') format('embedded-opentype'),
+         url('/fonts/trebucbdsubset.woff2') format('woff2'),
+         url('/fonts/trebucbdsubset.woff') format('woff'),
+         url('/fonts/trebucbdsubset.ttf') format('truetype'),
+         url('/fonts/trebucbdsubset.svg#trebucbdsubset') format('svg');
+}
+

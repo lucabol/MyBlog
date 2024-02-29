@@ -1,4 +1,4 @@
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
+//const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const { DateTime } = require("luxon")
 const pluginRss = require("@11ty/eleventy-plugin-rss")
@@ -144,9 +144,11 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.setQuietMode(true)
 
+  /*
     eleventyConfig.addPlugin(syntaxHighlight, {
       trim: true
     })
+  */
     eleventyConfig.addLayoutAlias('post', 'post.njk')
     eleventyConfig.addPassthroughCopy("css")
     eleventyConfig.addPassthroughCopy("*.png")

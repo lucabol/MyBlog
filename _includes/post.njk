@@ -1,19 +1,18 @@
 ---
 layout: base.njk
 ---
-<article class="stack">
-    {% include "z-post-header.njk" %}
+<article>
+    <h1>{{ title | addNbsp | safe }}</h1>
 
-    <div class="content-text">
+    <div>
         {{ content | safe }}
     </div>
 
-    <div class="stack">
+    <div>
         {% set showTagsTitle = true %}
         {% set tagslist = tags %}
         {% include "z-tagcluster.njk" %}
 
         {% include "z-comments.njk" %}
-        {% include "z-webmentions.njk" %}
     </div>
 </article>
