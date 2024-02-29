@@ -3,6 +3,7 @@ layout: base.njk
 ---
 <article>
     <h1>{{ title | addNbsp | safe }}</h1>
+    <p class="signature" >Luca - <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time></p>
 
     <div>
         {{ content | safe }}

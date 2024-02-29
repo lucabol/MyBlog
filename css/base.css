@@ -23,6 +23,7 @@ h1,h2,h3,h4 {
 h1 {
   font-size:  2.25rem;
   text-align: center;
+  margin-top: 1rem;
 }
 
 a {
@@ -30,6 +31,11 @@ a {
   color:                      inherit;
 }
 
+/* Style the small signature after the main title */
+p.signature {
+  text-align: center;
+  margin-top: -1rem;
+}
 /* Navigation */
 nav ul {
   display: flex;
