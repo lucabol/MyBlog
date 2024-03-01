@@ -5,11 +5,11 @@
 
     <p>{{ content | emojiReadTime }}</p>
 
-    {% set tcontent = content | toc %}
+    {%- set tcontent = content | toc %}
 
-    {% if tcontent %}
+    {%- if tcontent %}
         <nav class="box border:solidthick tocbox">
             {{ tcontent | safe }}
         </nav>
-    {% endif %}
+    {%- endif %}
 </header>

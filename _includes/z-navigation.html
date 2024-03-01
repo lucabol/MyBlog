@@ -1,11 +1,11 @@
 <nav>
         <h2 class="vh">Navigation</h2>
-        {% set navPages = collections.all | eleventyNavigation %}
+        {%- set navPages = collections.all | eleventyNavigation %}
         <ul>
-            {% for entry in navPages %}
+            {%- for entry in navPages %}
                 <li>
                     <a href="{{ entry.url | url }}">{{ entry.title }}</a>
                 </li>
-        {% endfor %}
+        {%- endfor %}
         </ul>
 </nav>

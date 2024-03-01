@@ -2,12 +2,12 @@
   {% for year, posts in postslist | reverse | groupByYear %}
     <li class="list-style-type:none">{{year}}
       <ul>
-      {% for post in posts %}
+      {%- for post in posts %}
           <li>
             <a href="{{ post.url | url }}">{{ post.data.title }}
             </a>          
           </li>
-      {% endfor %}
+      {%- endfor %}
       </ul>
     </li>
   {% endfor %}

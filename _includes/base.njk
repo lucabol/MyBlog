@@ -6,14 +6,14 @@ title: Luca Bolognese Blog
 
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{{ '/css/base.css' | url }}" text="text/css">
   </head>
 
   <body>
     <header>
-      {% include "z-navigation.html" %}
+      {%- include "z-navigation.html" %}
     </header>
 
     <main>
@@ -22,9 +22,14 @@ title: Luca Bolognese Blog
 
     <footer>
 
-      {% include "z-menu-icons.html" %}
-      {% include "z-search-base.njk" %}
-      <a href="#top">Top</a>
+      {%- if home or title == "About Luca" %}
+        {%- include "z-menu-icons.html" %}
+        {%- include "z-search-base.njk" %}
+      {%- else %}
+        {%- include "z-search-base.njk" %}
+        <a href="#top">Top</a>
+        {%- include "z-navigation.html" %}
+      {%- endif %}
     </footer>
 
   </body>
