@@ -17,7 +17,7 @@ Simply copy this file or reference the nuget package `Forth.Net` in your project
 
 ~~~~csharp
 public class Vm {
-    publc Vm( ... sizes of memory areas ...);
+    public Vm( ... sizes of memory areas ...);
 
     public Func<string>? NextLine;
     public void Quit();
@@ -28,7 +28,7 @@ public class Vm {
     public bool Debug;
     public void Reset();
 
-    public IEnumberalbe<string> Words;
+    public IEnumerable<string> Words;
     public string StackString();
 }
 ~~~~

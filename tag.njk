@@ -10,7 +10,7 @@ pagination:
     - posts
     - tagList
   addAllPagesToCollections: true
-layout: home.njk
+layout: base.njk
 eleventyComputed:
   title: “{{ tag | safe | lower }}”
 permalink: /tags/{{ tag | safe | lower }}/
@@ -19,4 +19,4 @@ permalink: /tags/{{ tag | safe | lower }}/
 {% set postslist = collections[ tag ] %}
 {% include "z-postslist.njk" %}
 
-<p>See <a href="{{ '/tags/' | url }}">all tags.</a></p>
+<h3>See <a href="{{ '/tags/' | url }}">all tags.</a></h3>

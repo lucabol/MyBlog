@@ -2,18 +2,16 @@
 layout: base.njk
 ---
 <article>
-    <h1>{{ title | addNbsp | safe }}</h1>
-    <p class="signature" >Luca - <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time></p>
+    <header>
+      <h1>{{ title | addNbsp | safe }}</h1>
+      <address><a rel="author" href="/about/">Luca Bolognese</a> - <time pubdate datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time></address>
+    </header>
 
-    <div>
-        {{ content | safe }}
-    </div>
+    {{ content | safe }}
 
-    <div>
-        {% set showTagsTitle = true %}
-        {% set tagslist = tags %}
-        {% include "z-tagcluster.njk" %}
+    {% set showTagsTitle = true %}
+    {% set tagslist = tags %}
+    {% include "z-tagcluster.njk" %}
 
-        {% include "z-comments.njk" %}
-    </div>
+    {% include "z-comments.njk" %}
 </article>

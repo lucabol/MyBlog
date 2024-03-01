@@ -3,11 +3,9 @@
         {% set navPages = collections.all | eleventyNavigation %}
         <ul>
             {% for entry in navPages %}
-            {% if loop.index0 != 0 or not home %}
                 <li>
                     <a href="{{ entry.url | url }}">{{ entry.title }}</a>
                 </li>
-            {% endif %}
         {% endfor %}
         </ul>
 </nav>

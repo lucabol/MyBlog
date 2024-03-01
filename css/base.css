@@ -1,3 +1,55 @@
+/* Resets */
+
+*,:after,:before{
+    box-sizing:      border-box;
+    background-color:inherit;
+    font-family:     inherit;
+    color:           inherit;
+    overflow-wrap:   break-word;
+    margin:          0;
+    padding:         0;
+    border:          0 solid;
+}
+
+[hidden] {
+ display: none
+}
+
+[hidden] + * {
+ margin-top:  0!important
+}
+
+ol, ul {
+    list-style-type:     circle;
+    list-style-position: inside;
+    margin:              initial;
+}
+table {
+	border-collapse: collapse;
+	border-spacing:  0;
+}
+
+dt {
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
+}
+
+dd {
+    margin-left: 2ch;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* Main settings */
 html, body {
   font-family:            MyGeorgia,  serif; 
   font-size:              16px;
@@ -13,29 +65,51 @@ html, body {
 }
 
 h1,h2,h3,h4 {
-  font-size:  1.5rem;
+  font-size:              1.414rem;
 	line-height:            1.0;
   font-family:            MyTrebuchet, sans-serif;
+  font-weight:            normal;
+  text-wrap:              balance;
   font-variant-ligatures: no-discretionary-ligatures;
-  text-wrap: balance;
 }
 
 h1 {
-  font-size:  2.25rem;
+  font-size:  1.999rem;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-a {
-  text-decoration-thickness:  .125em;
-  color:                      inherit;
+/* https://github.com/system-fonts/modern-font-stacks?tab=readme-ov-file#monospace-code */
+/* TODO: subset an open source one instead for consistency of display */
+pre, code		{
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  background-color: #fbfbff;
+  line-height:      normal;
+	overflow:         auto;
+  font-size:        0.9rem;
+}
+pre			{
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Relationships among elements */
+* + p, * + ul, * + ol, * + pre {
+    margin-top:   1rem;
+}
+
+* + h2, * + h3, * + h4 {
+  margin-top:     1.3rem;
 }
 
 /* Style the small signature after the main title */
-p.signature {
+address {
   text-align: center;
-  margin-top: -1rem;
+  font-size:  0.9rem;
+  margin-bottom: 1rem;
 }
+
 /* Navigation */
 nav ul {
   display: flex;
@@ -45,40 +119,43 @@ nav ul {
 
 nav ul li {
   list-style-type: none;
-  text-decoration: none;
   text-transform: uppercase;
 }
 nav ul li a {
-  font-size: 1.1rem;
   text-decoration: none;
 }
 
 /* Button in the footer */
+button, input {
+    border:         1px solid;
+    border-radius:  4px;
+    padding:        0.2rem;
+    font-size:      1rem;
+}
+input {
+  width:            15ch;
+}
 button {
-    outline: 1px solid transparent;
-    outline-offset: 1px;
-    font-size: inherit;
-    display: inline-block;
-    cursor: pointer;
-    border-width: 1px;
-    border-radius: 1px;
-    filter: invert(100%);
+    cursor:         pointer;
 }
 
-input, textarea {
-    outline: 1px solid transparent;
-    outline-offset: 1px;
-    border: 1px solid;    
-    font-size: inherit;
-    display: inline-block;
-}
 
 /* Nicer spacing for footer items */
-footer {
-  display: flex;
+footer, footer > div {
+  display:        flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  gap: 2em;
+  flex-wrap:      wrap;
+  gap:            0.5rem;
+  margin:         1rem 1rem;
+  align-content:  center;
+}
+footer > div {
+  flex-direction:    row;
+  gap:               2rem;
+  justify-content:   center;
+}
+footer > a {
+  text-align: center;
 }
 
 /* Hide some elements for the sake of giving information to blind users without others seeing them */
@@ -94,7 +171,7 @@ footer {
 
 /* List of links */
 .postlinks > li {
-    font-size: 1.5rem;
+    font-size: 1.414rem;
     list-style-type: none;
     list-style-position: inside;
 }
@@ -103,8 +180,14 @@ footer {
 }
 .postlinks li ul li {
     list-style-position: outside;
+    margin-left:         2rem;
 }
 
+.face {
+  display: flex;
+  justify-content: center;
+  margin-top:      2rem;
+}
 /* For typeset.js https://github.com/davidmerfield/Typeset */
 /*
  Small Capitals

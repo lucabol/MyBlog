@@ -4,12 +4,7 @@
       <ul>
       {% for post in posts %}
           <li>
-            {% set webmentionUrl %}{{ post.url | url | absoluteUrl(site.url) }}{% endset %}
-            {% set mentions = webmentions | getWebmentionsForUrl(metadata.url + webmentionUrl) %}
-            {% set mentionsSize = mentions | size %}
             <a href="{{ post.url | url }}">{{ post.data.title }}
-              {%set comments = commentsCounts[post.url] + mentionsSize %} 
-              {% if comments > 0 %}<span title="{{ comments }} comment{% if comments != 1 %}s{% endif %}">📢 {{ comments }}</span>{% endif %}
             </a>          
           </li>
       {% endfor %}
