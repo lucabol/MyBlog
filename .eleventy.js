@@ -286,7 +286,7 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(description)
-  eleventyConfig.addPlugin(typesetPlugin({only: '.content-text'}))
+  eleventyConfig.addPlugin(typesetPlugin({only: 'p'}))
 
   eleventyConfig.addFilter("groupByYear", function(posts) {
     var map = new Map() 
