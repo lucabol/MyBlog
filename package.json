@@ -30,6 +30,7 @@
   "dependencies": {
     "@11ty/eleventy-img": "^0.9.0",
     "@11tyrocks/eleventy-plugin-emoji-readtime": "^1.0.1",
+    "@jamshop/eleventy-plugin-typography": "^1.0.0",
     "dotenv": "^8.2.0",
     "eleventy-plugin-description": "^0.1.2",
     "eleventy-plugin-nesting-toc": "^1.2.0",

@@ -5,14 +5,13 @@ const pluginRss = require("@11ty/eleventy-plugin-rss")
 const { inlineSource } = require('inline-source')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
-const pluginTOC = require('eleventy-plugin-nesting-toc')
-const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language")
 const description = require('eleventy-plugin-description')
 const typesetPlugin = require('eleventy-plugin-typeset')
 const typeset = require('typeset')
 const yaml = require("js-yaml")
 const fs = require('fs')
 const Image = require("@11ty/eleventy-img")
+
 
 require('dotenv').config()
 
@@ -144,11 +143,6 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.setQuietMode(true)
 
-  /*
-    eleventyConfig.addPlugin(syntaxHighlight, {
-      trim: true
-    })
-  */
     eleventyConfig.addLayoutAlias('post', 'post.njk')
     eleventyConfig.addPassthroughCopy("css")
     eleventyConfig.addPassthroughCopy("*.png")
@@ -206,11 +200,6 @@ module.exports = function(eleventyConfig) {
         return [...tagSet].sort();
     })
   
-  eleventyConfig.addPlugin(pluginTOC, {
-      headingText: 'Contents',
-      wrapper: 'div'
-    })
-
   eleventyConfig.setLibrary( 'md', markdownIt({
           html: true,
           linkify: true,
@@ -249,41 +238,6 @@ module.exports = function(eleventyConfig) {
     title = title.replace(/"(.*)"/g, '\\"$1\\"');
     return title;
   })
-
-  // WebMentions
-  eleventyConfig.addFilter("getWebmentionsForUrl", (webmentions, url) =>
-      webmentions.children.filter(entry => entry['wm-target'] === url))
-  eleventyConfig.addFilter("size", (mentions) => !mentions ? 0 : mentions.length)
-  eleventyConfig.addFilter("webmentionsByType", (mentions, mentionType) =>
-      mentions.filter(entry => !!entry[mentionType]))
-  eleventyConfig.addFilter("readableDateFromISO", (dateStr, formatStr = "dd LLL yyyy 'at' hh:mma") => 
-      DateTime.fromISO(dateStr).toFormat(formatStr))
-  
-// eleventyConfig.addPlugin(inclusiveLangPlugin)
-  
-  const defaults = {
-    wpm: 400,
-    showEmoji: true,
-    emoji: "☕",
-    label: "min. read",
-    bucketSize: 5,
-  };
-
-  eleventyConfig.addFilter("emojiReadTime", (content) => {
-    const { wpm, showEmoji, emoji, label, bucketSize } = {
-      ...defaults
-    };
-    const minutes = Math.ceil(content.trim().split(/\s+/).length / wpm);
-    const buckets = Math.round(minutes / bucketSize) || 1;
-
-    const displayLabel = `${minutes} ${label}`;
-
-    if (showEmoji) {
-      return `${new Array(buckets || 1).fill(emoji).join("")}  ${displayLabel}`;
-    }
-
-    return displayLabel;
-  });
 
   eleventyConfig.addPlugin(description)
   eleventyConfig.addPlugin(typesetPlugin({only: 'p'}))
