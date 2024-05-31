@@ -145,7 +145,9 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addLayoutAlias('post', 'post.njk')
     eleventyConfig.addPassthroughCopy("css")
+    eleventyConfig.addPassthroughCopy("img")
     eleventyConfig.addPassthroughCopy("*.png")
+    eleventyConfig.addPassthroughCopy("*.jpg")
     eleventyConfig.addPassthroughCopy("*.ico")
     eleventyConfig.addPassthroughCopy("*.svg")
     eleventyConfig.addPassthroughCopy("fonts")
