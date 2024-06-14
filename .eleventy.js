@@ -11,7 +11,7 @@ const typeset = require('typeset')
 const yaml = require("js-yaml")
 const fs = require('fs')
 const Image = require("@11ty/eleventy-img")
-
+const mathjaxPlugin = require("eleventy-plugin-mathjax")
 
 require('dotenv').config()
 
@@ -243,6 +243,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPlugin(description)
   eleventyConfig.addPlugin(typesetPlugin({only: 'p'}))
+  eleventyConfig.addPlugin(mathjaxPlugin)
 
   eleventyConfig.addFilter("groupByYear", function(posts) {
     var map = new Map() 
