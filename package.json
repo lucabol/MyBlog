@@ -42,6 +42,7 @@
     "lodash": "^4.17.20",
     "markdown-it-anchor": "^6.0.1",
     "node-fetch": "^2.6.1",
+    "sharp": "^0.33.5",
     "typeset": "^0.3.1"
   }
 }
