@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Blog{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="/">HOME</a>
+        <a href="/notes.html">NOTES</a>
+        <a href="/code.html">CODE</a>
+        <a href="/tags.html">TAGS</a>
+    </nav>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <form action="https://duckduckgo.com/" method="get" class="search">
+            <input type="text" name="q" placeholder="Search...">
+            <input type="hidden" name="sites" value="lucabol.com">
+            <button type="submit" class="submit">Search</button>
+        </form>
+        <p>&copy; {{ year }} My Blog. All rights reserved.</p>
+        <a href="#" class="back-to-top">↑ Back to Top</a>
+    </footer>
+</body>
+</html>

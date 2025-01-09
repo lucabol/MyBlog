@@ -64,21 +64,21 @@ All posts are here:
   * [Part VIII – Implementing MapReduce (user model)](http://blogs.msdn.com/lucabol/archive/2009/09/04/lagent-an-agent-framework-in-f-part-viii-implementing-mapreduce-user-model.aspx) 
   * [Part IX – Counting words …](http://blogs.msdn.com/lucabol/archive/2009/09/18/lagent-an-agent-framework-in-f-part-ix-counting-words.aspx) 
 
-
-
 For this post I use a newer version of the framework that I just uploaded on CodeGallery. In the process of using LAgent I grew more and more unhappy with the weakly typed way of sending messages. The code that implements that feature is nasty: full of upcasts and downcasts. I was losing faith in it. Bugs were cropping up in all sorts of scenarios (i.e. using generic union types as messages).
 
 In the end I decided to re-architecture the framework so to make it strongly typed. In essence now each agent can just receive messages of a single type. The limitations that this design choice introduces (i.e. more limited hot swapping) are compensated by the catching of errors at compile time and the streamlining of the code. I left the old framework on the site in case you disagree with me.
 
-In any case, today’s post is about _MapReduce_. It assumes that you know what it is (link to the original Google paper that served as inspiration is here: [Google Research Publication- MapReduce](http://labs.google.com/papers/mapreduce.html "Google Research Publication- MapReduce")). What would it take to implement an in-memory _MapReduce_ using my agent framework?
+In any case, today's post is about _MapReduce_. It assumes that you know what it is (link to the original Google paper that served as inspiration is here: [Google Research Publication- MapReduce](http://labs.google.com/papers/mapreduce.html "Google Research Publication- MapReduce")). What would it take to implement an in-memory _MapReduce_ using my agent framework?
 
-Let’s start with the user model.
+Let's start with the user model.
 
-<pre class="code"><span style="color:blue;">let </span>mapReduce   (inputs:seq&lt;'in_key * 'in_value&gt;)
-                (map:'in_key <span style="color:blue;">-&gt; </span>'in_value <span style="color:blue;">-&gt; </span>seq&lt;'out_key * 'out_value&gt;)
-                (reduce:'out_key <span style="color:blue;">-&gt; </span>seq&lt;'out_value&gt; <span style="color:blue;">-&gt; </span>seq&lt;'reducedValues&gt;)
+```fsharp
+let mapReduce   (inputs:seq<'in_key * 'in_value>)
+                (map:'in_key -> 'in_value -> seq<'out_key * 'out_value>)
+                (reduce:'out_key -> seq<'out_value> -> seq<'reducedValues>)
                 outputAgent
-                M R partitionF =                </pre>
+                M R partitionF =                
+```
 
 _mapReduce_ takes seven parameters:
 
@@ -90,42 +90,53 @@ _mapReduce_ takes seven parameters:
   6. <u>R</u>: how many reducer agents to instantiate 
   7. <u>partitionF</u>: the partition function used to choose which of the reducers is associated with a key 
 
-Let’s look at how to use this function to find how often each word is used in a set of files. First a simple partition function can be defined as:
+Let's look at how to use this function to find how often each word is used in a set of files. First a simple partition function can be defined as:
 
-<pre class="code"><span style="color:blue;">let </span>partitionF = <span style="color:blue;">fun </span>key M <span style="color:blue;">-&gt; </span>abs(key.GetHashCode()) % M </pre>
+```fsharp
+let partitionF = fun key M -> abs(key.GetHashCode()) % M 
+```
 
-Given a key and some buckets, it picks one of the buckets. Its type is: ‘a –> int –> int, so it’s fairly reusable.
+Given a key and some buckets, it picks one of the buckets. Its type is: 'a –> int –> int, so it's fairly reusable.
 
-Let’s also create a basic agent that just prints out the reduced values:
+Let's also create a basic agent that just prints out the reduced values:
 
-<pre class="code"><span style="color:blue;">let </span>printer = spawnWorker (<span style="color:blue;">fun </span>msg <span style="color:blue;">-&gt;
-                            match </span>msg <span style="color:blue;">with
-                            </span>| Reduced(key, value)   <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"%A %A" </span>key value
-                            | MapReduceDone         <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"All done!!"</span>)</pre>
+```fsharp
+let printer = spawnWorker (fun msg ->
+                            match msg with
+                            | Reduced(key, value)   -> printfn "%A %A" key value
+                            | MapReduceDone         -> printfn "All done!!")
+```
 
-The agent gets notified whenever a new key is reduced or the algorithm ends. It is useful to be notified immediately instead of waiting for everything to be done. If I hadn’t written this code using agents I would have not realized that possibility. I would simply have framed the problem as a function that takes an input and returns an output. Agents force you to think explicitly about the parallelism in your app. That’s a good thing.
+The agent gets notified whenever a new key is reduced or the algorithm ends. It is useful to be notified immediately instead of waiting for everything to be done. If I hadn't written this code using agents I would have not realized that possibility. I would simply have framed the problem as a function that takes an input and returns an output. Agents force you to think explicitly about the parallelism in your app. That's a good thing.
 
 The mapping function simply split the content of a file into words and adds a word/1 pair to the list. I know that there are much better ways to do this (i.e. regular expressions for the parsing and summing words counts inside the function), but I wanted to test the basic framework capabilities and doing it this way does it better.
 
-<pre class="code"><span style="color:blue;">let </span>map = <span style="color:blue;">fun </span>(fileName:string) (fileContent:string) <span style="color:blue;">-&gt;
-            let </span>l = <span style="color:blue;">new </span>List&lt;string * int&gt;()
-            <span style="color:blue;">let </span>wordDelims = [|<span style="color:maroon;">' '</span>;<span style="color:maroon;">','</span>;<span style="color:maroon;">';'</span>;<span style="color:maroon;">'.'</span>;<span style="color:maroon;">':'</span>;<span style="color:maroon;">'?'</span>;<span style="color:maroon;">'!'</span>;<span style="color:maroon;">'('</span>;<span style="color:maroon;">')'</span>;<span style="color:maroon;">'n'</span>;<span style="color:maroon;">'t'</span>;<span style="color:maroon;">'f'</span>;<span style="color:maroon;">'r'</span>;<span style="color:maroon;">'b'</span>|]
-            fileContent.Split(wordDelims) |&gt; Seq.iter (<span style="color:blue;">fun </span>word <span style="color:blue;">-&gt; </span>l.Add((word, <span style="color:brown;">1</span>)))
-            l :&gt; seq&lt;string * int&gt;</pre>
-
-
+```fsharp
+let map = fun (fileName:string) (fileContent:string) ->
+            let l = new List<string * int>()
+            let wordDelims = [|' ';',';';';'.';':';'?';'!';'(';')';'n';'t';'f';'r';'b'|]
+            fileContent.Split(wordDelims) |> Seq.iter (fun word -> l.Add((word, 1)))
+            l :> seq<string * int>
+```
 
 The reducer function simply sums the various word statistics sent by the mappers:
 
-<pre class="code"><span style="color:blue;">let </span>reduce = <span style="color:blue;">fun </span>key (values:seq&lt;int&gt;) <span style="color:blue;">-&gt; </span>[values |&gt; Seq.sum] |&gt; seq&lt;int&gt;</pre>
+```fsharp
+let reduce = fun key (values:seq<int>) -> [values |> Seq.sum] |> seq<int>
+```
 
 Now we can create some fake input to check that it works:
 
-<pre class="code"><span style="color:blue;">let </span>testInput = [<span style="color:maroon;">"File1"</span>, <span style="color:maroon;">"I was going to the airport when I saw someone crossing"</span>;<br />                               <span style="color:maroon;">"File2"</span>, <span style="color:maroon;">"I was going home when I saw you coming toward me"</span>]   </pre>
+```fsharp
+let testInput = ["File1", "I was going to the airport when I saw someone crossing";
+                               "File2", "I was going home when I saw you coming toward me"]   
+```
 
 And execute the _mapReduce_:
 
-<pre class="code">mapReduce testInput map reduce printer <span style="color:brown;">2 2 </span>partitionF</pre>
+```fsharp
+mapReduce testInput map reduce printer 2 2 partitionF
+```
 
 On my machine I get the following. You might get a different order because of the async/parallel processing involved. If I wanted a stable order I would need to change the _printer_ agent to cache results on _Reduced_ and process them on _MapReduceDone_ (see next post).
 
@@ -173,4 +184,4 @@ On my machine I get the following. You might get a different order because of th
   
 "you" [1]
 
-In the next post we’ll process some real books …
+In the next post we'll process some real books …

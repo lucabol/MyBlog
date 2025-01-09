@@ -50,113 +50,136 @@ tags:
 ---
 Other posts in the series:
 
-  * [**<font color="#006bad">Part I  - Background</font>**](http://blogs.msdn.com/lucabol/archive/2008/04/01/a-c-library-to-write-functional-code-part-i-background.aspx) 
-      * [**<font color="#006bad">Part II  - Tuples</font>**](http://blogs.msdn.com/lucabol/archive/2008/04/08/a-c-library-to-write-functional-code-part-ii-tuples.aspx) 
-          * **[<font color="#006bad">Part III  - Records</font>](http://blogs.msdn.com/lucabol/archive/2008/04/21/a-c-library-to-write-functional-code-part-iii-records.aspx)**
-          * **[Part IV  - Type Unions](http://blogs.msdn.com/lucabol/archive/2008/06/06/a-c-library-to-write-functional-code-part-iv-type-unions.aspx){.}**
-          * **[Part V  - The Match operator](http://blogs.msdn.com/lucabol/archive/2008/07/15/a-c-library-to-write-functional-code-part-v-the-match-operator.aspx){.}**
-        I'm sorry for my prolonged absence in the middle of this series of posts. I'm on a long paternity leave in Italy (playing beach volley every day). It's hard to have the discipline
-        
-        A bunch of you wrote telling me to finish this. So here I go: let's talk about type unions. First of all: they are not called like that. The correct name is discriminated unions. I have no idea why I call them differently, but I want to be consistent with my previous mistake.
-        
-        For those of you with a C++ background (like myself) they are like unions, just better (or worse depending on your convictions). They let you define a type that can represent one of several different types. You can then use the &#8216;match' operator (discussed in the next post) to pattern match against it.
-        
-        I won't elaborate on the pros and cons of this style of programming versus using polymorphism. I just want to show you how I implemented this construct in C#. As always, my usual caveat: this is just &#8216;educational code', use it at your own risk, no extensive or perf related test has been done on it. You can download the zip file and check my unit tests for yourself.
-        
-        **How type unions are used**
-        
-        In my world, you declare a type union like this:
-        
-        <pre class="code"><span style="color:blue;">public class </span><span style="color:#2b91af;">Person </span>{ }
-<span style="color:blue;">public class </span><span style="color:#2b91af;">Dog </span>{ }
-<span style="color:blue;">public class </span><span style="color:#2b91af;">Friend </span>: <span style="color:#2b91af;">TypeUnion</span>&lt;<span style="color:#2b91af;">Person</span>, <span style="color:#2b91af;">Dog</span>&gt; {
-    <span style="color:blue;">public </span>Friend(<span style="color:#2b91af;">Person </span>p) : <span style="color:blue;">base</span>(p) { }
-    <span style="color:blue;">public </span>Friend(<span style="color:#2b91af;">Dog </span>d) : <span style="color:blue;">base</span>(d) { }
-}</pre>
-        
-        
-        
-        You inherit a type union from the TypeUnion class and use generic parameters that correspond to the types that the union can represent.
-        
-        You can then create a type union as:
-        
-        <pre class="code"><span style="color:blue;">var </span>fr = <span style="color:blue;">new </span><span style="color:#2b91af;">Friend</span>(<span style="color:blue;">new </span><span style="color:#2b91af;">Dog</span>());</pre>
-        
-        Test its type by:
-        
-        <pre class="code"><span style="color:#2b91af;">Assert</span>.IsTrue(fr.Is&lt;<span style="color:#2b91af;">Dog</span>&gt;());
-<span style="color:#2b91af;">Assert</span>.IsFalse(fr.Is&lt;<span style="color:#2b91af;">Person</span>&gt;());</pre>
-        
-        Cast it to one of the types they represent:
-        
-        <pre class="code"><span style="color:blue;">var </span>d = fr.As&lt;<span style="color:#2b91af;">Dog</span>&gt;();</pre>
-        
-        Or use it with the &#8216;match' operator (fully explained in an upcoming post):
-        
-        <pre class="code"><span style="color:blue;">var </span>r = <span style="color:#2b91af;">F</span>.Match(fr,
-    f =&gt; f.Is&lt;<span style="color:#2b91af;">Dog</span>&gt;(), f =&gt; f.As&lt;<span style="color:#2b91af;">Dog</span>&gt;().ToString(),
-    f =&gt; f.Is&lt;<span style="color:#2b91af;">Person</span>&gt;(), f =&gt; f.As&lt;<span style="color:#2b91af;">Person</span>&gt;().ToString());
-<span style="color:#2b91af;">Assert</span>.AreEqual(r, <span style="color:blue;">new </span><span style="color:#2b91af;">Dog</span>().ToString());</pre>
-        
-        Or the slightly more pleasing:
-        
-        <pre class="code">r = <span style="color:#2b91af;">F</span>.Match(fr,
-            (<span style="color:#2b91af;">Person </span>p) =&gt; p.ToString(),
-            (<span style="color:#2b91af;">Dog </span>d) =&gt; d.ToString());
-<span style="color:#2b91af;">Assert</span>.AreEqual(r, <span style="color:blue;">new </span><span style="color:#2b91af;">Dog</span>().ToString());</pre>
-        
-        You get the idea.
-        
-        **How they are implemented**
-        
-        Nothing really sophisticated going on here. Let's take as an example a type union that can represent two types. I have versions that go to 5 types in the zip file.
-        
-        First of all a TypeUnion is a Record:
-        
-        <pre class="code"><span style="color:blue;">public class </span><span style="color:#2b91af;">TypeUnion</span>&lt;T1, T2&gt; : <span style="color:#2b91af;">Record</span>&lt;T1, T2&gt; {</pre>
-        
-        It has overloaded constructors to create a type union of a particular type:
-        
-        <pre class="code"><span style="color:blue;">public </span>TypeUnion(T1 t1)
-    : <span style="color:blue;">base</span>(t1, <span style="color:blue;">default</span>(T2)) {
+  * [Part I  - Background](http://blogs.msdn.com/lucabol/archive/2008/04/01/a-c-library-to-write-functional-code-part-i-background.aspx)
+  * [Part II  - Tuples](http://blogs.msdn.com/lucabol/archive/2008/04/08/a-c-library-to-write-functional-code-part-ii-tuples.aspx)
+  * [Part III  - Records](http://blogs.msdn.com/lucabol/archive/2008/04/21/a-c-library-to-write-functional-code-part-iii-records.aspx)
+  * [Part IV  - Type Unions](http://blogs.msdn.com/lucabol/archive/2008/06/06/a-c-library-to-write-functional-code-part-iv-type-unions.aspx)
+  * [Part V  - The Match operator](http://blogs.msdn.com/lucabol/archive/2008/07/15/a-c-library-to-write-functional-code-part-v-the-match-operator.aspx)
+
+I'm sorry for my prolonged absence in the middle of this series of posts. I'm on a long paternity leave in Italy (playing beach volley every day). It's hard to have the discipline
+
+A bunch of you wrote telling me to finish this. So here I go: let's talk about type unions. First of all: they are not called like that. The correct name is discriminated unions. I have no idea why I call them differently, but I want to be consistent with my previous mistake.
+
+For those of you with a C++ background (like myself) they are like unions, just better (or worse depending on your convictions). They let you define a type that can represent one of several different types. You can then use the 'match' operator (discussed in the next post) to pattern match against it.
+
+I won't elaborate on the pros and cons of this style of programming versus using polymorphism. I just want to show you how I implemented this construct in C#. As always, my usual caveat: this is just 'educational code', use it at your own risk, no extensive or perf related test has been done on it. You can download the zip file and check my unit tests for yourself.
+
+**How type unions are used**
+
+In my world, you declare a type union like this:
+
+```csharp
+public class Person { }
+public class Dog { }
+public class Friend : TypeUnion<Person, Dog> {
+    public Friend(Person p) : base(p) { }
+    public Friend(Dog d) : base(d) { }
+}
+```
+
+You inherit a type union from the TypeUnion class and use generic parameters that correspond to the types that the union can represent.
+
+You can then create a type union as:
+
+```csharp
+var fr = new Friend(new Dog());
+```
+
+Test its type by:
+
+```csharp
+Assert.IsTrue(fr.Is<Dog>());
+Assert.IsFalse(fr.Is<Person>());
+```
+
+Cast it to one of the types they represent:
+
+```csharp
+var d = fr.As<Dog>();
+```
+
+Or use it with the 'match' operator (fully explained in an upcoming post):
+
+```csharp
+var r = F.Match(fr,
+    f => f.Is<Dog>(), f => f.As<Dog>().ToString(),
+    f => f.Is<Person>(), f => f.As<Person>().ToString());
+Assert.AreEqual(r, new Dog().ToString());
+```
+
+Or the slightly more pleasing:
+
+```csharp
+r = F.Match(fr,
+        (Person p) => p.ToString(),
+        (Dog d) => d.ToString());
+Assert.AreEqual(r, new Dog().ToString());
+```
+
+You get the idea.
+
+**How they are implemented**
+
+Nothing really sophisticated going on here. Let's take as an example a type union that can represent two types. I have versions that go to 5 types in the zip file.
+
+First of all a TypeUnion is a Record:
+
+```csharp
+public class TypeUnion<T1, T2> : Record<T1, T2> {
+```
+
+It has overloaded constructors to create a type union of a particular type:
+
+```csharp
+public TypeUnion(T1 t1)
+    : base(t1, default(T2)) {
     UnionType = t1.GetType();
 }
-<span style="color:blue;">public </span>TypeUnion(T2 t2)
-    : <span style="color:blue;">base</span>(<span style="color:blue;">default</span>(T1), t2) {
+public TypeUnion(T2 t2)
+    : base(default(T1), t2) {
     UnionType = t2.GetType();
-}</pre>
-        
-        
-        
-        UnionType is used to &#8216;remember' which type it is:
-        
-        <pre class="code"><span style="color:blue;">protected </span><span style="color:#2b91af;">Type </span>UnionType;</pre>
-        
-        It also has properties to return the objects of all the types that can be stored:
-        
-        <pre class="code"><span style="color:blue;">protected </span>T1 Type1 { <span style="color:blue;">get </span>{ <span style="color:blue;">return </span>state.Item1; } }
-<span style="color:blue;">protected </span>T2 Type2 { <span style="color:blue;">get </span>{ <span style="color:blue;">return </span>state.Item2; } }</pre>
-        
-        The &#8216;Is' operator is simply implemented as:
-        
-        <pre class="code"><span style="color:blue;">public bool </span>Is&lt;K&gt;() {
-    <span style="color:blue;">return typeof</span>(K).IsAssignableFrom(UnionType);
-}</pre>
-        
-        And the &#8216;As' operator looks like so:
-        
-        <pre class="code"><span style="color:blue;">public </span>K As&lt;K&gt;() {
-    <span style="color:blue;">if </span>(!Is&lt;K&gt;())
-        <span style="color:blue;">throw new </span><span style="color:#2b91af;">Exception</span>(<span style="color:blue;">string</span>.Format(<br />          <span style="color:#a31515;">"In a TypeUnion cannot cast from {0} to {1}"</span>,<br />          UnionType.Name, <span style="color:blue;">typeof</span>(K).Name));
-    <span style="color:blue;">if </span>(<span style="color:blue;">typeof</span>(T1) == UnionType)
-        <span style="color:blue;">return </span>(K)(<span style="color:blue;">object</span>) Type1;
-    <span style="color:blue;">if </span>(<span style="color:blue;">typeof</span>(T2) == UnionType)
-        <span style="color:blue;">return </span>(K)(<span style="color:blue;">object</span>) Type2;
-    <span style="color:blue;">throw new </span><span style="color:#2b91af;">Exception</span>(<span style="color:#a31515;">"Shouldn't get here"</span>);
-}</pre>
-        
-        I leave as an exercise to the reader to understand what happens if T1 and T2 are the same type or inherit from the same type. I could have written code to handle this case in a more explicit manner, but didn't.
-        
-        Also, by reviewing my code I found an obvious bug in my Is<K>/As<K> code. I fixed it and re-posted the zip file in the second post of this series.
-        
-        Now back to the beach. Next post is on the &#8216;match' operator.
+}
+```
+
+UnionType is used to 'remember' which type it is:
+
+```csharp
+protected Type UnionType;
+```
+
+It also has properties to return the objects of all the types that can be stored:
+
+```csharp
+protected T1 Type1 { get { return state.Item1; } }
+protected T2 Type2 { get { return state.Item2; } }
+```
+
+The 'Is' operator is simply implemented as:
+
+```csharp
+public bool Is<K>() {
+    return typeof(K).IsAssignableFrom(UnionType);
+}
+```
+
+And the 'As' operator looks like so:
+
+```csharp
+public K As<K>() {
+    if (!Is<K>())
+        throw new Exception(string.Format(
+          "In a TypeUnion cannot cast from {0} to {1}",
+          UnionType.Name, typeof(K).Name));
+    if (typeof(T1) == UnionType)
+        return (K)(object) Type1;
+    if (typeof(T2) == UnionType)
+        return (K)(object) Type2;
+    throw new Exception("Shouldn't get here");
+}
+```
+
+I leave as an exercise to the reader to understand what happens if T1 and T2 are the same type or inherit from the same type. I could have written code to handle this case in a more explicit manner, but didn't.
+
+Also, by reviewing my code I found an obvious bug in my Is<K>/As<K> code. I fixed it and re-posted the zip file in the second post of this series.
+
+Now back to the beach. Next post is on the 'match' operator.

@@ -68,7 +68,11 @@ Timeouts are very important in message based systems. In essence, if you are not
 
 You do that by writing the following:
 
-<pre class="code">counter1 &lt;--SetTimeoutHandler 1000 <br />            (<span style="color:blue;">fun </span>state <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"I'm still waiting for a message in state %A, come on ..." <br />                                                            </span>state; ContinueProcessing(state))              </pre>
+```fsharp
+counter1 <--SetTimeoutHandler 1000 
+            (fun state -> printfn "I'm still waiting for a message in state %A, come on ..." 
+                                                            state; ContinueProcessing(state))              
+```
 
 Which generates the following message every second:
 
@@ -81,7 +85,9 @@ The first parameter to _SetTimeoutHandler_ is how long to wait before triggering
 
 The following code:
 
-<pre class="code">counter1 &lt;-- 2</pre>
+```fsharp
+counter1 <-- 2
+```
 
 Then generates:
 
@@ -92,14 +98,19 @@ Then generates:
 
 _ContinueProcessing_ is just one of the three possible values of the (terribly named) _AfterError_:
 
-<pre class="code"><span style="color:blue;">type </span>AfterError =
-| ContinueProcessing <span style="color:blue;">of </span>obj
+```fsharp
+type AfterError =
+| ContinueProcessing of obj
 | StopProcessing
-| RestartProcessing</pre>
+| RestartProcessing
+```
 
-Let’s see what RestartProcessing does.
+Let's see what RestartProcessing does.
 
-<pre class="code">counter1 &lt;-- SetTimeoutHandler 1000  (<span style="color:blue;">fun </span>state <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"Restart from state %A" </span>state<br />                                                                        ; RestartProcessing)</pre>
+```fsharp
+counter1 <-- SetTimeoutHandler 1000  (fun state -> printfn "Restart from state %A" state
+                                                                        ; RestartProcessing)
+```
 
 Which, as expected, generates a nice stream of:
 
@@ -110,10 +121,15 @@ Which, as expected, generates a nice stream of:
 
 To bring things back to normal (aka no timeout) you can just pass –1 as in:
 
-<pre class="code">counter1 &lt;-- SetTimeoutHandler -1  (<span style="color:blue;">fun </span>state <span style="color:blue;">-&gt; </span>ContinueProcessing(state))</pre>
+```fsharp
+counter1 <-- SetTimeoutHandler -1  (fun state -> ContinueProcessing(state))
+```
 
 Also, you can stop the agent when a timeout occurs by returning the aptly named _StopProcessing_:
 
-<pre class="code">counter1 &lt;-- SetTimeoutHandler 1000  (<span style="color:blue;">fun </span>state <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"Restart from state %A" </span>state; <br />                                                                             StopProcessing)</pre>
+```fsharp
+counter1 <-- SetTimeoutHandler 1000  (fun state -> printfn "Restart from state %A" state; 
+                                                                             StopProcessing)
+```
 
 Another interesting thing you might want to do is hot swapping of code. More on that in the next part …

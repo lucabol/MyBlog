@@ -50,24 +50,24 @@ tags:
 ---
 This&nbsp;is [Luke](http://blogs.msdn.com/lukeh/default.aspx)&#8216;s kind of code. I might be catching the virus
 
-<pre class="code"><span style="color:rgb(0,0,255);">abstract</span> <span style="color:rgb(0,0,255);">class</span> <span style="color:rgb(43,145,175);">QIFParserBase</span> {
-    <span style="color:rgb(0,0,255);">public</span> <span style="color:rgb(0,0,255);">enum</span> <span style="color:rgb(43,145,175);">LoadOptions</span> {
+```csharp
+abstract class QIFParserBase {
+    public enum LoadOptions {
         All,
         Prices,
         Securities,
         Transactions
     }
-    <span style="color:rgb(0,0,255);">static</span> <span style="color:rgb(0,0,255);">readonly</span> <span style="color:rgb(43,145,175);">Dictionary</span>&lt;<span style="color:rgb(43,145,175);">LoadOptions</span>, <span style="color:rgb(43,145,175);">Action</span>&lt;<span style="color:rgb(43,145,175);">QIFParserBase</span>, <span style="color:rgb(0,0,255);">string</span>[]&gt;&gt; parseFuncs =
-                                        <span style="color:rgb(0,0,255);">new</span> <span style="color:rgb(43,145,175);">Dictionary</span>&lt;<span style="color:rgb(43,145,175);">LoadOptions</span>, <span style="color:rgb(43,145,175);">Action</span>&lt;<span style="color:rgb(43,145,175);">QIFParserBase</span>, <span style="color:rgb(0,0,255);">string</span>[]&gt;&gt; {
-        {<span style="color:rgb(43,145,175);">LoadOptions</span>.All, (q,c) =&gt; q.ParseAll(c)},
-        {<span style="color:rgb(43,145,175);">LoadOptions</span>.Prices, (q,c) =&gt; q.ParsePricesBlocks(c)},
-        {<span style="color:rgb(43,145,175);">LoadOptions</span>.Securities, (q,c) =&gt; q.ParseSecurityBlocks(c)},
-        {<span style="color:rgb(43,145,175);">LoadOptions</span>.Transactions, (q,c) =&gt; q.ParseTransactionBlocks(c)}
+    static readonly Dictionary<LoadOptions, Action<QIFParserBase, string[]>> parseFuncs =
+                                        new Dictionary<LoadOptions, Action<QIFParserBase, string[]>> {
+        {LoadOptions.All, (q,c) => q.ParseAll(c)},
+        {LoadOptions.Prices, (q,c) => q.ParsePricesBlocks(c)},
+        {LoadOptions.Securities, (q,c) => q.ParseSecurityBlocks(c)},
+        {LoadOptions.Transactions, (q,c) => q.ParseTransactionBlocks(c)}
     };
-    <span style="color:rgb(0,0,255);">public</span> QIFParserBase(<span style="color:rgb(0,0,255);">string</span> fileName, <span style="color:rgb(43,145,175);">LoadOptions</span> opt) {
-        <span style="color:rgb(0,0,255);">string</span> content = <span style="color:rgb(43,145,175);">File</span>.ReadAllText(fileName);
-        <span style="color:rgb(0,0,255);">string</span>[] blocks = content.Split(<span style="color:rgb(0,0,255);">new</span> <span style="color:rgb(0,0,255);">string</span>[] { <span style="color:rgb(163,21,21);">"!Type:"</span>, <span style="color:rgb(163,21,21);">"!Option:"</span> },
-                                                        <span style="color:rgb(43,145,175);">StringSplitOptions</span>.RemoveEmptyEntries);
-        parseFuncs[opt](<span style="color:rgb(0,0,255);">this</span>,blocks);
-    }</pre>
-
+    public QIFParserBase(string fileName, LoadOptions opt) {
+        string content = File.ReadAllText(fileName);
+        string[] blocks = content.Split(new string[] { "!Type:", "!Option:" },
+                                                        StringSplitOptions.RemoveEmptyEntries);
+        parseFuncs[opt](this,blocks);
+    }

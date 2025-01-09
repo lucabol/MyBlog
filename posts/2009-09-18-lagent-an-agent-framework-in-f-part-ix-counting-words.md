@@ -64,57 +64,61 @@ All posts are here:
   * [Part VIII – Implementing MapReduce (user model)](http://blogs.msdn.com/lucabol/archive/2009/09/04/lagent-an-agent-framework-in-f-part-viii-implementing-mapreduce-user-model.aspx) 
   * [Part IX – Counting words …](http://blogs.msdn.com/lucabol/archive/2009/09/18/lagent-an-agent-framework-in-f-part-ix-counting-words.aspx) 
 
+Let's now use our mapReduce to do something more interesting, for example finding the frequency of words in several books. Now the agent that processes the output needs to be a bit more complex.
 
-
-Let’s now use our mapReduce to do something more interesting, for example finding the frequency of words in several books. Now the agent that processes the output needs to be a bit more complex.
-
-<pre class="code"><span style="color:blue;">let </span>gathererF = <span style="color:blue;">fun </span>msg (data:List&lt;string * int&gt;, counter, step) <span style="color:blue;">-&gt;
-                    match </span>msg <span style="color:blue;">with
-                    </span>| Reduced(key, value)   <span style="color:blue;">-&gt;
-                        if </span>counter % step = <span style="color:brown;">0 </span><span style="color:blue;">then
-                            </span>printfn <span style="color:maroon;">"Processed %i words. Now processing %s" </span>counter key
-                        data.Add((key, value |&gt; Seq.hd))
-                        data, counter + <span style="color:brown;">1</span>, step
-                    | MapReduceDone         <span style="color:blue;">-&gt;
-                        </span>data
-                        |&gt; Seq.distinctBy (<span style="color:blue;">fun </span>(key, _) <span style="color:blue;">-&gt; </span>key.ToLower())
-                        |&gt; Seq.filter (<span style="color:blue;">fun </span>(key, _) <span style="color:blue;">-&gt; </span>not(key = <span style="color:maroon;">"" </span>|| key = <span style="color:maroon;">""" </span>||<br />                                                             (fst (Double.TryParse(key)))))
-                        |&gt; Seq.to_array
-                        |&gt; Array.sortBy snd
-                        |&gt; Array.rev
-                        |&gt; Seq.take <span style="color:brown;">20
-                        </span>|&gt; Seq.iter (<span style="color:blue;">fun </span>(key, value) <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"%Att%A" </span>key value)
-                        printfn <span style="color:maroon;">"All done!!"
-                        </span>data, counter, step
-<span style="color:blue;">let </span>gatherer = spawnAgent gathererF (<span style="color:blue;">new </span>List&lt;string * int&gt;(), <span style="color:brown;"></span>, <span style="color:brown;">1000</span>)</pre>
-
-
+```fsharp
+let gathererF = fun msg (data:List<string * int>, counter, step) ->
+                    match msg with
+                    | Reduced(key, value)   ->
+                        if counter % step = 0 then
+                            printfn "Processed %i words. Now processing %s" counter key
+                        data.Add((key, value |> Seq.hd))
+                        data, counter + 1, step
+                    | MapReduceDone         ->
+                        data
+                        |> Seq.distinctBy (fun (key, _) -> key.ToLower())
+                        |> Seq.filter (fun (key, _) -> not(key = "" || key = """ ||
+                                                             (fst (Double.TryParse(key)))))
+                        |> Seq.to_array
+                        |> Array.sortBy snd
+                        |> Array.rev
+                        |> Seq.take 20
+                        |> Seq.iter (fun (key, value) -> printfn "%A\t%A" key value)
+                        printfn "All done!!"
+                        data, counter, step
+let gatherer = spawnAgent gathererF (new List<string * int>(), 0, 1000)
+```
 
 Every time a new word is reduced, a message is printed out and the result is added to a running list. When everything is done such a list is printed out by first manipulating it to reduce weirdness and limit the number of items. BTW: there are at least two bugs in this code, maybe more (late night quick-and-dirty-see-if-the-algo-works kind of coding).
 
-We want to maximize the number of processors to use, so let’s split the books in chunks so that they can be operated in parallel. The code below roughly does it (I say roughly because it doesn’t chunk the lines in the right order, but for this particular case it doesn’t matter).
+We want to maximize the number of processors to use, so let's split the books in chunks so that they can be operated in parallel. The code below roughly does it (I say roughly because it doesn't chunk the lines in the right order, but for this particular case it doesn't matter).
 
-<pre class="code"><span style="color:blue;">let </span>gatherer = spawnAgent gathererF (<span style="color:blue;">new </span>List&lt;string * int&gt;(), <span style="color:brown;"></span>, <span style="color:brown;">1000</span>)
-<span style="color:blue;">let </span>splitBook howManyBlocks fileName =
-    <span style="color:blue;">let </span>buffers = Array.init howManyBlocks (<span style="color:blue;">fun </span>_ <span style="color:blue;">-&gt; new </span>StringBuilder())
+```fsharp
+let gatherer = spawnAgent gathererF (new List<string * int>(), 0, 1000)
+let splitBook howManyBlocks fileName =
+    let buffers = Array.init howManyBlocks (fun _ -> new StringBuilder())
     fileName
-    |&gt; File.ReadAllLines
-    |&gt; Array.iteri (<span style="color:blue;">fun </span>i line <span style="color:blue;">-&gt; </span>buffers.[i % (howManyBlocks)].Append(line) |&gt; ignore)
+    |> File.ReadAllLines
+    |> Array.iteri (fun i line -> buffers.[i % (howManyBlocks)].Append(line) |> ignore)
     buffers
-<span style="color:blue;">let </span>blocks1 = <span style="color:maroon;">"C:UserslucabolDesktopAgentsAgentskjv10.txt" </span>|&gt; splitBook <span style="color:brown;">100
-</span><span style="color:blue;">let </span>blocks2 = <span style="color:maroon;">"C:UserslucabolDesktopAgentsAgentswarandpeace.txt" </span>|&gt; splitBook <span style="color:brown;">100
-</span><span style="color:blue;">let </span>input =
+let blocks1 = "C:UserslucabolDesktopAgentsAgentskjv10.txt" |> splitBook 100
+let blocks2 = "C:UserslucabolDesktopAgentsAgentswarandpeace.txt" |> splitBook 100
+let input =
     blocks1
-    |&gt; Array.append blocks2
-    |&gt; Array.mapi (<span style="color:blue;">fun </span>i b <span style="color:blue;">-&gt; </span>i.ToString(), b.ToString())</pre>
+    |> Array.append blocks2
+    |> Array.mapi (fun i b -> i.ToString(), b.ToString())
+```
 
-And let’s execute!!
+And let's execute!!
 
-<pre class="code">mapReduce input map reduce gatherer <span style="color:brown;">20 20 </span>partitionF</pre>
+```fsharp
+mapReduce input map reduce gatherer 20 20 partitionF
+```
 
 On my machine I get the following, which could be the right result.
 
-<pre class="code">"a"        16147
+```fsharp
+"a"        16147
 "And"        13071
 "I"        11349
 "unto"        8125
@@ -134,5 +138,4 @@ On my machine I get the following, which could be the right result.
 "an"        2841
 "upon"        2558
 "so"        2489
-All done!!</pre>
-
+All done!!

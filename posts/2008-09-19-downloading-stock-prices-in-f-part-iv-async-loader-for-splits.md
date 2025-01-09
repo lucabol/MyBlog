@@ -61,77 +61,99 @@ Downloading splits is a messy affair. The problem is that Yahoo doesn't give you
 
 First, let's define a function that constructs the correct URL to download splits from. Notice that you need to pass a page number to it.
 
-<pre class="code"><span style="color:blue;">let </span>splitUrl ticker span page =
-    <span style="color:maroon;">"http://finance.yahoo.com/q/hp?s=" </span>+ ticker + <span style="color:maroon;">"&a="<br />    </span>+ (span.Start.Month - 1).ToString() + <span style="color:maroon;">"&b=" </span>+ span.Start.Day.ToString() + <span style="color:maroon;">"&c=" <br />    </span>+ span.Start.Year.ToString() + <span style="color:maroon;">"&d=" </span>+ (span.End.Month - 1).ToString() + <span style="color:maroon;">"&e="<br />    </span>+ span.End.Day.ToString() + <span style="color:maroon;">"&f=" </span>+ span.End.Year.ToString() + <span style="color:maroon;">"&g=v&z=66&y="<br />    </span>+ (66 * page).ToString();</pre>
+```fsharp
+let splitUrl ticker span page =
+    "http://finance.yahoo.com/q/hp?s=" + ticker + "&a="
+    + (span.Start.Month - 1).ToString() + "&b=" + span.Start.Day.ToString() + "&c=" 
+    + span.Start.Year.ToString() + "&d=" + (span.End.Month - 1).ToString() + "&e="
+    + span.End.Day.ToString() + "&f=" + span.End.Year.ToString() + "&g=v&z=66&y="
+    + (66 * page).ToString();
+```
 
 The reason for this particular url format (i.e. 66 * page) is completely unknown to me. I also have the feeling that it might change in the future. Or maybe not given how many people rely on it.
 
 I then describe the driver function for loading splits:
 
-<pre class="code"><span style="color:blue;">let rec </span>loadWebSplitAsync ticker span page splits =
-    <span style="color:blue;">let </span>parseSplit text splits =
-        List.append splits (parseSplits (scrapHtmlRows text)),<br />                                           not(containsDivsOrSplits (scrapHtmlCells text))
+```fsharp
+let rec loadWebSplitAsync ticker span page splits =
+    let parseSplit text splits =
+        List.append splits (parseSplits (scrapHtmlRows text)),
+                                           not(containsDivsOrSplits (scrapHtmlCells text))
     async {
-        <span style="color:blue;">let </span>url = splitUrl ticker span page
-        <span style="color:blue;">let! </span>text = loadWebStringAsync url
-        <span style="color:blue;">let </span>splits, beyondLastPage = parseSplit text splits
-        <span style="color:blue;">if </span>beyondLastPage <span style="color:blue;">then return </span>splits <span style="color:blue;">else<br />                                 return! </span>loadWebSplitAsync ticker span (page + 1) splits }</pre>
-
-
+        let url = splitUrl ticker span page
+        let! text = loadWebStringAsync url
+        let splits, beyondLastPage = parseSplit text splits
+        if beyondLastPage then return splits else
+                                 return! loadWebSplitAsync ticker span (page + 1) splits }
+```
 
 This is a bit convoluted (it is an Async recursive function). Let's go through it in some detail. First there is a nested function <u>parseSplit</u>. It takes an html string and a list of observations and returns a tuple of two elements. The first element is the same list of observations augmented with the splits found in the text. The second element is a boolean that is true if we have navigated beyond the last page for the splits.
 
 The function to test that we are beyond the last page is the following:
 
-<pre class="code"><span style="color:blue;">let </span>containsDivsOrSplits cells =
-    cells |&gt; Seq.exists<br />        (<span style="color:blue;">fun </span>(x:string) <span style="color:blue;">-&gt; </span>Regex.IsMatch(x, <span style="color:maroon;">@"$.+Dividend"</span>, RegexOptions.Multiline)<br />                           || Regex.IsMatch(x, <span style="color:maroon;">"Stock Split"</span>))  </pre>
+```fsharp
+let containsDivsOrSplits cells =
+    cells |> Seq.exists
+        (fun (x:string) -> Regex.IsMatch(x, @"$.+Dividend", RegexOptions.Multiline)
+                           || Regex.IsMatch(x, "Stock Split"))  
+```
 
 This function just checks if the words Stock Split or Dividend are anywhere in the table. If they aren't, then we have finished processing the pages for this particular ticker and date span.
 
 The function to extract the splits observations from the web page takes some cells (a <u>seq<seq<string>>)</u> as input and returns an observation list. It is reproduced below:
 
-<pre class="code"><span style="color:blue;">let </span>parseSplits rows =
-    <span style="color:blue;">let </span>parseRow row =
-        <span style="color:blue;">if </span>row |&gt; Seq.exists (<span style="color:blue;">fun </span>(x:string) <span style="color:blue;">-&gt; </span>x.Contains(<span style="color:maroon;">"Stock Split"</span>))
-        <span style="color:blue;">then
-            let </span>dateS = Seq.hd row
-            <span style="color:blue;">let </span>splitS = Seq.nth 1 row
-            <span style="color:blue;">let </span>date = DateTime.Parse(dateS)
-            <span style="color:blue;">let </span>regex = Regex.Match(splitS,<span style="color:maroon;">@"(d+)s+:s+(d+)s+Stock Split"</span>,<br />                                                                   RegexOptions.Multiline)
-            <span style="color:blue;">let </span>newShares = shares (float (regex.Groups.Item(1).Value))
-            <span style="color:blue;">let </span>oldShares = shares (float (regex.Groups.Item(2).Value))
+```fsharp
+let parseSplits rows =
+    let parseRow row =
+        if row |> Seq.exists (fun (x:string) -> x.Contains("Stock Split"))
+        then
+            let dateS = Seq.hd row
+            let splitS = Seq.nth 1 row
+            let date = DateTime.Parse(dateS)
+            let regex = Regex.Match(splitS,@"(d+)s+:s+(d+)s+Stock Split",
+                                                                   RegexOptions.Multiline)
+            let newShares = shares (float (regex.Groups.Item(1).Value))
+            let oldShares = shares (float (regex.Groups.Item(2).Value))
             Some({Date = date; Event = Split(newShares / oldShares)})
-        <span style="color:blue;">else </span>None
-    rows |&gt; Seq.choose parseRow |&gt; Seq.to_list</pre>
+        else None
+    rows |> Seq.choose parseRow |> Seq.to_list
+```
 
-It just take a bunch of rows and choose the ones that contain stock split information. For these, it parses the information out of the text and creates a Split Observation out of it. I think it is intuitive what the various Seq functions do in this case. Also note my overall addiction to the pipe operator ( |> ). In my opinion this is the third most important keyword in F# (after &#8216;let' and &#8216;match').
+It just take a bunch of rows and choose the ones that contain stock split information. For these, it parses the information out of the text and creates a Split Observation out of it. I think it is intuitive what the various Seq functions do in this case. Also note my overall addiction to the pipe operator ( |> ). In my opinion this is the third most important keyword in F# (after 'let' and 'match').
 
 Let's now go back to the loadWebSplitAsync function and discuss the rest of it. In particular this part:
 
-<pre class="code">async {
-    <span style="color:blue;">let </span>url = splitUrl ticker span page
-    <span style="color:blue;">let! </span>text = loadWebStringAsync url
-    <span style="color:blue;">let </span>splits, beyondLastPage = parseSplit text splits
-    <span style="color:blue;">if </span>beyondLastPage <span style="color:blue;">then return </span>splits <span style="color:blue;">else<br />        return! </span>loadWebSplitAsync ticker span (page + 1) splits }</pre>
+```fsharp
+async {
+    let url = splitUrl ticker span page
+    let! text = loadWebStringAsync url
+    let splits, beyondLastPage = parseSplit text splits
+    if beyondLastPage then return splits else
+        return! loadWebSplitAsync ticker span (page + 1) splits }
+```
 
-First of all it is an Async function. You should expect some Async stuff to go on inside it. And indeed, after forming the URL in the first line, the very next line is a call to <u>loadWebStringAsync</u>. We discussed this one in the previous installment. It just asynchronously loads a string from an URL. Notice the bang after &#8216;let'. This is your giveaway that async stuff is being performed.
+First of all it is an Async function. You should expect some Async stuff to go on inside it. And indeed, after forming the URL in the first line, the very next line is a call to <u>loadWebStringAsync</u>. We discussed this one in the previous installment. It just asynchronously loads a string from an URL. Notice the bang after 'let'. This is your giveaway that async stuff is being performed.
 
 The result of the async request is parsed to extract splits. Also, the <u>beyondLastPage</u> flag is set if we have finished our work. If we have, we return the split observation list; if we haven't, we do it again incrementing the page number to load the html text from.
 
 Now that we have all the pieces in places, we can wrap up the split loading stuff inside this facade function:
 
-<pre class="code"><span style="color:blue;">let </span>loadSplitsAsync ticker span = loadWebSplitAsync ticker span 0 []<br /></pre>
+```fsharp
+let loadSplitsAsync ticker span = loadWebSplitAsync ticker span 0 []
+```
 
 And finally put together the results of this post and the previous one with the overall function-to-rule-them-all:
 
-<pre class="code"><span style="color:blue;">let </span>loadTickerAsync ticker span =
+```fsharp
+let loadTickerAsync ticker span =
     async {
-        <span style="color:blue;">let </span>prices = loadPricesAsync ticker span
-        <span style="color:blue;">let </span>divs =  loadDivsAsync ticker span
-        <span style="color:blue;">let </span>splits = loadSplitsAsync ticker span
-        <span style="color:blue;">let! </span>prices, divs, splits = Async.Parallel3 (prices, divs, splits)
-        <span style="color:blue;">return </span>prices |&gt; List.append divs |&gt; List.append splits
-        }</pre>
+        let prices = loadPricesAsync ticker span
+        let divs =  loadDivsAsync ticker span
+        let splits = loadSplitsAsync ticker span
+        let! prices, divs, splits = Async.Parallel3 (prices, divs, splits)
+        return prices |> List.append divs |> List.append splits
+        }
+```
 
 All right, that was a lot of work to get to this simple thing. This is a good entry point to our price/divs/split loading framework. It has the right inputs and outputs: it takes a ticker and a date span and returns an Async of a list of observations. Our caller can decide when he wants to execute the returned Async object.
 

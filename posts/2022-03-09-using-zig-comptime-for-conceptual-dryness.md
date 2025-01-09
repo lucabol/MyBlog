@@ -8,9 +8,11 @@ tags:
   - zig
 ---
 
- On [github](https://github.com/lucabol/Zig-Forth/tree/blog).
+On [github](https://github.com/lucabol/Zig-Forth/tree/blog).
 
- While writing my C# Forth, I grew unhappy about the conceptual repetition in the code.
+## The Problem
+
+While writing my C# Forth, I grew unhappy about the conceptual repetition in the code.
  To add a new Forth word, you have to add a new value to the enumerator that represents the opcode,
  add a new member to a hashtable that maps it to a string (what the user types) and finally implement the action
  for the word. See [here.](https://www.lucabol.com/posts/2022-03-07-implementing-forth-dotnet/#interpreting-words)
@@ -22,7 +24,9 @@ tags:
  My familiarity with the `Zig` language made me realize that I could remove the redundancy by using
  zig's `comptime`, without any loss in performance. This post describes a prototype of that.
 
- The idea is to have functions on my main `struct` in the form `op_WORDNAME`. At compile time, I
+## The Solution
+
+The idea is to have functions on my main `struct` in the form `op_WORDNAME`. At compile time, I
  generate the enumerator with all the opcodes and the series of conditional statements to call the right
  function `op_WORDNAME` when the user types `WORDNAME`. By making the functions `inline`, I don't even pay
  the price of a function call. BTW: Zig gives a compile-time error if it can't inline.
@@ -53,7 +57,9 @@ const Vm = struct {
 
 ```
 
- This is the shell main loop. It is pretty standard stuff until you get to the innermost while loop,
+## The Shell Loop
+
+This is the shell main loop. It is pretty standard stuff until you get to the innermost while loop,
  marked with (*). Even if it looks like the code is calling two functions (`findToken` and `execToken`),
  it isn't. The compiler replaces these two function calls with a series of `if` statements to match
  a string with the corresponding opcode and to find the correct function to call.
@@ -90,7 +96,9 @@ fn shellLoop(stdin: std.fs.File.Reader, stdout: std.fs.File.Writer) !void {
 
 ```
 
- So, how do we do it? Let's start with `findToken`. The code is relatively simple because you are not
+## Finding Tokens
+
+So, how do we do it? Let's start with `findToken`. The code is relatively simple because you are not
  writing a 'macro'. You are just writing normal Zig code. For .NET programmers, this is like having
  `System.Reflection` and `System.Reflection.Emit` available at compile time.
 
@@ -115,7 +123,9 @@ inline fn findToken(word: []const u8) ?Token {
 
 ```
 
- `Token` execution is similar. Again we unroll the loop at compile time, generating a series of `if`
+## Token Execution
+
+`Token` execution is similar. Again we unroll the loop at compile time, generating a series of `if`
  statements that execute the `Vm` function corresponding to the given `Token`.
 
 ```zig
@@ -132,7 +142,9 @@ inline fn execToken(vm: *Vm, tok: Token) void {
 
 ```
 
- We generate the `Token` enumerator by iterating over all the declarations on the `Vm` struct and
+## Token Generation
+
+We generate the `Token` enumerator by iterating over all the declarations on the `Vm` struct and
  generating a set of declarations that are then use to compile time construct the correct `Enum` using
  the `@Type` builtin function.
 
@@ -163,10 +175,12 @@ fn GenerateTokenEnumType(comptime T: type) type {
 
 ```
 
- Ok, but does it really work? Well, you can run it with `zig build run`, but it is really inlining
+## Assembly Output
+
+Ok, but does it really work? Well, you can run it with `zig build run`, but it is really inlining
  correctly? Well, the assembly language says yes. No calls to external functions in the main loop.
 
- ```processing
+```assembly
  const token = findToken(word) orelse Token.notFound;
  2310db: f6 85 a1 fa ff ff 01 testb $0x1,-0x55f(%rbp)
  2310e2: 75 09 jne 2310ed <shellLoop+0x38d>
@@ -231,11 +245,11 @@ fn GenerateTokenEnumType(comptime T: type) type {
  231186: ff c0 inc %eax
  231188: 89 85 54 fa ff ff mov %eax,-0x5ac(%rbp)
  23118e: 0f 90 c0 seto %al
- ```
+```
 
  Also, more directly, see below:
 
- ```processing
+```asm
  return @field(Token, enField.name);
  230ff0: c6 85 a1 fa ff ff 01 movb $0x1,-0x55f(%rbp)
  inlined by /home/lucabol/dev/zig-forth/src/main.zig:64 (shellLoop)
@@ -267,7 +281,7 @@ fn GenerateTokenEnumType(comptime T: type) type {
  home/lucabol/dev/zig-forth/src/main.zig:25
  inlined by /home/lucabol/dev/zig-forth/src/main.zig:64 (shellLoop)
  return @field(Token, enField.name);
- ```
+```
 
  And the driver is obvious.
 
