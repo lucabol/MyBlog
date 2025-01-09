@@ -39,10 +39,14 @@ class BlogGenerator:
                     if hasattr(post_date, 'tzinfo') and post_date.tzinfo is not None:
                         post_date = post_date.replace(tzinfo=None)
                 
+                author = post.get('author', 'Anonymous')
+                if author == 'lucabol':
+                    author = 'Luca Bolognese'
+                    
                 post_data = {
                     'title': post.get('title', 'Untitled'),
                     'date': post_date,
-                    'author': post.get('author', 'Anonymous'),
+                    'author': author,
                     'tags': post.get('tags', []),
                     'content': html_content,
                     'url': f'posts/{os.path.splitext(filename)[0]}.html'
@@ -157,14 +161,15 @@ class BlogGenerator:
                 }
 
                 :root {
-                    --notes-base: clamp(1.7rem, 2.6vw, 2.3rem);
-                    --post-base: clamp(1.1rem, 1.6vw, 1.5rem);
+                    font-size: 16px;
+                    --base-size: clamp(15px, 2.2vw, 24px);
                 }
                 html, body {
                     font-family: MyGeorgia, serif;
-                    font-size: var(--post-base);
-                    line-height: 1.2;
-                    max-width: 800px;
+                    font-size: var(--base-size);
+                    line-height: 1.3;
+                    max-width: 75ch;
+                    font-variant-ligatures: discretionary-ligatures;
                     margin: 0 auto;
                     padding: 0.5rem 1rem;
                 }
@@ -176,24 +181,24 @@ class BlogGenerator:
                     margin: 0 1rem;
                     text-decoration: none;
                     color: #000;
-                    font-size: clamp(1.4rem, 2vw, 1.8rem);
+                    font-size: calc(var(--base-size) * 1.1);
                 }
                 h1, .year {
                     font-family: MyTrebuchet, sans-serif;
                 }
                 h1 {
                     text-align: center;
-                    font-size: calc(var(--notes-base) * 1.6);
+                    font-size: calc(var(--base-size) * 1.3);
                     margin-bottom: 1rem;
                     font-weight: normal;
                 }
                 .year {
-                    font-size: calc(var(--notes-base) * 1.4);
+                    font-size: calc(var(--base-size) * 1.2);
                     margin: 2rem 0 1rem;
                     font-weight: normal;
                 }
                 article h1 {
-                    font-size: calc(var(--post-base) * 1.6);
+                    font-size: calc(var(--base-size) * 1.3);
                     font-weight: normal;
                 }
                 .posts-list {
@@ -201,7 +206,7 @@ class BlogGenerator:
                     margin: 0;
                     padding-left: 2rem;
                     line-height: 1.1;
-                    font-size: var(--notes-base);
+                    font-size: var(--base-size);
                 }
                 .posts-list li {
                     margin: 0.3rem 0;
@@ -211,19 +216,18 @@ class BlogGenerator:
                     margin-bottom: 1rem;
                 }
                 .post-content {
-                    font-size: var(--post-base);
+                    font-size: var(--base-size);
                     line-height: 1.4;
                     margin-bottom: 3rem;
                 }
                 .post-content p {
-                    text-align: justify;
-                    hyphens: auto;
+                    text-align: left;
                 }
                 .post-tags {
                     list-style-type: circle;
                     padding-left: 2rem;
                     margin: 1rem 0 2rem;
-                    font-size: var(--notes-base);
+                    font-size: var(--base-size);
                 }
                 .post-tags li {
                     margin: 0.5rem 0;
@@ -239,7 +243,7 @@ class BlogGenerator:
                 .post-content + h2 {
                     font-family: "Trebuchet MS", sans-serif;
                     font-weight: normal;
-                    font-size: calc(var(--notes-base) * 1.4);
+                    font-size: calc(var(--base-size) * 1.2);
                     margin: 3rem 0 1rem;
                 }
                 .avatar {
@@ -268,14 +272,14 @@ class BlogGenerator:
                 }
                 .search input {
                     font-family: Georgia, serif;
-                    font-size: var(--post-base);
+                    font-size: var(--base-size);
                     padding: 0.5rem;
                     width: 300px;
                     margin-right: 0.5rem;
                 }
                 .search button {
                     font-family: Georgia, serif;
-                    font-size: var(--post-base);
+                    font-size: var(--base-size);
                     padding: 0.5rem 1rem;
                     cursor: pointer;
                 }
@@ -298,7 +302,7 @@ class BlogGenerator:
                     list-style-type: circle;
                     padding-left: 2rem;
                     margin: 2rem 0;
-                    font-size: var(--notes-base);
+                    font-size: var(--base-size);
                 }
                 .tags-list li {
                     margin: 0.2rem 0;
@@ -348,8 +352,14 @@ class BlogGenerator:
                     border: 1px solid #000;
                     cursor: pointer;
                     font-family: MyGeorgia, serif;
-                    font-size: var(--post-base);
+                    font-size: var(--base-size);
                     padding: 0.5rem 1rem;
+                }
+                .public-domain {
+                    font-size: calc(var(--base-size) * 0.7);
+                    text-align: center;
+                    color: #666;
+                    margin: 0.5rem 0;
                 }
                 .back-to-top {
                     display: block;
@@ -358,7 +368,7 @@ class BlogGenerator:
                     color: #000;
                     text-decoration: none;
                     font-family: MyGeorgia, serif;
-                    font-size: var(--post-base);
+                    font-size: var(--base-size);
                 }
                 .back-to-top:hover {
                     text-decoration: underline;
