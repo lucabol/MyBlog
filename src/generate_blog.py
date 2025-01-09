@@ -387,7 +387,11 @@ class BlogGenerator:
     def generate_code_page(self):
         import yaml
         
-        with open('_data/projects.yaml', 'r', encoding='utf-8') as f:
+        # Skip code page generation if projects.yaml doesn't exist
+        if not os.path.exists('src/projects.yaml'):
+            return
+            
+        with open('src/projects.yaml', 'r', encoding='utf-8') as f:
             projects = yaml.safe_load(f)
             
         template = self.env.get_template('code.html')
