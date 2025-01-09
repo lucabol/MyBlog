@@ -20,7 +20,7 @@ lc.scatter(y) + lc.line(y) |> display
 
 Notice how I can superimpose two graphs of a different type and display the result.
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/wp-content/uploads/2010/02/image_thumb.png" width="417" height="303" />](/wp-content/uploads/2010/02/image.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/img/lchart1.png" width="417" height="303" />](/img/lchart1.png)
 
 Notice on the upper right corner a bizarre (Series1, Series2) legend. What I wanted to do, but didn't get around to do, was to allow a syntax like
 
@@ -40,7 +40,7 @@ Some other, more elaborate charts follows. Notice how data flows from left to ri
 lc.scatter(y, markerSize = 10) + lc.column() + lc.boxplot() + lc.line()  + lc.column(x) + lc.boxplot()|> display
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/wp-content/uploads/2010/02/image_thumb1.png" width="410" height="298" />](/wp-content/uploads/2010/02/image1.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/img/lchart2.png" width="410" height="298" />](/img/lchart2.png)
 
 Things would be better with names for axis, titles and such. I'm not including them for the sake of simplicity.
 
@@ -48,7 +48,7 @@ Things would be better with names for axis, titles and such. I'm not including t
 lc.scatter(y, markerSize = 10) + lc.column() + (lc.line(x)  + lc.column()) + lc.scatter(markerSize = 20) |> display
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/wp-content/uploads/2010/02/image_thumb2.png" width="396" height="288" />](/wp-content/uploads/2010/02/image2.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/img/lchart3.png" width="396" height="288" />](/img/lchart3.png)
 
 If you remember the previous post, we talked about boxplots and how you generally want to have more than one on a graph. You can do that with the '+' operator and get this ugly chart. More work is needed here.
 
@@ -57,7 +57,7 @@ lc.boxplot(y = y, xname = "Players", yname = "Ratings", title = "Players' Rating
     showAverage = false, showMedian = false, showUnusualValues = true) +  lc.boxplot(y = x) |> display
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/wp-content/uploads/2010/02/image_thumb4.png" width="399" height="290" />](/wp-content/uploads/2010/02/image4.png)
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/img/lchart5.png" width="399" height="290" />](/img/lchart5.png)
 
 '++' allows you to create new charts below the chart you already have as in:
 
@@ -67,6 +67,6 @@ let w = h |> List.map (fun h -> h * 1.2)
 lc.line(h) + lc.column() ++ lc.line(w) ++ lc.bubble() |> display
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/wp-content/uploads/2010/02/image_thumb3.png" width="396" height="288" />](/wp-content/uploads/2010/02/image3.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/img/lchart4.png" width="396" height="288" />](/img/lchart4.png)
 
 Notice the left to right flowing of information here as well. In the next installment we'll take a look at how things are implemented and why it's all wrong.
