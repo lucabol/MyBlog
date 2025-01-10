@@ -2,8 +2,8 @@ name: Deploy to Netlify
 
 on:
   push:
-      branches:
-        - main  # or master, depending on your default branch
+  
+  pull_request:  # Trigger on PR events
   
   workflow_dispatch:  # Allows manual triggering
 
@@ -33,7 +33,7 @@ jobs:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       run: |
-        cd dist
+        cd _site
         zip -r ../site.zip .
         cd ..
         curl -H "Content-Type: application/zip" \
