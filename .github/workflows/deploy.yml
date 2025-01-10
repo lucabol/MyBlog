@@ -2,8 +2,10 @@ name: Deploy to Netlify
 
 on:
   push:
-    branches:
-      - main  # or master, depending on your default branch
+      branches:
+        - main  # or master, depending on your default branch
+  
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   build-and-deploy:
