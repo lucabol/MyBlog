@@ -13,45 +13,70 @@ class BlogGenerator:
         self.tags = defaultdict(list)
         self.env = Environment(loader=FileSystemLoader('src/templates'))
         
+    def _ensure_dir(self, path):
+        """Create directory if it doesn't exist."""
+        os.makedirs(path, exist_ok=True)
+        
+    def _write_file(self, path, content):
+        """Write content to file, ensuring directory exists."""
+        self._ensure_dir(os.path.dirname(path))
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(content)
+            
+    def _render_and_write(self, template_name, output_path, **kwargs):
+        """Render template and write to file."""
+        template = self.env.get_template(template_name)
+        kwargs['year'] = datetime.now().year
+        content = template.render(**kwargs)
+        self._write_file(output_path, content)
+        
+    def _process_post_date(self, post_date):
+        """Process post date to consistent format."""
+        if post_date:
+            if isinstance(post_date, date) and not isinstance(post_date, datetime):
+                post_date = datetime.combine(post_date, datetime.min.time())
+            if hasattr(post_date, 'tzinfo') and post_date.tzinfo is not None:
+                post_date = post_date.replace(tzinfo=None)
+        return post_date
+        
+    def _process_post_author(self, author):
+        """Process author name to consistent format."""
+        if author == 'lucabol':
+            return 'Luca Bolognese'
+        return author or 'Anonymous'
+        
+    def _convert_markdown(self, content):
+        """Convert markdown to HTML with extended features."""
+        return markdown.markdown(
+            content,
+            extensions=[
+                'fenced_code',
+                'tables',
+                'sane_lists',
+                'smarty',
+                'attr_list'
+            ]
+        )
+        
+    def _process_post_file(self, filename):
+        """Process a single post file and return post data."""
+        filepath = os.path.join(self.posts_dir, filename)
+        with open(filepath, 'r', encoding='utf-8') as f:
+            post = frontmatter.load(f)
+            
+        return {
+            'title': post.get('title', 'Untitled'),
+            'date': self._process_post_date(post.get('date')),
+            'author': self._process_post_author(post.get('author')),
+            'tags': post.get('tags', []),
+            'content': self._convert_markdown(post.content),
+            'url': f'posts/{os.path.splitext(filename)[0]}.html'
+        }
+        
     def read_posts(self):
         for filename in os.listdir(self.posts_dir):
             if filename.endswith('.md'):
-                filepath = os.path.join(self.posts_dir, filename)
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    post = frontmatter.load(f)
-                    
-                # Convert markdown to HTML with extended features
-                html_content = markdown.markdown(
-                    post.content,
-                    extensions=[
-                        'fenced_code',
-                        'tables',
-                        'sane_lists',
-                        'smarty',
-                        'attr_list'
-                    ]
-                )
-                
-                post_date = post.get('date')
-                if post_date:
-                    if isinstance(post_date, date) and not isinstance(post_date, datetime):
-                        post_date = datetime.combine(post_date, datetime.min.time())
-                    if hasattr(post_date, 'tzinfo') and post_date.tzinfo is not None:
-                        post_date = post_date.replace(tzinfo=None)
-                
-                author = post.get('author', 'Anonymous')
-                if author == 'lucabol':
-                    author = 'Luca Bolognese'
-                    
-                post_data = {
-                    'title': post.get('title', 'Untitled'),
-                    'date': post_date,
-                    'author': author,
-                    'tags': post.get('tags', []),
-                    'content': html_content,
-                    'url': f'posts/{os.path.splitext(filename)[0]}.html'
-                }
-                
+                post_data = self._process_post_file(filename)
                 self.posts.append(post_data)
                 for tag in post_data['tags']:
                     self.tags[tag].append(post_data)
@@ -59,107 +84,90 @@ class BlogGenerator:
         self.posts.sort(key=lambda x: x['date'], reverse=True)
     
     def generate_home_page(self):
-        template = self.env.get_template('home.html')
-        content = template.render(
-            recent_posts=self.posts[:5],
-            year=datetime.now().year
-        )
-        
-        os.makedirs(self.output_dir, exist_ok=True)
-        with open(os.path.join(self.output_dir, 'index.html'), 'w', encoding='utf-8') as f:
-            f.write(content)
+        self._render_and_write('home.html', 
+                             os.path.join(self.output_dir, 'index.html'),
+                             recent_posts=self.posts[:5])
     
     def generate_notes_page(self):
-        template = self.env.get_template('notes.html')
-        content = template.render(
-            posts=self.posts,
-            year=datetime.now().year
-        )
+        self._render_and_write('notes.html',
+                             os.path.join(self.output_dir, 'notes.html'),
+                             posts=self.posts)
+    
+    def _group_posts_by_year(self, posts):
+        """Group posts by year and sort them."""
+        posts_by_year = defaultdict(list)
+        for post in posts:
+            if post['date']:
+                year = post['date'].strftime('%Y')
+                posts_by_year[year].append(post)
         
-        with open(os.path.join(self.output_dir, 'notes.html'), 'w', encoding='utf-8') as f:
-            f.write(content)
+        # Sort years and posts within years
+        sorted_years = sorted(posts_by_year.keys(), reverse=True)
+        for year in sorted_years:
+            posts_by_year[year].sort(key=lambda x: x['date'], reverse=True)
+            
+        return posts_by_year, sorted_years
     
     def generate_tags_page(self):
         # Generate main tags index
-        # Sort tags alphabetically
         sorted_tags = dict(sorted(self.tags.items(), key=lambda x: x[0].lower()))
-        template = self.env.get_template('tags.html')
-        content = template.render(
-            tags=sorted_tags,
-            year=datetime.now().year
-        )
-        with open(os.path.join(self.output_dir, 'tags.html'), 'w', encoding='utf-8') as f:
-            f.write(content)
+        self._render_and_write('tags.html',
+                             os.path.join(self.output_dir, 'tags.html'),
+                             tags=sorted_tags)
             
         # Generate individual tag pages
-        tag_template = self.env.get_template('tag.html')
         tags_dir = os.path.join(self.output_dir, 'tags')
-        os.makedirs(tags_dir, exist_ok=True)
+        self._ensure_dir(tags_dir)
         
         for tag, posts in self.tags.items():
-            # Group posts by year
-            posts_by_year = defaultdict(list)
-            for post in posts:
-                if post['date']:  # Check if date exists
-                    year = post['date'].strftime('%Y')
-                    posts_by_year[year].append(post)
-            
-            # Sort years and posts within years
-            sorted_years = sorted(posts_by_year.keys(), reverse=True)
-            for year in sorted_years:
-                posts_by_year[year].sort(key=lambda x: x['date'], reverse=True)
-            
-            content = tag_template.render(
-                tag=tag,
-                posts_by_year=posts_by_year,
-                sorted_years=sorted_years,
-                year=datetime.now().year
-            )
-            tag_path = os.path.join(tags_dir, f'{tag}.html')
-            with open(tag_path, 'w', encoding='utf-8') as f:
-                f.write(content)
+            posts_by_year, sorted_years = self._group_posts_by_year(posts)
+            self._render_and_write('tag.html',
+                                 os.path.join(tags_dir, f'{tag}.html'),
+                                 tag=tag,
+                                 posts_by_year=posts_by_year,
+                                 sorted_years=sorted_years)
     
     def generate_post_pages(self):
-        template = self.env.get_template('post.html')
         posts_dir = os.path.join(self.output_dir, 'posts')
-        os.makedirs(posts_dir, exist_ok=True)
+        self._ensure_dir(posts_dir)
         
         for post in self.posts:
-            content = template.render(
-                post=post,
-                year=datetime.now().year
-            )
-            post_path = os.path.join(self.output_dir, post['url'])
-            with open(post_path, 'w', encoding='utf-8') as f:
-                f.write(content)
+            self._render_and_write('post.html',
+                                 os.path.join(self.output_dir, post['url']),
+                                 post=post)
+    
+    def _copy_static_asset(self, src, dest):
+        """Copy a static asset, removing destination if it exists."""
+        import shutil
+        if os.path.exists(dest):
+            shutil.rmtree(dest)
+        if os.path.exists(src):
+            if os.path.isdir(src):
+                shutil.copytree(src, dest)
+            else:
+                shutil.copy2(src, dest)
     
     def copy_static_files(self):
         static_dir = os.path.join(self.output_dir, 'static')
-        os.makedirs(static_dir, exist_ok=True)
+        self._ensure_dir(static_dir)
         css_dir = os.path.join(static_dir, 'css')
-        os.makedirs(css_dir, exist_ok=True)
+        self._ensure_dir(css_dir)
         
         # Copy CSS file
-        import shutil
-        shutil.copy2('src/style.css', os.path.join(css_dir, 'style.css'))
+        self._copy_static_asset('src/style.css', os.path.join(css_dir, 'style.css'))
         
         # Copy static assets
         for dir_name in ['img', 'fonts']:
-            if os.path.exists(dir_name):
-                dest = os.path.join(self.output_dir, dir_name)
-                if os.path.exists(dest):
-                    shutil.rmtree(dest)
-                shutil.copytree(dir_name, dest)
+            self._copy_static_asset(
+                dir_name,
+                os.path.join(self.output_dir, dir_name)
+            )
     
     def generate_feed(self):
-        template = self.env.get_template('feed.xml')
-        content = template.render(
-            posts=self.posts,
-            now=datetime.now(timezone.utc)
-        )
-        
-        with open(os.path.join(self.output_dir, 'feed.xml'), 'w', encoding='utf-8') as f:
-            f.write(content)
+        self._render_and_write('feed.xml',
+                             os.path.join(self.output_dir, 'feed.xml'),
+                             posts=self.posts,
+                             now=datetime.now(timezone.utc))
     
     def generate_code_page(self):
         import yaml
@@ -171,14 +179,9 @@ class BlogGenerator:
         with open('src/projects.yaml', 'r', encoding='utf-8') as f:
             projects = yaml.safe_load(f)
             
-        template = self.env.get_template('code.html')
-        content = template.render(
-            year=datetime.now().year,
-            projects=projects
-        )
-        
-        with open(os.path.join(self.output_dir, 'code.html'), 'w', encoding='utf-8') as f:
-            f.write(content)
+        self._render_and_write('code.html',
+                             os.path.join(self.output_dir, 'code.html'),
+                             projects=projects)
     
     def generate_site(self):
         self.read_posts()
