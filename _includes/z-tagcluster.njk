@@ -1,8 +1,0 @@
-{% if tagslist %}
-      <h2>Tags</h2>
-      <ul>
-      {%- for tag in tagslist %}
-          <li href="/tags/{{ tag | lower | safe }}">{{ tag | upper | safe }}</a></li>
-      {%- endfor %}
-      </ul>
-{% endif %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Notes | Luca Bolognese{% endblock %}
+
+{% block content %}
+    <h1>Notes</h1>
+    
+    {% set years = {} %}
+    {% for post in posts %}
+        {% set year = post.date.strftime('%Y') %}
+        {% if year not in years %}
+            {% set _ = years.update({year: []}) %}
+        {% endif %}
+        {% set _ = years[year].append(post) %}
+    {% endfor %}
+    
+    {% for year in years|sort(reverse=true) %}
+        <h2 class="year">{{ year }}</h2>
+        <ul class="posts-list">
+            {% for post in years[year] %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}

@@ -62,23 +62,29 @@ Getting stock prices and dividends is relatively easy given that, on [Yahoo](htt
 
 In this file there are utility functions that I will use later on to retrieve split info. 
 
-<pre class="code"><span style="color:blue;">#light
-open </span>System
-<span style="color:blue;">open </span>System.IO
-<span style="color:blue;">open </span>System.Text.RegularExpressions
-<span style="color:green;">// It assumes no table inside table ...
-</span><span style="color:blue;">let </span>tableExpr = <span style="color:maroon;">"&lt;table[^&gt;]*&gt;(.*?)&lt;/table&gt;"
-</span><span style="color:blue;">let </span>headerExpr = <span style="color:maroon;">"&lt;th[^&gt;]*&gt;(.*?)&lt;/th&gt;"
-</span><span style="color:blue;">let </span>rowExpr = <span style="color:maroon;">"&lt;tr[^&gt;]*&gt;(.*?)&lt;/tr&gt;"
-</span><span style="color:blue;">let </span>colExpr = <span style="color:maroon;">"&lt;td[^&gt;]*&gt;(.*?)&lt;/td&gt;"
-</span><span style="color:blue;">let </span>regexOptions = RegexOptions.Multiline ||| RegexOptions.Singleline <br />                                          ||| RegexOptions.IgnoreCase</pre>
+```fsharp
+#light
+open System
+open System.IO
+open System.Text.RegularExpressions
+
+// It assumes no table inside table ...
+let tableExpr = "<table[^>]*>(.*?)</table>"
+let headerExpr = "<th[^>]*>(.*?)</th>"
+let rowExpr = "<tr[^>]*>(.*?)</tr>"
+let colExpr = "<td[^>]*>(.*?)</td>"
+let regexOptions = RegexOptions.Multiline ||| RegexOptions.Singleline 
+                                          ||| RegexOptions.IgnoreCase
+```
 
 This code is straightforward enough (if you know what Regex does). I'm sure that there are better expression to scrap tables and rows on the web, but these work in my case. I really don't need to scrape tables. I put the table expression there in case you need it.
 
 I then write code to scrape all the cells in a piece of html:
 
-<pre class="code"><span style="color:blue;">let </span>scrapHtmlCells html =
-  seq { <span style="color:blue;">for </span>x <span style="color:blue;">in </span>Regex.Matches(html, colExpr, regexOptions) <span style="color:blue;">-&gt; </span>x.Groups.Item(1).ToString()}            </pre>
+```fsharp
+let scrapHtmlCells html =
+  seq { for x in Regex.Matches(html, colExpr, regexOptions) -> x.Groups.Item(1).ToString()}            
+```
 
 This is a sequence expression. Sequence expressions are used to generate sequences starting from some expression (as the name hints to). In this case <u>Regex.Matches</u> returns a <u>MatchClollection</u>, which is a non-generic <u>IEnumerable</u>. For each element in it, we return the value of the first match. We could as easily have constructed a list or an array, given that there is not much deferred computation going on. But oh well
 
@@ -86,8 +92,10 @@ Always check the type of your functions in F#! With type inference it is easy to
 
 We'll need rows as well.
 
-<pre class="code"><span style="color:blue;">let </span>scrapHtmlRows html =
-    seq { <span style="color:blue;">for </span>x <span style="color:blue;">in </span>Regex.Matches(html, rowExpr, regexOptions) <span style="color:blue;">-&gt; </span>scrapHtmlCells x.Value }</pre>
+```fsharp
+let scrapHtmlRows html =
+    seq { for x in Regex.Matches(html, rowExpr, regexOptions) -> scrapHtmlCells x.Value }
+```
 
 This works about the same. I'm matching all the rows and retrieving the cells for each one of them. I'm getting back a matrix-like structure, that is to say that this function as type: <u>string -> seq<seq<string>></u>.
 

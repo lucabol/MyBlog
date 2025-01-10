@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Luca Bolognese's Blog</title>
+        <link>https://www.lucabol.com</link>
+        <description>Personal blog of Luca Bolognese</description>
+        <language>en-us</language>
+        <lastBuildDate>{{ now.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</lastBuildDate>
+        {% for post in posts %}
+        <item>
+            <title>{{ post.title | replace('&', '&amp;') | replace('<', '&lt;') | replace('>', '&gt;') }}</title>
+            <link>https://www.lucabol.com/{{ post.url }}</link>
+            <description>{{ post.content | replace('&', '&amp;') | replace('<', '&lt;') | replace('>', '&gt;') }}</description>
+            <pubDate>{{ post.date.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
+            <guid>https://www.lucabol.com/{{ post.url }}</guid>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Tags - Luca Bolognese{% endblock %}
+
+{% block content %}
+    <h1>Tags</h1>
+    
+    <ul class="tags-list">
+    {% for tag, posts in tags.items()|sort(attribute='0')|sort(attribute='0', case_sensitive=false) %}
+        <li>
+            <a href="/tags/{{ tag }}.html">{{ tag }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

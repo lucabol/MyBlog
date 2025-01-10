@@ -66,11 +66,13 @@ All posts are here:
 
 What happens when an error occurs? Well, ideally you want to notify someone and continue processing messages. By default you want to print the error and as much information as you can about it.
 
-Let’s first see what happens if you pass the wrong message type:
+Let's first see what happens if you pass the wrong message type:
 
-<pre class="code">counter1 &lt;-- <span style="color:maroon;">"fst"</span></pre>
+```fsharp
+counter1 <-- "fst"
+```
 
-<span style="color:maroon;"></span>Generates:
+Generates:
 
 > **> The exception below occurred on agent Undefined at state 3 with message "fst". The agent was started with state 0.
         
@@ -95,10 +97,12 @@ Let’s first see what happens if you pass the wrong message type:
 >   
 > &#160;&#160; at Microsoft.FSharp.Control.AsyncBuilderImpl.callA@245.Invoke(AsyncParams\`1 args)**
 
-You get information about the current state of the agent, the message that generated the error, the initial state of the agent and the exception that was generated. But, in a system with several agents, you’d like to know which one agent failed. Then you need to name your agent:
+You get information about the current state of the agent, the message that generated the error, the initial state of the agent and the exception that was generated. But, in a system with several agents, you'd like to know which one agent failed. Then you need to name your agent:
 
-<pre class="code">counter1 &lt;-- SetName(<span style="color:maroon;">"Bob"</span>)
-counter1 &lt;-- <span style="color:maroon;">"fadfad"</span></pre>
+```fsharp
+counter1 <-- SetName("Bob")
+counter1 <-- "fadfad"
+```
 
 Now you get (important part in blue):
 
@@ -127,7 +131,9 @@ Now you get (important part in blue):
 
 The important thing is that the agent continues running. It lives to fight another day. Hence:
 
-<pre class="code">counter1 &lt;-- 3</pre>
+```fsharp
+counter1 <-- 3
+```
 
 Produces:
 
@@ -135,7 +141,9 @@ Produces:
 
 Which shows that the agent is running and that it has kept its current state. Also errors can occur inside the message handler with a similar result:
 
-<pre class="code">(spawnAgent (<span style="color:blue;">fun </span>msg state <span style="color:blue;">-&gt; </span>state / msg) 100) &lt;-- 0</pre>
+```fsharp
+(spawnAgent (fun msg state -> state / msg) 100) <-- 0
+```
 
 Produces:
 
@@ -165,4 +173,4 @@ Produces:
 >   
 > &#160;&#160; at Microsoft.FSharp.Control.AsyncBuilderImpl.callA@245.Invoke(AsyncParams\`1 args)**
 
-But this might not be what you want. You might want to customize what happens when an error occurs. We’ll talk about that next.
+But this might not be what you want. You might want to customize what happens when an error occurs. We'll talk about that next.

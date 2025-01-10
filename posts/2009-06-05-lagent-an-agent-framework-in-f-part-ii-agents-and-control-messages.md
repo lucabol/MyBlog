@@ -68,13 +68,18 @@ All posts are here:
 
 Agents are entities that process messages and keep state between one message and the next. As such they need to be initialized with a lambda that takes a message and a state and returns a new state. In F# pseudo code: msg –> state –> newState. For example the following:
 
-<pre class="code"><span style="color:blue;">let </span>counter = spawnAgent (<span style="color:blue;">fun </span>msg state <span style="color:blue;">-&gt; </span>state + msg) 0</pre>
+```fsharp
+let counter = spawnAgent (fun msg state -> state + msg) 0
+```
 
-This is a counter that starts from 0 and gets incremented by the value of the received message. Let’s make it print something when it receives a message:
+This is a counter that starts from 0 and gets incremented by the value of the received message. Let's make it print something when it receives a message:
 
-<pre class="code"><span style="color:blue;">let </span>counter1 = spawnAgent<br />                (<span style="color:blue;">fun </span>msg state <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"From %i to %i" </span>state (state + msg); state + msg) 0
-counter1 &lt;-- 3
-counter1 &lt;-- 4</pre>
+```fsharp
+let counter1 = spawnAgent
+                (fun msg state -> printfn "From %i to %i" state (state + msg); state + msg) 0
+counter1 <-- 3
+counter1 <-- 4
+```
 
 Which produces:
 
@@ -83,22 +88,26 @@ Which produces:
 >   
 > From 3 to 7**
 
-There is no _spawnParallelAgent_, because I couldn’t figure out its usage patterns. Maybe I don’t have enough creativity. Obviously _msg_ and _state_ could be of whatever type (in real application they end up being tuples more often than not).
+There is no _spawnParallelAgent_, because I couldn't figure out its usage patterns. Maybe I don't have enough creativity. Obviously _msg_ and _state_ could be of whatever type (in real application they end up being tuples more often than not).
 
 ## Control messages
 
-You can do things to agents. I’m always adding to them but at this stage they are:
+You can do things to agents. I'm always adding to them but at this stage they are:
 
-<pre class="code"><span style="color:blue;">type </span>Command =
+```fsharp
+type Command =
 | Restart
 | Stop
-| SetManager <span style="color:blue;">of </span>AsyncAgent
-| SetName <span style="color:blue;">of </span>string</pre></p> 
+| SetManager of AsyncAgent
+| SetName of string
+```
 
-Plus some others. I’ll describe most of them later on, right now I want to talk about _Restart_ and _Stop_. You use the former like this:
+Plus some others. I'll describe most of them later on, right now I want to talk about _Restart_ and _Stop_. You use the former like this:
 
-<pre class="code">counter1 &lt;-- Restart
-counter1 &lt;-- 3</pre>
+```fsharp
+counter1 <-- Restart
+counter1 <-- 3
+```
 
 Which produces:
 
@@ -106,6 +115,6 @@ Which produces:
 
 This should be somehow surprising to you. You would have thought that you could just post integers to a counter. This is not the case. You can post whatever object. This is useful because it allows to have a common model for passing all sort of messages, it allows for the agent not to be parameterized by the type of the message (and of state) so that you can store them in data structures and allows advanced scenarios (i.e. hot swapping of code).
 
-This is a debatable decision. I tried to get the best of strongly typing and dynamic typing, while keeping simplicity of usage. The implementation of this is kind of a mess though. We’ll get there.
+This is a debatable decision. I tried to get the best of strongly typing and dynamic typing, while keeping simplicity of usage. The implementation of this is kind of a mess though. We'll get there.
 
 BTW: you use Stop just by posting Stop, which stops the agent (forever).

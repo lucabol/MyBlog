@@ -13,7 +13,7 @@ tags:
 
   The code is [here](https://github.com/lucabol/website-links). Thanks to [Mike](https://github.com/mjrousos) for reviewing it.
 
-  ## Why
+## Why
   I want to translate a website, including recursively reached pages, to a pdf to read on my e-reader.
   This program does the first step: going from a URL to a list of URLs by recursively navigating the links
   on the page.
@@ -22,7 +22,7 @@ tags:
   1. Translate all the links to PDF pages (using Chrome headless).
   2. Combine all the PDFs to a single document (using `cpdf`).
 
-  ## Prelude
+## Prelude
 
   First you declare which language you are using. Racket is a language to build
   languages and the language itself is just one of many (try rereading this phrase).
@@ -45,7 +45,7 @@ tags:
  uri->nestedLinksNl)
 ~~~~
 
-  ## Implementation
+## Implementation
 
   This is similar, but not identical, to C# `using` statement as you declare which packages are needed.
 
@@ -204,7 +204,7 @@ instead. To run them you call `raco test FILENAME`.
               test-uris))
 ~~~~
 
-  ## Main
+## Main
 
   Main goes into its own submodule as well. Racket is not as pure as Haskell, so you can naturally 
   manage side effects like user input and such. You got to appreciate the concisivness of the command
@@ -231,7 +231,7 @@ instead. To run them you call `raco test FILENAME`.
   
 ~~~~
 
-  ## Conclusion
+## Conclusion
 
   I liked Racket very much. It takes a little while to get use to the expression syntax, which is very
   different from the C-like one most of us are used to. It also takes a while to get used to the style 

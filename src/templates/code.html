@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Code - Luca Bolognese{% endblock %}
+
+{% block content %}
+<h1>Code</h1>
+
+{% for project in projects %}
+<div class="code-project">
+    <h2><a href="https://github.com/lucabol/{{ project.name }}">{{ project.name }}</a></h2>
+    <p>{{ project.desc }}</p>
+</div>
+{% endfor %}
+{% endblock %}

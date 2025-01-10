@@ -66,34 +66,35 @@ I always have such a file in my projects. It is a repository for the types that 
 
 This one starts like this:
 
-<pre class="code"><span style="color:blue;">#light
-open </span>System
-[&lt;Measure&gt;] <span style="color:blue;">type </span>money
-<span style="color:blue;">let </span>money (f:float) = f * 1.&lt;money&gt;
-[&lt;Measure&gt;] <span style="color:blue;">type </span>shares
-<span style="color:blue;">let </span>shares (f:float) = f * 1.&lt;shares&gt;
-[&lt;Measure&gt;] <span style="color:blue;">type </span>volume
-<span style="color:blue;">let </span>volume (f:float) = f * 1.&lt;volume&gt;
-[&lt;Measure&gt;] <span style="color:blue;">type </span>rateOfReturn
-<span style="color:blue;">let </span>rateOfReturn (f:float) = f * 1.&lt;rateOfReturn&gt;</pre>
+```fsharp
+#light
+open System
+[<Measure>] type money
+let money (f:float) = f * 1.<money>
+[<Measure>] type shares
+let shares (f:float) = f * 1.<shares>
+[<Measure>] type volume
+let volume (f:float) = f * 1.<volume>
+[<Measure>] type rateOfReturn
+let rateOfReturn (f:float) = f * 1.<rateOfReturn>
+```
 
-
-
-<p align="left">
-  The first line instructs the compiler to use the lightweight syntax. You don't want to know what the heavyweight syntax is. Just always put such a line at the start of your files. The next line opens up the System namespace. Then the good stuff starts.
-</p>
+The first line instructs the compiler to use the lightweight syntax. You don't want to know what the heavyweight syntax is. Just always put such a line at the start of your files. The next line opens up the System namespace. Then the good stuff starts.
 
 I'm defining some units of measures. The simplest way to think about units of measures is: they are a type system for floats. You can do much more than that, but it is a good first approximation. For example, you cannot now sum a <u>money</u> type and a <u>volume</u> type. Also for each one I define a function that converts from a normal <u>float</u> type to it (if you come from a C# background, floats are doubles).
 
 Then I define the data model for my application:
 
-<pre class="code"><span style="color:blue;">type </span>Span = { Start: DateTime; End: DateTime }
-<span style="color:blue;">type </span>Price = { Open: float&lt;money&gt;; High: float&lt;money&gt;; Low:float&lt;money&gt;; <br />                                                Close:float&lt;money&gt;; Volume: float&lt;volume&gt;}
-<span style="color:blue;">type </span>Event =
-    | Price <span style="color:blue;">of </span>Price
-    | Split <span style="color:blue;">of </span>float
-    | Div <span style="color:blue;">of </span>float&lt;money&gt;
-<span style="color:blue;">type </span>Observation = { Date: DateTime; Event: Event}</pre>
+```fsharp
+type Span = { Start: DateTime; End: DateTime }
+type Price = { Open: float<money>; High: float<money>; Low:float<money>; 
+                                                Close:float<money>; Volume: float<volume>}
+type Event =
+    | Price of Price
+    | Split of float
+    | Div of float<money>
+type Observation = { Date: DateTime; Event: Event}
+```
 
 The first record that I define, <u>Span</u>,&nbsp; represents the difference between two dates. It is just a little useful thing. A more fundamental record is <u>Observation</u>. An <u>Observation</u> is defined as something that happens on a particular <u>Date</u>. That something, an <u>Event</u>, can be one of three things: a <u>Price</u>, a <u>Split</u> or a <u>Div</u>. A <u>Price</u> is another record with a bunch of <u>float<money></u> fields and on <u>float<volume></u> field. If you go to the Yahoo site, you'll see what it represents.
 
@@ -105,13 +106,16 @@ Records are read only containers of data. Discriminated unions are what the name
 
 Also notice the following common pattern in F# (and functional programming in general). You define your data and then you define transformations over it. F# has a third optional step, that is to expose these transformations as methods of a .NET objects.
 
-We are almost done here. A handful of other functions are in my file :
+We are almost done here. A handful of other functions are in my file:
 
-<pre class="code"><span style="color:blue;">let </span>span sy sm sd ey em ed =<br />                   {Start = <span style="color:blue;">new </span>DateTime(sy, sm, sd); End = <span style="color:blue;">new </span>DateTime(ey, em, ed)}
-<span style="color:blue;">let </span>date y m d = <span style="color:blue;">new </span>DateTime(y, m, d)
-<span style="color:blue;">let </span>now () = DateTime.Now
-<span style="color:blue;">let </span>idem x = x
-<span style="color:blue;">let </span>someIdem x = Some(x)</pre>
+```fsharp
+let span sy sm sd ey em ed =
+                   {Start = new DateTime(sy, sm, sd); End = new DateTime(ey, em, ed)}
+let date y m d = new DateTime(y, m, d)
+let now () = DateTime.Now
+let idem x = x
+let someIdem x = Some(x)
+```
 
 <u>Span</u> is a function that creates a span given the relevant info. <u>date</u> creates a date given year, month and day. <u>now</u> is a value that corresponds to the current date. <u>idem</u> is a function that returns its parameter (you'll see how that can possibly be useful). <u>someIdem</u> is a function that unpack an Option type and gives his value. I could write all my code without these things, but it looks better (to me) with them.
 

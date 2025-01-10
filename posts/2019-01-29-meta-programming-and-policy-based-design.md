@@ -149,24 +149,22 @@ Please note that the results are valid just for the tested configuration.
 
 I have no reason to think that they would be different on other modern runtimes/OSs as the optimizations are quite well known.
 
-``` ini
-
+```ini
 BenchmarkDotNet=v0.11.3, OS=Windows 10.0.17763.253 (1809/October2018Update/Redstone5)
 Intel Core i7-6600U CPU 2.60GHz (Skylake), 1 CPU, 4 logical and 2 physical cores
 .NET Core SDK=3.0.100-preview-009812
   [Host]     : .NET Core 2.0.9 (CoreCLR 4.6.26614.01, CoreFX 4.6.26614.01), 64bit RyuJIT
   DefaultJob : .NET Core 2.0.9 (CoreCLR 4.6.26614.01, CoreFX 4.6.26614.01), 64bit RyuJIT
-
-
 ```
-|                 Method |      Mean |     Error |    StdDev |    Median |  Ratio | RatioSD |  Rank |
-|----------------------- |----------:|----------:|----------:|----------:|-------:|--------:|------:|
-| StaticCounterInterface | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns |  0.000 |    0.00 |     * |
-|           IncrementRaw | 0.1036 ns | 0.0515 ns | 0.0573 ns | 0.1071 ns |  1.000 |    0.00 |    ** |
-|     StaticCounterMatch | 0.1122 ns | 0.0422 ns | 0.0943 ns | 0.1020 ns |  2.092 |    1.95 |    ** |
-|          DynamicStruct | 0.2707 ns | 0.0910 ns | 0.2683 ns | 0.1407 ns |  4.135 |    6.28 |   *** |
-|        DynamicConcrete | 1.9216 ns | 0.1506 ns | 0.4440 ns | 1.7883 ns | 23.417 |   21.44 |  **** |
-|       DynamicInterface | 2.2441 ns | 0.1170 ns | 0.3449 ns | 2.1470 ns | 32.783 |   30.52 | ***** |
+
+| Method                  | Mean      | Error     | StdDev    | Median    | Ratio   | RatioSD | Rank  |
+|------------------------|-----------|-----------|-----------|-----------|---------|---------|-------|
+| StaticCounterInterface | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.000   | 0.00    | *     |
+| IncrementRaw           | 0.1036 ns | 0.0515 ns | 0.0573 ns | 0.1071 ns | 1.000   | 0.00    | **    |
+| StaticCounterMatch     | 0.1122 ns | 0.0422 ns | 0.0943 ns | 0.1020 ns | 2.092   | 1.95    | **    |
+| DynamicStruct          | 0.2707 ns | 0.0910 ns | 0.2683 ns | 0.1407 ns | 4.135   | 6.28    | ***   |
+| DynamicConcrete        | 1.9216 ns | 0.1506 ns | 0.4440 ns | 1.7883 ns | 23.417  | 21.44   | ****  |
+| DynamicInterface       | 2.2441 ns | 0.1170 ns | 0.3449 ns | 2.1470 ns | 32.783  | 30.52   | ***** |
 
 As expected, you gain an order of magnitude in performance by foregoing run time customization, except when using a `struct` as the optimizer manages to inline that one (as we'll see).
 
@@ -259,7 +257,6 @@ For the sake of completeness, let's look at the assembly code for the dynamic di
        mov     rax,qword ptr [r11]
        cmp     dword ptr [rcx],ecx
        jmp     rax
-
 ~~~
 
 The first thing to notice is that the code is identical, despite their seemingly different declarations. The Jitter doesn't care.

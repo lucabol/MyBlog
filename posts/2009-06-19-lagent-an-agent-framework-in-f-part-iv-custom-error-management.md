@@ -70,17 +70,22 @@ To make such a thing possible each agent has a manager. The manager is an agent 
 
 In code:
 
-<pre class="code"><span style="color:blue;">let </span>manager = spawnWorker (<span style="color:blue;">fun </span>(agent, name:string, ex:Exception, msg:obj,<br />                 state, initialState) <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"%s restarting ..." </span>name; agent &lt;-- Restart)
-counter1 &lt;-- SetManager(manager)</pre>
+```fsharp
+let manager = spawnWorker (fun (agent, name:string, ex:Exception, msg:obj,
+                 state, initialState) -> printfn "%s restarting ..." name; agent <-- Restart)
+counter1 <-- SetManager(manager)
+```
 
 Whenever an error is generated the manager receives a tuple of:
 
 > (agent, name, exception, message, currentState, inititialState)
 
-This manager prints out something and then restarts the agent. Let’s trigger an error by posting the wrong message:
+This manager prints out something and then restarts the agent. Let's trigger an error by posting the wrong message:
 
-<pre class="code">counter1 &lt;-- <span style="color:maroon;">"afdaf"
-</span>counter1 &lt;-- 2</pre>
+```fsharp
+counter1 <-- "afdaf"
+counter1 <-- 2
+```
 
 The expectation is that the counter will restart from 0 whenever an error is triggered. This is what happens:
 
@@ -91,4 +96,4 @@ The expectation is that the counter will restart from 0 whenever an error is tri
 
 Which is what we expected. Obviously this is not a very sophisticated error recovery algorithm. You might want to do something more meaningful. Hopefully you have enough information to build whatever you need.
 
-A particularly important class of unexpected event is timeouts. We’ll talk about them next.
+A particularly important class of unexpected event is timeouts. We'll talk about them next.

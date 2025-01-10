@@ -64,43 +64,49 @@ All posts are here:
   * [Part VIII – Implementing MapReduce (user model)](http://blogs.msdn.com/lucabol/archive/2009/09/04/lagent-an-agent-framework-in-f-part-viii-implementing-mapreduce-user-model.aspx) 
   * [Part IX – Counting words …](http://blogs.msdn.com/lucabol/archive/2009/09/18/lagent-an-agent-framework-in-f-part-ix-counting-words.aspx) 
 
-If you stare long enough at agents, you start to realize that they are just ‘glorified locks’. They are a convenient programming model to protect a resource from concurrent access. The programming model is convenient because both the client and the server can write their code without worrying about concurrency problems, and yet the program runs in parallel. Protecting a resource sounds a lot like state encapsulation and the concept of state encapsulation is what object orientation is all about.
+If you stare long enough at agents, you start to realize that they are just 'glorified locks'. They are a convenient programming model to protect a resource from concurrent access. The programming model is convenient because both the client and the server can write their code without worrying about concurrency problems, and yet the program runs in parallel. Protecting a resource sounds a lot like state encapsulation and the concept of state encapsulation is what object orientation is all about.
 
-So you start thinking if there is a way to enhance vanilla objects to make them agents. You want to reuse all the concepts that you are familiar with (i.e. inheritance, visibility rules, etc…) and you want your clients to call agents as if they were calling normal objects. Obviously, under the cover, the method calls won’t execute immediately, but they would be queued. Let’s look at an example.
+So you start thinking if there is a way to enhance vanilla objects to make them agents. You want to reuse all the concepts that you are familiar with (i.e. inheritance, visibility rules, etc…) and you want your clients to call agents as if they were calling normal objects. Obviously, under the cover, the method calls won't execute immediately, but they would be queued. Let's look at an example.
 
 This is our simple counter agent:
 
-<pre class="code"><span style="color:blue;">type </span>CounterMessage =
-| Add <span style="color:blue;">of </span>int
+```fsharp
+type CounterMessage =
+| Add of int
 | Print
-<span style="color:blue;">let </span>counterF = <span style="color:blue;">fun </span>msg count <span style="color:blue;">-&gt;
-    match </span>msg <span style="color:blue;">with
-    </span>| Add(i)    <span style="color:blue;">-&gt; </span>count + i
-    | Print     <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"The value is %i" </span>count; count
-<span style="color:blue;">let </span>c1 = spawnAgent counterF <span style="color:brown;">0
-</span>c1 &lt;-- Add(<span style="color:brown;">3</span>)
-c1 &lt;—Print</pre>
+let counterF = fun msg count ->
+    match msg with
+    | Add(i)    -> count + i
+    | Print     -> printfn "The value is %i" count; count
+let c1 = spawnAgent counterF 0
+c1 <-- Add(3)
+c1 <-- Print
+```
 
 As nice as this looks, there are unfamiliar things in this model:
 
-  1. The communication is through messages. This requires packing and unpacking which, albeit easy in F#, is unfamiliar and feels like machinery that we’d like to get rid off. 
+  1. The communication is through messages. This requires packing and unpacking which, albeit easy in F#, is unfamiliar and feels like machinery that we'd like to get rid off. 
   2. The management of state is bizarre, it gets passed into the lambda and returned from it instead of being represented as fields and properties on the agent 
 
 My best attempt at creating an object-like syntax follows:
 
-<pre class="code"><span style="color:blue;">type </span>Counter() =
-    <span style="color:blue;">let </span>w = <span style="color:blue;">new </span>WorkQueue()
-    <span style="color:blue;">let mutable </span>count = <span style="color:brown;">0
-    </span><span style="color:blue;">member </span>c.Add x = w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-        </span>count &lt;- count + x
+```fsharp
+type Counter() =
+    let w = new WorkQueue()
+    let mutable count = 0
+    member c.Add x = w.Queue (fun () ->
+        count <- count + x
         )
-    <span style="color:blue;">member </span>c.Print () = w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-        </span>printfn <span style="color:maroon;">"The value is %i" </span>count
-        )</pre>
+    member c.Print () = w.Queue (fun () ->
+        printfn "The value is %i" count
+        )
+```
 
-<pre class="code"><span style="color:blue;">let </span>c = <span style="color:blue;">new </span>Counter()
-c.Add <span style="color:brown;">3
-</span>c.Print</pre>
+```fsharp
+let c = new Counter()
+c.Add 3
+c.Print
+```
 
 With this syntax, you write your agents like you write your vanilla classes except:
 
@@ -108,260 +114,268 @@ With this syntax, you write your agents like you write your vanilla classes exce
   2. You need to write your methods as lambdas passed to the _WorkQueue.Queue_ function 
   3. Your methods cannot return values 
 
-The most worrisome of these constraints is 2. because you can easily forget about it. If you do forget, then everything compiles just fine, but it doesn’t do what you expect. That’s pure badness. I haven’t found a way to enforce it. This is a place where the language could help me. Other than that, the whole model works rather nicely.
+The most worrisome of these constraints is 2. because you can easily forget about it. If you do forget, then everything compiles just fine, but it doesn't do what you expect. That's pure badness. I haven't found a way to enforce it. This is a place where the language could help me. Other than that, the whole model works rather nicely.
 
 Regarding the third point, you can concoct a programming model that allows you to return values from your methods. Here it is:
 
-<pre class="code"><span style="color:blue;">member </span>c.CountTask = w.QueueWithTask(<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-    </span>count
+```fsharp
+member c.CountTask = w.QueueWithTask(fun () ->
+    count
     )
-<span style="color:blue;">member </span>c.CountAsync = w.QueueWithAsync(<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-    </span>count
-    )</pre>
+member c.CountAsync = w.QueueWithAsync(fun () ->
+    count
+    )
+```
 
-<pre class="code">printfn <span style="color:maroon;">"The count using Task is %i" </span>(c.CountTask.Result)</pre>
+```fsharp
+printfn "The count using Task is %i" (c.CountTask.Result)
+```
 
 The first method returns a _Task;_ the second method returns an _AsyncResultCell_. Both are ways to represent a [promise](http://en.wikipedia.org/wiki/Future_(programming)). The latter allows a natural integration with the async block in F# as in the following code:
 
-<pre class="code">Async.RunSynchronously (
+```fsharp
+Async.RunSynchronously (
             async {
-                <span style="color:blue;">let! </span>count = c.CountAsync
-                printfn <span style="color:maroon;">"The countusing Async is %i" </span>count
-            })</pre>
+                let! count = c.CountAsync
+                printfn "The countusing Async is %i" count
+            })
+```
 
-
-
-As for myself, I don’t like methods returning values. Every time I use them, I end up going back and thinking about my problem in a traditional way, aka as method calls that return results, instead of thinking about it in a more actor oriented fashion. I end up waiting for these promises to be materialized and, by doing so, I limit the amount of parallelism that I unleash. As a matter of fact, the whole business of hiding the message passing nature of the programming model is dubious. It makes for a nicer syntax, but you need to make an extra effort in your mind to translate it to what it really is: just message passing with a nice syntactical veneer. I haven’t decided yet which model I like the most.
+As for myself, I don't like methods returning values. Every time I use them, I end up going back and thinking about my problem in a traditional way, aka as method calls that return results, instead of thinking about it in a more actor oriented fashion. I end up waiting for these promises to be materialized and, by doing so, I limit the amount of parallelism that I unleash. As a matter of fact, the whole business of hiding the message passing nature of the programming model is dubious. It makes for a nicer syntax, but you need to make an extra effort in your mind to translate it to what it really is: just message passing with a nice syntactical veneer. I haven't decided yet which model I like the most.
 
 You should have a sense of what _WorkQueue_ is. In essence, it is a _Mailbox_ of lambdas (look at the red bold code below). 
 
-<pre class="code"><span style="color:blue;">type </span>WorkQueue() =
-    <font color="#ff0000"><strong><span style="color:blue;">let </span>workQueue = spawnWorker (<span style="color:blue;">fun </span>f <span style="color:blue;">-&gt; </span>f())</strong></font>
-    <span style="color:blue;">member </span>w.Queue (f) = workQueue &lt;-- f
-    <span style="color:blue;">member </span>w.QueueWithTask f : Task&lt;'T&gt; =
-        <span style="color:blue;">let </span>source = <span style="color:blue;">new </span>TaskCompletionSource&lt;_&gt;()
-        workQueue &lt;-- (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt; </span>f() |&gt; source.SetResult)
+```fsharp
+type WorkQueue() =
+    let workQueue = spawnWorker (fun f -> f())
+    member w.Queue (f) = workQueue <-- f
+    member w.QueueWithTask f : Task<'T> =
+        let source = new TaskCompletionSource<_>()
+        workQueue <-- (fun () -> f() |> source.SetResult)
         source.Task
-    <span style="color:blue;">member </span>w.QueueWithAsync (f:unit <span style="color:blue;">-&gt; </span>'T) : Async&lt;'T&gt; =
-        <span style="color:blue;">let </span>result = <span style="color:blue;">new </span>AsyncResultCell&lt;'T&gt;()
-        workQueue &lt;-- (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt; </span>f() |&gt; result.RegisterResult )
+    member w.QueueWithAsync (f:unit -> 'T) : Async<'T> =
+        let result = new AsyncResultCell<'T>()
+        workQueue <-- (fun () -> f() |> result.RegisterResult )
         result.AsyncWaitResult
-    <span style="color:blue;">member </span>w.Restart () = workQueue &lt;-! Restart
-    <span style="color:blue;">member </span>w.Stop () = workQueue &lt;-! Stop
-    <span style="color:blue;">member </span>w.SetErrorHandler(h) =
-        <span style="color:blue;">let </span>managerF = <span style="color:blue;">fun </span>(_, name:string, ex:Exception, _, _, _) <span style="color:blue;">-&gt; </span>h name ex
-        <span style="color:blue;">let </span>manager = spawnWorker managerF
-        workQueue &lt;-! SetManager manager
-    <span style="color:blue;">member </span>w.SetName(name) = workQueue &lt;-! SetName(name)
-    <span style="color:blue;">member </span>w.SetQueueHandler(g) = workQueue &lt;-! SetWorkerHandler(g)
-    <span style="color:blue;">member </span>w.SetTimeoutHandler(timeout, f) = workQueue &lt;-! SetTimeoutHandler(timeout, f)</pre>
+    member w.Restart () = workQueue <-! Restart
+    member w.Stop () = workQueue <-! Stop
+    member w.SetErrorHandler(h) =
+        let managerF = fun (_, name:string, ex:Exception, _, _, _) -> h name ex
+        let manager = spawnWorker managerF
+        workQueue <-! SetManager manager
+    member w.SetName(name) = workQueue <-! SetName(name)
+    member w.SetQueueHandler(g) = workQueue <-! SetWorkerHandler(g)
+    member w.SetTimeoutHandler(timeout, f) = workQueue <-! SetTimeoutHandler(timeout, f)
+```
 
 I implemented all the services that are in the message passing model. The two are equivalent as expressing power goes. In case you wonder how a real piece of code looks like using this model, here is an _ActiveObject_ version of the map reduce algorithm. One of these days, I will gather the strength to go trough this code and explain what it does, but not today 🙂
 
-<pre class="code"><span style="color:blue;">#load </span><span style="color:maroon;">"AgentSystem.fs"
-</span><span style="color:blue;">open </span>AgentSystem.LAgent
-<span style="color:blue;">open </span>System
-<span style="color:blue;">open </span>System.Collections
-<span style="color:blue;">open </span>System.Collections.Generic
-<span style="color:blue;">open </span>System.Threading
-<span style="color:blue;">type </span>IOutput&lt;'out_key, 'out_value&gt; =
-    <span style="color:blue;">abstract </span>Reduced: 'out_key <span style="color:blue;">-&gt; </span>seq&lt;'out_value&gt; <span style="color:blue;">-&gt; </span>unit
-    <span style="color:blue;">abstract </span>MapReduceDone: unit <span style="color:blue;">-&gt; </span>unit
-<span style="color:blue;">type </span>Mapper&lt;'in_key, 'in_value, 'my_out_key, 'out_value <span style="color:blue;">when </span>'my_out_key : comparison&gt;<br />                                                      (map:'in_key <span style="color:blue;">-&gt; </span>'in_value <span style="color:blue;">-&gt; </span>seq&lt;'my_out_key * 'out_value&gt;, i, partitionF) =
-    <span style="color:blue;">let </span>w = <span style="color:blue;">new </span>WorkQueue()
-    <span style="color:blue;">let mutable </span>reducerTracker: BitArray = <span style="color:blue;">null
-    let mutable </span>controller = Unchecked.defaultof&lt;Controller&lt;'in_key, 'in_value, 'my_out_key, 'out_value&gt;&gt;
-    <span style="color:blue;">let mutable </span>reducers = Unchecked.defaultof&lt;Reducer&lt;'in_key, 'in_value, 'my_out_key, 'out_value&gt; array&gt;
-    <span style="color:blue;">member </span>m.Init c reds =
-        w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            </span>controller &lt;- c
-            reducers &lt;- reds
-            reducerTracker &lt;- <span style="color:blue;">new </span>BitArray(reducers.Length, <span style="color:blue;">false</span>))
-    <span style="color:blue;">member </span>m.Process inKey inValue =
-        w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            let </span>outKeyValues = map inKey inValue
-            outKeyValues |&gt; Seq.iter (<span style="color:blue;">fun </span>(outKey, outValue) <span style="color:blue;">-&gt;
-                                        let </span>reducerUsed = partitionF outKey (reducers.Length)
-                                        reducerTracker.Set(reducerUsed, <span style="color:blue;">true</span>)
+```fsharp
+#load "AgentSystem.fs"
+open AgentSystem.LAgent
+open System
+open System.Collections
+open System.Collections.Generic
+open System.Threading
+type IOutput<'out_key, 'out_value> =
+    abstract Reduced: 'out_key -> seq<'out_value> -> unit
+    abstract MapReduceDone: unit -> unit
+type Mapper<'in_key, 'in_value, 'my_out_key, 'out_value when 'my_out_key : comparison>
+                                                      (map:'in_key -> 'in_value -> seq<'my_out_key * 'out_value>, i, partitionF) =
+    let w = new WorkQueue()
+    let mutable reducerTracker: BitArray = null
+    let mutable controller = Unchecked.defaultof<Controller<'in_key, 'in_value, 'my_out_key, 'out_value>>
+    let mutable reducers = Unchecked.defaultof<Reducer<'in_key, 'in_value, 'my_out_key, 'out_value> array>
+    member m.Init c reds =
+        w.Queue (fun () ->
+            controller <- c
+            reducers <- reds
+            reducerTracker <- new BitArray(reducers.Length, false))
+    member m.Process inKey inValue =
+        w.Queue (fun () ->
+            let outKeyValues = map inKey inValue
+            outKeyValues |> Seq.iter (fun (outKey, outValue) ->
+                                        let reducerUsed = partitionF outKey (reducers.Length)
+                                        reducerTracker.Set(reducerUsed, true)
                                         reducers.[reducerUsed].Add(outKey, outValue)))
-    <span style="color:blue;">member </span>m.Done () =
-        w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            </span>controller.MapDone i reducerTracker)
-    <span style="color:blue;">member </span>m.Stop () = w.Stop ()
-<span style="color:blue;">and </span>Reducer&lt;'in_key, 'in_value, 'out_key, 'out_value <span style="color:blue;">when </span>'out_key :<br />                     comparison&gt;(reduce:'out_key <span style="color:blue;">-&gt; </span>seq&lt;'out_value&gt; <span style="color:blue;">-&gt; </span>seq&lt;'out_value&gt;, i, output:IOutput&lt;'out_key, 'out_value&gt;) =
-    <span style="color:blue;">let </span>w = <span style="color:blue;">new </span>WorkQueue()
-    <span style="color:blue;">let mutable </span>workItems = <span style="color:blue;">new </span>List&lt;'out_key * 'out_value&gt;()
-    <span style="color:blue;">let mutable </span>controller = Unchecked.defaultof&lt;Controller&lt;'in_key, 'in_value, 'out_key, 'out_value&gt;&gt;
-    <span style="color:blue;">member </span>r.Init c =
-        w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            </span>controller &lt;- c)
-    <span style="color:blue;">member </span>r.StartReduction () =
-        w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            </span>workItems
-            |&gt; Seq.groupBy fst
-            |&gt; Seq.sortBy fst
-            |&gt; Seq.map (<span style="color:blue;">fun </span>(key, values) <span style="color:blue;">-&gt; </span>(key, reduce key (values |&gt; Seq.map snd)))
-            |&gt; Seq.iter (<span style="color:blue;">fun </span>(key, value) <span style="color:blue;">-&gt; </span>output.Reduced key value)
+    member m.Done () =
+        w.Queue (fun () ->
+            controller.MapDone i reducerTracker)
+    member m.Stop () = w.Stop ()
+and Reducer<'in_key, 'in_value, 'out_key, 'out_value when 'out_key :
+                     comparison>(reduce:'out_key -> seq<'out_value> -> seq<'out_value>, i, output:IOutput<'out_key, 'out_value>) =
+    let w = new WorkQueue()
+    let mutable workItems = new List<'out_key * 'out_value>()
+    let mutable controller = Unchecked.defaultof<Controller<'in_key, 'in_value, 'out_key, 'out_value>>
+    member r.Init c =
+        w.Queue (fun () ->
+            controller <- c)
+    member r.StartReduction () =
+        w.Queue (fun () ->
+            workItems
+            |> Seq.groupBy fst
+            |> Seq.sortBy fst
+            |> Seq.map (fun (key, values) -> (key, reduce key (values |> Seq.map snd)))
+            |> Seq.iter (fun (key, value) -> output.Reduced key value)
             controller.ReductionDone i)
-    <span style="color:blue;">member </span>r.Add (outKey:'out_key, outValue:'out_value) : unit =
-        w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            </span>workItems.Add((outKey, outValue)))
-    <span style="color:blue;">member </span>m.Stop () = w.Stop ()
-<span style="color:blue;">and </span>Controller&lt;'in_key, 'in_value, 'out_key, 'out_value <span style="color:blue;">when </span>'out_key : comparison&gt;(output:IOutput&lt;'out_key, 'out_value&gt;) =
-    <span style="color:blue;">let </span>w = <span style="color:blue;">new </span>WorkQueue()
-    <span style="color:blue;">let mutable </span>mapperTracker: BitArray = <span style="color:blue;">null
-    let mutable </span>reducerUsedByMappers: BitArray = <span style="color:blue;">null
-    let mutable </span>reducerDone: BitArray = <span style="color:blue;">null
-    let mutable </span>mappers = Unchecked.defaultof&lt;Mapper&lt;'in_key, 'in_value, 'out_key, 'out_value&gt; array&gt;
-    <span style="color:blue;">let mutable </span>reducers = Unchecked.defaultof&lt;Reducer&lt;'in_key, 'in_value, 'out_key, 'out_value&gt; array&gt;
-    <span style="color:blue;">let </span>BAtoSeq (b:BitArray) = [<span style="color:blue;">for </span>x <span style="color:blue;">in </span>b <span style="color:blue;">do yield </span>x]
-    <span style="color:blue;">member </span>c.Init maps reds =
-        w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            </span>mappers &lt;- maps
-            reducers &lt;- reds
-            mapperTracker &lt;- <span style="color:blue;">new </span>BitArray(mappers.Length, <span style="color:blue;">false</span>)
-            reducerUsedByMappers &lt;- <span style="color:blue;">new </span>BitArray(reducers.Length, <span style="color:blue;">false</span>)
-            reducerDone &lt;- <span style="color:blue;">new </span>BitArray(reducers.Length, <span style="color:blue;">false</span>))
-    <span style="color:blue;">member </span>c.MapDone (i : int) (reducerTracker : BitArray) : unit =
-        w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            </span>mapperTracker.Set(i, <span style="color:blue;">true</span>)
-            <span style="color:blue;">let </span>reducerUsedByMappers = reducerUsedByMappers.Or(reducerTracker)
-            <span style="color:blue;">if </span>not( BAtoSeq mapperTracker |&gt; Seq.exists(<span style="color:blue;">fun </span>bit <span style="color:blue;">-&gt; </span>bit = <span style="color:blue;">false</span>)) <span style="color:blue;">then
-                </span>BAtoSeq reducerUsedByMappers |&gt; Seq.iteri (<span style="color:blue;">fun </span>i r <span style="color:blue;">-&gt; if </span>r = <span style="color:blue;">true then </span>reducers.[i].StartReduction ())
-                mappers |&gt; Seq.iter (<span style="color:blue;">fun </span>m <span style="color:blue;">-&gt; </span>m.Stop ())
+    member r.Add (outKey:'out_key, outValue:'out_value) : unit =
+        w.Queue (fun () ->
+            workItems.Add((outKey, outValue)))
+    member m.Stop () = w.Stop ()
+and Controller<'in_key, 'in_value, 'out_key, 'out_value when 'out_key : comparison>(output:IOutput<'out_key, 'out_value>) =
+    let w = new WorkQueue()
+    let mutable mapperTracker: BitArray = null
+    let mutable reducerUsedByMappers: BitArray = null
+    let mutable reducerDone: BitArray = null
+    let mutable mappers = Unchecked.defaultof<Mapper<'in_key, 'in_value, 'out_key, 'out_value> array>
+    let mutable reducers = Unchecked.defaultof<Reducer<'in_key, 'in_value, 'out_key, 'out_value> array>
+    let BAtoSeq (b:BitArray) = [for x in b do yield x]
+    member c.Init maps reds =
+        w.Queue (fun () ->
+            mappers <- maps
+            reducers <- reds
+            mapperTracker <- new BitArray(mappers.Length, false)
+            reducerUsedByMappers <- new BitArray(reducers.Length, false)
+            reducerDone <- new BitArray(reducers.Length, false))
+    member c.MapDone (i : int) (reducerTracker : BitArray) : unit =
+        w.Queue (fun () ->
+            mapperTracker.Set(i, true)
+            let reducerUsedByMappers = reducerUsedByMappers.Or(reducerTracker)
+            if not( BAtoSeq mapperTracker |> Seq.exists(fun bit -> bit = false)) then
+                BAtoSeq reducerUsedByMappers |> Seq.iteri (fun i r -> if r = true then reducers.[i].StartReduction ())
+                mappers |> Seq.iter (fun m -> m.Stop ())
               )
-    <span style="color:blue;">member </span>c.ReductionDone (i: int) : unit =
-        w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            </span>reducerDone.Set(i, <span style="color:blue;">true</span>)
-            <span style="color:blue;">if </span>BAtoSeq reducerDone |&gt; Seq.forall2 (<span style="color:blue;">fun </span>x y <span style="color:blue;">-&gt; </span>x = y) (BAtoSeq reducerUsedByMappers) <span style="color:blue;">then
-                </span>output.MapReduceDone ()
-                reducers |&gt; Seq.iter (<span style="color:blue;">fun </span>r <span style="color:blue;">-&gt; </span>r.Stop ())
+    member c.ReductionDone (i: int) : unit =
+        w.Queue (fun () ->
+            reducerDone.Set(i, true)
+            if BAtoSeq reducerDone |> Seq.forall2 (fun x y -> x = y) (BAtoSeq reducerUsedByMappers) then
+                output.MapReduceDone ()
+                reducers |> Seq.iter (fun r -> r.Stop ())
                 c.Stop()
              )
-    <span style="color:blue;">member </span>m.Stop () = w.Stop ()
-<span style="color:blue;">let </span>mapReduce   (inputs:seq&lt;'in_key * 'in_value&gt;)
-                (map:'in_key <span style="color:blue;">-&gt; </span>'in_value <span style="color:blue;">-&gt; </span>seq&lt;'out_key * 'out_value&gt;)
-                (reduce:'out_key <span style="color:blue;">-&gt; </span>seq&lt;'out_value&gt; <span style="color:blue;">-&gt; </span>seq&lt;'out_value&gt;)
-                (output:IOutput&lt;'out_key, 'out_value&gt;)
+    member m.Stop () = w.Stop ()
+let mapReduce   (inputs:seq<'in_key * 'in_value>)
+                (map:'in_key -> 'in_value -> seq<'out_key * 'out_value>)
+                (reduce:'out_key -> seq<'out_value> -> seq<'out_value>)
+                (output:IOutput<'out_key, 'out_value>)
                 M R partitionF =
-    <span style="color:blue;">let </span>len = inputs |&gt; Seq.length
-    <span style="color:blue;">let </span>M = <span style="color:blue;">if </span>len &lt; M <span style="color:blue;">then </span>len <span style="color:blue;">else </span>M
-    <span style="color:blue;">let </span>mappers = Array.init M (<span style="color:blue;">fun </span>i <span style="color:blue;">-&gt; new </span>Mapper&lt;'in_key, 'in_value, 'out_key, 'out_value&gt;(map, i, partitionF))
-    <span style="color:blue;">let </span>reducers = Array.init R (<span style="color:blue;">fun </span>i <span style="color:blue;">-&gt; new </span>Reducer&lt;'in_key, 'in_value, 'out_key, 'out_value&gt;(reduce, i, output))
-    <span style="color:blue;">let </span>controller = <span style="color:blue;">new </span>Controller&lt;'in_key, 'in_value, 'out_key, 'out_value&gt;(output)
-    mappers |&gt; Array.iter (<span style="color:blue;">fun </span>m <span style="color:blue;">-&gt; </span>m.Init controller reducers)
-    reducers |&gt; Array.iter (<span style="color:blue;">fun </span>r <span style="color:blue;">-&gt; </span>r. Init controller )
+    let len = inputs |> Seq.length
+    let M = if len < M then len else M
+    let mappers = Array.init M (fun i -> new Mapper<'in_key, 'in_value, 'out_key, 'out_value>(map, i, partitionF))
+    let reducers = Array.init R (fun i -> new Reducer<'in_key, 'in_value, 'out_key, 'out_value>(reduce, i, output))
+    let controller = new Controller<'in_key, 'in_value, 'out_key, 'out_value>(output)
+    mappers |> Array.iter (fun m -> m.Init controller reducers)
+    reducers |> Array.iter (fun r -> r. Init controller )
     controller.Init mappers reducers
-    inputs |&gt; Seq.iteri (<span style="color:blue;">fun </span>i (inKey, inValue) <span style="color:blue;">-&gt; </span>mappers.[i % M].Process inKey inValue)
-    mappers |&gt; Seq.iter (<span style="color:blue;">fun </span>m <span style="color:blue;">-&gt; </span>m.Done ())
-<span style="color:blue;">let </span>partitionF = <span style="color:blue;">fun </span>key M <span style="color:blue;">-&gt; </span>abs(key.GetHashCode()) % M
-<span style="color:blue;">let </span>map = <span style="color:blue;">fun </span>(fileName:string) (fileContent:string) <span style="color:blue;">-&gt;
-            let </span>l = <span style="color:blue;">new </span>List&lt;string * int&gt;()
-            <span style="color:blue;">let </span>wordDelims = [|<span style="color:maroon;">' '</span>;<span style="color:maroon;">','</span>;<span style="color:maroon;">';'</span>;<span style="color:maroon;">'.'</span>;<span style="color:maroon;">':'</span>;<span style="color:maroon;">'?'</span>;<span style="color:maroon;">'!'</span>;<span style="color:maroon;">'('</span>;<span style="color:maroon;">')'</span>;<span style="color:maroon;">'n'</span>;<span style="color:maroon;">'t'</span>;<span style="color:maroon;">'f'</span>;<span style="color:maroon;">'r'</span>;<span style="color:maroon;">'b'</span>|]
-            fileContent.Split(wordDelims) |&gt; Seq.iter (<span style="color:blue;">fun </span>word <span style="color:blue;">-&gt; </span>l.Add((word, <span style="color:brown;">1</span>)))
-            l :&gt; seq&lt;string * int&gt;
-<span style="color:blue;">let </span>reduce = <span style="color:blue;">fun </span>key (values:seq&lt;int&gt;) <span style="color:blue;">-&gt; </span>[values |&gt; Seq.sum] |&gt; seq&lt;int&gt;
-<span style="color:blue;">let </span>printer () =
-  { <span style="color:blue;">new </span>IOutput&lt;string, int&gt; <span style="color:blue;">with
-        member </span>o.Reduced key values = printfn <span style="color:maroon;">"%A %A" </span>key values
-        <span style="color:blue;">member </span>o.MapReduceDone () = printfn <span style="color:maroon;">"All done!!"</span>}
-<span style="color:blue;">let </span>testInput =<br />     [<span style="color:maroon;">"File1"</span>, <span style="color:maroon;">"I was going to the airport when I saw someone crossing"</span>; <span style="color:maroon;">"File2"</span>, <span style="color:maroon;">"I was going home when I saw you coming toward me"</span>]
-mapReduce testInput map reduce (printer ()) <span style="color:brown;">2 2 </span>partitionF
-<span style="color:blue;">open </span>System.IO
-<span style="color:blue;">open </span>System.Text
-<span style="color:blue;">let </span>gatherer(step) =
-  <span style="color:blue;">let </span>w = <span style="color:blue;">new </span>WorkQueue()
-  <span style="color:blue;">let </span>data = <span style="color:blue;">new </span>List&lt;string * int&gt;()
-  <span style="color:blue;">let </span>counter = ref <span style="color:brown;">0
-  </span>{ <span style="color:blue;">new </span>IOutput&lt;string, int&gt; <span style="color:blue;">with
-        member </span>o.Reduced key values =
-            w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-                if </span>!counter % step = <span style="color:brown;">0 </span><span style="color:blue;">then
-                    </span>printfn <span style="color:maroon;">"Processed %i words. Now processing %s" </span>!counter key
-                data.Add((key, values |&gt; Seq.hd))
-                counter := !counter + <span style="color:brown;">1</span>)
-        <span style="color:blue;">member </span>o.MapReduceDone () =
-            w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-                </span>data
-                |&gt; Seq.distinctBy (<span style="color:blue;">fun </span>(key, _) <span style="color:blue;">-&gt; </span>key.ToLower())
-                |&gt; Seq.filter (<span style="color:blue;">fun </span>(key, _) <span style="color:blue;">-&gt; </span>not(key = <span style="color:maroon;">"" </span>|| key = <span style="color:maroon;">""" </span>|| (fst (Double.TryParse(key)))))
-                |&gt; Seq.to_array
-                |&gt; Array.sortBy snd
-                |&gt; Array.rev
-                |&gt; Seq.take <span style="color:brown;">20
-                </span>|&gt; Seq.iter (<span style="color:blue;">fun </span>(key, value) <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"%Att%A" </span>key value)
-                printfn <span style="color:maroon;">"All done!!"</span>)
+    inputs |> Seq.iteri (fun i (inKey, inValue) -> mappers.[i % M].Process inKey inValue)
+    mappers |> Seq.iter (fun m -> m.Done ())
+let partitionF = fun key M -> abs(key.GetHashCode()) % M
+let map = fun (fileName:string) (fileContent:string) ->
+            let l = new List<string * int>()
+            let wordDelims = [|' ';',';';';'.';':';'?';'!';'(';')';'n';'t';'f';'r';'b'|]
+            fileContent.Split(wordDelims) |> Seq.iter (fun word -> l.Add((word, 1)))
+            l :> seq<string * int>
+let reduce = fun key (values:seq<int>) -> [values |> Seq.sum] |> seq<int>
+let printer () =
+  { new IOutput<string, int> with
+        member o.Reduced key values = printfn "%A %A" key values
+        member o.MapReduceDone () = printfn "All done!!"}
+let testInput =
+     ["File1", "I was going to the airport when I saw someone crossing"; "File2", "I was going home when I saw you coming toward me"]
+mapReduce testInput map reduce (printer ()) 2 2 partitionF
+open System.IO
+open System.Text
+let gatherer(step) =
+  let w = new WorkQueue()
+  let data = new List<string * int>()
+  let counter = ref 0
+  { new IOutput<string, int> with
+        member o.Reduced key values =
+            w.Queue (fun () ->
+                if !counter % step = 0 then
+                    printfn "Processed %i words. Now processing %s" !counter key
+                data.Add((key, values |> Seq.hd))
+                counter := !counter + 1)
+        member o.MapReduceDone () =
+            w.Queue (fun () ->
+                data
+                |> Seq.distinctBy (fun (key, _) -> key.ToLower())
+                |> Seq.filter (fun (key, _) -> not(key = "" || key = """ || (fst (Double.TryParse(key)))))
+                |> Seq.to_array
+                |> Array.sortBy snd
+                |> Array.rev
+                |> Seq.take 20
+                |> Seq.iter (fun (key, value) -> printfn "%A\t%A" key value)
+                printfn "All done!!")
         }
-<span style="color:blue;">let </span>splitBook howManyBlocks fileName =
-    <span style="color:blue;">let </span>buffers = Array.init howManyBlocks (<span style="color:blue;">fun </span>_ <span style="color:blue;">-&gt; new </span>StringBuilder())
+let splitBook howManyBlocks fileName =
+    let buffers = Array.init howManyBlocks (fun _ -> new StringBuilder())
     fileName
-    |&gt; File.ReadAllLines
-    |&gt; Array.iteri (<span style="color:blue;">fun </span>i line <span style="color:blue;">-&gt; </span>buffers.[i % (howManyBlocks)].Append(line) |&gt; ignore)
+    |> File.ReadAllLines
+    |> Array.iteri (fun i line -> buffers.[i % (howManyBlocks)].Append(line) |> ignore)
     buffers
-<span style="color:blue;">let </span>blocks1 = <span style="color:blue;">__SOURCE_DIRECTORY__ </span>+ <span style="color:maroon;">"kjv10.txt" </span>|&gt; splitBook <span style="color:brown;">100
-</span><span style="color:blue;">let </span>blocks2 = <span style="color:blue;">__SOURCE_DIRECTORY__ </span>+ <span style="color:maroon;">"warandpeace.txt" </span>|&gt; splitBook <span style="color:brown;">100
-</span><span style="color:blue;">let </span>input =
+let blocks1 = __SOURCE_DIRECTORY__ + "kjv10.txt" |> splitBook 100
+let blocks2 = __SOURCE_DIRECTORY__ + "warandpeace.txt" |> splitBook 100
+let input =
     blocks1
-    |&gt; Array.append blocks2
-    |&gt; Array.mapi (<span style="color:blue;">fun </span>i b <span style="color:blue;">-&gt; </span>i.ToString(), b.ToString())
-<span style="color:green;">//mapReduce input map reduce (gatherer(1000)) 20 20 partitionF
-</span><span style="color:blue;">type </span>BookSplitter () =
-    <span style="color:blue;">let </span>blocks = <span style="color:blue;">new </span>List&lt;string * string&gt;()
-    <span style="color:blue;">member </span>b.Split howManyBlocks fileName =
-            <span style="color:blue;">let </span>b =
+    |> Array.append blocks2
+    |> Array.mapi (fun i b -> i.ToString(), b.ToString())
+//mapReduce input map reduce (gatherer(1000)) 20 20 partitionF
+type BookSplitter () =
+    let blocks = new List<string * string>()
+    member b.Split howManyBlocks fileName =
+            let b =
                 fileName
-                |&gt; splitBook howManyBlocks
-                |&gt; Array.mapi (<span style="color:blue;">fun </span>i b <span style="color:blue;">-&gt; </span>i.ToString(), b.ToString())
+                |> splitBook howManyBlocks
+                |> Array.mapi (fun i b -> i.ToString(), b.ToString())
             blocks.AddRange(b)
-    <span style="color:blue;">member </span>b.Blocks () =
-            blocks.ToArray() :&gt; seq&lt;string * string&gt;
-<span style="color:blue;">type </span>WordCounter () =
-    <span style="color:blue;">let </span>w = <span style="color:blue;">new </span>WorkQueue()
-    <span style="color:blue;">let </span>words = <span style="color:blue;">new </span>Dictionary&lt;string,int&gt;()
-    <span style="color:blue;">let </span>worker(wordCounter:WordCounter, ev:EventWaitHandle) =
-          <span style="color:blue;">let </span>w1 = <span style="color:blue;">new </span>WorkQueue()
-          { <span style="color:blue;">new </span>IOutput&lt;string, int&gt; <span style="color:blue;">with
-                member </span>o.Reduced key values =
-                    w1.Queue (<span style="color:blue;">fun</span>() <span style="color:blue;">-&gt;
-                        </span>wordCounter.AddWord key (values |&gt; Seq.hd))
-                <span style="color:blue;">member </span>o.MapReduceDone () =
-                    w1.Queue(<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-                        </span>ev.Set() |&gt; ignore)
+    member b.Blocks () =
+            blocks.ToArray() :> seq<string * string>
+type WordCounter () =
+    let w = new WorkQueue()
+    let words = new Dictionary<string,int>()
+    let worker(wordCounter:WordCounter, ev:EventWaitHandle) =
+          let w1 = new WorkQueue()
+          { new IOutput<string, int> with
+                member o.Reduced key values =
+                    w1.Queue (fun() ->
+                        wordCounter.AddWord key (values |> Seq.hd))
+                member o.MapReduceDone () =
+                    w1.Queue(fun () ->
+                        ev.Set() |> ignore)
            }
-    <span style="color:blue;">member </span>c.AddWord word count =
-            <span style="color:blue;">let </span>exist, value = words.TryGetValue(word)
-            <span style="color:blue;">if </span>exist <span style="color:blue;">then
-                </span>words.[word] &lt;- value + count
-            <span style="color:blue;">else
-                </span>words.Add(word, count)
-    <span style="color:blue;">member </span>c.Add fileName =
-        w.Queue (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            let </span>s = <span style="color:blue;">new </span>BookSplitter()
-            fileName |&gt; s.Split <span style="color:brown;">100
-            </span><span style="color:blue;">let </span>ev = <span style="color:blue;">new </span>EventWaitHandle(<span style="color:blue;">false</span>, EventResetMode.AutoReset)
-            <span style="color:blue;">let </span>blocks = s.Blocks ()
-            mapReduce blocks map reduce (worker(c, ev)) <span style="color:brown;">20 20 </span>partitionF
-            ev.WaitOne() |&gt; ignore
+    member c.AddWord word count =
+            let exist, value = words.TryGetValue(word)
+            if exist then
+                words.[word] <- value + count
+            else
+                words.Add(word, count)
+    member c.Add fileName =
+        w.Queue (fun () ->
+            let s = new BookSplitter()
+            fileName |> s.Split 100
+            let ev = new EventWaitHandle(false, EventResetMode.AutoReset)
+            let blocks = s.Blocks ()
+            mapReduce blocks map reduce (worker(c, ev)) 20 20 partitionF
+            ev.WaitOne() |> ignore
             )
-    <span style="color:blue;">member </span>c.Words =
-        w.QueueWithAsync (<span style="color:blue;">fun </span>() <span style="color:blue;">-&gt;
-            </span>words |&gt; Seq.to_array |&gt; Array.map (<span style="color:blue;">fun </span>kv <span style="color:blue;">-&gt; </span>kv.Key, kv.Value)
+    member c.Words =
+        w.QueueWithAsync (fun () ->
+            words |> Seq.to_array |> Array.map (fun kv -> kv.Key, kv.Value)
         )
-<span style="color:blue;">let </span>wc = <span style="color:blue;">new </span>WordCounter()
-wc.Add (<span style="color:blue;">__SOURCE_DIRECTORY__ </span>+ <span style="color:maroon;">"kjv10.txt"</span>)
-wc.Add (<span style="color:blue;">__SOURCE_DIRECTORY__ </span>+ <span style="color:maroon;">"warandpeace.txt"</span>)
-<span style="color:blue;">let </span>wordsToPrint = async {
-                    <span style="color:blue;">let! </span>words = wc.Words
-                    <span style="color:blue;">return </span>words
-                        |&gt; Seq.distinctBy (<span style="color:blue;">fun </span>(key, _) <span style="color:blue;">-&gt; </span>key.ToLower())
-                        |&gt; Seq.filter (<span style="color:blue;">fun </span>(key, _) <span style="color:blue;">-&gt; </span>not(key = <span style="color:maroon;">"" </span>|| key = <span style="color:maroon;">""" </span>|| (fst (Double.TryParse(key)))))
-                        |&gt; Seq.to_array
-                        |&gt; Array.sortBy snd
-                        |&gt; Array.rev
-                        |&gt; Seq.take <span style="color:brown;">20
-                        </span>|&gt; Seq.iter (<span style="color:blue;">fun </span>(key, value) <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"%Att%A" </span>key value)}
+let wc = new WordCounter()
+wc.Add (__SOURCE_DIRECTORY__ + "kjv10.txt")
+wc.Add (__SOURCE_DIRECTORY__ + "warandpeace.txt")
+let wordsToPrint = async {
+                    let! words = wc.Words
+                    return words
+                        |> Seq.distinctBy (fun (key, _) -> key.ToLower())
+                        |> Seq.filter (fun (key, _) -> not(key = "" || key = """ || (fst (Double.TryParse(key)))))
+                        |> Seq.to_array
+                        |> Array.sortBy snd
+                        |> Array.rev
+                        |> Seq.take 20
+                        |> Seq.iter (fun (key, value) -> printfn "%A\t%A" key value)}
 Async.RunSynchronously wordsToPrint
-Thread.Sleep(<span style="color:brown;">15000</span>)
-printfn <span style="color:maroon;">"Closed session"
-</span></pre>
-
+Thread.Sleep(15000)
+printfn "Closed session"

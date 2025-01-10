@@ -50,8 +50,6 @@ categories:
 tags:
   - fsharp
 ---
-</p> 
-
 Download framework [here](http://code.msdn.microsoft.com/LAgent).
 
 All posts are here:
@@ -66,48 +64,46 @@ All posts are here:
   * [Part VIII – Implementing MapReduce (user model)](http://blogs.msdn.com/lucabol/archive/2009/09/04/lagent-an-agent-framework-in-f-part-viii-implementing-mapreduce-user-model.aspx) 
   * [Part IX – Counting words …](http://blogs.msdn.com/lucabol/archive/2009/09/18/lagent-an-agent-framework-in-f-part-ix-counting-words.aspx) 
 
-
-
-
-
 ## Introduction
 
-I like to try out different programming paradigms. I started out as an object oriented programmer. In university, I used Prolog. I then learned functional programming. I also experimented with various shared memory parallel paradigms (i.e. async, tasks and such). I now want to learn more about message based parallel programming ([Erlang](http://www.amazon.com/Programming-Erlang-Software-Concurrent-World/dp/193435600X) style). I’m convinced that doing so makes me a better programmer. Plus, I enjoy it …
+I like to try out different programming paradigms. I started out as an object oriented programmer. In university, I used Prolog. I then learned functional programming. I also experimented with various shared memory parallel paradigms (i.e. async, tasks and such). I now want to learn more about message based parallel programming ([Erlang](http://www.amazon.com/Programming-Erlang-Software-Concurrent-World/dp/193435600X) style). I'm convinced that doing so makes me a better programmer. Plus, I enjoy it …
 
-My usual learning style is to build a framework that replicates a particular programming model and then write code using it. In essence, I build a very constrained environment. For example, when learning functional programming, I didn’t use any OO construct for a while even if my programming language supports them.
+My usual learning style is to build a framework that replicates a particular programming model and then write code using it. In essence, I build a very constrained environment. For example, when learning functional programming, I didn't use any OO construct for a while even if my programming language supports them.
 
 In this case, I built myself a little agent framework based on F# _MailboxProcessors_. I could have used _MailboxProcessors_ directly, but they are too flexible for my goal. Even to write a simple one of these guys, you need to use async and recursion in a specific pattern, which I always forget. Also, there are multiple ways to to do Post. I wanted things to be as simple as possible. I was willing to sacrifice flexibility for that.
 
-Notice that there are serious efforts in this space (as [Axum](http://blogs.msdn.com/maestroteam/)). This is not one of them. It’s just a simple thing I enjoy working on between one meeting and the next.
+Notice that there are serious efforts in this space (as [Axum](http://blogs.msdn.com/maestroteam/)). This is not one of them. It's just a simple thing I enjoy working on between one meeting and the next.
 
 ## Workers and ParallelWorkers
 
 The two major primitives are spawning an agent and posting a message.
 
-<pre class="code"><span style="color:blue;">let </span>echo = spawnWorker (<span style="color:blue;">fun </span>msg <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"%s" </span>msg)
-echo &lt;-- <span style="color:maroon;">"Hello guys!"</span></pre>
+```fsharp
+let echo = spawnWorker (fun msg -> printfn "%s" msg)
+echo <-- "Hello guys!"
+```
 
-<span style="color:maroon;"><font color="#000000">There are two kinds of agents in my system. A <em>worker</em> is an agent that doesn’t keep any state between consecutive messages. It is a stateless guy. Notice that the lambda that you pass to create the agent is strongly typed (aka <em>msg</em> is of type <em>string</em>). Also notice that I overloaded the <em><—</em> operator to mean <em>Post</em>.</font></span>
+There are two kinds of agents in my system. A _worker_ is an agent that doesn't keep any state between consecutive messages. It is a stateless guy. Notice that the lambda that you pass to create the agent is strongly typed (aka _msg_ is of type _string_). Also notice that I overloaded the _<—_ operator to mean _Post_.
 
-<span style="color:maroon;"><font color="#000000">Given that a worker is stateless, you can create a whole bunch of them and, when a message is posted, route it to one of them transparently.</font></span>
+Given that a worker is stateless, you can create a whole bunch of them and, when a message is posted, route it to one of them transparently.
 
-<pre class="code"><span style="color:blue;">let </span>parallelEcho = spawnParallelWorker(<span style="color:blue;">fun </span>s <span style="color:blue;">-&gt; </span>printfn <span style="color:maroon;">"%s" </span>s) 10
-parallelEcho &lt;-- <span style="color:maroon;">"Hello guys!”</span></pre>
+```fsharp
+let parallelEcho = spawnParallelWorker(fun s -> printfn "%s" s) 10
+parallelEcho <-- "Hello guys!"
+```
 
-<span style="color:maroon;"><font color="#000000">For example, in the above code, 10 workers are created and, when a message is posted, it gets routed to one of them (using a super duper innovative dispatching algorithm I’ll describe in the implementation part). This <em>parallelWorker</em> guy is not really needed, you could easily built it out of the other primitives, but it is kind of cute.</font></span>
+For example, in the above code, 10 workers are created and, when a message is posted, it gets routed to one of them (using a super duper innovative dispatching algorithm I'll describe in the implementation part). This _parallelWorker_ guy is not really needed, you could easily built it out of the other primitives, but it is kind of cute.
 
-<span style="color:maroon;"><font color="#000000">To show the difference between a worker and a <em>parallelWorker</em>, consider this:</font></span>
+To show the difference between a worker and a _parallelWorker_, consider this:
 
-<pre class="code"><span style="color:blue;">let </span>tprint s = printfn <span style="color:maroon;">"%s running on thread %i" </span>s Thread.CurrentThread.ManagedThreadId
-<span style="color:blue;">let </span>echo1 = spawnWorker (<span style="color:blue;">fun </span>s <span style="color:blue;">-&gt; </span>tprint s)
-<span style="color:blue;">let </span>parallelEcho1 = spawnParallelWorker(<span style="color:blue;">fun </span>s <span style="color:blue;">-&gt; </span>tprint s) 10
-<span style="color:blue;">let </span>messages = [<span style="color:maroon;">"a"</span>;<span style="color:maroon;">"b"</span>;<span style="color:maroon;">"c"</span>;<span style="color:maroon;">"d"</span>;<span style="color:maroon;">"e"</span>;<span style="color:maroon;">"f"</span>;<span style="color:maroon;">"g"</span>;<span style="color:maroon;">"h"</span>;<span style="color:maroon;">"i"</span>;<span style="color:maroon;">"l"</span>;<span style="color:maroon;">"m"</span>;<span style="color:maroon;">"n"</span>;<span style="color:maroon;">"o"</span>;<span style="color:maroon;">"p"</span>;<span style="color:maroon;">"q"</span>;<span style="color:maroon;">"r"</span>;<span style="color:maroon;">"s"</span>;<span style="color:maroon;">"t"</span>]
-messages |&gt; Seq.iter (<span style="color:blue;">fun </span>msg <span style="color:blue;">-&gt; </span>echo1 &lt;-- msg)
-messages |&gt; Seq.iter (<span style="color:blue;">fun </span>msg <span style="color:blue;">-&gt; </span>parallelEcho1 &lt;-- msg)</pre>
-
-&#160;
-
-
+```fsharp
+let tprint s = printfn "%s running on thread %i" s Thread.CurrentThread.ManagedThreadId
+let echo1 = spawnWorker (fun s -> tprint s)
+let parallelEcho1 = spawnParallelWorker(fun s -> tprint s) 10
+let messages = ["a";"b";"c";"d";"e";"f";"g";"h";"i";"l";"m";"n";"o";"p";"q";"r";"s";"t"]
+messages |> Seq.iter (fun msg -> echo1 <-- msg)
+messages |> Seq.iter (fun msg -> parallelEcho1 <-- msg)
+```
 
 The result of the _echo1_ iteration is:
 
@@ -144,4 +140,4 @@ While the result of the _parallelEcho1_ iteration is:
 >   
 > …**
 
-Notice how the latter executes on multiple threads (but not in order). Next time I’ll talk about agents, control messages and error management.
+Notice how the latter executes on multiple threads (but not in order). Next time I'll talk about agents, control messages and error management.
