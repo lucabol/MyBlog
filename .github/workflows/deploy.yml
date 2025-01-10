@@ -1,0 +1,40 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main  # or master, depending on your default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r src/requirements.txt
+    
+    - name: Build site
+      run: |
+        python src/generate_blog.py
+        
+    - name: Create and deploy zip file
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: |
+        cd _site
+        zip -r ../site.zip .
+        cd ..
+        curl -H "Content-Type: application/zip" \
+             -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+             --data-binary "@site.zip" \
+             https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/deploys
