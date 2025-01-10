@@ -2,6 +2,8 @@ name: Deploy to Netlify
 
 on:
   push:
+    branches:
+      - master
   
   pull_request:  # Trigger on PR events
   
