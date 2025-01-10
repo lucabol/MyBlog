@@ -244,3 +244,23 @@ th {
 .back-to-top:hover {
     text-decoration: underline;
 }
+
+/* Code page styles */
+.code-project h2 {
+    font-family: var(--font-heading);
+    font-weight: normal;
+    font-size: calc(var(--base-size) * 1.2);
+    margin: 1rem 0 0.2rem;
+    text-transform: capitalize;
+}
+
+.code-project h2 a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-text);
+}
+
+.code-project p {
+    margin: 0.2rem 0 0.8rem;
+    line-height: 1.4;
+}

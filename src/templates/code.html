@@ -3,29 +3,12 @@
 {% block title %}Code - Luca Bolognese{% endblock %}
 
 {% block content %}
-<style>
-    h2 {
-        font-family: MyTrebuchet, sans-serif;
-        font-weight: normal;
-        font-size: calc(var(--notes-base) * 1);
-        margin: 1rem 0 0.2rem;
-        text-transform: capitalize;
-    }
-    h2 a {
-        color: #000;
-        text-decoration: none;
-        border-bottom: 1px solid #000;
-    }
-    p {
-        margin: 0.2rem 0 0.8rem;
-        line-height: 1.4;
-    }
-</style>
-
 <h1>Code</h1>
 
 {% for project in projects %}
-<h2><a href="https://github.com/lucabol/{{ project.name }}">{{ project.name }}</a></h2>
-<p>{{ project.desc }}</p>
+<div class="code-project">
+    <h2><a href="https://github.com/lucabol/{{ project.name }}">{{ project.name }}</a></h2>
+    <p>{{ project.desc }}</p>
+</div>
 {% endfor %}
 {% endblock %}
