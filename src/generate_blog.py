@@ -140,7 +140,10 @@ class BlogGenerator:
         """Copy a static asset, removing destination if it exists."""
         import shutil
         if os.path.exists(dest):
-            shutil.rmtree(dest)
+            if os.path.isdir(dest):
+                shutil.rmtree(dest)
+            else:
+                os.remove(dest)
         if os.path.exists(src):
             if os.path.isdir(src):
                 shutil.copytree(src, dest)
@@ -150,11 +153,9 @@ class BlogGenerator:
     def copy_static_files(self):
         static_dir = os.path.join(self.output_dir, 'static')
         self._ensure_dir(static_dir)
-        css_dir = os.path.join(static_dir, 'css')
-        self._ensure_dir(css_dir)
         
         # Copy CSS file
-        self._copy_static_asset('src/style.css', os.path.join(css_dir, 'style.css'))
+        self._copy_static_asset('src/style.css', os.path.join(static_dir, 'style.css'))
         
         # Copy static assets
         for dir_name in ['img', 'fonts']:
