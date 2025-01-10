@@ -175,7 +175,7 @@ class BlogGenerator:
         
         # Skip code page generation if projects.yaml doesn't exist
         if not os.path.exists('src/projects.yaml'):
-            return
+            raise FileNotFoundError('projects.yaml not found')
             
         with open('src/projects.yaml', 'r', encoding='utf-8') as f:
             projects = yaml.safe_load(f)
