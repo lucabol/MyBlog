@@ -23,7 +23,7 @@ python src/devserver.py
 
 ## Deployment
 
-The site is automatically deployed to Netlify whenever changes are pushed to the main branch. The GitHub Actions workflow:
+The site is automatically deployed to Netlify whenever changes are pushed to the main branch. The workflow can also be triggered manually from the GitHub Actions UI. The GitHub Actions workflow:
 
 1. Builds the site
 2. Creates a zip file of the built site
