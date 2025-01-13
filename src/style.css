@@ -38,7 +38,7 @@
 /* Global link styles - underlined by default */
 a {
     color: var(--color-text) !important;
-    text-decoration: underline;
+    text-decoration: underline ;
 }
 
 html, body {
