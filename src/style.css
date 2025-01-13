@@ -35,6 +35,26 @@
     --color-muted: #666;
 }
 
+/* Global link styles */
+a {
+    color: var(--color-text) !important;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Post content link styles */
+.post-content a {
+    color: var(--color-text) !important;
+    text-decoration: none;
+}
+
+.post-content a:hover {
+    text-decoration: underline;
+}
+
 html, body {
     font-family: var(--font-text);
     font-size: var(--base-size);
@@ -263,4 +283,19 @@ th {
 .code-project p {
     margin: 0.2rem 0 0.8rem;
     line-height: 1.4;
+}
+
+/* Comments link styles */
+.post-comments {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.post-comments a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.post-comments a:hover {
+    text-decoration: underline;
 }

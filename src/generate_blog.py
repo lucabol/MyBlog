@@ -4,6 +4,8 @@ from datetime import datetime, date, timezone
 from collections import defaultdict
 from jinja2 import Environment, FileSystemLoader
 import markdown
+import urllib.parse
+import yaml
 
 class BlogGenerator:
     def __init__(self, posts_dir, output_dir):
@@ -57,6 +59,23 @@ class BlogGenerator:
                 'attr_list'
             ]
         )
+
+    def _get_comments_url(self, post_date, title):
+        """Generate GitHub issues search URL for comments."""
+        # Get date in YYYY-MM-DD format
+        date_str = post_date.strftime('%Y-%m-%d')
+        
+        # Get first few words of title (up to 3)
+        title_words = ' '.join(title.split()[:3])
+        
+        # Create search query
+        query = f"is:issue {date_str} {title_words}"
+        
+        # URL encode the query
+        encoded_query = urllib.parse.quote(query)
+        
+        # Return full URL
+        return f"https://github.com/lucabol/MyBlog_Comments/issues?q={encoded_query}"
         
     def _process_post_file(self, filename):
         """Process a single post file and return post data."""
@@ -64,16 +83,21 @@ class BlogGenerator:
         with open(filepath, 'r', encoding='utf-8') as f:
             post = frontmatter.load(f)
             
+        post_date = self._process_post_date(post.get('date'))
+        post_title = post.get('title', 'Untitled')
+            
         return {
-            'title': post.get('title', 'Untitled'),
-            'date': self._process_post_date(post.get('date')),
+            'title': post_title,
+            'date': post_date,
             'author': self._process_post_author(post.get('author')),
             'tags': post.get('tags', []),
             'content': self._convert_markdown(post.content),
-            'url': f'posts/{os.path.splitext(filename)[0]}.html'
+            'url': f'posts/{os.path.splitext(filename)[0]}.html',
+            'comments_url': self._get_comments_url(post_date, post_title)
         }
         
     def read_posts(self):
+        """Read all posts from posts directory."""
         for filename in os.listdir(self.posts_dir):
             if filename.endswith('.md'):
                 post_data = self._process_post_file(filename)
@@ -84,11 +108,13 @@ class BlogGenerator:
         self.posts.sort(key=lambda x: x['date'], reverse=True)
     
     def generate_home_page(self):
+        """Generate the home page with recent posts."""
         self._render_and_write('home.html', 
                              os.path.join(self.output_dir, 'index.html'),
                              recent_posts=self.posts[:5])
     
     def generate_notes_page(self):
+        """Generate the notes page with all posts."""
         self._render_and_write('notes.html',
                              os.path.join(self.output_dir, 'notes.html'),
                              posts=self.posts)
@@ -109,6 +135,7 @@ class BlogGenerator:
         return posts_by_year, sorted_years
     
     def generate_tags_page(self):
+        """Generate tag index and individual tag pages."""
         # Generate main tags index
         sorted_tags = dict(sorted(self.tags.items(), key=lambda x: x[0].lower()))
         self._render_and_write('tags.html',
@@ -128,6 +155,7 @@ class BlogGenerator:
                                  sorted_years=sorted_years)
     
     def generate_post_pages(self):
+        """Generate individual post pages."""
         posts_dir = os.path.join(self.output_dir, 'posts')
         self._ensure_dir(posts_dir)
         
@@ -151,6 +179,7 @@ class BlogGenerator:
                 shutil.copy2(src, dest)
     
     def copy_static_files(self):
+        """Copy static assets to output directory."""
         static_dir = os.path.join(self.output_dir, 'static')
         self._ensure_dir(static_dir)
         
@@ -165,17 +194,17 @@ class BlogGenerator:
             )
     
     def generate_feed(self):
+        """Generate RSS feed."""
         self._render_and_write('feed.xml',
                              os.path.join(self.output_dir, 'feed.xml'),
                              posts=self.posts,
                              now=datetime.now(timezone.utc))
     
     def generate_code_page(self):
-        import yaml
-        
+        """Generate code page from projects.yaml."""
         # Skip code page generation if projects.yaml doesn't exist
         if not os.path.exists('src/projects.yaml'):
-            raise FileNotFoundError('projects.yaml not found')
+            return
             
         with open('src/projects.yaml', 'r', encoding='utf-8') as f:
             projects = yaml.safe_load(f)
@@ -185,6 +214,7 @@ class BlogGenerator:
                              projects=projects)
     
     def generate_site(self):
+        """Generate the complete site."""
         self.read_posts()
         self.copy_static_files()
         self.generate_home_page()
