@@ -35,23 +35,9 @@
     --color-muted: #666;
 }
 
-/* Global link styles */
+/* Global link styles - underlined by default */
 a {
     color: var(--color-text) !important;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Post content link styles */
-.post-content a {
-    color: var(--color-text) !important;
-    text-decoration: none;
-}
-
-.post-content a:hover {
     text-decoration: underline;
 }
 
@@ -73,12 +59,15 @@ nav {
     text-align: center;
     margin: 2rem 0 1rem;
 }
+
+/* Navigation links - no underline */
 nav a {
     margin: 0 1rem;
     text-decoration: none;
     color: var(--color-text);
     font-size: calc(var(--base-size) * 1.1);
 }
+
 h1, .year {
     font-family: var(--font-heading);
 }
@@ -128,14 +117,14 @@ article h1 {
 .post-tags li {
     margin: 0.5rem 0;
 }
+
+/* Tag links - no underline */
 .post-tags a {
     color: var(--color-text);
     text-decoration: none;
     text-transform: uppercase;
 }
-.post-tags a:hover {
-    text-decoration: underline;
-}
+
 .post-content + h2 {
     font-family: var(--font-heading);
     font-weight: normal;
@@ -183,17 +172,19 @@ article h1 {
     text-align: center;
     margin: 2rem 0;
 }
+
+/* Footer links - no underline */
 .post-footer a {
     color: var(--color-text);
     text-decoration: none;
 }
+
+/* Posts list links - no underline */
 .posts-list a {
     color: var(--color-text);
     text-decoration: none;
 }
-.posts-list a:hover {
-    text-decoration: underline;
-}
+
 .tags-list {
     list-style-type: circle;
     padding-left: 2rem;
@@ -203,14 +194,14 @@ article h1 {
 .tags-list li {
     margin: 0.2rem 0;
 }
+
+/* Tags list links - no underline */
 .tags-list a {
     color: var(--color-text);
     text-decoration: none;
     text-transform: uppercase;
 }
-.tags-list a:hover {
-    text-decoration: underline;
-}
+
 pre {
     background-color: var(--color-code-bg);
     padding: 0.5rem 1rem 0.5rem 0.5rem;
@@ -266,9 +257,6 @@ th {
     font-family: var(--font-text);
     font-size: var(--base-size);
 }
-.back-to-top:hover {
-    text-decoration: underline;
-}
 
 /* Code page styles */
 .code-project h2 {
@@ -279,6 +267,7 @@ th {
     text-transform: capitalize;
 }
 
+/* Code project links - no underline */
 .code-project h2 a {
     color: var(--color-text);
     text-decoration: none;
@@ -296,11 +285,8 @@ th {
     margin: 2rem 0;
 }
 
+/* Comments link - underlined */
 .post-comments a {
     color: var(--color-text);
-    text-decoration: none;
-}
-
-.post-comments a:hover {
     text-decoration: underline;
 }
