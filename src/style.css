@@ -233,7 +233,7 @@ pre {
 }
 code {
     font-family: var(--font-mono);
-    font-size: var(--base-size);
+    font-size: calc(var(--base-size) * 0.90);
 }
 table {
     background-color: var(--color-code-bg);
