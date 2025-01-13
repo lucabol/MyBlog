@@ -38,7 +38,6 @@
 /* Global link styles */
 a {
     color: var(--color-text) !important;
-    text-decoration: none;
 }
 
 a:hover {
@@ -48,7 +47,6 @@ a:hover {
 /* Post content link styles */
 .post-content a {
     color: var(--color-text) !important;
-    text-decoration: none;
 }
 
 .post-content a:hover {
@@ -257,7 +255,6 @@ th {
     text-align: center;
     margin-top: 2rem;
     color: var(--color-text);
-    text-decoration: none;
     font-family: var(--font-text);
     font-size: var(--base-size);
 }
@@ -293,7 +290,6 @@ th {
 
 .post-comments a {
     color: var(--color-text);
-    text-decoration: none;
 }
 
 .post-comments a:hover {
