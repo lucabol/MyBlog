@@ -213,6 +213,11 @@ class BlogGenerator:
                              os.path.join(self.output_dir, 'code.html'),
                              projects=projects)
     
+    def generate_about_page(self):
+        """Generate the about page."""
+        self._render_and_write('about.html',
+                             os.path.join(self.output_dir, 'about.html'))
+
     def generate_site(self):
         """Generate the complete site."""
         self.read_posts()
@@ -222,6 +227,7 @@ class BlogGenerator:
         self.generate_tags_page()
         self.generate_post_pages()
         self.generate_code_page()
+        self.generate_about_page()
         self.generate_feed()
 
 def main():
