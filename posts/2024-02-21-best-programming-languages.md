@@ -3,6 +3,7 @@ title: The best programming languages to learn in 2024
 date: 2024-02-21
 author: lucabol
 layout: post
+description: "From C's bare-metal simplicity to Haskell's abstract heights, discover a refreshingly honest take on programming languages for 2024. No marketing fluff here - just a pragmatic guide balancing fundamental understanding with cold, hard market reality. Whether you're chasing enlightenment or just a fat paycheck, there's a language stack for you"
 tags:
   - functional
   - Books

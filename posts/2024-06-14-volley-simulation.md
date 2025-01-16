@@ -3,6 +3,7 @@ title: Volley (or racketball or beach-volley) simulation & probability distribut
 date: 2024-06-16
 author: lucabol
 layout: post
+description: "Ever wondered why slightly better volleyball teams seem to win disproportionately more? Dive into this mathematical adventure where we use Python to simulate thousands of matches, unveiling the surprising non-linear relationship between point-winning probability and match outcomes. Featuring elegant Bernoulli trials, sneaky sigmoid functions, and a dash of statistical wizardry"
 tags:
   - Statistics
   - Sport

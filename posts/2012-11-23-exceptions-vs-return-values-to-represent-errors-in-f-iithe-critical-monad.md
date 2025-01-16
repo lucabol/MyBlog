@@ -5,6 +5,7 @@ date: 2012-11-23T10:45:00+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=104
+description: "Follow along as we refactor a simple user fetch function from throwing exceptions to returning explicit errors. Watch the code grow in complexity as we strive for correctness, and discover why beauty still matters even in error handling. A tale of tradeoffs in F#"
 categories:
   - fsharp
 tags:

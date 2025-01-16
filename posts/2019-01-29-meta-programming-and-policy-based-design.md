@@ -3,6 +3,7 @@ title: Meta-programming in C# with JIT dead code removal and inlining
 date: 2019-01-29
 author: lucabol
 layout: post
+description: "Want blazing fast abstractions without paying the runtime cost? Dive into the dark arts of JIT optimization, where we teach C# to think like C++ templates. Watch as virtual calls vanish and interfaces dissolve into pure assembly poetry. Performance porn for the discerning developer"
 tags:
   - csharp
 ---

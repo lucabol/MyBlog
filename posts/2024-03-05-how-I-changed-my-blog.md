@@ -3,6 +3,7 @@ title: How I changed my blog
 date: 2024-03-03
 author: lucabol
 layout: post
+description: "Watch as a 20-year-old blog sheds its technological excess like a snake shedding its skin. In this tale of digital minimalism, we ditch frameworks, banish divs, and embrace the zen of pure HTML semantics. Because sometimes, the most sophisticated solution is simply writing 'the damn thing' - no variables, no frameworks, just unapologetically straightforward code"
 tags:
   - Miscellanea
   - typography

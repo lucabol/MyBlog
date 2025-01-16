@@ -5,6 +5,7 @@ date: 2012-11-19T13:02:10+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=102
+description: "Dive into the eternal debate of exceptions vs return values, where we draw the line between contingencies and faults, and why Java got it wrong. A fresh take on error handling that acknowledges not all apps are created equal. Because sometimes throwing an exception is exactly what you should do"
 categories:
   - fsharp
 tags:

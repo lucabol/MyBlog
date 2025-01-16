@@ -5,6 +5,7 @@ date: 2012-04-16T09:11:00+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=89
+description: "The great allocation showdown: pod_vector vs normal vector vs boost pool vs shared_ptr vs Loki pointers. Who will win in our quest for the fastest way to allocate objects in functional C++? Spoiler: sometimes simpler is better"
 categories:
   - C
 tags:

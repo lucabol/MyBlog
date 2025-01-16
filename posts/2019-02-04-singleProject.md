@@ -3,6 +3,7 @@ title: A single .NET Core project to rule them all
 date: 2019-02-04
 author: lucabol
 layout: post
+description: "One project to rule them all, one build to find them, one configuration to bring them all, and in the darkness bind them! Watch as we bend MSBuild to our will, turning the multi-project .NET convention on its head. Warning: may contain traces of build system hackery and mild rebellion against the 'golden path'"
 tags:
   - csharp
 ---

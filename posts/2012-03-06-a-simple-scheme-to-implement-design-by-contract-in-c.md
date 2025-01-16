@@ -5,6 +5,7 @@ date: 2012-03-06T16:42:58+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=78
+description: "Bringing Eiffel's design by contract to C++ through the dark arts of macro magic and lambda functions. Watch as we craft preconditions, postconditions, and invariants with a surprisingly clean syntax. Use at your own risk, but hey, at least it's pretty"
 categories:
   - C
 tags:

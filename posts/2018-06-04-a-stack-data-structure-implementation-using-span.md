@@ -8,6 +8,7 @@ layout: post
 guid: https://lucabolognese.wordpress.com/?p=294
 timeline_notification:
   - "1528113420"
+description: "Watch as we squeeze every last drop of performance from a simple stack data structure using C#'s new Span type. From heap to stack to unmanaged memory, this memory-location-agnostic implementation will make your benchmarks sing. Warning: may contain traces of unsafe code and performance obsession"
 tags:
   - csharp
 ---

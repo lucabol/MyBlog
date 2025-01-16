@@ -3,6 +3,7 @@ title: Excel Financial Functions live on
 date: 2022-08-05
 author: lucabol
 layout: post
+description: "A nostalgic tale of F# and fatherhood, where 199,252 test cases meet Mediterranean waves. This love letter to a financial library, born in the summer of 2008, proves that good code, like fine wine, only gets better with age. Who knew Excel compatibility could be so romantic?"
 tags:
   - fsharp
 ---

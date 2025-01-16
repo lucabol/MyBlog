@@ -3,6 +3,7 @@ title: Confusing characters in text
 date: 2020-01-19
 author: lucabol
 layout: post
+description: "Is that a lowercase L or a number one? An uppercase O or a zero? Welcome to the typographic twilight zone where letters and numbers play tricks on your eyes. A collection of devilishly confusing character combinations that will make you question everything you thought you knew about reading"
 tags:
   - typography
 ---

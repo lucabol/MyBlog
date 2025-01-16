@@ -3,6 +3,7 @@ title: Using Zig comptime for conceptual dryness
 date: 2022-03-09
 author: lucabol
 layout: post
+description: "Watch in awe as Zig's comptime magic transforms repetitive boilerplate into elegant simplicity. This deep dive into metaprogramming shows how to make the compiler do your dirty work, turning runtime overhead into compile-time poetry. Bonus: includes assembly proof that we're not just shuffling complexity around"
 tags:
   - forth
   - zig

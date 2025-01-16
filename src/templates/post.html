@@ -2,6 +2,12 @@
 
 {% block title %}{{ post.title }} - Luca Bolognese{% endblock %}
 
+{% block meta_description %}
+{% if post.description %}
+    <meta name="description" content="{{ post.description }}">
+{% endif %}
+{% endblock %}
+
 {% block content %}
     <h1>{{ post.title }}</h1>
     

@@ -5,6 +5,7 @@ date: 2012-06-01T06:45:26+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=96
+description: "The grand finale of our C++ functional journey, where we wrestle with nested functions, tangle with tuples, and finally answer: can C++ truly be functional? Spoiler: yes, but prepare for some template error swimming lessons"
 categories:
   - C
 tags:

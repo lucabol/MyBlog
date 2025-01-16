@@ -5,6 +5,7 @@ date: 2012-12-07T09:44:00+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=109
+description: "Peek under the hood of our Critical monad implementation, where exceptions meet return values in an elegant dance of error handling. From computation expressions to function overloading tricks, see how we bridge the gap between throwing and returning. Warning: may contain traces of monadic magic"
 categories:
   - fsharp
 tags:

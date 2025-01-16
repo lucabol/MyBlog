@@ -93,7 +93,8 @@ class BlogGenerator:
             'tags': post.get('tags', []),
             'content': self._convert_markdown(post.content),
             'url': f'posts/{os.path.splitext(filename)[0]}.html',
-            'comments_url': self._get_comments_url(post_date, post_title)
+            'comments_url': self._get_comments_url(post_date, post_title),
+            'description': post.get('description')
         }
         
     def read_posts(self):

@@ -5,6 +5,7 @@ date: 2012-11-30T16:41:00+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=107
+description: "Tired of error handling code cluttering your logic? Meet the Critical monad, where exceptions and return values live in harmony. Watch as we use computation expressions to make error handling both explicit and elegant. Because sometimes the best way to handle failure is to embrace it"
 categories:
   - fsharp
 tags:

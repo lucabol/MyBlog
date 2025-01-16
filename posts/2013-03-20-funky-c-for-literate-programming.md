@@ -5,6 +5,7 @@ date: 2013-03-20T15:29:05+00:00
 author: lucabol
 layout: post
 guid: http://lucabolognese.wordpress.com/?p=138
+description: "Can you write functional code in C? Hold my GCC extensions! Watch as we bend C to our will with discriminated unions, pattern matching, and even a touch of arena allocation. A tale of making the impossible possible, and the probably inadvisable somewhat elegant"
 tags:
   - 'C'
   - fsharp

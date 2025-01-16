@@ -11,6 +11,7 @@ layout: post
 guid: https://lucabolognese.wordpress.com/?p=1101
 timeline_notification:
   - "1547469263"
+description: "Want to live dangerously? Here's how to tell .NET's garbage collector to take a hike, complete with ETW event spying and delegate callbacks. Perfect for when you absolutely, positively must not have any GC pauses - and don't mind the occasional memory explosion"
 categories:
   - .NET Core
 tags:

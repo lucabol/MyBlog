@@ -5,6 +5,7 @@ date: 2012-09-04T10:16:17+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=100
+description: "Journey through three architectural iterations as we build a logging system, finally landing on the sweet spot where F# type providers meet ASP.NET Web APIs. Watch SQL views, REST endpoints, and JavaScript play together in perfect harmony. Because sometimes the third time's the charm"
 categories:
   - ASP.Net Web APIs
   - fsharp

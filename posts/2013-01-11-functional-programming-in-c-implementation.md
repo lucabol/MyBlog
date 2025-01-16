@@ -5,6 +5,7 @@ date: 2013-01-11T16:37:00+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=135
+description: "Macros, lambdas, and unions, oh my! Dive into the guts of our functional C implementation, where GCC extensions meet clever preprocessing tricks. A deep dive into how to make C pretend it's a functional language, complete with automatic cleanup and pattern matching. Not for the faint of heart"
 categories:
   - C
   - Functional

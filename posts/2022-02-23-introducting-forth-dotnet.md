@@ -3,6 +3,7 @@ title: Introducing Forth.Net
 date: 2022-02-23
 author: lucabol
 layout: post
+description: "Behold the unholy matrimony of Forth and .NET! This mad scientist experiment brings stack-based joy to the CLR, complete with a CLI, binary compilation, and even some .NET API calls. Who said you can't teach an old language new tricks? Just don't tell the C# purists what we're up to"
 tags:
   - forth
   - csharp

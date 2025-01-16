@@ -5,6 +5,7 @@ date: 2012-04-27T09:29:00+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=92
+description: "Move over Boost.Variant, there's a new discriminated union in town! Watch as we craft F#-style algebraic datatypes in C++ using the dark arts of macros. Sure, we lose some compile-time safety, but look at that sweet pattern matching syntax"
 categories:
   - C
 tags:

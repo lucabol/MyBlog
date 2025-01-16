@@ -3,6 +3,7 @@ title: Recursively extracting nested links from a webpage using Racket
 date: 2020-05-11
 author: lucabol
 layout: post
+description: "Join a C# developer's first dance with parentheses as he discovers the elegant world of Racket and LISP. Watch as nested expressions transform into a web crawler, while our protagonist learns that sometimes the most powerful code is the one that looks like an emoji explosion"
 tags:
   - racket
   - functional
@@ -237,4 +238,3 @@ instead. To run them you call `raco test FILENAME`.
   different from the C-like one most of us are used to. It also takes a while to get used to the style 
   of the documentation, which is written very precisely for the careful reader. We are more used to the
   'here is an example, copy it' kind of documentation. For the distracted programmer ...
-  

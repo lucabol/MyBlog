@@ -5,6 +5,7 @@ date: 2013-01-04T14:45:00+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=134
+description: "What if we took C, sprinkled it with GCC extensions, and made it dance like a functional language? Join us on this wild ride where discriminated unions meet macros, and nested functions pretend to be lambdas. Warning: Microsoft compiler users need not apply"
 categories:
   - C
   - Functional

@@ -3,6 +3,7 @@ title: The sea calls
 date: 2024-12-29
 author: lucabol
 layout: post
+description: "A lyrical journey through time follows a little girl's lifelong connection to the sea, from her mesmerizing childhood encounter on an empty beach to her final moments sharing its whispered wisdom. In this poetic tale, the ocean's eternal call weaves through life's milestones like a persistent melody, refusing to be silenced by the rhythms of modern life"
 tags:
   - story
 ---

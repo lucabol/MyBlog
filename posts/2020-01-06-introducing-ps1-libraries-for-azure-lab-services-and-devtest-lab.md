@@ -3,6 +3,7 @@ title: Introducing PS1 Libraries for Azure Lab Services and DevTest Labs
 date: 2020-01-06
 author: lucabol
 layout: post
+description: "Behold the power of the pipe! These PowerShell libraries turn Azure Lab management into a graceful dance of commands, flowing like poetry from left to right. Who knew infrastructure automation could be so elegant? It's like Unix philosophy met cloud computing and they had a beautiful baby"
 tags:
   - lab services
   - devtest labs

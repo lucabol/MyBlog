@@ -5,6 +5,7 @@ date: 2012-03-30T10:11:00+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=83
+description: "Beyond the 'big fat for loop': discover how Boost.Range and clever operator overloading can bring F#-style function composition to C++. With performance benchmarks to prove it won't kill your program. Because even C++ deserves some functional elegance"
 categories:
   - C
 tags:

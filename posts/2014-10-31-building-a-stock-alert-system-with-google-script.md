@@ -9,6 +9,7 @@ sharing_disabled:
   - "1"
 geo_public:
   - "0"
+description: "Who needs fancy trading platforms when you've got Google Sheets and a dream? Watch as we build a DIY stock alert system using nothing but Google Script and Yahoo's API. A tale of spreadsheet wizardry, web scraping, and the occasional timeout error that keeps us humble"
 categories:
   - Investing
   - javascript

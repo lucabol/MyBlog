@@ -7,6 +7,7 @@ layout: post
 guid: https://lucabolognese.wordpress.com/?p=1132
 timeline_notification:
   - "1548065149"
+description: "Ever wanted to tell the garbage collector to take a vacation? Here's how to put GC on pause in .NET Core 3.0, complete with event listeners and safety nets. Warning: contains dark runtime magic and questionable exception handling practices that we somehow got away with"
 categories:
   - .NET Core
 tags:

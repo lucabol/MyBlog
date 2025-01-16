@@ -3,6 +3,7 @@ title: Status of C# 8.0 functional features with a comparison to Haskell
 date: 2019-12-06
 author: lucabol
 layout: post
+description: "Can C# dance the functional tango? Watch as we pit Microsoft's favorite against Haskell's pure functional prowess. From pattern matching to discriminated unions, see how C# 8.0 brings its own flavor to the functional feast. Spoiler alert: sometimes you can teach an old dog new monadic tricks"
 tags:
   - csharp
   - functional

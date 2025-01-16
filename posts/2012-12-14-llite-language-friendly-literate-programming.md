@@ -5,6 +5,7 @@ date: 2012-12-14T12:29:26+00:00
 author: lucabol
 layout: post
 guid: http://lucabolognese.wordpress.com/?p=127
+description: "Tired of choosing between readable code and working IntelliSense? Meet LLite, where literate programming meets modern tooling. Watch as we build a language-agnostic system that keeps both your narrative and your IDE happy. Because who said you can't have your cake and debug it too?"
 categories:
   - C
   - fsharp

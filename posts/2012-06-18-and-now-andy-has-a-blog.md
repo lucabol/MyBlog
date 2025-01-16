@@ -5,6 +5,7 @@ date: 2012-06-18T07:26:49+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=98
+description: "Quick heads up: Andy Sawyer starts blogging about C++, kicking things off with a deep dive into STL container selection. One for the C++ enthusiasts out there"
 categories:
   - Miscellanea
 ---

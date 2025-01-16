@@ -5,6 +5,7 @@ date: 2012-03-23T08:11:00+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=81
+description: "Can we bring F#-style immutable records to C++? Join us as we explore three different approaches, from obvious to clever, complete with structural equality and macro magic. Because even C++ deserves some functional data structures"
 categories:
   - C
 tags:

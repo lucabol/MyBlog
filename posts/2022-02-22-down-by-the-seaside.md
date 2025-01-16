@@ -3,6 +3,7 @@ title: Down by the seaside
 date: 2022-02-22
 author: lucabol
 layout: post
+description: "On a moonlit night by the raging sea, a man's heart breaks and a rifle gleams. In this taut tale of betrayal and almost-revenge, watch as nature itself - wind, rain, and salt - conspires to wash away murderous intentions, leaving only the hollow echo of lost love"
 tags:
   - story
 ---

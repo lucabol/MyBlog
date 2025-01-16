@@ -5,6 +5,7 @@ date: 2012-04-05T07:57:59+00:00
 author: lucabol
 layout: post
 guid: https://lucabolognese.wordpress.com/?p=89
+description: "A decade of investment wisdom distilled into one email: from the psychology of saving to the inefficiencies of markets. My personal roadmap for financial education, complete with book recommendations and practical advice. Because investing is simple, but not easy"
 categories:
   - Investing
 tags:

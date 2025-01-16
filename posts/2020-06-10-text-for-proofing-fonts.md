@@ -3,6 +3,7 @@ title: Text for proofing fonts
 date: 2020-06-10
 author: lucabol
 layout: post
+description: "A typographer's playground of perfectly crafted pangrams and carefully curated word combinations. This collection of test text isn't just about spotting kerning issues - it's about finding the poetry in the spaces between letters, where the true art of typography lives"
 tags:
   - typography
 ---

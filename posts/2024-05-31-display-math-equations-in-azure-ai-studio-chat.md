@@ -3,6 +3,7 @@ title: Display math equations in Azure AI Studio Chat
 date: 2024-05-31
 author: lucabol
 layout: post
+description: "Tired of squinting at unreadable LaTeX equations in Azure AI Studio? Join me in this slightly questionable adventure where we bend JavaScript to our will, forcing MathJax to transform mathematical hieroglyphics into beautiful rendered equations. Warning: includes a dash of browser extension magic and a sprinkle of \"please don't try this in production\""
 tags:
   - AI
 ---
