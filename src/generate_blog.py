@@ -193,6 +193,13 @@ class BlogGenerator:
                 dir_name,
                 os.path.join(self.output_dir, dir_name)
             )
+            
+        # Copy favicon files
+        for favicon in ['favicon.svg', 'favicon.ico']:
+            self._copy_static_asset(
+                favicon,
+                os.path.join(self.output_dir, favicon)
+            )
     
     def generate_feed(self):
         """Generate RSS feed."""
