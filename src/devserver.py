@@ -5,9 +5,8 @@ import os
 from generate_blog import main as generate_blog
 
 def main():
-    # Kill any running Python processes except the current one
-    current_pid = os.getpid()
-    os.system(f'wmic process where "name=\'python.exe\' and processid!={current_pid}" call terminate 2>nul')
+    # Kill any running processes started with 'uv run'
+    os.system('wmic process where "commandline like \'%uv run%\'" call terminate 2>nul')
     
     # Delete dist directory if it exists
     if os.path.exists('dist'):
