@@ -1,10 +1,12 @@
 ---
-title: Un paese smisurato
+title: Il quadernetto giallo
 date: 2025-01-30
 author: lucabol
 tags: [story]
 ---
 AVVISO DI CONTENUTO: linguaggio volgare e contenuti potenzialmente offensivi.
+
+<img src="/img/paese.jpg" alt="woman wring at a table" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 C'era una volta una puttana che amava la matematica. O meglio, amava i numeri. Come qualcuno colleziona francobolli, lei invece collezionava misure.
 
