@@ -7,7 +7,7 @@ description: "A lyrical journey through time follows a little girl's lifelong co
 tags:
   - story
 ---
-<img src="/img/girl.jpg" alt="fishermen" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/girl.jpg" alt="little girl looking at sea" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 The beach was long and empty. The sea moved like a prairie, and the sky smelled of lavender. From above, the sun cast its warm, indifferent gaze.
 At the boundary between sand and water stood the little girl. A passing glance might have missed her. Just another log washed out by the sea.

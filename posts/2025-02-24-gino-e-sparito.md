@@ -4,7 +4,7 @@ date: 2025-02-24
 author: lucabol
 tags: [story]
 ---
-<img src="/img/gino.jpg" alt="fishermen" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/gino.jpg" alt="gino looks at pina" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Gino era un bambino di otto anni magro magro. Sembrava uscito da un film in bianco e nero del dopoguerra. Era un bambino allegro dal sorriso facile e sdentato. La gente in paese lo conosceva bene e lo fermava per strada per regalargli dolcetti, figurine o anche solo una parola buona. Lui ringraziava timido e ripartiva a razzo verso le avventure che aspettano i bambini troppo attivi.
 
