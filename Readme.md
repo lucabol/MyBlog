@@ -4,21 +4,12 @@ This is my blog, built with Python and hosted on Netlify.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fdf61c15-1bd9-493a-a4b1-f829d6e77780/deploy-status)](https://app.netlify.com/sites/lucabol/deploys)
 
-## Building Locally
+## Building and running locally
 
-1. Install Python dependencies:
-```bash
-pip install -r src/requirements.txt
-```
+Running the webserver automatically builds the website:
 
-2. Build the site:
 ```bash
-python src/generate_blog.py
-```
-
-3. For development, you can use the dev server:
-```bash
-python src/devserver.py
+uv run src/devserver.py
 ```
 
 ## Deployment
@@ -40,3 +31,11 @@ To enable automatic deployments, you need to add two secrets to your GitHub repo
 
 1. `NETLIFY_SITE_ID` - Found in Netlify under Site Settings > General > Site details > Site ID
 2. `NETLIFY_AUTH_TOKEN` - Create at https://app.netlify.com/user/applications#personal-access-tokens
+
+## Image Generation
+
+Story images in this blog have been generated with [InvokeAI](https://github.com/invoke-ai/InvokeAI) using the [Flux.dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) model. The generation process involved using the text of each story as a prompt, with the following style modifier appended:
+
+```
+black and white pencil drawing except for a small red sun on the horizon, off-center composition, cross-hatching for shadows, bold strokes, textured paper. sketch+++
+```

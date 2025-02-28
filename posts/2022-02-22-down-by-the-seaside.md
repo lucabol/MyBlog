@@ -7,6 +7,8 @@ description: "On a moonlit night by the raging sea, a man's heart breaks and a r
 tags:
   - story
 ---
+<img src="/img/lovers.jpg" alt="fishermen" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+
 The wind batters their face; the sea sings in their ears. The night is yellow with hate. I look at them from my position behind the house. They are like shadows.
 
 She is my girlfriend. I don't know him. They kiss, as I know they would: entwined like a grapevine. A dog barks in the distance. I jump, scared. The moon laughs at us all.
