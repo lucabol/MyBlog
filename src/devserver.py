@@ -4,6 +4,7 @@ import shutil
 import os
 from generate_blog import main as generate_blog
 
+
 def main():
     # Kill any running processes started with 'uv run'
     os.system('wmic process where "commandline like \'%uv run%\'" call terminate 2>nul')
@@ -35,6 +36,7 @@ def main():
             print(f"Port {PORT} is already in use. Please stop any running servers first.")
         else:
             raise
+
 
 if __name__ == '__main__':
     main()
