@@ -3,6 +3,7 @@ title: Gino è sparito
 date: 2025-02-24
 author: lucabol
 tags: [story]
+description: "La misteriosa scomparsa di Gino, un bambino di otto anni, sconvolge un piccolo paese, rivelando segreti e sospetti tra i suoi abitanti."
 ---
 <img src="/img/gino.jpg" alt="gino looks at pina" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 

@@ -3,6 +3,7 @@ title: A few good books
 date: 2025-02-10
 author: lucabol
 tags: [books]
+description: "A curated list of books that have left a lasting impression on me, covering topics from investing to philosophy, management, and more."
 ---
 I am a voracious reader. Multiple books a week kind of crazy. Occasionally people ask me for a list of good books in the various areas I am interested in. This is it. Just a few books on each topic, perhaps not even the best ones, but the ones that left an impression on me.
 
