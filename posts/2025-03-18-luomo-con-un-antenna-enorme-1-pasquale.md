@@ -3,7 +3,10 @@ title: L'uomo con un antenna enorme 1 - Pasquale
 date: 2025-03-18
 author: lucabol
 tags: [story]
+description: "In un piccolo paese, Alfredo usa una misteriosa antenna per intercettare comunicazioni, decidendo di usare questo potere per orchestrare un improbabile incontro tra un rozzo contadino e un'accademica raffinata."
 ---
+<img src="/img/antenna.jpg" alt="A house with a large antenna" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+
 C'era una volta un tipo che aveva un'antenna enorme sul tetto di casa. La gente pensava che la usasse per parlare con radioamatori in tutto il mondo, ma non era così. La realtà era ben diversa.
 
 Il tipo in questione si chiamava Alfredo e veniva da una famiglia agiata della zona che però era andata in disgrazia. Gli erano rimasti abbastanza soldi per non dover lavorare, ma non abbastanza per vivere bene. Faceva infatti una vita oziosa e riservata, sempre chiuso in casa a fare chissà cosa.
