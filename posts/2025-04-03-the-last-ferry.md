@@ -18,7 +18,7 @@ _What??_
 
 The man was young, embarrassed and went back to his table. Claudia looked at him sternly; thin, nervy, faded jeans, a book on his laps - 'Siddhartha' - and he wasn't young. He had gray in his hair. He wasn't young, but she 'felt him' young. 
 
-At work, she wasn't sure if the presentation went well or badly.  _Focus, Claudia, focus ... what is the problem with you? Go ... ask for feedback ... smile ... smile ... too many things going on in my life ... need more discipline_
+At work, she wasn't sure if the presentation went well or badly.  _Focus, Claudia, focus ... what is the problem with you? Go ... ask for feedback ... smile ... smile ... too many things going on in my life ... need more discipline._
 
 "Do you think I have hazel eyes?" she asked her husband, while cooking the steaks.
 
