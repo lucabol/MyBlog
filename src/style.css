@@ -48,6 +48,7 @@ html, body {
     max-width: 75ch;
     margin: 0 auto;
     padding: 0.5rem 1rem;
+    text-wrap: pretty;
 }
 
 /* Enable ligatures for body text but not headings */
@@ -117,6 +118,8 @@ article h1 {
 }
 .post-content p {
     text-align: left;
+    margin-block: 1lh;
+    text-wrap: pretty;
 }
 .post-tags {
     list-style-type: circle;
