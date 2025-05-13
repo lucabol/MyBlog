@@ -2,7 +2,7 @@
 title: How I changed my blog (again)
 date: 2025-01-13
 author: lucabol
-tags: [Myscellanea, typography]
+tags: [Miscellanea, typography]
 description: "In a delightful dance with AI, I transformed my blog from an Eleventy-powered behemoth into a lean, mean, Python-generated machine. Along the way, I managed to resurrect ancient comments through Github issues (because who needs JavaScript?), and convinced my AI buddy to fix a cemetery of badly formatted posts from the coding stone age. All of this with just 232 lines of embarrassingly obvious Python code - take that, complexity!"
 ---
 I wanted to try out [Cline](https://github.com/cline/cline) on a medium-sized project. For a long time I wanted to move away from a static generator like `Eleventy` to a simple `bash` or `Python` script that generates `html` and `css` that I can ftp to wherever.
