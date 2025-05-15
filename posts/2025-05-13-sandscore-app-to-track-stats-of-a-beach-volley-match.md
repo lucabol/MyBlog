@@ -3,6 +3,7 @@ title: "SandScore: app to track stats of a beach volley match"
 date: 2025-05-13
 author: lucabol
 tags: [Sport, Statistics]
+description: "A look at SandScore, an app designed to track and analyze statistics for beach volleyball matches, helping players and enthusiasts improve their game."
 ---
 I have created a phone friendly application to track the score and stats for a beach volley game. It is [here](https://github.com/lucabol/SandScore).
 

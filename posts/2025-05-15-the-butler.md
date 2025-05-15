@@ -3,6 +3,7 @@ title: The butler
 date: 2025-05-15
 author: lucabol
 tags: [story]
+description: "A Southern gothic tale of power, loyalty, and quiet resistance, as seen through the eyes of a butler witnessing the unraveling of a plantation household."
 ---
 <img src="/img/butler.jpg" alt="A black butler carrying a woman asleep" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 

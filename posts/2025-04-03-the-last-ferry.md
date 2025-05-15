@@ -3,6 +3,7 @@ title: The last ferry
 date: 2025-04-03
 author: lucabol
 tags: [story]
+description: "A story about longing, fleeting connections, and rediscovering what truly matters, set against the backdrop of daily ferry rides and inner transformation."
 ---
 <img src="/img/ferry.jpg" alt="A girl watching a couple on a ferry." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 

@@ -3,6 +3,7 @@ title: A very polite girl met an Ogre in the woods
 date: 2025-04-09
 author: lucabol
 tags: [story]
+description: "A whimsical and witty encounter between a polite girl and an ogre in the frozen woods, exploring manners, honesty, and unexpected conversations."
 ---
 <img src="/img/ogre.jpg" alt="A woman looking at an Ogre by the fire in the woods." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
