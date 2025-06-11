@@ -8,6 +8,38 @@ import urllib.parse
 import yaml
 
 class BlogGenerator:
+    def generate_sitemap(self):
+        """Generate sitemap.xml with all site URLs."""
+        base_url = "https://lucabol.com"  # Change to your actual domain if needed
+        urls = [
+            f"{base_url}/",
+            f"{base_url}/notes.html",
+            f"{base_url}/tags.html",
+            f"{base_url}/about.html",
+            f"{base_url}/code.html",
+            f"{base_url}/feed.xml",
+        ]
+
+        # Add post URLs
+        for post in self.posts:
+            urls.append(f"{base_url}/{post['url']}")
+
+        # Add tag pages
+        for tag in self.tags:
+            urls.append(f"{base_url}/tags/{tag}.html")
+
+        # Build XML
+        urlset = [
+            '<?xml version="1.0" encoding="UTF-8"?>',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        ]
+        for url in urls:
+            urlset.append(f"  <url><loc>{url}</loc></url>")
+        urlset.append('</urlset>')
+
+        sitemap_content = "\n".join(urlset)
+        self._write_file(os.path.join(self.output_dir, "sitemap.xml"), sitemap_content)
+
     def __init__(self, posts_dir, output_dir):
         self.posts_dir = posts_dir
         self.output_dir = output_dir
@@ -237,6 +269,9 @@ class BlogGenerator:
         self.generate_code_page()
         self.generate_about_page()
         self.generate_feed()
+
+        # Dynamically generate sitemap.xml every time
+        self.generate_sitemap()
 
 def main():
     generator = BlogGenerator('posts', 'dist')
