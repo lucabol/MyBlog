@@ -1,3 +1,7 @@
+- name: JediMaster
+  desc: A Python script and Azure Function to use AI to assign github issues to the Github code agent.
+- name: SandScore
+  desc: An application to keep track of statistics for a beach volleyball match.
 - name: Forth.Net
   desc: A Forth cli and library for .NET, token threaded, saves and load to a concise binary file.
 - name: lupo
