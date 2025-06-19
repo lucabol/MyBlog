@@ -3,6 +3,7 @@ title: "JediMaster: LLM assigns issues to Coding Agent"
 date: 2025-06-19
 author: lucabol
 tags: [Python, AI]
+description: "A Python package that uses an LLM to automatically assign GitHub issues to a coding agent."
 ---
 I have been working on JediMaster: a Python package that uses an LLM to assign issues to the GitHub coding agent.
 
