@@ -1,5 +1,5 @@
 ---
-title: "Notes: The Iliad"
+title: "Notes: The Iliad - By Homer"
 date: 2025-09-09
 author: lucabol
 tags: [Books]
