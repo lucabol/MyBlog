@@ -370,9 +370,9 @@ th {
 
 /* Inline language toggle for story list */
 .lang-toggle-inline {
-    font-size: calc(var(--base-size) * 0.8);
+    font-size: 0.75em;
     color: var(--color-muted);
-    margin-left: 0.5em;
+    margin-left: 0.3em;
 }
 
 .lang-toggle-inline a {
