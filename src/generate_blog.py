@@ -194,11 +194,67 @@ class BlogGenerator:
         
         for tag, posts in self.tags.items():
             posts_by_year, sorted_years = self._group_posts_by_year(posts)
-            self._render_and_write('tag.html',
-                                 os.path.join(tags_dir, f'{tag}.html'),
-                                 tag=tag,
-                                 posts_by_year=posts_by_year,
-                                 sorted_years=sorted_years)
+            
+            # Special handling for 'story' tag - generate EN and IT versions
+            if tag == 'story':
+                self._generate_story_tag_pages(posts, posts_by_year, sorted_years, tags_dir)
+            else:
+                self._render_and_write('tag.html',
+                                     os.path.join(tags_dir, f'{tag}.html'),
+                                     tag=tag,
+                                     posts_by_year=posts_by_year,
+                                     sorted_years=sorted_years)
+    
+    def _generate_story_tag_pages(self, posts, posts_by_year, sorted_years, tags_dir):
+        """Generate EN and IT versions of the story tag page."""
+        # Create posts with English titles (original or translated)
+        en_posts_by_year = defaultdict(list)
+        it_posts_by_year = defaultdict(list)
+        
+        for post in posts:
+            year = post['date'].strftime('%Y') if post['date'] else 'Unknown'
+            slug = post['slug']
+            source_lang = post.get('language', 'en')
+            
+            # Get translated title if available
+            if source_lang == 'it':
+                # Italian original - get English translation title
+                en_title, _ = load_translation(slug, 'en')
+                it_title = post['title']
+            else:
+                # English original - get Italian translation title
+                it_title, _ = load_translation(slug, 'it')
+                en_title = post['title']
+            
+            # Create post copies with display titles
+            en_post = post.copy()
+            en_post['display_title'] = en_title or post['title']
+            en_posts_by_year[year].append(en_post)
+            
+            it_post = post.copy()
+            it_post['display_title'] = it_title or post['title']
+            it_posts_by_year[year].append(it_post)
+        
+        # Sort posts within years
+        for year in sorted_years:
+            en_posts_by_year[year].sort(key=lambda x: x['date'], reverse=True)
+            it_posts_by_year[year].sort(key=lambda x: x['date'], reverse=True)
+        
+        # Generate English version (default)
+        self._render_and_write('tag_story.html',
+                             os.path.join(tags_dir, 'story.html'),
+                             tag='story',
+                             posts_by_year=en_posts_by_year,
+                             sorted_years=sorted_years,
+                             language='en')
+        
+        # Generate Italian version
+        self._render_and_write('tag_story.html',
+                             os.path.join(tags_dir, 'story-it.html'),
+                             tag='story',
+                             posts_by_year=it_posts_by_year,
+                             sorted_years=sorted_years,
+                             language='it')
     
     def generate_post_pages(self):
         """Generate individual post pages."""
