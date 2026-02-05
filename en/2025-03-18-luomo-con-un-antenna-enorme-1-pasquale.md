@@ -50,7 +50,7 @@ Pasqù: "Bacchus will be our chaperone. If you desire me too, pronounce the code
 Milani: "What eel! Pasqù, have you gone crazy?"
 Milani (after a while): "Come on Pasqù, answer me, are you angry?"
 
-Pasqù arrived at Bar Sport like every Friday evening. He sat at his usual table. He was in great shape that night. He had discovered a new expletive that he now used, in adjectival form, attaching it to every word. The adjective was 'super-bitching'. A shepherd friend of his had used it to describe a rooster that refused to crow at the appointed hour. To Pasqù, it had seemed a most refined term.
+Pasqù arrived at Bar Sport like every Friday evening. He sat at his usual table. He was in great shape that night. He had discovered a new expletive that he now used, in adjectival form, attaching it to every word. The adjective was 'bitching'. A shepherd friend of his had used it to describe a rooster that refused to crow at the appointed hour. To Pasqù, it had seemed a most refined term.
 
 The hour had grown late. Darkness fell upon Bar Sport. Pasqù, by now good and drunk, was beginning to doze off with his head on the small table. Sappy music filled the air, covering the blasphemies of the bartender who wanted to send everyone home. Cigarette smoke enveloped the tables, creating a primordial Borneo-style fog.
 
