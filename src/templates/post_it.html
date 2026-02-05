@@ -11,15 +11,13 @@
 {% block content %}
     <div class="post-header">
         <h1>{{ post.title }}</h1>
-        {% if post.has_translation %}
         <div class="lang-toggle">
-            {% if post.language == 'it' %}
-            <span class="active">IT</span> | <a href="{{ post.translation_url }}">EN (AI)</a>
+            {% if post.target_language == 'en' %}
+            <a href="{{ post.original_url }}">IT</a> | <span class="active">EN (AI)</span>
             {% else %}
-            <span class="active">EN</span> | <a href="{{ post.translation_url }}">IT (AI)</a>
+            <a href="{{ post.original_url }}">EN</a> | <span class="active">IT (AI)</span>
             {% endif %}
         </div>
-        {% endif %}
     </div>
     
     <div class="post-meta">

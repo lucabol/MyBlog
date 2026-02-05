@@ -338,3 +338,32 @@ th {
     margin: 2rem auto;
     display: block;
 }
+
+/* Language toggle styles */
+.post-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.post-header h1 {
+    margin-bottom: 0.5rem;
+}
+
+.lang-toggle {
+    font-size: calc(var(--base-size) * 0.85);
+    color: var(--color-muted);
+}
+
+.lang-toggle .active {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.lang-toggle a {
+    color: var(--color-muted) !important;
+    text-decoration: none;
+}
+
+.lang-toggle a:hover {
+    text-decoration: underline;
+}

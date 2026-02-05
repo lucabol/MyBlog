@@ -3,6 +3,7 @@ title: Il quadernetto giallo
 date: 2025-01-30
 author: lucabol
 tags: [story]
+language: it
 description: "Una storia surreale di una donna che colleziona misure dei suoi clienti in un quadernetto giallo, rivelando segreti e provocando il caos in un piccolo paese."
 ---
 AVVISO DI CONTENUTO: linguaggio volgare e contenuti potenzialmente offensivi.

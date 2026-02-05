@@ -6,6 +6,7 @@ from jinja2 import Environment, FileSystemLoader
 import markdown
 import urllib.parse
 import yaml
+from translate import translate_story, translation_exists, has_api_key, print_api_key_info, save_translation, load_translation
 
 class BlogGenerator:
     def generate_sitemap(self):
@@ -117,16 +118,28 @@ class BlogGenerator:
             
         post_date = self._process_post_date(post.get('date'))
         post_title = post.get('title', 'Untitled')
+        post_tags = post.get('tags', [])
+        slug = os.path.splitext(filename)[0]
+        language = post.get('language', 'en')
+        
+        # Check if this is a story
+        is_story = 'story' in post_tags
             
         return {
             'title': post_title,
             'date': post_date,
             'author': self._process_post_author(post.get('author')),
-            'tags': post.get('tags', []),
+            'tags': post_tags,
             'content': self._convert_markdown(post.content),
-            'url': f'posts/{os.path.splitext(filename)[0]}.html',
+            'raw_content': post.content,
+            'url': f'posts/{slug}.html',
+            'slug': slug,
             'comments_url': self._get_comments_url(post_date, post_title),
-            'description': post.get('description')
+            'description': post.get('description'),
+            'is_story': is_story,
+            'language': language,
+            'has_translation': False,
+            'translation_url': None
         }
         
     def read_posts(self):
@@ -258,10 +271,76 @@ class BlogGenerator:
         self._render_and_write('about.html',
                              os.path.join(self.output_dir, 'about.html'))
 
+    def generate_italian_translations(self):
+        """Generate Italian translations for story posts."""
+        story_posts = [p for p in self.posts if p.get('is_story')]
+        
+        if not story_posts:
+            return
+        
+        # Print API key info
+        print_api_key_info()
+        
+        print(f"\n📚 Processing {len(story_posts)} story posts for translation...")
+        
+        it_dir = os.path.join(self.output_dir, 'it')
+        en_dir = os.path.join(self.output_dir, 'en')
+        self._ensure_dir(it_dir)
+        self._ensure_dir(en_dir)
+        
+        for post in story_posts:
+            slug = post['slug']
+            source_lang = post['language']
+            target_lang = 'en' if source_lang == 'it' else 'it'
+            target_dir = en_dir if target_lang == 'en' else it_dir
+            
+            print(f"\n  [{slug}] ({source_lang} → {target_lang})")
+            
+            # Check if translation already exists in source folder
+            if translation_exists(slug, target_lang):
+                print(f"    Translation exists - loading from {target_lang}/{slug}.md")
+                translated_md = load_translation(slug, target_lang)
+            elif has_api_key():
+                # Translate the content
+                print(f"    Translating to {target_lang}...")
+                translated_md = translate_story(post['raw_content'], target_lang)
+                
+                if translated_md:
+                    # Save to source folder
+                    save_translation(slug, translated_md, target_lang)
+                    print(f"    ✅ Translation saved to {target_lang}/{slug}.md")
+            else:
+                print(f"    ⏭️ No API key - skipping")
+                continue
+            
+            if translated_md:
+                # Convert translated markdown to HTML
+                translated_html = self._convert_markdown(translated_md)
+                
+                # Create translated post data
+                translated_post = post.copy()
+                translated_post['content'] = translated_html
+                translated_post['original_url'] = f'/{post["url"]}'
+                translated_post['target_language'] = target_lang
+                
+                # Write the translated page
+                template = 'post_en.html' if target_lang == 'en' else 'post_it.html'
+                self._render_and_write(template,
+                                     os.path.join(target_dir, f'{slug}.html'),
+                                     post=translated_post)
+                
+                # Update post to indicate it has a translation
+                post['has_translation'] = True
+                post['translation_url'] = f'/{target_lang}/{slug}.html'
+
     def generate_site(self):
         """Generate the complete site."""
         self.read_posts()
         self.copy_static_files()
+        
+        # Generate translations first (updates post data with has_translation)
+        self.generate_italian_translations()
+        
         self.generate_home_page()
         self.generate_notes_page()
         self.generate_tags_page()
