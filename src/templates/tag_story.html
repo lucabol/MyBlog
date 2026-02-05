@@ -13,9 +13,9 @@
                     {{ post.title }}
                     <span class="lang-toggle-inline">
                         {% if post.language == 'it' %}
-                        (<a href="/{{ post.url }}">IT</a> | <a href="{{ post.translation_url }}">EN (AI)</a>)
+                        [<a href="/{{ post.url }}">IT</a> | <a href="{{ post.translation_url }}">EN*</a>]
                         {% else %}
-                        (<a href="/{{ post.url }}">EN</a> | <a href="{{ post.translation_url }}">IT (AI)</a>)
+                        [<a href="/{{ post.url }}">EN</a> | <a href="{{ post.translation_url }}">IT*</a>]
                         {% endif %}
                     </span>
                 </li>
