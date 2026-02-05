@@ -89,4 +89,4 @@ I thought of the website later. I created it for my second degree in sociology. 
 
 Do I regret what I did? Some suffered a bit; others gained. After a few years, nobody gave a damn anymore. Only the nicknames remained.
 
-Big-D lives here with me in London. He hasn't learned a single word of English, but I don't care. The important things in life are others.
+Big-D lives here with me in London. He hasn't learned a single word of English, but I don't care. There are other important things in life.
