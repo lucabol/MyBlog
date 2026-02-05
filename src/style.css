@@ -370,7 +370,7 @@ th {
 
 /* Inline language toggle for story list */
 .lang-toggle-inline {
-    font-size: 0.65em;
+    font-size: 12px;
     color: var(--color-muted);
     margin-left: 0.3em;
 }
