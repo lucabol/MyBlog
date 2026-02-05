@@ -1,3 +1,6 @@
+---
+title: Gino Has Disappeared
+---
 <img src="/img/gino.jpg" alt="gino looks at pina" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Gino was a very skinny eight-year-old boy. He looked like he had stepped out of a post-war black and white movie. He was a cheerful child with an easy, toothless smile. People in the village knew him well and would stop him on the street to give him sweets, trading cards, or even just a kind word. He would thank them shyly and take off like a rocket toward the adventures that await overly active children.

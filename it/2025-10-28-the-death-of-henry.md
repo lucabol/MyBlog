@@ -1,3 +1,6 @@
+---
+title: La morte di Henry
+---
 <img src="/img/henry4.jpg" alt="An old man sleeping on the floor surrounded by occult books and tarot cards" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Stava per succedere. Henry lo sapeva. Il processo era completo. Il momento era arrivato. Stava per morire.

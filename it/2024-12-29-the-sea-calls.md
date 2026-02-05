@@ -1,3 +1,6 @@
+---
+title: Il richiamo del mare
+---
 <img src="/img/girl.jpg" alt="bambina che guarda il mare" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 La spiaggia era lunga e deserta. Il mare si muoveva come una prateria e il cielo profumava di lavanda. Dall'alto, il sole posava il suo sguardo caldo e indifferente.

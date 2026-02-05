@@ -1,15 +1,16 @@
 import os
 import time
+import frontmatter
 from dotenv import dotenv_values
 
 # Load only from .env file, ignore environment variables
 config = dotenv_values('.env')
 
-def translate_story(markdown_text, target_language, max_retries=3):
-    """Translate markdown text to target language using Gemini API."""
+def translate_story(markdown_text, title, target_language, max_retries=3):
+    """Translate markdown text and title to target language using Gemini API."""
     api_key = config.get('GEMINI_API_KEY')
     if not api_key or api_key == 'your-api-key-here':
-        return None
+        return None, None
     
     from google import genai
     from google.genai import types
@@ -21,7 +22,13 @@ def translate_story(markdown_text, target_language, max_retries=3):
     prompt = f"""Translate this story to {lang_name}. 
 Keep all markdown formatting intact (headers, bold, italic, links, etc.).
 Preserve the tone, style, and literary quality of the original.
-Only output the translated text, no explanations.
+
+First line of your response should be ONLY the translated title.
+Then a blank line.
+Then the translated content.
+No other explanations.
+
+Title: {title}
 
 ---
 {markdown_text}
@@ -38,7 +45,11 @@ Only output the translated text, no explanations.
                     )
                 )
             )
-            return response.text
+            # Parse response: first line is title, rest is content
+            lines = response.text.strip().split('\n')
+            translated_title = lines[0].strip()
+            translated_content = '\n'.join(lines[2:]).strip()  # Skip blank line
+            return translated_title, translated_content
         except Exception as e:
             if '429' in str(e) and attempt < max_retries - 1:
                 wait_time = 60 * (attempt + 1)
@@ -46,8 +57,8 @@ Only output the translated text, no explanations.
                 time.sleep(wait_time)
             else:
                 print(f"    ❌ Error: {e}")
-                return None
-    return None
+                return None, None
+    return None, None
 
 def translation_exists(slug, target_language):
     """Check if a translation already exists in source folder."""
@@ -55,22 +66,29 @@ def translation_exists(slug, target_language):
     path = os.path.join(folder, f'{slug}.md')
     return os.path.exists(path)
 
-def save_translation(slug, translated_markdown, target_language):
-    """Save translated markdown to source folder."""
+def save_translation(slug, title, translated_markdown, target_language):
+    """Save translated markdown with frontmatter to source folder."""
     folder = 'en' if target_language == 'en' else 'it'
     os.makedirs(folder, exist_ok=True)
     filepath = os.path.join(folder, f'{slug}.md')
+    
+    content = f"""---
+title: {title}
+---
+{translated_markdown}"""
+    
     with open(filepath, 'w', encoding='utf-8') as f:
-        f.write(translated_markdown)
+        f.write(content)
 
 def load_translation(slug, target_language):
-    """Load translated markdown from source folder."""
+    """Load translated markdown and title from source folder."""
     folder = 'en' if target_language == 'en' else 'it'
     filepath = os.path.join(folder, f'{slug}.md')
     if os.path.exists(filepath):
         with open(filepath, 'r', encoding='utf-8') as f:
-            return f.read()
-    return None
+            post = frontmatter.load(f)
+            return post.get('title'), post.content
+    return None, None
 
 def has_api_key():
     """Check if a valid Gemini API key is configured."""

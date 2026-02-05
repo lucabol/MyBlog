@@ -1,3 +1,6 @@
+---
+title: La ragazza del lago
+---
 <img src="/img/girllake.jpg" alt="Una donna guarda un lago" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Due volte nella mia vita ho visto l'immagine della ragazza nel lago. La prima volta ero solo una bambina. La mia mamma mi aveva mandato lì a lavare i piatti. Stavo camminando lungo il molo quando la vidi.

@@ -1,4 +1,6 @@
 ---
+title: Una ragazza molto educata incontrò un Orco nel bosco
+---
 <img src="/img/ogre.jpg" alt="A woman looking at an Ogre by the fire in the woods." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Una ragazza molto educata incontrò un Orco nel bosco. Stava raccogliendo funghi ed erbe per la cena dei suoi bambini. Lui stava mangiando un arrosto su un bastone. Faceva freddo, la foresta era coperta di ghiaccio e la ragazza tremava.

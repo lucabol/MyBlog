@@ -1,3 +1,6 @@
+---
+title: L'ultimo traghetto
+---
 <img src="/img/ferry.jpg" alt="Una ragazza che osserva una coppia su un traghetto." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 _Devo parlare con la scuola e con il maestro di tennis dopo il lavoro e servono le bistecche per cena stasera e mamma vuole chiacchierare di mia sorella ... ma, no aspetta ... non pensare così ... una cosa alla volta ... è quello che dice il libro ... per prima cosa, la mia presentazione di oggi ... al Capo è piaciuta? È un uomo intelligente, ma vorrei che parlasse più chiaramente ... sarà colpa della grafica di Diana ... sì, un po' insolita ma dai! ... e proprio oggi il traghetto è in ritardo ... farò di nuovo tardi al lavoro ..._

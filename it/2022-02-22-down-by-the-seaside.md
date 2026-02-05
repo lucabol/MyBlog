@@ -1,3 +1,6 @@
+---
+title: In riva al mare
+---
 <img src="/img/lovers.jpg" alt="due amanti" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Il vento sferza i loro volti; il mare canta nelle loro orecchie. La notte è gialla d'odio. Li guardo dalla mia posizione dietro la casa. Sono come ombre.

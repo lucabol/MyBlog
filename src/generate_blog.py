@@ -299,15 +299,15 @@ class BlogGenerator:
             # Check if translation already exists in source folder
             if translation_exists(slug, target_lang):
                 print(f"    Translation exists - loading from {target_lang}/{slug}.md")
-                translated_md = load_translation(slug, target_lang)
+                translated_title, translated_md = load_translation(slug, target_lang)
             elif has_api_key():
-                # Translate the content
+                # Translate the content and title
                 print(f"    Translating to {target_lang}...")
-                translated_md = translate_story(post['raw_content'], target_lang)
+                translated_title, translated_md = translate_story(post['raw_content'], post['title'], target_lang)
                 
-                if translated_md:
+                if translated_title and translated_md:
                     # Save to source folder
-                    save_translation(slug, translated_md, target_lang)
+                    save_translation(slug, translated_title, translated_md, target_lang)
                     print(f"    ✅ Translation saved to {target_lang}/{slug}.md")
             else:
                 print(f"    ⏭️ No API key - skipping")
@@ -320,6 +320,7 @@ class BlogGenerator:
                 # Create translated post data
                 translated_post = post.copy()
                 translated_post['content'] = translated_html
+                translated_post['title'] = translated_title or post['title']
                 translated_post['original_url'] = f'/{post["url"]}'
                 translated_post['target_language'] = target_lang
                 

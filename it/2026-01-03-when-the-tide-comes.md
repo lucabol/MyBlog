@@ -1,3 +1,6 @@
+---
+title: Quando arriva la marea
+---
 <img src="/img/OldManByTheSea.jpg" alt="Vecchio sulla spiaggia" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Il vecchio ora si muove lentamente. Impiega più tempo per percorrere tutta la strada fino alla spiaggia. Attraversa le mangrovie seguendo lo stretto sentiero verso la riva. Il cielo è nuvoloso. Il vento è forte e gli alberi ondeggiano.

@@ -1,4 +1,6 @@
 ---
+title: The Man with a Huge Antenna 1 - Pasquale
+---
 <img src="/img/antenna.jpg" alt="A house with a large antenna" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Once upon a time, there was a guy who had a huge antenna on the roof of his house. People thought he used it to speak with ham radio operators around the world, but that wasn't the case. The reality was quite different.

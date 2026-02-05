@@ -1,4 +1,6 @@
 ---
+title: Il tocco freddo
+---
 <img src="/img/girlcar.jpg" alt="Una ragazza fuori dall'auto sotto la pioggia." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Ricevette la chiamata a tarda notte, mentre leggeva a letto, la sua voce piatta come una segreteria telefonica. Si mise a sedere appoggiando la schiena al cuscino, la gola che si stringeva.
