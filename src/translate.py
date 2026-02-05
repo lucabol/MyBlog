@@ -53,10 +53,10 @@ Title: {title}
         except Exception as e:
             if '429' in str(e) and attempt < max_retries - 1:
                 wait_time = 60 * (attempt + 1)
-                print(f"    ⏳ Rate limited, waiting {wait_time}s...")
+                print(f"    [Wait] Rate limited, waiting {wait_time}s...")
                 time.sleep(wait_time)
             else:
-                print(f"    ❌ Error: {e}")
+                print(f"    [Error] {e}")
                 return None, None
     return None, None
 
@@ -99,9 +99,9 @@ def print_api_key_info():
     """Print info about which API key is being used."""
     api_key = config.get('GEMINI_API_KEY')
     if not api_key:
-        print("🔑 No GEMINI_API_KEY found in .env file")
+        print("[Key] No GEMINI_API_KEY found in .env file")
     elif api_key == 'your-api-key-here':
-        print("🔑 GEMINI_API_KEY is placeholder in .env file")
+        print("[Key] GEMINI_API_KEY is placeholder in .env file")
     else:
         masked = api_key[:8] + '...' + api_key[-4:]
-        print(f"🔑 Using GEMINI_API_KEY from .env: {masked}")
+        print(f"[Key] Using GEMINI_API_KEY from .env: {masked}")

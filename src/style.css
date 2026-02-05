@@ -367,3 +367,19 @@ th {
 .lang-toggle a:hover {
     text-decoration: underline;
 }
+
+/* Inline language toggle for story list */
+.lang-toggle-inline {
+    font-size: calc(var(--base-size) * 0.8);
+    color: var(--color-muted);
+    margin-left: 0.5em;
+}
+
+.lang-toggle-inline a {
+    color: var(--color-muted) !important;
+    text-decoration: none;
+}
+
+.lang-toggle-inline a:hover {
+    text-decoration: underline;
+}

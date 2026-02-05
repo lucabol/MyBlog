@@ -206,55 +206,13 @@ class BlogGenerator:
                                      sorted_years=sorted_years)
     
     def _generate_story_tag_pages(self, posts, posts_by_year, sorted_years, tags_dir):
-        """Generate EN and IT versions of the story tag page."""
-        # Create posts with English titles (original or translated)
-        en_posts_by_year = defaultdict(list)
-        it_posts_by_year = defaultdict(list)
-        
-        for post in posts:
-            year = post['date'].strftime('%Y') if post['date'] else 'Unknown'
-            slug = post['slug']
-            source_lang = post.get('language', 'en')
-            
-            # Get translated title if available
-            if source_lang == 'it':
-                # Italian original - get English translation title
-                en_title, _ = load_translation(slug, 'en')
-                it_title = post['title']
-            else:
-                # English original - get Italian translation title
-                it_title, _ = load_translation(slug, 'it')
-                en_title = post['title']
-            
-            # Create post copies with display titles
-            en_post = post.copy()
-            en_post['display_title'] = en_title or post['title']
-            en_posts_by_year[year].append(en_post)
-            
-            it_post = post.copy()
-            it_post['display_title'] = it_title or post['title']
-            it_posts_by_year[year].append(it_post)
-        
-        # Sort posts within years
-        for year in sorted_years:
-            en_posts_by_year[year].sort(key=lambda x: x['date'], reverse=True)
-            it_posts_by_year[year].sort(key=lambda x: x['date'], reverse=True)
-        
-        # Generate English version (default)
+        """Generate the story tag page with inline language links."""
+        # Just render the single story tag page - posts already have translation_url
         self._render_and_write('tag_story.html',
                              os.path.join(tags_dir, 'story.html'),
                              tag='story',
-                             posts_by_year=en_posts_by_year,
-                             sorted_years=sorted_years,
-                             language='en')
-        
-        # Generate Italian version
-        self._render_and_write('tag_story.html',
-                             os.path.join(tags_dir, 'story-it.html'),
-                             tag='story',
-                             posts_by_year=it_posts_by_year,
-                             sorted_years=sorted_years,
-                             language='it')
+                             posts_by_year=posts_by_year,
+                             sorted_years=sorted_years)
     
     def generate_post_pages(self):
         """Generate individual post pages."""
@@ -337,7 +295,7 @@ class BlogGenerator:
         # Print API key info
         print_api_key_info()
         
-        print(f"\n📚 Processing {len(story_posts)} story posts for translation...")
+        print(f"\n[Translation] Processing {len(story_posts)} story posts...")
         
         it_dir = os.path.join(self.output_dir, 'it')
         en_dir = os.path.join(self.output_dir, 'en')
@@ -350,7 +308,7 @@ class BlogGenerator:
             target_lang = 'en' if source_lang == 'it' else 'it'
             target_dir = en_dir if target_lang == 'en' else it_dir
             
-            print(f"\n  [{slug}] ({source_lang} → {target_lang})")
+            print(f"\n  [{slug}] ({source_lang} -> {target_lang})")
             
             # Check if translation already exists in source folder
             if translation_exists(slug, target_lang):
@@ -364,9 +322,9 @@ class BlogGenerator:
                 if translated_title and translated_md:
                     # Save to source folder
                     save_translation(slug, translated_title, translated_md, target_lang)
-                    print(f"    ✅ Translation saved to {target_lang}/{slug}.md")
+                    print(f"    [OK] Translation saved to {target_lang}/{slug}.md")
             else:
-                print(f"    ⏭️ No API key - skipping")
+                print(f"    [Skip] No API key")
                 continue
             
             if translated_md:
