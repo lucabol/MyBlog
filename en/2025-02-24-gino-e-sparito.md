@@ -26,6 +26,6 @@ The lady who reads cards declared that, deep down, she was right. Pina had been 
 
 I read in the papers yesterday that Pina died, and so the whole story came back to mind. They had remained friends, those two.
 
-He continued to go visit her all these years, despite her protests, as she didn't really find him all that likeable.
+He continued to go visit her all these years, despite her protests, as she didn't like him very much.
 
 I don't believe the roof was ever fixed.
