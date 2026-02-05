@@ -16,7 +16,7 @@ FLACCID SIZE: 20 centimeters
 MAXIMUM EXTENSION: 25 centimeters
 MEMBER CURVATURE: right
 ADDITIONAL NOTES: nervous character, but jovial,
-    shows signs of juvenile acne, do not mention.
+    shows signs of juvenile acne, do not mention rats.
 ```
 
 At every visit, she added some data to the file: shoe size, wrist circumference... things like that. She also invented categories never heard before, but scientific-sounding: hairiness, mama's-boy coefficient... and even other frankly incomprehensible measurements: dangliness, max rod-slap from supine position...
@@ -31,7 +31,7 @@ Or the fact that Accountant Cocchi, when at the peak of pleasure, whinnied like 
 
 There were many similar revelations. The notebook was authentic.
 
-The second phase was defined as 'the diaspora'. The wives kicked their unfaithful husbands out of the house. It all started when Mrs. Arrighi, who cleaned for the priest, kicked her spouse out with the threatening words: "God will punish you for what you have done!"
+The second phase was defined as 'the diaspora'. The wives kicked their unfaithful husbands out of the house. It all started when Mrs. Arrighi, who cleaned house for the priest, kicked her spouse out with the threatening words: "God will punish you for what you have done!"
 
 Given the lady's authoritative position, the others had to do the same. They did it reluctantly, however. Deep down, they didn't give a damn about having been cheated on.
 
@@ -59,7 +59,7 @@ The only one who managed to make himself understood was Francetti, the Anglophon
 
 Then there was the question of measurements. At first, indifference was feigned. Even at the village bar, the subject wasn't touched. But this didn't last long. A defeat at *cirulla* was enough to unleash hell.
 
-"With a bird like that, it's a good thing you win at cards!" That phrase broke the spell. From then on, all restraint was lost.
+"With a cock like that, it's a good thing you win at cards!" That phrase broke the spell. From then on, all restraint was lost.
 
 To begin with, it was nicknames linked to the measurements or notes present in the notebook. The bartender became 'Minimum', for obvious reasons. The postman, who was already suspected, became 'Big-Dick' or 'Big-D' for simplicity.
 
@@ -71,17 +71,17 @@ These nicknames slowly lost their original connotation and became the main way o
 
 Some more enterprising women tried to popularize a nickname of their own invention to elevate their spouse's social status. But these subterfuges didn't have much success, given that everyone had access to the real measurements. For example, Minimum's wife tried to tell a friend "Black 'n' Decker", pronounced exactly as written, or even worse, "he wants eggplants for dinner." "Who?" "My husband, didn't you know they call him that?" And the friend replied dubiously, "If you say so..."
 
-The notebook also revealed one of the village's longest-standing mysteries: why many ladies insisted on getting their hair done by Robertino, despite the incontrovertible evidence that, as a hairdresser, he really sucked. He gave them all a high and very voluminous perm. When they gathered in front of the church, it looked like the court of Versailles—pronounced as written, which is not how it goes. The fact is that, despite the name and profession. He wasn't gay after all. Quite the opposite.
+The notebook also revealed one of the village's longest-standing mysteries: why many ladies insisted on getting their hair done by Robertino, despite the incontrovertible evidence that, as a hairdresser, he really sucked. He gave them all a high and very voluminous perm. When they gathered in front of the church, it looked like the court of Versailles—pronounced as written, which is not how it is pronounced. The fact is that, despite the name and profession, he wasn't gay after all. Quite the opposite.
 
-At a certain point, a message appeared on the notebook's website saying: "If you believe your measurement is incorrect, send a proving photo with face, member in full extension, and reference ruler." "A sort of selfie with your bird," commented Francetti.
+At a certain point, a message appeared on the notebook's website saying: "If you believe your measurement is incorrect, send a proving photo with face, member in full extension, and reference ruler." "A sort of selfie with your cock," commented Francetti.
 
 Despite many attempts, no one was able to assume a position such that those two anatomical parts, which nature placed so far apart, were in the same photo. It was therefore thought that the author intended a frontal bust photo holding a ruler placed in such a way as to measure the full phallic extension.
 
 Thus reassured about the mechanics of the operation, Minimum thought of a way to rehabilitate his reputation. He made Big-D swear a vow of secrecy and convinced him, upon handsome compensation, to participate in the enterprise. This enterprise consisted of transforming him, using a fake mustache and a wig of horsehair, into a copy of Minimum to be photographed.
 
-The problem, however, remained how to make him reach a state of maximum extension. They tried with magazines, videos, and websites, but nothing seemed to stimulate him. Then Adelina, Minimum's faithful wife and a pious church woman, burst out: "Oh well, I'll sacrifice myself." And the photo was taken.
+The problem, however, remained how to make him reach a state of maximum extension. They tried with magazines, videos, and websites, but nothing seemed to stimulate Big-D. Then Adelina, Minimum's faithful wife and a pious church woman, burst out: "Oh well, I'll sacrifice myself." And the photo was taken.
 
-The email was sent with a concise subject: "Correction measurements Mr. Amadei bartender - see attached photo". The reply arrived telegram-style: "Nice photo Big-D in costume - reserve right to share gay biker site".
+The email was sent with a concise subject: "Correction measurements Mr. Amadei bartender - see attached photo". The reply arrived telegram-style: "Nice photo of Big-D in costume - reserve right to share gay biker site".
 
 I imagine you're asking yourselves how I know all these things. At the beginning, the idea was to collect data for my thesis for the Imperial College of London titled: "How big is it? A field study of penis dimension of the average Italian male".
 
@@ -89,4 +89,4 @@ I thought of the website later. I created it for my second degree in sociology. 
 
 Do I regret what I did? Some suffered a bit; others gained. After a few years, nobody gave a damn anymore. Only the nicknames remained.
 
-Big-D lives here with me in London. He hasn't learned a single word of English, but I don't care. There are other important things in life.
+Big-D lives here with me in London. He hasn't learned a single word of English, but I don't care. The important things in life are others.
