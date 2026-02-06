@@ -20,6 +20,15 @@
             {% for post in years[year] %}
                 <li>
                     <a href="{{ post.url }}">{{ post.title }}</a>
+                    {% if post.has_translation %}
+                    <span class="lang-toggle-inline">
+                        {% if post.language == 'it' %}
+                        [<a href="/{{ post.url }}"><strong>IT</strong></a> | <a href="{{ post.translation_url }}">EN (AI)</a>]
+                        {% else %}
+                        [<a href="/{{ post.url }}"><strong>EN</strong></a> | <a href="{{ post.translation_url }}">IT (AI)</a>]
+                        {% endif %}
+                    </span>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>
