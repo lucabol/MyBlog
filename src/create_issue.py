@@ -7,6 +7,29 @@ import urllib.parse
 import argparse
 import re
 
+
+def load_github_token():
+    """Load GitHub token from ../.env (relative to this file), then environment."""
+    env_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+
+    if os.path.exists(env_path):
+        try:
+            with open(env_path, 'r', encoding='utf-8') as f:
+                for raw_line in f:
+                    line = raw_line.strip()
+                    if not line or line.startswith('#') or '=' not in line:
+                        continue
+
+                    key, value = line.split('=', 1)
+                    if key.strip() == 'GITHUB_TOKEN':
+                        token = value.strip().strip('"').strip("'")
+                        if token:
+                            return token
+        except OSError as e:
+            print(f"Warning: Could not read {env_path}: {e}")
+
+    return os.environ.get("GITHUB_TOKEN")
+
 def get_latest_post():
     """Get the most recently modified .md file from the posts directory."""
     posts_dir = 'posts'
@@ -75,10 +98,10 @@ def create_github_issue(token, title):
         sys.exit(1)
 
 def main():
-    # Get GitHub token from environment
-    token = os.environ.get("GITHUB_TOKEN")
+    # Load GitHub token from ../.env first, then environment variables
+    token = load_github_token()
     if not token:
-        print("Error: GITHUB_TOKEN environment variable not set")
+        print("Error: GITHUB_TOKEN not found in ../.env or environment variables")
         sys.exit(1)
     
     # Get latest post info
