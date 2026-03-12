@@ -139,7 +139,11 @@ class BlogGenerator:
             'is_story': is_story,
             'language': language,
             'has_translation': False,
-            'translation_url': None
+            'translation_url': None,
+            'title_en': post_title if language == 'en' else None,
+            'title_it': post_title if language == 'it' else None,
+            'url_en': f'/posts/{slug}.html' if language == 'en' else None,
+            'url_it': f'/posts/{slug}.html' if language == 'it' else None
         }
         
     def read_posts(self):
@@ -347,6 +351,8 @@ class BlogGenerator:
                 # Update post to indicate it has a translation
                 post['has_translation'] = True
                 post['translation_url'] = f'/{target_lang}/{slug}.html'
+                post[f'title_{target_lang}'] = translated_title or post['title']
+                post[f'url_{target_lang}'] = f'/{target_lang}/{slug}.html'
 
     def generate_site(self):
         """Generate the complete site."""

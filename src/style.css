@@ -383,3 +383,39 @@ th {
 .lang-toggle-inline a:hover {
     text-decoration: underline;
 }
+
+.story-lang-toggle {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.story-lang-toggle-inner {
+    display: inline-block;
+}
+
+.story-lang-toggle .lang-option {
+    color: var(--color-muted);
+    text-decoration: none;
+}
+
+.story-lang-toggle .lang-option.active {
+    font-weight: bold;
+    color: inherit;
+}
+
+.story-lang-toggle .lang-option:hover {
+    text-decoration: underline;
+}
+
+.lang-toggle-inline .story-inline-lang.active {
+    font-weight: bold;
+    color: inherit !important;
+}
+
+.story-title-link {
+    text-decoration: none;
+}
+
+.story-title-link:hover {
+    text-decoration: underline;
+}

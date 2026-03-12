@@ -4,22 +4,76 @@
 
 {% block content %}
     <h1>"{{ tag }}"</h1>
+    <div class="lang-toggle story-lang-toggle" aria-label="Story language toggle">
+        <span class="story-lang-toggle-inner">[<a href="#" class="lang-option active" data-language="en" aria-pressed="true">EN</a> |
+        <a href="#" class="lang-option" data-language="it" aria-pressed="false">IT</a>]</span>
+    </div>
     
     {% for year in sorted_years %}
         <h2 class="year">{{ year }}</h2>
         <ul class="posts-list">
             {% for post in posts_by_year[year] %}
                 <li>
-                    {{ post.title }}
+                    <a
+                        href="{{ post.url_en or post.url_it or ('/' ~ post.url) }}"
+                        class="story-title-link"
+                        data-title-en="{{ post.title_en or post.title }}"
+                        data-title-it="{{ post.title_it or post.title }}"
+                        data-url-en="{{ post.url_en or ('/' ~ post.url) }}"
+                        data-url-it="{{ post.url_it or post.translation_url or ('/' ~ post.url) }}"
+                    >{{ post.title_en or post.title }}</a>
                     <span class="lang-toggle-inline">
-                        {% if post.language == 'it' %}
-                        [<a href="/{{ post.url }}"><strong>IT</strong></a> | <a href="{{ post.translation_url }}">EN (AI)</a>]
-                        {% else %}
-                        [<a href="/{{ post.url }}"><strong>EN</strong></a> | <a href="{{ post.translation_url }}">IT (AI)</a>]
-                        {% endif %}
+                        [<a href="{{ post.url_en or ('/' ~ post.url) }}" class="story-inline-lang active" data-language="en">EN</a> |
+                        <a href="{{ post.url_it or post.translation_url or ('/' ~ post.url) }}" class="story-inline-lang" data-language="it">IT</a>]
                     </span>
                 </li>
             {% endfor %}
         </ul>
     {% endfor %}
+
+    <script>
+        (function () {
+            const toggle = document.querySelector('.story-lang-toggle');
+            if (!toggle) {
+                return;
+            }
+
+            const buttons = Array.from(toggle.querySelectorAll('.lang-option'));
+            const links = Array.from(document.querySelectorAll('.story-title-link'));
+            const inlineLinks = Array.from(document.querySelectorAll('.story-inline-lang'));
+
+            function setLanguage(language) {
+                buttons.forEach((button) => {
+                    const isActive = button.dataset.language === language;
+                    button.classList.toggle('active', isActive);
+                    button.setAttribute('aria-pressed', String(isActive));
+                });
+
+                links.forEach((link) => {
+                    const title = link.dataset[language === 'it' ? 'titleIt' : 'titleEn'];
+                    const url = link.dataset[language === 'it' ? 'urlIt' : 'urlEn'];
+                    if (title) {
+                        link.textContent = title;
+                    }
+                    if (url) {
+                        link.href = url;
+                    }
+                });
+
+                inlineLinks.forEach((link) => {
+                    const isActive = link.dataset.language === language;
+                    link.classList.toggle('active', isActive);
+                });
+            }
+
+            buttons.forEach((button) => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    setLanguage(button.dataset.language || 'en');
+                });
+            });
+
+            setLanguage('en');
+        }());
+    </script>
 {% endblock %}
