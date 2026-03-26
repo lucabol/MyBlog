@@ -1,3 +1,5 @@
+- name: notes
+  desc: A custom markdown-based notes app with CLI, desktop GUI, import tools, tags, and search. Built with AI.
 - name: JediMaster
   desc: A Python script and Azure Function to use AI to assign github issues to the Github code agent.
 - name: SandScore
