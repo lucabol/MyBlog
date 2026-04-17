@@ -263,6 +263,15 @@ class BlogGenerator:
                 favicon,
                 os.path.join(self.output_dir, favicon)
             )
+        
+        # Copy standalone HTML pages (also as dir/index.html for clean URLs)
+        for page in ['Schedule.html']:
+            if os.path.exists(page):
+                self._copy_static_asset(page, os.path.join(self.output_dir, page))
+                name = os.path.splitext(page)[0]
+                dir_path = os.path.join(self.output_dir, name)
+                self._ensure_dir(dir_path)
+                self._copy_static_asset(page, os.path.join(dir_path, 'index.html'))
     
     def generate_feed(self):
         """Generate RSS feed."""
