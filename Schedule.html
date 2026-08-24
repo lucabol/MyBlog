@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 2rem;
       line-height: 1.4;
+      color: #222;
     }
 
     h1 {
@@ -19,23 +20,46 @@
       border-collapse: collapse;
       width: 100%;
       max-width: 760px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     th,
     td {
       border: 1px solid #ccc;
-      padding: 0.6rem 0.75rem;
+      padding: 0.75rem 1rem;
       text-align: left;
       vertical-align: top;
     }
 
     th {
-      background: #f3f3f3;
+      background: #f0f4f7;
     }
 
-    .date-col {
-      width: 180px;
+    tbody tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    .name-col {
+      font-weight: 600;
+    }
+
+    time {
       white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        margin: 1rem;
+      }
+
+      th,
+      td {
+        padding: 0.6rem;
+      }
+
+      time {
+        white-space: normal;
+      }
     }
   </style>
 </head>
@@ -46,34 +70,26 @@
     <table aria-label="Schedule">
       <thead>
         <tr>
-          <th class="date-col">Dates</th>
-          <th>Plan</th>
+          <th>Name</th>
+          <th>Arriving</th>
+          <th>Leaving</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="date-col">5 - 20 May</td>
-          <td>Fra Javea</td>
+          <td class="name-col">Luca &amp; Dante</td>
+          <td><time>Sun 6 Sept, 21:20</time></td>
+          <td><time>Sun 13 Sept, 19:05</time></td>
         </tr>
         <tr>
-          <td class="date-col">25 - 31 May</td>
-          <td>Luca Prague</td>
+          <td class="name-col">Luca</td>
+          <td><time>Sun 27 Sept, 21:20</time></td>
+          <td><time>Tue 13 Oct, 14:10</time></td>
         </tr>
         <tr>
-          <td class="date-col">6 - 14 June</td>
-          <td>Maybe Fra Maia Javea, depends on Maia exams calendar</td>
-        </tr>
-        <tr>
-          <td class="date-col">20 June - August</td>
-          <td>Maybe Luca Javea, depends on Dante final exam exact date</td>
-        </tr>
-        <tr>
-          <td class="date-col">1 July - August</td>
-          <td>Fra Maia Dante Javea</td>
-        </tr>
-        <tr>
-          <td class="date-col">August</td>
-          <td>Family vacation</td>
+          <td class="name-col">Fra</td>
+          <td><time>Tue 13 Oct, 16:25</time></td>
+          <td><time>Thu 29 Oct, 15:55</time></td>
         </tr>
       </tbody>
     </table>
