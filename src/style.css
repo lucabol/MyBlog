@@ -814,7 +814,8 @@ th {
 
     .site-nav {
         flex-wrap: nowrap;
-        gap: 0;
+        gap: var(--space-1);
+        margin-inline: calc(0rem - var(--space-6));
     }
 
     .site-nav a {

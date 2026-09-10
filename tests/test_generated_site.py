@@ -2184,7 +2184,11 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
 
         mobile_navigation = mobile_declarations(".site-nav")
         self.assertEqual(mobile_navigation.get("flex-wrap"), "nowrap")
-        self.assertEqual(mobile_navigation.get("gap"), "0")
+        self.assertEqual(mobile_navigation.get("gap"), "var(--space-1)")
+        self.assertEqual(
+            mobile_navigation.get("margin-inline"),
+            "calc(0rem - var(--space-6))",
+        )
 
         mobile_navigation_link = mobile_declarations(".site-nav a")
         self.assertEqual(
