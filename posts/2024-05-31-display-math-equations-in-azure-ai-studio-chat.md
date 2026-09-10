@@ -24,7 +24,7 @@ $$
 
 You instead might want something like this:
 
-![equation](/img/Bayes.png)
+![Bayes' theorem rendered as a formatted equation](/img/Bayes.png)
 
 The trick is to inject Javascript code that executes on a timer and uses MathJax to transform the Latex code
 to an image.

@@ -1,7 +1,7 @@
 ---
 title: Sentimenti invernali
 ---
-<img src="/img/winter-feelings.jpg" alt="Neve che cade fuori dalla finestra di una caffetteria con una sedia vuota" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/winter-feelings.jpg" alt="Neve fuori dalla finestra di una caffetteria con una sedia vuota" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Tom Campbell va al bancone per timbrare la tessera.
 

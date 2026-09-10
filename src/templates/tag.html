@@ -1,18 +1,26 @@
 {% extends "base.html" %}
-
-{% block title %}{{ tag }} - My Blog{% endblock %}
+{% from "_macros.html" import post_language_links %}
 
 {% block content %}
-    <h1>"{{ tag }}"</h1>
-    
-    {% for year in sorted_years %}
-        <h2 class="year">{{ year }}</h2>
+<header class="archive-header">
+    <h1>“{{ tag.name }}”</h1>
+    <p class="archive-count">{{ tag.count }} {{ "note" if tag.count == 1 else "notes" }}</p>
+</header>
+
+{% for year in sorted_years %}
+    <section class="archive-year" aria-labelledby="tag-year-{{ year }}">
+        <h2 class="year" id="tag-year-{{ year }}">{{ year }}</h2>
         <ul class="posts-list">
             {% for post in posts_by_year[year] %}
-                <li>
-                    <a href="/{{ post.url }}">{{ post.title }}</a>
-                </li>
+            <li>
+                <a href="{{ post.url }}"
+                   lang="{{ post.language }}"
+                   rel="bookmark"
+                   aria-label="Read {{ post.title }}">{{ post.title }}</a>
+                {{ post_language_links(post) }}
+            </li>
             {% endfor %}
         </ul>
-    {% endfor %}
+    </section>
+{% endfor %}
 {% endblock %}

@@ -57,6 +57,6 @@ I’ll be speaking about the future of C# and F#. Oslo brings back so many memor
 
 &#160;
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Logo NDC 2009" border="0" alt="Logo NDC 2009" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LucaatNDCinOslo1719June2009_8952/Logo%20NDC%202009_thumb.jpg" width="244" height="72" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LucaatNDCinOslo1719June2009_8952/Logo%20NDC%202009_2.jpg) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="NDC 2009 conference logo" border="0" alt="NDC 2009 conference logo" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LucaatNDCinOslo1719June2009_8952/Logo%20NDC%202009_thumb.jpg" width="244" height="72" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LucaatNDCinOslo1719June2009_8952/Logo%20NDC%202009_2.jpg)
 
 “one of the world’s most important conferences for IT developers and leaders”

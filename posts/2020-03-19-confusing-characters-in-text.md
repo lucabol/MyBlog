@@ -9,7 +9,7 @@ tags:
 ---
 In the process of chosing fonts for my blog, I looked for lists of words containing characters that can be easily confused.
 
-I took this one from [here](https://typography.guru/journal/letters-symbols-misrecognition/).
+I took this one from [Typography.Guru's confusing-character guide](https://typography.guru/journal/letters-symbols-misrecognition/).
 
 ----------------------------------------
 Henry III - Henry lII - Henry 111 - Henry tll - Henry t7I

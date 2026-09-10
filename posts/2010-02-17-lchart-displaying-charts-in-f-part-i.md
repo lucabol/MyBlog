@@ -56,7 +56,7 @@ I want to use F# as a exploratory data analysis language (like [R](http://www.r-
 
 I will continue this series in my new blog at wordpress: [http://lucabolognese.wordpress.com/](http://lucabolognese.wordpress.com/ "http://lucabolognese.wordpress.com/"). The reason I need a new blog will be explained in an upcoming post.
 
-Part II is now [here](http://lucabolognese.wordpress.com/2010/02/17/lchart-displaying-charts-in-f-part-ii/).
+Continue with [LChart Part II](http://lucabolognese.wordpress.com/2010/02/17/lchart-displaying-charts-in-f-part-ii/).
 
 Ok, let's start. How do I draw a chart?
 
@@ -70,7 +70,7 @@ X and Y are just some make up data. _lc_ is the name of a class (????) and _scat
 
 You get a window with this chart on it. You can press CTRL+C to copy it (as I did to post it here).
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb.png" width="382" height="295" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_2.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Scatter plot of sample x and y values" border="0" alt="Scatter plot of sample x and y values" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb.png" width="382" height="295" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_2.png)
 
 You might want to customize the chart a bit by passing some of these famous optional parameters:
 
@@ -79,7 +79,7 @@ lc.scatter(x = x, y = y, markerSize = 10, markerStyle = MarkerStyle.Diamond,
     xname = "Players", yname = "Ratings", title = "Players' Ratings")  |> display     
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_1.png" width="382" height="295" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_4.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Players' Ratings scatter plot with diamond markers" border="0" alt="Players' Ratings scatter plot with diamond markers" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_1.png" width="382" height="295" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_4.png)
 
 Or you might want to print different types of charts:
 
@@ -88,47 +88,47 @@ lc.line(y = y, markerSize = 10, markerStyle = MarkerStyle.Diamond, xname = "Play
     color = Color.Red) |> display       
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_2.png" width="373" height="289" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_6.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Red line chart of players' ratings with value labels" border="0" alt="Red line chart of players' ratings with value labels" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_2.png" width="373" height="289" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_6.png)
 
 ```fsharp
 lc.spline(x = x, y = y, markerSize = 10, markerStyle = MarkerStyle.Diamond, xname = "Players", yname = "Ratings",
     title = "Players' Ratings", isValueShownAsLabel = true, color = Color.Red) |> display 
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_3.png" width="371" height="287" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_8.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Red spline chart of players' ratings with value labels" border="0" alt="Red spline chart of players' ratings with value labels" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_3.png" width="371" height="287" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_8.png)
 
 ```fsharp
 lc.stepline(x = x, y = y, markerSize = 10, markerStyle = MarkerStyle.Diamond, xname = "Players", yname = "Ratings",
     title = "Players' Ratings", isValueShownAsLabel = true, color = Color.Red) |> display
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_4.png" width="372" height="288" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_10.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Red step-line chart of players' ratings with value labels" border="0" alt="Red step-line chart of players' ratings with value labels" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_4.png" width="372" height="288" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_10.png)
 
 ```fsharp
 lc.bar(y = y, xname = "Players", yname = "Ratings", title = "Players' Ratings", isValueShownAsLabel = true,
     drawingStyle = "Emboss") |> display      
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_5.png" width="351" height="265" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_12.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Embossed bar chart of players' ratings" border="0" alt="Embossed bar chart of players' ratings" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_5.png" width="351" height="265" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_12.png)
 
 ```fsharp
 lc.column(y = y, xname = "Players", yname = "Ratings", title = "Players' Ratings",
     isValueShownAsLabel = true, drawingStyle = "Cylinder") |> display   
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_6.png" width="375" height="283" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_14.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Cylindrical column chart of players' ratings" border="0" alt="Cylindrical column chart of players' ratings" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_6.png" width="375" height="283" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_14.png)
 
 ```fsharp
 lc.boxplot(y = y, xname = "Players", yname = "Ratings", title = "Players' Ratings", color = Color.Blue, whiskerPercentile = 5, percentile = 30,
     showAverage = false, showMedian = false, showUnusualValues = true) |> display    
 ```
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_7.png" width="408" height="317" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_16.png) 
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Box plot of players' ratings showing unusual values" border="0" alt="Box plot of players' ratings showing unusual values" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_7.png" width="408" height="317" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_16.png)
 
 Ok, the last one is weird. You probably want more than one boxplot in a chart. I'll show you how to do that in the next post.
 
 The next post will be on how to have more than one series on the same chart and more than one chart in the same windows. Something like the below:
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_8.png" width="445" height="342" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_18.png)
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Window containing several LChart plots" border="0" alt="Window containing several LChart plots" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_thumb_8.png" width="445" height="342" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/LChartdisplayingchartsinFPartI_9F73/image_18.png)
 
 [ChartPlotter.fsx](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Components.PostAttachments/00/09/96/52/55/ChartPlotter.fsx)

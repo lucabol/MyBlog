@@ -391,6 +391,6 @@ We first unpack the _Tuple_ we sent out originally, we then extract the Date and
 
 And here is what you get for your effort:
 
-[<img style="display:inline;border-width:0;" title="image" border="0" alt="image" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/BecomingreallyrichwithC_C128/image_thumb.png" width="743" height="506" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/BecomingreallyrichwithC_C128/image_2.png)
+[<img style="display:inline;border-width:0;" title="Investment summary results for downloaded securities" border="0" alt="Investment summary results for downloaded securities" src="https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/BecomingreallyrichwithC_C128/image_thumb.png" width="743" height="506" />](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/BlogFileStorage/blogs_msdn/lucabol/WindowsLiveWriter/BecomingreallyrichwithC_C128/image_2.png)
 
 [SystemCodeAndData.zip](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Components.PostAttachments/00/09/89/69/82/SystemCodeAndData.zip)

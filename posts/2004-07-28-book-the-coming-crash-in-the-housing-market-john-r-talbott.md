@@ -50,7 +50,7 @@ tags:
   - Financial
 ---
 <p class="MsoNormal" style="margin:0;">
-  My wife and I are planning to move somewhere where you can walk to shops and restaurants. We were thinking about selling or renting our current suburbia home. So, as usual, I picked up a bunch of books from the local library. This is one of them. Amazon reviews are&nbsp;<a href="http://www.amazon.com/exec/obidos/tg/detail/-/007142220X/qid=1091030040/sr=8-1/ref=sr_8_xs_ap_i1_xgl14/104-6539857-7887162?v=glance&s=books&n=507846">here</a>.
+  My wife and I are planning to move somewhere where you can walk to shops and restaurants. We were thinking about selling or renting our current suburbia home. So, as usual, I picked up a bunch of books from the local library. This is one of them. Read the&nbsp;<a href="http://www.amazon.com/exec/obidos/tg/detail/-/007142220X/qid=1091030040/sr=8-1/ref=sr_8_xs_ap_i1_xgl14/104-6539857-7887162?v=glance&s=books&n=507846">Amazon customer reviews</a>.
 </p>
 
 <p class="MsoNormal" style="margin:0;">

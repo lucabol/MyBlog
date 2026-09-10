@@ -6,7 +6,7 @@ tags: [story]
 description: "A short story about Maria's encounter with the river and the men."
 ---
 
-<img src="/img/girlriver.jpg" alt="A girl standing by a river" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/girlriver.jpg" alt="A girl standing beside a river" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Dust lay thick on the path and held her weight. The sun was low. It was a long walk to the river, but the house was hot and smelled of tobacco and the men. Maria walked with her hips stiff. Red marks showed at the small of her back. Her thighs carried a dull, heavy heat.
 

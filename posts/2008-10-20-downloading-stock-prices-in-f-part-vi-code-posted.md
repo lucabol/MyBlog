@@ -57,7 +57,7 @@ Other parts:
   * [Part IV  - Async loader for splits](http://blogs.msdn.com/lucabol/archive/2008/09/19/downloading-stock-prices-in-f-part-iv-async-loader-for-splits.aspx)
   * [Part V  - Adjusting historical data](http://blogs.msdn.com/lucabol/archive/2008/09/26/downloading-stock-prices-in-f-part-v-adjusting-historical-data.aspx)
 
-[An unnamed friend](http://blogs.msdn.com/lukeh/default.aspx) told me that I should stop posting small snippets of code and instead post entire solutions on [CodeGallery](http://code.msdn.microsoft.com/). I did it for this one and [here](http://code.msdn.microsoft.com/DownloadStockPrices) is the link.
+[An unnamed friend](http://blogs.msdn.com/lukeh/default.aspx) told me that I should stop posting small snippets of code and instead post entire solutions on [CodeGallery](http://code.msdn.microsoft.com/). I did it for this one; [download the stock-price solution](http://code.msdn.microsoft.com/DownloadStockPrices).
 
 Here is what's in the zip file:
 

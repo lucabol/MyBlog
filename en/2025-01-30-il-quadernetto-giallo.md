@@ -3,7 +3,7 @@ title: The Yellow Notebook
 ---
 CONTENT WARNING: vulgar language and potentially offensive content.
 
-<img src="/img/paese.jpg" alt="woman wring at a table" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/paese.jpg" alt="A woman writing at a table" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Once upon a time, there was a whore who loved mathematics. Or rather, she loved numbers. Just as some collect stamps, she collected measurements.
 

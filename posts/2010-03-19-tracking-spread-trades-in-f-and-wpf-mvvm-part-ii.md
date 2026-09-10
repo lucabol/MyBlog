@@ -213,4 +213,4 @@ public class ResultValidationRule : ValidationRule
 
 After all these niceties, this is what you get.
 
-[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="image" border="0" alt="image" src="/img/spread-trades1.png" width="244" height="219" />](/img/spread-trades1.png)
+[<img style="border-bottom:0;border-left:0;display:inline;border-top:0;border-right:0;" title="Spread-trade tracking form with trailing-stop validation" border="0" alt="Spread-trade tracking form with trailing-stop validation" src="/img/spread-trades1.png" width="244" height="219" />](/img/spread-trades1.png)

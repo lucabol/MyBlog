@@ -11,7 +11,7 @@ categories:
 tags:
   - Financial
 ---
-<a name="_GoBack"></a>In 2007 I wrote a [blog post](/2007/04/20/a-financial-education-my-ideas) on investing. During the last five years, my view evolved a bit. People often ask me how to get a financial education. This is the latest email I sent on the topic.
+<a name="_GoBack"></a>In 2007 I wrote a [blog post](/posts/2007-04-20-a-financial-education-my-ideas) on investing. During the last five years, my view evolved a bit. People often ask me how to get a financial education. This is the latest email I sent on the topic.
   
 **From:** Bolognese, Luca
   
@@ -48,9 +48,9 @@ Our brains don’t work well in such fields.
       * Why diversification is important. The [intelligent asset allocator](http://www.amazon.co.uk/The-Intelligent-Asset-Allocator-Portfolio/dp/0071362363/ref=sr_1_1?s=books&ie=UTF8&qid=1333546343&sr=1-1). I don’t believe in static asset allocation, but you need to know what it is to believe (or not) in it.
       * Moving beyond a static asset allocation with a quant based highly diversified, but simple to implement system. [The Ivy Portfolio.](http://www.amazon.co.uk/The-Ivy-Portfolio-Endowments-Markets/dp/1118008855/ref=sr_1_1?s=books&ie=UTF8&qid=1333546515&sr=1-1) I am very tempted to use this one myself
       * Why asset classes are often mispriced. Probably the premier quant shop around. Read most [quarterly letters](https://www.gmo.com/America/MyHome/).
-      * Systems to take advantage of such mispricing are described [here](http://www.amazon.co.uk/The-Hedge-Fund-Edge-Strategies/dp/0471185388/ref=sr_1_1?s=books&ie=UTF8&qid=1333547311&sr=1-1). I have obtained copies of all the newsletters sent by the author going back to 1991 and backtested some of the systems. These are the system I use. But the newsletter is relatively expensive and complex to follow.
+      * Systems to take advantage of such mispricing are described in [The Hedge Fund Edge](http://www.amazon.co.uk/The-Hedge-Fund-Edge-Strategies/dp/0471185388/ref=sr_1_1?s=books&ie=UTF8&qid=1333547311&sr=1-1). I have obtained copies of all the newsletters sent by the author going back to 1991 and backtested some of the systems. These are the system I use. But the newsletter is relatively expensive and complex to follow.
       * If you decide to branch out into value analysis of companies. [Essays of warren buffett](http://www.amazon.co.uk/The-Essays-Warren-Buffett-Investors/dp/0470820780/ref=sr_1_6?s=books&ie=UTF8&qid=1333546836&sr=1-6). You would also need to read an introductory and an advanced accounting text. I don’t know UK accounting, so cannot suggest good candidates.
-      * If you are very conservative and want to just invest in Inflation Linked Bonds (or fearful of markets in general), there is a book for that: [here](http://www.amazon.co.uk/Worry-free-Investing-Approach-Achieving-Financial/dp/0130499277/ref=sr_1_10?s=books&ie=UTF8&qid=1333546962&sr=1-10).
+      * If you are very conservative and want to just invest in Inflation Linked Bonds (or fearful of markets in general), there is a book for that: [Worry-Free Investing](http://www.amazon.co.uk/Worry-free-Investing-Approach-Achieving-Financial/dp/0130499277/ref=sr_1_10?s=books&ie=UTF8&qid=1333546962&sr=1-10).
   * With all of that out of the way, here is some practical counsel 
       * if you have less than 20,000 pounds to invest try to find a fund or etf that invest in a diversified array of asset classes for a small price. I don’t know the UK market, so cannot suggest one.
       * If you have more than that and are willing to dedicate a few hours a month, you can start implementing some of the systems in the Ivy Portfolio book. Maybe you integrate it with the GMO 7 years asset class forecasts to push a bit of value bias in your system.

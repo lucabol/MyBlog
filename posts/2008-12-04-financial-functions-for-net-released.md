@@ -50,13 +50,13 @@ tags:
   - fsharp
   - Financial
 ---
-Today I released the following library on CodeGallery. It is the result of three months of coding during my paternity leave in Italy. You can get it from [here](http://code.msdn.microsoft.com/FinancialFunctions).
+Today I released the following library on CodeGallery. It is the result of three months of coding during my paternity leave in Italy. You can get it from [the Financial Functions Code Gallery page](http://code.msdn.microsoft.com/FinancialFunctions).
 
 **What is it?**   
 This is a .NET library that provides the full set of financial functions from Excel. The main goal for the library is compatibility with Excel, by providing the same functions, with the same behaviour. Note though that this is not a wrapper over the Excel library; the functions have been re-implemented in managed code so that you do not need to have Excel installed to use this library.&nbsp;  
 **&nbsp;  
 ** **Where I can find documentation on these functions?**   
-Just open Excel and click on Formulas/Financial or go to [this](http://office.microsoft.com/client/helppreview.aspx?AssetID=HP100791841033&ns=EXCEL&lcid=1033&CTT=3&Origin=HP100623561033)   
+Just open Excel and click on Formulas/Financial or go to [Excel's financial functions documentation](http://office.microsoft.com/client/helppreview.aspx?AssetID=HP100791841033&ns=EXCEL&lcid=1033&CTT=3&Origin=HP100623561033)<br>
 **  
 I don't think one of the function is right. Excel produces the wrong results! Why don't you do it right?**   
 My goal is to replicate Excel results (right and wrong). Feel free to contribute to the effort by coding what you think is the right solution and I'll add an ExcelCompliant flag to the function to conditionally invoke your code.   
@@ -70,7 +70,7 @@ How do I run the tests?**
 Run FinancialTests.exe. You need Excel 12 for the tests to work because they use Excel to test that the results are correct. You don't need Excel 12 to use the library in your own application.   
 **  
 How do I compile the library?**   
-You need to have F# September CTP installed (you can get it from [here](http://www.microsoft.com/downloads/details.aspx?FamilyID=61ad6924-93ad-48dc-8c67-60f7e7803d3c)). There are two batch files (CreateLibraryStandalone.bat and CreateLibraryNotStandalon.bat). Run them to compile the dll. You might have to change the path to the F# compiler inside these files   
+You need to have F# September CTP installed (you can get it from [Microsoft's F# September CTP download page](http://www.microsoft.com/downloads/details.aspx?FamilyID=61ad6924-93ad-48dc-8c67-60f7e7803d3c)). There are two batch files (CreateLibraryStandalone.bat and CreateLibraryNotStandalon.bat). Run them to compile the dll. You might have to change the path to the F# compiler inside these files<br>
 **  
 How do I compile the tests?**   
 Run CreateTests.bat   

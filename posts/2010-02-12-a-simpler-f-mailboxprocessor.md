@@ -194,4 +194,4 @@ static member public SpawnParallelWorker(messageHandler, howMany, ?timeout,
                                                  errorHandler)), 0))
 ```
 
-One drawback with the current code is that it doesn't supports cancellations. It should be possible to wrap that too, but I haven't done it (yet). If you don't want to cut and paste the code, it is inside the AgentSystem.fs file [here](http://blogs.msdn.com/lucabol/archive/2009/06/12/lagent-an-agent-framework-in-f-part-iii-default-error-management.aspx).
+One drawback with the current code is that it doesn't supports cancellations. It should be possible to wrap that too, but I haven't done it (yet). If you don't want to cut and paste the code, it is inside the AgentSystem.fs file [in the LAgent Part III post](http://blogs.msdn.com/lucabol/archive/2009/06/12/lagent-an-agent-framework-in-f-part-iii-default-error-management.aspx).

@@ -50,7 +50,7 @@ categories:
 tags:
   - fsharp
 ---
-Download framework [here](http://code.msdn.microsoft.com/LAgent).
+Download the framework [from the LAgent Code Gallery page](http://code.msdn.microsoft.com/LAgent).
 
 All posts are here:
 
@@ -139,3 +139,4 @@ On my machine I get the following, which could be the right result.
 "upon"        2558
 "so"        2489
 All done!!
+```

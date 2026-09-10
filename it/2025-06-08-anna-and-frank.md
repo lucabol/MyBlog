@@ -56,7 +56,7 @@ pre:has(.language-man)::after {
     bottom: 0;
 }
 </style>
-<img src="/img/letters.jpg" alt="A table full of letters." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/letters.jpg" alt="Un tavolo coperto di lettere" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 ```woman
 Caro eroe sconosciuto,
 Scrivo senza sapere chi tu sia, ma sapendo che sei là fuori a combattere per tutti noi. Non conosco la guerra, ma so come ci si sente ad essere soli, ad avere paura senza nessuno a cui chiedere aiuto.
@@ -294,4 +294,3 @@ Scrive a lungo, la mano incerta, che trema un po'. Finisce la lettera, la chiude
 C'è una montagna di buste sul tavolo, su entrambi i lati. Alcune sono sporche di cibo vecchio, le più nuove sono pulite e bianche.
 
 La vecchia donna si alza e torna a cucinare. La finestra nell'altra stanza sbatte ancora contro il muro: bang... bang... bang.
----

@@ -1,0 +1,16 @@
+{% macro post_language_links(post) -%}
+    {% if post.translation %}
+    <span class="language-links" role="group" aria-label="Available languages for {{ post.title }}">
+        <a href="{{ post.url }}"
+           lang="{{ post.language }}"
+           hreflang="{{ post.language }}"
+           aria-label="{{ post.language | upper }} version of {{ post.title }}">{{ post.language | upper }}</a>
+        <span aria-hidden="true">|</span>
+        <a href="{{ post.translation.url }}"
+           lang="{{ post.translation.lang }}"
+           hreflang="{{ post.translation.lang }}"
+           rel="alternate"
+           aria-label="{{ post.translation.label }} version of {{ post.title }}">{{ post.translation.label }}</a>
+    </span>
+    {% endif %}
+{%- endmacro %}

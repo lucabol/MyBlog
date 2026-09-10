@@ -1,7 +1,7 @@
 ---
 title: Il tocco freddo
 ---
-<img src="/img/girlcar.jpg" alt="Una ragazza fuori dall'auto sotto la pioggia." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/girlcar.jpg" alt="Una ragazza fuori da un'auto sotto la pioggia" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Ricevette la chiamata a tarda notte, mentre leggeva a letto, la sua voce piatta come una segreteria telefonica. Si mise a sedere appoggiando la schiena al cuscino, la gola che si stringeva.
 
@@ -50,4 +50,3 @@ Scese dall'auto e si voltò a guardarlo. Lui la stava guardando, curiosamente, o
 Anni dopo, per la strada della sua città, lo vide di nuovo. Era più vecchio ora, con i capelli grigi e un cappotto marrone. Camminava con sicurezza, come qualcuno che sa dove sta andando.
 
 Lei non provò nulla. Lui fece un cenno col capo. Lei ricambiò.
----

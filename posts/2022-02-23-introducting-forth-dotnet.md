@@ -40,7 +40,7 @@ nforth -e 's\" myfile.io" load aword'
 
 * Save the user portion of the dictionary with `S" myfile.io" save`. You load it with `S" myfile.io" load`.
 * Save the whole dictionary, system included, with `S" myfile.io" savesys`. You load it with `S" myfile.io" loadsys`.
-* To use the library, copy the file `Vm.cs` or reference the nuget package `Forth.Net`. Go [here](Forth.Net) for usage notes and implementation details.
+* To use the library, copy the file `Vm.cs` or reference the nuget package `Forth.Net`. See [the Forth.Net implementation notes](/posts/2022-03-07-implementing-forth-dotnet) for usage notes and implementation details.
 * See all the supported words with `words`.
 * Perform a system test with `testsys`. Your results should look like the text at the bottom of this doc.
 * Type `debug` if curious.

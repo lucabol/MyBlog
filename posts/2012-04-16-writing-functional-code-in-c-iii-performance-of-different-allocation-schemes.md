@@ -12,7 +12,7 @@ tags:
   - C++
   - functional
 ---
-In this post we are going to look at the performance characteristics of different ways to allocate objects in C++. The goal is to understand what is the best way to allocate objects in a functional style. Code for this post is [here](https://github.com/lucabol/FunctionalCpp/blob/master/allocation_perf.cpp).
+In this post we are going to look at the performance characteristics of different ways to allocate objects in C++. The goal is to understand what is the best way to allocate objects in a functional style. Code for this post is [in allocation_perf.cpp](https://github.com/lucabol/FunctionalCpp/blob/master/allocation_perf.cpp).
 
 First of all, let's define what we are going to allocate:
 

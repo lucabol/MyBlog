@@ -9,8 +9,21 @@ This is my blog, built with Python and hosted on Netlify.
 Running the webserver automatically builds the website:
 
 ```bash
-uv run src/devserver.py
+python -m pip install -r src/requirements.txt
+python src/devserver.py
 ```
+
+To build and validate the generated site directly:
+
+```bash
+python -m pip install -r src/requirements.txt
+python src/generate_blog.py
+python -m unittest discover -s tests -v
+```
+
+Public HTML pages use extensionless canonical URLs on
+`https://www.lucabol.com`. The build keeps `.html` files in `dist` for
+Netlify and emits redirects from legacy URL variants.
 
 ## Deployment
 

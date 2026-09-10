@@ -5,7 +5,7 @@ author: lucabol
 tags: [story]
 description: "Candy sits at a posh hotel bar, contemplating her choices and the life she has chosen, when an unexpected encounter forces her to confront her past and her future."
 ---
-<img src="/img/girlatbar.jpg" alt="gino looks at pina" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/girlatbar.jpg" alt="Candy sitting at a hotel bar" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Candy sits at the counter of the posh hotel bar, eyes fixed on her untouched cocktail; her finger drumming on the dark mahogany. She is dolled up in a short skirt, red lipstick, and dark mascara.
 

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Luca Bolognese's Blog</title>
-        <link>https://www.lucabol.com</link>
-        <description>Personal blog of Luca Bolognese</description>
-        <language>en-us</language>
+        <title>{{ site.name }}'s Blog</title>
+        <link>{{ site.url }}/</link>
+        <description>Writing by {{ site.author }}.</description>
+        <language>en</language>
+        <atom:link href="{{ site.feed_url }}" rel="self" type="application/rss+xml"/>
         <lastBuildDate>{{ now.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</lastBuildDate>
         {% for post in posts %}
         <item>
-            <title>{{ post.title | replace('&', '&amp;') | replace('<', '&lt;') | replace('>', '&gt;') }}</title>
-            <link>https://www.lucabol.com/{{ post.url }}</link>
-            <description>{{ post.content | replace('&', '&amp;') | replace('<', '&lt;') | replace('>', '&gt;') }}</description>
+            <title>{{ post.title }}</title>
+            <link>{{ site.url }}{{ post.url }}</link>
+            <description>{{ post.content }}</description>
             <pubDate>{{ post.date.strftime('%a, %d %b %Y %H:%M:%S GMT') }}</pubDate>
-            <guid>https://www.lucabol.com/{{ post.url }}</guid>
+            <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
         </item>
         {% endfor %}
     </channel>

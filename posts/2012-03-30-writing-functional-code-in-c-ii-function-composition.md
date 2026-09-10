@@ -20,7 +20,7 @@ Such 'almost primitive' functions operate on data structures. Each functional la
 
 In this article I use the term functional composition in a broad sense as 'putting functions together', not in the more technical sense of f(g(x)): dot operator in Haskell or '>>' operator in F#.
 
-Code for this post is [here](https://github.com/lucabol/FunctionalCpp). Thanks to Steve Bower and Andy Sawyer for review and comments.
+Code for this post is [in the FunctionalCpp repository](https://github.com/lucabol/FunctionalCpp). Thanks to Steve Bower and Andy Sawyer for review and comments.
 
 Here is an example. The F# code below filters in the odd numbers from an array and doubles them. You have two logical operations, filtering and doubling.
 
@@ -84,7 +84,7 @@ auto result =
 
 Ok, so we regained compositionality and clarity, but what price are we paying? Apart from the dependency from Boost::Range and OvenToBoost, you might think that this code would be slower than a normal for loop. And you would be right. But maybe not by as much as you would think.
 
-The code for my test is [here](https://github.com/lucabol/FunctionalCpp/blob/master/range_performance.cpp). I'm testing the perf difference between the following code engineered to put in a bad light the most pleasing syntax. A for loop:
+The code for my test is [in range_performance.cpp](https://github.com/lucabol/FunctionalCpp/blob/master/range_performance.cpp). I'm testing the perf difference between the following code engineered to put in a bad light the most pleasing syntax. A for loop:
 
 ```cpp
 int sum = 0;
@@ -94,7 +94,7 @@ for(vector<int>::const_iterator it = v.begin(); it != v.end(); ++it)
 return sum;
 ```
 
-A Range based code using language lambdas (transformedF is a variation of [this](http://smellegantcode.wordpress.com/2011/10/31/linq-to-c-or-something-much-better/)):
+A Range based code using language lambdas (transformedF is a variation of [the “LINQ to C++” approach](http://smellegantcode.wordpress.com/2011/10/31/linq-to-c-or-something-much-better/)):
 
 ```cpp
 auto lessThan50 = v | filtered(    [](int i) { return i < 50;})

@@ -5,7 +5,7 @@ author: lucabol
 tags: [story]
 description: "A whimsical and witty encounter between a polite girl and an ogre in the frozen woods, exploring manners, honesty, and unexpected conversations."
 ---
-<img src="/img/ogre.jpg" alt="A woman looking at an Ogre by the fire in the woods." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/ogre.jpg" alt="A woman looking at an ogre beside a fire in the woods" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 A very polite girl met an Ogre in the woods. She was gathering mushrooms and herbs for her children's dinner. He was eating a roast on a stick. It was cold, the forest was covered in ice and the girl was trembling.
 

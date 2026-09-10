@@ -71,3 +71,4 @@ abstract class QIFParserBase {
                                                         StringSplitOptions.RemoveEmptyEntries);
         parseFuncs[opt](this,blocks);
     }
+```

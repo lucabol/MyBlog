@@ -22,7 +22,7 @@ After a few iterations, refactorings, and bug fixes, we had a working site simil
 
 The new one is slightly simpler graphically, not because I couldn't do it, but because I chose not to.
 
-[This](https://github.com/lucabol/MyBlog/blob/master/src/generate_blog.py) is the 232 lines of Python code that generates the site. To my eyes, the situation is vastly simplified, as I don't need to understand the intricacies of `Eleventy` anymore. Everything has become embarrassingly obvious.
+[The blog generator source](https://github.com/lucabol/MyBlog/blob/master/src/generate_blog.py) is the 232 lines of Python code that generates the site. To my eyes, the situation is vastly simplified, as I don't need to understand the intricacies of `Eleventy` anymore. Everything has become embarrassingly obvious.
 
 ## Adding a commenting system
 In my folly, I don't want any Javascript on my site.

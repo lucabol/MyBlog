@@ -1,45 +1,51 @@
 {% extends "base.html" %}
 
-{% block title %}{{ post.title }} - Luca Bolognese{% endblock %}
-
-{% block meta_description %}
-{% if post.description %}
-    <meta name="description" content="{{ post.description }}">
-{% endif %}
-{% endblock %}
-
 {% block content %}
-    <div class="post-header">
+<article class="post" lang="{{ post.language }}">
+    <header class="post-header">
         <h1>{{ post.title }}</h1>
-        {% if post.has_translation %}
-        <div class="lang-toggle">
-            {% if post.language == 'it' %}
-            <span class="active">IT</span> | <a href="{{ post.translation_url }}">EN (AI)</a>
-            {% else %}
-            <span class="active">EN</span> | <a href="{{ post.translation_url }}">IT (AI)</a>
-            {% endif %}
-        </div>
+        {% if post.translation %}
+        <nav class="language-switch" aria-label="Article language">
+            <a class="active"
+               href="{{ post.url }}"
+               lang="{{ post.language }}"
+               hreflang="{{ post.language }}"
+               aria-current="page">{{ post.language | upper }}{% if post.is_translation %} (AI){% endif %}</a>
+            <span aria-hidden="true">|</span>
+            <a href="{{ post.translation.url }}"
+               lang="{{ post.translation.lang }}"
+               hreflang="{{ post.translation.lang }}"
+               rel="alternate">{{ post.translation.label }}</a>
+        </nav>
         {% endif %}
-    </div>
-    
-    <div class="post-meta">
-        <em>{{ post.author }} - {{ post.date.strftime('%b %Y') }}</em>
-    </div>
-    
-    <article class="post-content">
-        {{ post.content | safe }}
-    </article>
+        <p class="post-meta">
+            <span>{{ post.author }}</span>
+            <span aria-hidden="true">·</span>
+            <time datetime="{{ post.date.strftime('%Y-%m-%d') }}">{{ post.date.strftime('%b %Y') }}</time>
+        </p>
+    </header>
 
-    {% if post.tags %}
-        <h2>Tags</h2>
-        <ul class="post-tags">
-            {% for tag in post.tags %}
-                <li><a href="/tags/{{ tag }}.html">{{ tag }}</a></li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+    <section class="post-content" aria-labelledby="post-content-heading">
+        <h2 class="visually-hidden" id="post-content-heading">Article</h2>
+        {{ post.content | replace('<h1', '<h2') | replace('</h1>', '</h2>') | safe }}
+    </section>
 
-    <div class="post-comments">
-        <p><a href="{{ post.comments_url }}">View comments on GitHub</a> or <a href="mailto:luca@lucabol.com">email me</a></p>
-    </div>
+    <footer class="post-footer">
+        {% if post.tag_links %}
+        <section class="post-tags" aria-labelledby="post-tags-heading">
+            <h2 id="post-tags-heading">Tags</h2>
+            <ul>
+                {% for tag in post.tag_links %}
+                <li><a href="{{ tag.url }}" rel="tag">{{ tag.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        <p class="post-comments">
+            <a href="{{ post.comments_url }}">View comments on GitHub</a>
+            or <a href="mailto:luca@lucabol.com">email me</a>.
+        </p>
+    </footer>
+</article>
 {% endblock %}

@@ -14,7 +14,7 @@ This document presents a review of the current status of *basic* functional feat
 It focuses mostly on syntax and aims to achieve its goal using code examples.
 It doesn't touches on more advanced topics as Monad, Functors, etc ...
 
-Haskell has been chosen as the 'comparison' language (using few examples from [here](http://learnyouahaskell.com/) and elsewhere).
+Haskell has been chosen as the 'comparison' language (using few examples from [Learn You a Haskell](http://learnyouahaskell.com/) and elsewhere).
 This is not intended as a statement of value of one language vs the other.
 The languages are profoundly  different in underlying philosophies.
 They both do much more than what is presented here (i.e. C# supports OO and imperative style, while Haskell goes much deeper in type system power etc...).
@@ -153,7 +153,7 @@ Language-ext gives you a simpler syntax, with more flexibility on what you can m
                (x, xs) => x + Sum1(xs));
 ```
 
-Obviously you always have to be careful with recursion in C# ([here](https://github.com/dotnet/csharplang/issues/2544)).
+Obviously you always have to be careful with recursion in C# ([C# language issue #2544](https://github.com/dotnet/csharplang/issues/2544)).
 Better use the various methods on `Enumerable`.
 
 ## Guards (and case expressions)
@@ -304,7 +304,7 @@ In Haskell you write:
 ```
 
 There is no obvious equivalent in C#, and different libraries has sprung up to propose possible solutions (but not language-ext)
-(i.e. [here](https://github.com/Galad/CSharpDiscriminatedUnion) or [here](https://github.com/mcintyre321/OneOf)).
+(i.e. [CSharpDiscriminatedUnion](https://github.com/Galad/CSharpDiscriminatedUnion) or [OneOf](https://github.com/mcintyre321/OneOf)).
 
 One possible 'pure language' implementation, not considering structural equality/ordering/hash, follows:
 

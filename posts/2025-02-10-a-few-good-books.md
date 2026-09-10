@@ -49,13 +49,13 @@ I also read extensively about weight lifting. I think most people don't realize 
 Because of my age, I am partial to lifting weights slowly, [Slow Burn](https://www.amazon.com/Slow-Burn-Fitness-Revolution-Exercise/dp/0767913868/130-3351783-2457339?pd_rd_w=FNRwq&content-id=amzn1.sym.53b72ea0-a439-4b9d-9319-7c2ee5c88973&pf_rd_p=53b72ea0-a439-4b9d-9319-7c2ee5c88973&pf_rd_r=79RAHSBADYDD7PK77RH7&pd_rd_wg=kGRxO&pd_rd_r=2bafedc2-5424-4e63-9a9b-0bb780d541ae&pd_rd_i=0767913868&psc=1) style. Because of my laziness, I like spending the least amount of time doing it as in [Body by science](https://www.amazon.com/Body-Science-Research-Strength-Training/dp/0071597174/130-3351783-2457339?pd_rd_w=nC00b&content-id=amzn1.sym.53b72ea0-a439-4b9d-9319-7c2ee5c88973&pf_rd_p=53b72ea0-a439-4b9d-9319-7c2ee5c88973&pf_rd_r=444EZ7AWNSS8R38YD84R&pd_rd_wg=fhqIh&pd_rd_r=10ead2a9-f77a-4ad0-9176-26db370d35f7&pd_rd_i=0071597174&psc=1).
 
 ## Coding
-I have a post for that [here](/posts/2024-02-21-best-programming-languages.html).
+I have [a post about programming languages](/posts/2024-02-21-best-programming-languages.html).
 
 ## Typography
 I know, right? Too many good books to mention. Let's do one: [The elements of typographic style](https://www.amazon.com/Elements-Typographic-Style-Version-Anniversary/dp/088179211X?ref_=ast_author_dp&dib=eyJ2IjoiMSJ9.JrOxOmGE8ZXm72sdq-2ObsZr5NUPGG2cvEl9LPZ92WvKd4LR2d2fLPxlNoakLKv5NE8fwQuGL5oF-R9WML9c6UPdxhcMPx8MyBdHcU1NfwmTgofVlImZXxol1D5hVyt6ROash4QjBFhZ2I_ySxeJxBDyapsIv83RXw1wSNJmTL1mN83D8SXrzJ-qHZyRVIyg5Rr2Hm-mbefBPunFZUc70kE2lzICI5U9yogPLzUj7jk.iwuLwTaxrDqeeVCSIjzK43L9Ob2Mo2ViApDG6r0ALS8&dib_tag=AUTHOR).
 
 ## Narrative
-Apart from classics, I read a lot of sci-fi and fantasy. Try [Ted Chiang](https://www.amazon.com/stores/Ted-Chiang/author/B001HCZ6OA?ref=sr_ntt_srch_lnk_1&qid=1739207284&sr=1-1&isDramIntegrated=true&shoppingPortalEnabled=true) and [Patrick Rothfuss](https://www.amazon.com/stores/Patrick-Rothfuss/author/B001DAHXZQ?ref=sr_ntt_srch_lnk_1&qid=1739207340&sr=1-1&isDramIntegrated=true&shoppingPortalEnabled=true). The former is mind opening, the latter writes fantastically (read [this](https://www.goodreads.com/quotes/7271610-the-waystone-inn-lay-in-silence-and-it-was-a)).
+Apart from classics, I read a lot of sci-fi and fantasy. Try [Ted Chiang](https://www.amazon.com/stores/Ted-Chiang/author/B001HCZ6OA?ref=sr_ntt_srch_lnk_1&qid=1739207284&sr=1-1&isDramIntegrated=true&shoppingPortalEnabled=true) and [Patrick Rothfuss](https://www.amazon.com/stores/Patrick-Rothfuss/author/B001DAHXZQ?ref=sr_ntt_srch_lnk_1&qid=1739207340&sr=1-1&isDramIntegrated=true&shoppingPortalEnabled=true). The former is mind opening, the latter writes fantastically (read [the opening of *The Name of the Wind*](https://www.goodreads.com/quotes/7271610-the-waystone-inn-lay-in-silence-and-it-was-a)).
 
 ## Others
 Many other topics touched my fancy here and there (chess, photography, economy, fonts, design, art history, big history, world politics, ...). My library has 100s of books. Mostly I have read, some skimmed, some nothing. Enough for now.

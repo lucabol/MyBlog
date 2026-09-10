@@ -69,7 +69,7 @@ This is how it looks like:
 static dynamic Sum1(dynamic a, dynamic b) { return a + b; }
 ```
 
-The call to the '+' operator is resolved at runtime, by the C# binder, hence a performance penalty is incurred. The penalty is less than you might think, given that the [DLR](http://www.codeplex.com/dlr) caches things under the cover so that no v-table lookup is performed the second time around. The whole thing is explained in more detail [here](http://blogs.msdn.com/cburrows/archive/2008/10/27/c-dynamic.aspx). But still, it is not as fast as a normal '+' operator over a primitive type. I'll let you enjoy micro performance testing this one 🙂
+The call to the '+' operator is resolved at runtime, by the C# binder, hence a performance penalty is incurred. The penalty is less than you might think, given that the [DLR](http://www.codeplex.com/dlr) caches things under the cover so that no v-table lookup is performed the second time around. The whole thing is explained in more detail [in Chris Burrows's explanation of C# dynamic dispatch](http://blogs.msdn.com/cburrows/archive/2008/10/27/c-dynamic.aspx). But still, it is not as fast as a normal '+' operator over a primitive type. I'll let you enjoy micro performance testing this one 🙂
 
 A slight refinement is to make the code generic so that a caller doesn't see a signature with dynamic types as arguments.
 

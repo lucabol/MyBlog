@@ -5,7 +5,7 @@ author: lucabol
 tags: [story]
 description: "A story about Tom Campbell, a retired professor navigating loneliness, unexpected encounters, and the complexities of human connection during winter."
 ---
-<img src="/img/winter-feelings.jpg" alt="Snow falling outside a coffee shop window with an empty chair" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/winter-feelings.jpg" alt="Snow outside a coffee shop window with an empty chair" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Tom Campbell goes to the desk to punch his card.
 

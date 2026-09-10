@@ -5,9 +5,9 @@ author: lucabol
 tags: [Sport, Statistics]
 description: "A look at SandScore, an app designed to track and analyze statistics for beach volleyball matches, helping players and enthusiasts improve their game."
 ---
-I have created a phone friendly application to track the score and stats for a beach volley game. It is [here](https://github.com/lucabol/SandScore).
+I have created a phone friendly application to track the score and stats for a beach volley game. It is [available in the SandScore repository](https://github.com/lucabol/SandScore).
 
-<img src="/img/SandScore.jpg" alt="Image of the app." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/SandScore.jpg" alt="SandScore beach volleyball scoring and statistics screen" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Here are the main user features:
 

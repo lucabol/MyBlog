@@ -9,7 +9,7 @@ tags:
   - Sport
   - Python
 ---
-This is a Jupyter notebook converted to blog post by [nbconvert](https://nbconvert.readthedocs.io/en/latest/). The notebook is [here](https://github.com/lucabol/sportsim/blob/main/volley.ipynb). To comment or contribute, please open an issue or a pull request on [the repository](https://github.com/lucabol/sportsim).
+This is a Jupyter notebook converted to blog post by [nbconvert](https://nbconvert.readthedocs.io/en/latest/). The notebook is [on GitHub](https://github.com/lucabol/sportsim/blob/main/volley.ipynb). To comment or contribute, please open an issue or a pull request on [the repository](https://github.com/lucabol/sportsim).
 
 The aim is to discover the probability of winning a set/game/match in volleyball/beach volley/racketball/badmington/..., given the probability of winning a point. The model is based on the assumption that the probability of winning a point is constant and independent of the previous points. This is a simplification, but it is a good starting point to understand the game.
 
@@ -118,7 +118,7 @@ dfp.plot(x='x', y='PP', ax=ax[2], title='Point Winning Probability');
 
 
     
-![png](/img/volley_3_1.png)
+![Winning, set, and point probability plots over simulated volleyball matches](/img/volley_3_1.png)
     
 
 
@@ -165,7 +165,7 @@ plt.tight_layout()
 
 
     
-![png](/img/volley_5_0.png)
+![Simulated win probabilities for two-set and three-set volleyball formats](/img/volley_5_0.png)
     
 
 
@@ -216,7 +216,7 @@ plt.tight_layout()
 
 
     
-![png](/img/volley_7_0.png)
+![Sigmoid curve fits for simulated match and set win probabilities](/img/volley_7_0.png)
     
 
 
@@ -225,7 +225,7 @@ We can model a set as a Bernoulli trial, answering the question of getting at le
 
 The approximation works quite well, despite the imperfection of having to win a set by at least 2 points, which is not considered in the analytical formula, but it is in the simulation. My intuition is that once you get to 24-24 and continue playing, the probability doesn't change.
 
-The formula is taken from [here](https://math.stackexchange.com/questions/915353/the-probability-of-having-k-successes-before-r-failures-in-a-sequence-of-ind).
+The formula is taken from [a Math StackExchange derivation](https://math.stackexchange.com/questions/915353/the-probability-of-having-k-successes-before-r-failures-in-a-sequence-of-ind).
 
 It is this:
 
@@ -287,7 +287,7 @@ plt.tight_layout()
 
 
     
-![png](/img/volley_9_0.png)
+![Bernoulli-model curves compared with simulated match and set probabilities](/img/volley_9_0.png)
     
 
 
@@ -334,7 +334,7 @@ plt.tight_layout()
 
 
     
-![png](/img/volley_11_1.png)
+![Linear fits for match win probability between 0.50 and 0.55 point probability](/img/volley_11_1.png)
     
 
 

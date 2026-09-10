@@ -29,13 +29,13 @@ Disclaimer
 For any normal kind of applications, *YOU DON'T NEED TO DO THIS*. You are likely to make your application run slower or blow up memory.
 If you have an hot path in your application (i.e. you are creating an editor with Intellisense), use the GC latency modes.
 Use the code below just under extreme circumstance as it is untested, error prone and wacky.
-You are probably better off waiting for an official way of doing it (i.e. when [this](https://github.com/dotnet/coreclr/issues/21750)
+You are probably better off waiting for an official way of doing it (i.e. when [dotnet/coreclr issue #21750](https://github.com/dotnet/coreclr/issues/21750)
 is implemented)
 
 ## The problem with TryStartNoGCRegion
 There is a GC.TryStartNoGCRegion in .NET. You can use it to stop garbage collection passing a totalBytes parameter that represents
 the maximum amount of memory  that you plan to allocate from the managed heap. Matt describes it
-[here](https://mattwarren.org/2016/08/16/Preventing-dotNET-Garbage-Collections-with-the-TryStartNoGCRegion-API/).
+[in his TryStartNoGCRegion article](https://mattwarren.org/2016/08/16/Preventing-dotNET-Garbage-Collections-with-the-TryStartNoGCRegion-API/).
 
 The problem is that when/if you allocate more than that, garbage collection resumes silently. Your application continues to work,
 but with different performance characteristics from what you expected.

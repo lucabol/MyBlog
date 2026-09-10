@@ -50,7 +50,7 @@ categories:
 tags:
   - fsharp
 ---
-Download framework [here](http://code.msdn.microsoft.com/LAgent).
+Download the framework [from the LAgent Code Gallery page](http://code.msdn.microsoft.com/LAgent).
 
 All posts are here:
 

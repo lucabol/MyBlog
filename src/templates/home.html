@@ -1,24 +1,39 @@
 {% extends "base.html" %}
-
-{% block title %}Luca Bolognese{% endblock %}
+{% from "_macros.html" import post_language_links %}
 
 {% block content %}
-    <h1>Luca Bolognese</h1>
-    
+<section class="home-intro" aria-labelledby="home-title">
+    <h1 id="home-title">{{ site.author }}</h1>
+
     <div class="avatar">
-        <img src="/img/gavatar200.svg" alt="Luca Bolognese">
+        <img src="/img/gavatar200.svg" alt="Portrait of {{ site.author }}" width="200" height="200" decoding="async" fetchpriority="high">
     </div>
-    
-    <div class="social-links">
-        <a href="https://github.com/lucabol" class="social-link">
-            <img src="/img/github.svg" alt="GitHub">
+
+    <nav class="social-links" aria-label="{{ site.author }} elsewhere">
+        <a href="https://github.com/lucabol" class="social-link" rel="me" aria-label="{{ site.author }} on GitHub">
+            <img src="/img/github.svg" alt="GitHub profile" width="32" height="32" decoding="async">
         </a>
-        <a href="https://www.linkedin.com/in/lucabol/" class="social-link">
-            <img src="/img/linkedin.svg" alt="LinkedIn">
+        <a href="https://www.linkedin.com/in/lucabol/" class="social-link" rel="me" aria-label="{{ site.author }} on LinkedIn">
+            <img src="/img/linkedin.svg" alt="LinkedIn profile" width="32" height="32" decoding="async">
         </a>
-        <a href="/feed.xml" class="social-link">
-            <img src="/img/rss.svg" alt="RSS Feed">
+        <a href="/feed.xml" class="social-link" aria-label="Subscribe to the RSS feed">
+            <img src="/img/rss.svg" alt="RSS feed" width="32" height="32" decoding="async">
         </a>
-    </div>
-    
+    </nav>
+</section>
+
+{% if recent_posts %}
+<section class="recent-notes" aria-labelledby="recent-notes-heading">
+    <h2 id="recent-notes-heading">Recent notes</h2>
+    <ul class="posts-list">
+        {% for post in recent_posts %}
+        <li>
+            <a href="{{ post.url }}" lang="{{ post.language }}" rel="bookmark">{{ post.title }}</a>
+            {{ post_language_links(post) }}
+        </li>
+        {% endfor %}
+    </ul>
+    <p class="browse-all"><a href="/notes">Browse all notes</a></p>
+</section>
+{% endif %}
 {% endblock %}

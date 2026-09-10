@@ -56,7 +56,7 @@ Other parts:
   * [Part V  - Adjusting historical data](http://blogs.msdn.com/lucabol/archive/2008/09/26/downloading-stock-prices-in-f-part-v-adjusting-historical-data.aspx)
   * [Part VI  - Code posted](http://blogs.msdn.com/lucabol/archive/2008/10/20/downloading-stock-prices-in-f-part-vi-code-posted.aspx)
 
-Today we shipped the September CTP of F# !!!! Evviva !! Read [this](http://blogs.msdn.com/dsyme/archive/2008/08/29/the-f-september-2008-ctp-is-now-available.aspx) blog post about it. To celebrate I decided to share one of my several F# project. It might make for a good sample; sort of a crash course on F#.
+Today we shipped the September CTP of F# !!!! Evviva !! Read [Don Syme's F# CTP announcement](http://blogs.msdn.com/dsyme/archive/2008/08/29/the-f-september-2008-ctp-is-now-available.aspx) about it. To celebrate I decided to share one of my several F# project. It might make for a good sample; sort of a crash course on F#.
 
 This application downloads stock prices, dividends and splits from [Yahoo Historical Prices](http://finance.yahoo.com/q/hp?s=MSFT) and performs computations on them. I will describe it file by file.
 

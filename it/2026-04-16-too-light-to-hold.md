@@ -2,7 +2,7 @@
 title: Troppo leggero per resistere
 ---
 ---
-<img src="/img/girlriver.jpg" alt="A girl standing by a river" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/girlriver.jpg" alt="Una ragazza in piedi accanto a un fiume" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 La polvere era spessa sul sentiero. Il sole era basso. Il fiume era lontano, ma la casa era calda e sapeva di tabacco e di uomini. Maria camminava coi fianchi rigidi. Segni rossi le stavano sulla schiena, in basso. Nelle cosce aveva un calore sordo e pesante.
 

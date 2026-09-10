@@ -14,7 +14,7 @@ tags:
 ---
 And here comes the guilt bit. I have the strong suspicion (but not certainty) that what I am doing here can be done with templates, but didn't take the time to do it. With that out of the way, let's go.
 
-Code for this post is [here](https://github.com/lucabol/FunctionalCpp/blob/master/discriminated_union.cpp). Thanks to Steve Bower and Andy Sawyer for reviewing it.
+Code for this post is [in discriminated_union.cpp](https://github.com/lucabol/FunctionalCpp/blob/master/discriminated_union.cpp). Thanks to Steve Bower and Andy Sawyer for reviewing it.
 
 [Algebraic datatypes](http://www.google.co.uk/url?sa=t&rct=j&q=algebraic%20datatypes&source=web&cd=1&ved=0CDIQFjAA&url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FAlgebraic_data_type&ei=UmZ9T8fGOoK2hQeRk6i-DA&usg=AFQjCNGG2oS5s9Ir1NvaX-RRcarkvVAoig) (discriminated unions in F#) are a powerful concept in functional programming. They are the main way to represent type variation in your program. Very roughly, where object orientation uses derivation, functional programming uses algebraic datatypes. An entire book could be written on the theory of this, but the goal of this post is to see how we can map them to C++ without loosing C++ness.
 
@@ -71,7 +71,7 @@ public:
 
 Ok, so boost variant doesn't really work for this. Remember that our overarching goal was to stay close to C++. The language itself has something that comes pretty close to what we want in the form of a union, or better a [tagged union](http://en.wikipedia.org/wiki/Tagged_union). Again, the types are not named, but maybe we can work that in.
 
-It turns out that Jared [here](http://blogs.msdn.com/b/jaredpar/archive/2010/11/18/discriminated-unions-in-c.aspx) did all the hard work. The general idea is to use macros to hide the construction of a tagged union with methods to test the type and return the contained value. 
+It turns out that Jared [in his discriminated unions post](http://blogs.msdn.com/b/jaredpar/archive/2010/11/18/discriminated-unions-in-c.aspx) did all the hard work. The general idea is to use macros to hide the construction of a tagged union with methods to test the type and return the contained value.
 
 For example this code:
 

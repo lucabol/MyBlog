@@ -61,36 +61,37 @@ My deck has just two slides, as always. It’s all about watching me typing code
 There are several other interesting language related sessions at PDC. Here is a list of them (please notice that the times might change). Also feel free to drop by the languages booth and chat. My team and I will be there most of the time.
 
 <table border="1" cellspacing="0" cellpadding="0">
+  <caption>PDC 2009 language sessions</caption>
   <tr>
-    <td valign="top" width="62">
+    <th scope="col" valign="top" width="62">
       <p>
-        <b>Day</b>
+        Day
       </p>
-    </td>
+    </th>
     
-    <td valign="top" width="96">
+    <th scope="col" valign="top" width="96">
       <p>
-        <b>Time</b>
+        Time
       </p>
-    </td>
+    </th>
     
-    <td valign="top" width="502">
+    <th scope="col" valign="top" width="502">
       <p>
-        <b>Title</b>
+        Title
       </p>
-    </td>
+    </th>
     
-    <td valign="top" width="147">
+    <th scope="col" valign="top" width="147">
       <p>
-        <b>Presenter</b>
+        Presenter
       </p>
-    </td>
+    </th>
     
-    <td valign="top" width="117">
+    <th scope="col" valign="top" width="117">
       <p>
-        <b>Room</b>
+        Room
       </p>
-    </td>
+    </th>
   </tr>
   
   <tr>

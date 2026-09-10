@@ -51,7 +51,7 @@ As described in part one, you pass a delegate at creation time, which is called 
         internal GcEventListener(Action action) => _action = action ?? throw new ArgumentNullException(nameof(action));
 ~~~
 We register to all the events coming from .NET. We want to call the delegate at the exact point when garbage collection is turned on again.
-We don't have a clean way to do that (aka there is no runtime event we can hook up to, see [here](https://github.com/dotnet/coreclr/issues/21750),
+We don't have a clean way to do that (aka there is no runtime event we can hook up to, see [dotnet/coreclr issue #21750](https://github.com/dotnet/coreclr/issues/21750),
 so listening to every single GC event gives us the most chances of doing it right. Also it ties us the least to any pattern of events, which
 might change in the future.
 ~~~csharp
@@ -144,7 +144,7 @@ and trying to figure out why. So, always listen to Lint ...
 
 ~~~
 This is an utility class that implements the `IDisposable` pattern for this scenario. The size of the default ephemeral segment comes from
-[here](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals#generations).
+[the .NET garbage collection generations documentation](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals#generations).
 ~~~csharp
     public sealed class NoGCRegion: IDisposable
     {
