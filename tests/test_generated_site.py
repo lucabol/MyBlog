@@ -2111,6 +2111,16 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
                     declarations.update(rule["declarations"])
             return declarations
 
+        def mobile_declarations(selector):
+            declarations = {}
+            for rule in self._css_rules_for_selector(rules, selector):
+                if any(
+                    "max-width: 36rem" in query
+                    for query in rule["media"]
+                ):
+                    declarations.update(rule["declarations"])
+            return declarations
+
         root = base_declarations(":root")
         self.assertEqual(
             root.get("--base-size"),
@@ -2127,6 +2137,24 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
         self.assertIn(
             active_navigation.get("font-weight", "400"),
             {"400", "normal"},
+        )
+
+        mobile_navigation = mobile_declarations(".site-nav")
+        self.assertEqual(mobile_navigation.get("flex-wrap"), "nowrap")
+        self.assertEqual(mobile_navigation.get("gap"), "0")
+
+        mobile_navigation_link = mobile_declarations(".site-nav a")
+        self.assertEqual(
+            mobile_navigation_link.get("min-width"),
+            "var(--touch-target)",
+        )
+        self.assertEqual(
+            mobile_navigation_link.get("padding-inline"),
+            "var(--space-1)",
+        )
+        self.assertEqual(
+            mobile_navigation_link.get("font-size"),
+            "clamp(0.85rem, 4vw, 0.875rem)",
         )
 
         title = base_declarations("h1")
