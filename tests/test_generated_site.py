@@ -2137,6 +2137,33 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
         self.assertNotIn("Trebuchet MS Bold", heading_font.get("src", ""))
         self.assertEqual(heading_font.get("font-weight"), "400")
 
+    def test_css_preserves_editorial_content_measure_and_list_inset(self):
+        css = (self.dist / "static" / "style.css").read_text(encoding="utf-8")
+        rules = self._parse_css_rules(css)
+
+        def base_declarations(selector):
+            declarations = {}
+            for rule in self._css_rules_for_selector(rules, selector):
+                if not rule["media"]:
+                    declarations.update(rule["declarations"])
+            return declarations
+
+        root = base_declarations(":root")
+        self.assertEqual(root.get("--page-width"), "48rem")
+
+        body = base_declarations("body")
+        self.assertEqual(body.get("max-width"), "var(--page-width)")
+        self.assertEqual(
+            body.get("padding"),
+            "var(--space-2) var(--space-8)",
+        )
+        for rule in self._css_rules_for_selector(rules, "body"):
+            if rule["media"]:
+                self.assertNotIn("padding-inline", rule["declarations"])
+
+        posts_list = base_declarations(".posts-list")
+        self.assertEqual(posts_list.get("padding-inline-start"), "2rem")
+
     def test_headers_include_security_and_asset_cache_policies(self):
         blocks = self._parse_headers(
             (self.dist / "_headers").read_text(encoding="utf-8")

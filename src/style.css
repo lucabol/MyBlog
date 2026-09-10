@@ -39,7 +39,7 @@
     --color-table-header: #f5f5ff;
     --color-muted: #595959;
 
-    --content-width: 75ch;
+    --page-width: 48rem;
     --space-1: 0.25rem;
     --space-2: 0.5rem;
     --space-3: 0.75rem;
@@ -67,9 +67,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    max-width: var(--content-width);
+    max-width: var(--page-width);
     margin: 0 auto;
-    padding: var(--space-2) clamp(var(--space-4), 4vw, var(--space-8));
+    padding: var(--space-2) var(--space-8);
     background: var(--color-background);
     color: var(--color-text);
     font-family: var(--font-text);
@@ -773,10 +773,6 @@ th {
 }
 
 @media (max-width: 36rem) {
-    body {
-        padding-inline: var(--space-4);
-    }
-
     .site-header {
         margin-top: var(--space-6);
     }
