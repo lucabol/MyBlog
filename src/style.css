@@ -13,8 +13,7 @@
 
 @font-face {
     font-family: "MyTrebuchet";
-    src: local("Trebuchet MS Bold"),
-         local("Trebuchet MS"),
+    src: local("Trebuchet MS"),
          url("/fonts/trebucbdsubset.eot") format("embedded-opentype"),
          url("/fonts/trebucbdsubset.woff2") format("woff2"),
          url("/fonts/trebucbdsubset.woff") format("woff"),
@@ -22,13 +21,13 @@
          url("/fonts/trebucbdsubset.svg#trebucbdsubset") format("svg");
     font-display: swap;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 :root {
     font-size: 100%;
 
-    --base-size: clamp(1rem, 0.92rem + 0.4vw, 1.3rem);
+    --base-size: clamp(1rem, 2.2vw, 1.5rem);
     --font-text: MyGeorgia, Georgia, serif;
     --font-heading: MyTrebuchet, "Trebuchet MS", sans-serif;
     --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
@@ -172,9 +171,8 @@ a:hover {
     justify-content: center;
     min-height: var(--touch-target);
     padding-inline: var(--space-2);
-    font-family: var(--font-heading);
-    font-size: 1.05em;
-    letter-spacing: 0.03em;
+    font-family: var(--font-text);
+    font-size: 1.1em;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -185,7 +183,7 @@ a:hover {
 }
 
 .site-nav a[aria-current="page"] {
-    font-weight: 700;
+    font-weight: 400;
 }
 
 h1,
@@ -200,15 +198,15 @@ h3,
 
 h1 {
     margin: 0 0 var(--space-6);
-    font-size: 1.45em;
-    font-weight: 700;
+    font-size: 1.3em;
+    font-weight: 400;
     text-align: center;
 }
 
 h2 {
     margin: var(--space-12) 0 var(--space-4);
     font-size: 1.2em;
-    font-weight: 700;
+    font-weight: 400;
     text-align: center;
 }
 
@@ -332,6 +330,8 @@ hr {
 }
 
 .year {
+    font-size: 1.2em;
+    font-weight: 400;
     scroll-margin-top: var(--space-4);
 }
 

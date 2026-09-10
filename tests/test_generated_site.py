@@ -2091,6 +2091,52 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
 
         self._assert_no_problems(problems)
 
+    def test_css_preserves_editorial_navigation_and_title_typography(self):
+        css = (self.dist / "static" / "style.css").read_text(encoding="utf-8")
+        rules = self._parse_css_rules(css)
+
+        def base_declarations(selector):
+            declarations = {}
+            for rule in self._css_rules_for_selector(rules, selector):
+                if not rule["media"]:
+                    declarations.update(rule["declarations"])
+            return declarations
+
+        root = base_declarations(":root")
+        self.assertEqual(
+            root.get("--base-size"),
+            "clamp(1rem, 2.2vw, 1.5rem)",
+        )
+
+        navigation = base_declarations(".site-nav a")
+        self.assertEqual(navigation.get("font-family"), "var(--font-text)")
+        self.assertNotIn("letter-spacing", navigation)
+        self.assertIn(navigation.get("font-weight", "400"), {"400", "normal"})
+        active_navigation = base_declarations(
+            '.site-nav a[aria-current="page"]'
+        )
+        self.assertIn(
+            active_navigation.get("font-weight", "400"),
+            {"400", "normal"},
+        )
+
+        title = base_declarations("h1")
+        self.assertEqual(title.get("font-family"), "var(--font-heading)")
+        self.assertEqual(title.get("font-size"), "1.3em")
+        self.assertEqual(title.get("font-weight"), "400")
+
+        heading_font = next(
+            rule["declarations"]
+            for rule in self._css_rules_for_selector(rules, "@font-face")
+            if rule["declarations"].get("font-family", "").strip("\"'")
+            == "MyTrebuchet"
+        )
+        self.assertTrue(
+            heading_font.get("src", "").startswith('local("Trebuchet MS")')
+        )
+        self.assertNotIn("Trebuchet MS Bold", heading_font.get("src", ""))
+        self.assertEqual(heading_font.get("font-weight"), "400")
+
     def test_headers_include_security_and_asset_cache_policies(self):
         blocks = self._parse_headers(
             (self.dist / "_headers").read_text(encoding="utf-8")
