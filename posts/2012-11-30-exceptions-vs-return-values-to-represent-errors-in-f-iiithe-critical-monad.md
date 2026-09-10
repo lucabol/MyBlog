@@ -11,7 +11,7 @@ categories:
 tags:
   - fsharp
 ---
-Code for this post is [here](https://github.com/lucabol/ErrorExceptional).
+Code for this post is [in the ErrorExceptional repository](https://github.com/lucabol/ErrorExceptional).
 
 In the last post we looked at some Critical code and decided that, albeit correct, it is convoluted. The error management path obfuscates the underlying logic. Also we have no way of knowing if a developer had thought about the error path or not when invoking a function.
 

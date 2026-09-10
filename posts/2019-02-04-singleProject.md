@@ -8,7 +8,7 @@ tags:
   - csharp
 ---
 ## Abstract
-The code is [here](https://github.com/lucabol/SingleSourceProject).
+The code is [in the SingleSourceProject repository](https://github.com/lucabol/SingleSourceProject).
 
 Thanks to [Mike](https://github.com/mjrousos) for reviewing this.
 

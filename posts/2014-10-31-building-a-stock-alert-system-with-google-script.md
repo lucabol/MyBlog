@@ -19,7 +19,7 @@ tags:
 &nbsp;
 
 
-***This is obsolete as Yahoo stopped their quote service. I have a new spreadsheet [here](https://docs.google.com/spreadsheets/d/1OimxgxAgwY3GeCSvnzlEbQTPnWDU0-AnyvZMc3RfgdA/edit?usp=sharing).***
+***This is obsolete as Yahoo stopped their quote service. I have a new spreadsheet [in Google Sheets](https://docs.google.com/spreadsheets/d/1OimxgxAgwY3GeCSvnzlEbQTPnWDU0-AnyvZMc3RfgdA/edit?usp=sharing).***
 
 When I thought about it, I realized that my ideal system would be a spreadsheet where to add tickers and alert levels. Under the covers, the system would need to check the current price of a ticker, compare it with the alert level and send me email when triggered.
 

@@ -48,6 +48,6 @@ categories:
 tags:
   - fsharp
 ---
-You can watch it [here](https://channel9.msdn.com/pdc2008/TL11/). Also I attached the demo application I built on stage.
+You can watch it [on Channel 9](https://channel9.msdn.com/pdc2008/TL11/). Also I attached the demo application I built on stage.
 
 [fsharpdemoPDCPrez.zip](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Components.PostAttachments/00/09/03/37/46/fsharpdemoPDCPrez.zip)

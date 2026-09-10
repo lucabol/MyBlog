@@ -5,7 +5,7 @@ author: lucabol
 tags: [story]
 description: "A Southern gothic tale of power, loyalty, and quiet resistance, as seen through the eyes of a butler witnessing the unraveling of a plantation household."
 ---
-<img src="/img/butler.jpg" alt="A black butler carrying a woman asleep" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/butler.jpg" alt="A butler carrying a sleeping woman" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 The car arrived at the plantation at midday, which is a time of sweat in the south. The help lined up in front of the house sweat running down their faces and their backs creating darker patches on their white uniforms. The air smelled of banana leaves.
 
@@ -130,5 +130,4 @@ He stood up and opened the tall cabinet and took out the rifle. He got the bulle
 The lovers slept and the light came from the moon outside the window and the girl's legs stuck out of the blanket and they were very white.
 
 The help woke up to the loud bang of the gunshot and the dogs barked and the crickets stopped singing. The night went silent.
-
 

@@ -6,7 +6,7 @@ tags: [story]
 language: it
 description: "In un piccolo paese, Alfredo usa una misteriosa antenna per intercettare comunicazioni, decidendo di usare questo potere per orchestrare un improbabile incontro tra un rozzo contadino e un'accademica raffinata."
 ---
-<img src="/img/antenna.jpg" alt="A house with a large antenna" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/antenna.jpg" alt="Una casa con una grande antenna sul tetto" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 C'era una volta un tipo che aveva un'antenna enorme sul tetto di casa. La gente pensava che la usasse per parlare con radioamatori in tutto il mondo, ma non era così. La realtà era ben diversa.
 
@@ -110,4 +110,3 @@ La prof lo guardò dubbiosa: "Questa è una minchiata, però"
 "Eh si ..." rispose lui incerto.
 
 Alfredo, osservando la scena da uno sgabello all'angolo della sala, sorrideva compiaciuto. Il suo piano stava funzionando.
-

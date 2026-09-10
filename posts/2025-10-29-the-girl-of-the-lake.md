@@ -5,7 +5,7 @@ author: lucabol
 tags: [story]
 description: "A poignant story about memory, shame, and self-recognition, where a woman finally understands what the lake has been trying to show her all along."
 ---
-<img src="/img/girllake.jpg" alt="A woman's looking at a lake" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/girllake.jpg" alt="A woman looking at a lake" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Twice in my life, I saw the girl's image in the lake. The first time I was just a little girl. My mama had sent me there to wash the dishes. I was walking down the pier when I saw it.
 

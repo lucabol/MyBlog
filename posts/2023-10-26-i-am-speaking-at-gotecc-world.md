@@ -7,6 +7,6 @@ description: "Breaking news from the tech conference circuit! Your favorite C# e
 tags:
   - csharp
 ---
-Come and watch me [here](https://www.gotech.world/net-stage-2023-agenda)
+Come and watch me [on the GoTech World .NET stage](https://www.gotech.world/net-stage-2023-agenda)
 
-![banner](/img/gotech.png)
+![GoTech World 2023 .NET stage banner](/img/gotech.png)

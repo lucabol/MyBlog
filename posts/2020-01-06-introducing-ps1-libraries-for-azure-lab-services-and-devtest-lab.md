@@ -16,4 +16,4 @@ The nicest thing about them is how they make use of the [PS1 Pipeline](https://d
 Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
-I intend to shoot some brief videos to describe how to use them. In the meantime, you can read tutorials [here](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/HowTo.md) and [here](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/Modules/Library/HowTo.md)
+I intend to shoot some brief videos to describe how to use them. In the meantime, you can read tutorials [for Azure Lab Services](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/HowTo.md) and [for Azure DevTest Labs](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/Modules/Library/HowTo.md)

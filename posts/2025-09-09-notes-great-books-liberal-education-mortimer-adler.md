@@ -5,7 +5,7 @@ author: lucabol
 tags: [Books]
 description: "Summary of key works from a liberal education curriculum including Plato, Sophocles, Aristotle, and Plutarch - foundational texts for understanding Western thought and philosophy."
 ---
-### **1. Plato, *Apology* and *Crito***
+## **1. Plato, *Apology* and *Crito***
 
 * ***Apology***
     * Socrates defends himself against charges of corrupting the youth and impiety.
@@ -19,7 +19,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **2. Plato, *The Republic*, Books I & II**
+## **2. Plato, *The Republic*, Books I & II**
 
 * ***Book I***
     * Socrates debates the meaning of justice with his friends.
@@ -31,7 +31,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **3. Sophocles, *Oedipus the King* and *Antigone***
+## **3. Sophocles, *Oedipus the King* and *Antigone***
 
 * ***Oedipus the King***
     * Oedipus, king of Thebes, vows to find the murderer of the previous king, Laius, to end a plague.
@@ -47,7 +47,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **4. Aristotle, *Nicomachean Ethics*, Book I**
+## **4. Aristotle, *Nicomachean Ethics*, Book I**
 
 * **The Highest Good:** Aristotle argues that all human actions aim at some good, with the highest good being **happiness** (*eudaimonia*), which is pursued for its own sake.
 * **The Function of Man:** Happiness is an "activity of the rational soul in accordance with virtue." To be truly happy, a person must use their unique human capacity for reason.
@@ -56,7 +56,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **5. Aristotle, *Politics*, Book I**
+## **5. Aristotle, *Politics*, Book I**
 
 * **The Nature of the State:** Aristotle argues that the **city-state** is the highest form of human association, formed to achieve the highest good.
 * **"Political Animal":** He introduces the idea that "man is by nature a political animal" and that the city-state is a natural development from the family and village.
@@ -65,7 +65,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **6. Plutarch, *The Lives***
+## **6. Plutarch, *The Lives***
 
 * **Lycurgus:** He established a new constitution for Sparta, including a system of equal land distribution, the **agoge** (a rigorous education), and a focus on simplicity and civic virtue.
 * **Numa Pompilius:** The second king of Rome, he ruled peacefully by focusing on religious and legal reforms, instilling a sense of piety in the Roman people.
@@ -74,7 +74,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **7. *The Old Testament*, The Book of Job**
+## **7. *The Old Testament*, The Book of Job**
 
 * **The Wager:** God allows Satan to test the piety of Job, a righteous and wealthy man.
 * **The Affliction:** Job loses his children, wealth, and health but refuses to curse God.
@@ -84,7 +84,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **8. St. Augustine, *The Confessions*, Books I–VIII**
+## **8. St. Augustine, *The Confessions*, Books I–VIII**
 
 * **Spiritual Journey:** Written as a prayer to God, Augustine's work is a spiritual autobiography recounting his early life and struggles.
 * **Early Sins:** He reflects on the nature of evil, confessing to minor sins of his youth, and sees his own lusts and worldly ambitions as a primary barrier to his faith.
@@ -93,7 +93,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **9. Montaigne, *The Essays***
+## **9. Montaigne, *The Essays***
 
 * **The Essay:** Montaigne pioneered the essay genre, writing personal, reflective pieces that explore a wide range of topics.
 * **Self-Examination:** His main focus is on the study of the self, reflecting his skeptical motto, **"Que sçay-je?"** ("What do I know?").
@@ -108,7 +108,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **10. Shakespeare, *Hamlet***
+## **10. Shakespeare, *Hamlet***
 
 * **The Plot:** The ghost of Prince Hamlet's father appears, revealing he was murdered by his brother, Claudius, who has now married the queen and seized the throne.
 * **Feigned Madness:** Hamlet feigns madness to investigate the crime, leading to a series of tragic misunderstandings and events.
@@ -117,7 +117,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **11. John Locke, *Concerning Civil Government***
+## **11. John Locke, *Concerning Civil Government***
 
 * **State of Nature:** Locke argues that in the state of nature, individuals are free and equal, with natural rights to life, liberty, and property.
 * **Social Contract:** To protect these rights, people enter a **social contract** to create a government.
@@ -126,7 +126,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **12. Jonathan Swift, *Gulliver's Travels***
+## **12. Jonathan Swift, *Gulliver's Travels***
 
 * **Satire:** The book is a satirical critique of human nature and European society.
 * **The Voyages:**
@@ -137,7 +137,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **13. Edward Gibbon, *The Decline and Fall of the Roman Empire***
+## **13. Edward Gibbon, *The Decline and Fall of the Roman Empire***
 
 * **The Scope:** The reading selection focuses on Gibbon's controversial analysis of Christianity's role in the fall of the empire.
 * **Chapter 15: The Progress of the Christian Religion:** Gibbon investigates the "five secondary causes" for the rapid spread of Christianity, beyond divine intervention. These include the **zeal of the early Christians**, their doctrine of a future life (including the concept of heaven and hell), the claim to miraculous powers, the **pure and austere morals** of the believers, and the tight-knit **union and discipline of the Christian Church**.
@@ -145,7 +145,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **14. American State Papers and *The Federalist***
+## **14. American State Papers and *The Federalist***
 
 * **Declaration of Independence:** This document asserts the **unalienable rights** to "Life, Liberty and the pursuit of Happiness," and states that governments derive their power from the **consent of the governed**.
 * **The Constitution of the United States of America:** This establishes the framework for the U.S. government, including the **three branches of government** (legislative, executive, and judicial), the **system of checks and balances**, and the division of powers between the federal government and the states.
@@ -177,7 +177,7 @@ description: "Summary of key works from a liberal education curriculum including
 
 ---
 
-### **15. Karl Marx and Friedrich Engels, *Manifesto of the Communist Party***
+## **15. Karl Marx and Friedrich Engels, *Manifesto of the Communist Party***
 
 * **Class Struggle:** The *Manifesto* presents a history of society as a history of class struggle, simplified under capitalism into two classes: the **bourgeoisie** (owners) and the **proletariat** (workers).
 * **The Revolution:** It argues that the exploitation of the proletariat will inevitably lead to a revolution in which the workers overthrow the bourgeoisie and seize control of the means of production.

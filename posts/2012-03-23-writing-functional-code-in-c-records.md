@@ -16,7 +16,7 @@ This is the first of a series of posts about writing functional code in C++.  My
 
 Think of it as an attempt to answer the question: is there a way to write C++ code in a functional style without loosing its 'C++sness'? We won't attempt to be as type safe or syntactically pleasing as Haskell or F# , but we'll attempt to stay as fast and flexible as C++ and make it functional enough to be interesting.
 
-Thanks to Steve Bower and Ganesh Sittampalam for reviewing and to Andy Sawyer for giving me so much feedback that this post can be considered a co-authorship. Code for this post is [here](https://github.com/lucabol/BlogCppFunctional).
+Thanks to Steve Bower and Ganesh Sittampalam for reviewing and to Andy Sawyer for giving me so much feedback that this post can be considered a co-authorship. Code for this post is [available in the BlogCppFunctional repository](https://github.com/lucabol/BlogCppFunctional).
 
 Let's first talk about the data types that you typically find in a functional language. Let's start with Records. They are not part of the functional model per se. You can do without them and just use algebraic data types and tuples. But they are damn convenient, and  most functional languages (i.e. Haskell, Clojure, etc…) have them now. We start from them because they map naturally to C++. Records are just like structs, but immutable and having structural equality.
 
@@ -59,7 +59,7 @@ Let's call the above representation, the obvious one. Let's consider two variati
 
 A full discussion of how to achieve these goals would be very long. It will go about discussing what [POD](http://stackoverflow.com/questions/146452/what-are-pod-types-in-c) types are and how their definition [got more precise](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2342.htm) in C++ 11.
 
-You can look at my experimentations on pod, standard layout and trivially constructible types [here](https://github.com/lucabol/FunctionalCpp/blob/master/records.cpp). My summary is pretty simple, if you want to achieve all the goals above, you got to use C structs that contain C-compatible types. No const, strings or STL libraries allowed.
+You can look at my experimentations on pod, standard layout and trivially constructible types [in records.cpp](https://github.com/lucabol/FunctionalCpp/blob/master/records.cpp). My summary is pretty simple, if you want to achieve all the goals above, you got to use C structs that contain C-compatible types. No const, strings or STL libraries allowed.
 
 The above class would then become:
 

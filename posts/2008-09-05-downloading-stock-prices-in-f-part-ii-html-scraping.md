@@ -56,7 +56,7 @@ Other parts:
   * [Part V  - Adjusting historical data](http://blogs.msdn.com/lucabol/archive/2008/09/26/downloading-stock-prices-in-f-part-v-adjusting-historical-data.aspx)
   * [Part VI  - Code posted](http://blogs.msdn.com/lucabol/archive/2008/10/20/downloading-stock-prices-in-f-part-vi-code-posted.aspx)
 
-Getting stock prices and dividends is relatively easy given that, on [Yahoo](http://finance.yahoo.com/q/hp?s=GE), you can get the info [as a CVS file](http://ichart.finance.yahoo.com/table.csv?s=GE&a=00&b=2&c=1962&d=08&e=5&f=2008&g=d&ignore=.csv). Getting the splits info is harder. You would think that Yahoo would put that info in the dividends CVS as it does when it displays it on screen, but it doesn't. So I had to write code to scrap it from the multiple web pages where it might reside. In essence, I'm scraping [this](http://finance.yahoo.com/q/hp?s=GE&a=00&b=2&c=1962&d=08&e=5&f=2008&g=v).
+Getting stock prices and dividends is relatively easy given that, on [Yahoo](http://finance.yahoo.com/q/hp?s=GE), you can get the info [as a CVS file](http://ichart.finance.yahoo.com/table.csv?s=GE&a=00&b=2&c=1962&d=08&e=5&f=2008&g=d&ignore=.csv). Getting the splits info is harder. You would think that Yahoo would put that info in the dividends CVS as it does when it displays it on screen, but it doesn't. So I had to write code to scrap it from the multiple web pages where it might reside. In essence, I'm scraping [Yahoo's historical stock-splits page](http://finance.yahoo.com/q/hp?s=GE&a=00&b=2&c=1962&d=08&e=5&f=2008&g=v).
 
 **<u>html.fs</u>**
 

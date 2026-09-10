@@ -6,7 +6,7 @@ tags: [story]
 language: it
 description: "La misteriosa scomparsa di Gino, un bambino di otto anni, sconvolge un piccolo paese, rivelando segreti e sospetti tra i suoi abitanti."
 ---
-<img src="/img/gino.jpg" alt="gino looks at pina" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/gino.jpg" alt="Gino guarda Pina" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Gino era un bambino di otto anni magro magro. Sembrava uscito da un film in bianco e nero del dopoguerra. Era un bambino allegro dal sorriso facile e sdentato. La gente in paese lo conosceva bene e lo fermava per strada per regalargli dolcetti, figurine o anche solo una parola buona. Lui ringraziava timido e ripartiva a razzo verso le avventure che aspettano i bambini troppo attivi.
 
@@ -37,4 +37,3 @@ Ho letto ieri sui giornali che la Pina è morta e così mi è tornata in mente t
 Lui ha continuato ad andarla a trovare in tutti questi anni, malgrado le proteste di lei, a cui non era poi così simpatico.
 
 Non credo che il tetto sia mai stato riparato.
-

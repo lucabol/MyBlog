@@ -1,7 +1,7 @@
 ---
 title: Una ragazza molto educata incontrò un Orco nel bosco
 ---
-<img src="/img/ogre.jpg" alt="A woman looking at an Ogre by the fire in the woods." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/ogre.jpg" alt="Una donna guarda un orco accanto al fuoco nel bosco" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Una ragazza molto educata incontrò un Orco nel bosco. Stava raccogliendo funghi ed erbe per la cena dei suoi bambini. Lui stava mangiando un arrosto su un bastone. Faceva freddo, la foresta era coperta di ghiaccio e la ragazza tremava.
 
@@ -94,4 +94,3 @@ L'Orco sbadigliò. "Sì, non sembra affatto come la mia storia con Shenabadumsdu
 La ragazza fece un passo avanti poiché aveva molto freddo e l'Orco sembrava molto caldo, ma poi si fermò.
 
 "Sei così bella", disse l'Orco e la ragazza sorrise.
----

@@ -5,7 +5,7 @@ author: lucabol
 tags: [story]
 description: "A haunting story about Henry's attempt to will himself to die, a prophetic dream, and an obsession that transcends death itself."
 ---
-<img src="/img/henry4.jpg" alt="An old man sleeping on the floor surrounded by occult books and tarot cards" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/henry4.jpg" alt="An old man asleep on the floor among occult books and tarot cards" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 It was about to happen. Henry knew it. The process was complete. The moment had arrived. He was going to die.
 

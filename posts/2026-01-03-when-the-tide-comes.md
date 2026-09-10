@@ -5,7 +5,7 @@ author: lucabol
 tags: [story]
 description: "A winter shoreline vignette of an aging man confronting solitude, routine, and the pull of memory."
 ---
-<img src="/img/OldManByTheSea.jpg" alt="Old man on the beach" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/OldManByTheSea.jpg" alt="An old man on the beach" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 The old man moves slowly now. It takes him longer to walk all the way to the beach. He goes through the mangrove trees following the narrow path to the shore. The sky is clouded. The wind is strong and the trees sway.
 

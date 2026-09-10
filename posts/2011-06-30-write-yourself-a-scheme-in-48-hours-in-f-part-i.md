@@ -14,7 +14,7 @@ tags:
 ---
 Hi, I'm back. I've finally sorted out the guidelines for blogging in Credit Suisse. 
 
-Here is something I have been playing around with in the spare time between one meeting and the next one.&#160; It is a Scheme interpreter that includes a REPL window. The full code is [here](http://code.msdn.microsoft.com/Write-Yourself-a-Scheme-in-d50ae449).
+Here is something I have been playing around with in the spare time between one meeting and the next one.&#160; It is a Scheme interpreter that includes a REPL window. The full code is [available on MSDN Code Gallery](http://code.msdn.microsoft.com/Write-Yourself-a-Scheme-in-d50ae449).
 
 All the smarts for it come from [this Wiki Book](http://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours). I just ported the code to F# (and modified it a bit). I thought the comparison might be interesting, so here we go. Thanks to [Tobias](http://gedell.net/) and [Jose](http://www.haskellers.com/user/pepeiborra) for reviewing the code, find one bug and suggest improvements.
 
@@ -113,3 +113,4 @@ let varargsCountCheck() =
         "(sum 1)", "\"Expected 2 args; found values 1\""
          ]
     test tests
+```

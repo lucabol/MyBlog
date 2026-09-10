@@ -49,7 +49,7 @@ tags:
   - fsharp
   - Financial
 ---
-I fixed the bug described in [this](https://code.msdn.microsoft.com/Thread/View.aspx?ProjectName=FinancialFunctions&ThreadId=1060) thread and cleaned up the root finding algorithm. I’m still unhappy about it, but I have no time to code a better one right now (i.e. Ridder, Brent). I also added changes.txt and todo.txt to keep track of things.
+I fixed the bug described in [the FinancialFunctions bug thread](https://code.msdn.microsoft.com/Thread/View.aspx?ProjectName=FinancialFunctions&ThreadId=1060) and cleaned up the root finding algorithm. I’m still unhappy about it, but I have no time to code a better one right now (i.e. Ridder, Brent). I also added changes.txt and todo.txt to keep track of things.
 
 _<u>Changes.txt</u>_
 

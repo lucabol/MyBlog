@@ -45,7 +45,9 @@
 - name: LLite
   desc: My implementation of literate programming in F#.
 - name: FollowTheGuru
-  desc: Downloads holdings of investor Gurus and calculate their ownership and trades. Live <a href="http://followtheguru.azurewebsites.net/">here</a>.
+  desc: Downloads holdings of investor Gurus and calculate their ownership and trades.
+  app_url: http://followtheguru.azurewebsites.net/
+  app_label: Open the live FollowTheGuru app
 - name: SpanStack
   desc: A stack data structure built on the stack instead of the heap in C# using Span.
 - name: CSharpPerf

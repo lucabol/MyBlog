@@ -5,10 +5,10 @@ author: lucabol
 tags: [Books]
 description: "A comprehensive chapter-by-chapter summary of Machiavelli's The Prince and information about the canonical text sources and publication history."
 ---
-### **The Prince: A Chapter-by-Chapter Summary**
+## **The Prince: A Chapter-by-Chapter Summary**
 
 
-### **Chapters 1-11: Types of Principalities**
+## **Chapters 1-11: Types of Principalities**
 
 * **Chapter 1:** Machiavelli opens by categorizing principalities, or states ruled by a single person, as either hereditary or new.
 * **Chapter 2:** He argues that **hereditary principalities** are easier to rule because people are accustomed to the ruling family.
@@ -24,7 +24,7 @@ description: "A comprehensive chapter-by-chapter summary of Machiavelli's The Pr
 
 ---
 
-### **Chapters 12-14: Military Matters**
+## **Chapters 12-14: Military Matters**
 
 * **Chapter 12:** This chapter is a sharp critique of different types of military forces. Machiavelli argues that the foundation of any state is a strong military and that a prince must rely on his **own troops**, not mercenaries. He argues that mercenaries are disloyal and dangerous.
 * **Chapter 13:** He extends his critique to **auxiliary troops** (forces borrowed from another prince), stating that they are even more dangerous than mercenaries. A wise prince would rather lose with his own army than win with another's.
@@ -32,7 +32,7 @@ description: "A comprehensive chapter-by-chapter summary of Machiavelli's The Pr
 
 ---
 
-### **Chapters 15-23: The Prince's Qualities and Conduct**
+## **Chapters 15-23: The Prince's Qualities and Conduct**
 
 * **Chapter 15:** Machiavelli outlines the qualities that a prince should and shouldn't have. He famously states that a prince must learn **"how not to be good"** when necessary, as acting virtuously at all times can lead to ruin.
 * **Chapter 16:** He explores the tension between **generosity and parsimony**. He advises that it is better for a prince to be parsimonious (stingy) to avoid burdening the people with taxes.
@@ -46,7 +46,7 @@ description: "A comprehensive chapter-by-chapter summary of Machiavelli's The Pr
 
 ---
 
-### **Chapters 24-26: The State of Italy and a Call to Action**
+## **Chapters 24-26: The State of Italy and a Call to Action**
 
 * **Chapter 24:** Machiavelli discusses why the princes of Italy have lost their states. He attributes their failures to their reliance on mercenaries, their failure to prepare for adversity, and their lack of a strong connection with their people.
 * **Chapter 25:** He explores the role of **fortune** versus free will. He argues that fortune controls about half of our actions, but that a prince must be prepared to act decisively and take risks to control the other half. 
@@ -54,7 +54,7 @@ description: "A comprehensive chapter-by-chapter summary of Machiavelli's The Pr
 
 ---
 
-### **Canonical Text History**
+## **Canonical Text History**
 
 The canonical text of **_The Prince_** is not based on a long line of ancient manuscripts like Homer's epics. Instead, its textual history is relatively straightforward. The text is based on a single, original manuscript from the 16th century.
 

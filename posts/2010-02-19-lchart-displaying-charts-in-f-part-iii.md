@@ -8,7 +8,7 @@ guid: http://lucabolognese.wordpress.com/2010/02/19/lchart-displaying-charts-in-
 tags:
   - fsharp
 ---
-The last post is [here](/2010/02/17/lchart-displaying-charts-in-f-part-ii/). In this post we'll look at how things work under the cover and to why I came to believe that they shouldn't work this way.
+The last post is [LChart Part II](/posts/2010-02-17-lchart-displaying-charts-in-f-part-ii). In this post we'll look at how things work under the cover and to why I came to believe that they shouldn't work this way.
 
 First of all each one of the functions to create charts looks something like this:
 

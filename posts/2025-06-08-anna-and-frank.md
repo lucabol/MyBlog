@@ -60,7 +60,7 @@ pre:has(.language-man)::after {
     bottom: 0;
 }
 </style>
-<img src="/img/letters.jpg" alt="A table full of letters." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/letters.jpg" alt="A table covered with letters" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 ```woman
 Dear unknown hero,
 I am writing without knowing who you are, but knowing that you are out there fighting for us all. I don't know war, but I know how it feels to be alone, to be afraid without anyone to turn to for help.

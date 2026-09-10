@@ -50,7 +50,7 @@ categories:
 tags:
   - fsharp
 ---
-Download framework [here](http://code.msdn.microsoft.com/LAgent).
+Download the framework [from the LAgent Code Gallery page](http://code.msdn.microsoft.com/LAgent).
 
 All posts are here:
 
@@ -64,7 +64,7 @@ All posts are here:
   * [Part VIII – Implementing MapReduce (user model)](http://blogs.msdn.com/lucabol/archive/2009/09/04/lagent-an-agent-framework-in-f-part-viii-implementing-mapreduce-user-model.aspx) 
   * [Part IX – Counting words …](http://blogs.msdn.com/lucabol/archive/2009/09/18/lagent-an-agent-framework-in-f-part-ix-counting-words.aspx) 
 
-Here is an application that uses the framework we have been creating. It is an auction application and it is described in more detail [here](http://codebetter.com/blogs/matthew.podwysocki/archive/2009/05/20/f-actors-revisited.aspx).
+Here is an application that uses the framework we have been creating. It is an auction application and it is described in more detail [in Matthew Podwysocki's F# actors post](http://codebetter.com/blogs/matthew.podwysocki/archive/2009/05/20/f-actors-revisited.aspx).
 
 Let's go through it.
 

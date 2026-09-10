@@ -78,6 +78,6 @@ This is the list of Excel functions that you get with this add-in. They ends up 
   <font face="Tahoma" size="2"><span style="font-size:10pt;font-family:Tahoma;"></span></font>&nbsp;
 </p>
 
-[<img alt="kick it on DotNetKicks.com" src="https://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx" border="0" />](https://www.dotnetkicks.com/kick/?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx)
+[<img alt="Kick this post on DotNetKicks" src="https://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx" border="0" />](https://www.dotnetkicks.com/kick/?url=http://blogs.msdn.com/lucabol/archive/2007/01/04/a-trading-portfolio-management-excel-add-in-based-on-the-books-by-ralph-vince.aspx)
 
 [TradingLibrary.zip](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Components.PostAttachments/00/01/41/29/46/TradingLibrary.zip)

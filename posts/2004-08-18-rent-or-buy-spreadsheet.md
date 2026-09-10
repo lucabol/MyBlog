@@ -48,6 +48,6 @@ categories:
 tags:
   - Financial
 ---
-Someone&nbsp;asked me for the spreadsheet I used for the&nbsp;calculations in my previous posts.&nbsp; [Here](http://www.duncanmackenzie.net/rentorbuy.zip) you have it. The data doesn't reflect my current situation.
+Someone&nbsp;asked me for the spreadsheet I used for the&nbsp;calculations in my previous posts.&nbsp; [Download the rent-or-buy spreadsheet](http://www.duncanmackenzie.net/rentorbuy.zip). The data doesn't reflect my current situation.
 
 Feel free to use it with your own numbers (and tell me of any bug).

@@ -52,4 +52,4 @@ tags:
   - fsharp
   - VB
 ---
-Go [here](http://code.msdn.microsoft.com/ParExtSamples) to download them. It is in ParallelExtensionsExtrasCoordinationDataStructures. It has a slightly different design in that it returns Tasks. I’m trying to get [Stephen](http://blogs.msdn.com/pfxteam) to blog about it so that you can compare them.
+Go [download the Parallel Extensions samples](http://code.msdn.microsoft.com/ParExtSamples). It is in ParallelExtensionsExtrasCoordinationDataStructures. It has a slightly different design in that it returns Tasks. I’m trying to get [Stephen](http://blogs.msdn.com/pfxteam) to blog about it so that you can compare them.

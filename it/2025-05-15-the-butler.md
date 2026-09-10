@@ -1,7 +1,7 @@
 ---
 title: Il maggiordomo
 ---
-<img src="/img/butler.jpg" alt="Un maggiordomo di colore che trasporta una donna addormentata" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/butler.jpg" alt="Un maggiordomo trasporta una donna addormentata" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 L'auto arrivò alla piantagione a mezzogiorno, che al sud è l'ora del sudore. La servitù si allineò davanti alla casa, il sudore che colava sui volti e sulle schiene creando chiazze più scure sulle loro uniformi bianche. L'aria profumava di foglie di banano.
 
@@ -126,4 +126,3 @@ Si alzò e aprì l'armadio alto e tirò fuori il fucile. Prese i proiettili dal 
 Gli amanti dormivano e la luce proveniva dalla luna fuori dalla finestra e le gambe della ragazza spuntavano dalla coperta ed erano molto bianche.
 
 La servitù si svegliò al forte scoppio dello sparo e i cani abbaiarono e i grilli smisero di cantare. La notte divenne silenziosa.
----

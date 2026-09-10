@@ -49,7 +49,7 @@ tags:
   - csharp
   - Financial
 ---
-I wrote this code very quickly and I'm kind of ashamed of it, but it gets the job done (I think). You need the HTML Agility Pack for the stock splits retrieving code. You can download it from [here](http://www.codeplex.com/htmlagilitypack/Release/ProjectReleases.aspx?ReleaseId=272){.}&nbsp;or you can simply comment out the code. I wrote it against [Visual Studio 2008 beta 2](http://msdn2.microsoft.com/en-us/vstudio/aa700831.aspx){.}, but it should be trivial to port it to previous versions.
+I wrote this code very quickly and I'm kind of ashamed of it, but it gets the job done (I think). You need the HTML Agility Pack for the stock splits retrieving code. You can download it from [the HTML Agility Pack release page](http://www.codeplex.com/htmlagilitypack/Release/ProjectReleases.aspx?ReleaseId=272){.}&nbsp;or you can simply comment out the code. I wrote it against [Visual Studio 2008 beta 2](http://msdn2.microsoft.com/en-us/vstudio/aa700831.aspx){.}, but it should be trivial to port it to previous versions.
 
 You run it from a command window like this: priceretriever msft 1/1/1990 2/3/2003. The last two parameters are optional and default to 1/1/1980 and today.
 

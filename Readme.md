@@ -6,20 +6,47 @@ This is my blog, built with Python and hosted on Netlify.
 
 ## Building and running locally
 
-Running the webserver automatically builds the website:
+Create a project-local virtual environment once. On Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python -m pip install -r src\requirements.txt
+```
+
+On macOS or Linux:
+
+```bash
+python -m venv .venv
+./.venv/bin/python -m pip install -r src/requirements.txt
+```
+
+Then run the webserver. It automatically builds the website and watches for
+changes:
 
 ```bash
 uv run src/devserver.py
 ```
 
+To build and validate the generated site directly:
+
+```bash
+python -m pip install -r src/requirements.txt
+python src/generate_blog.py
+python -m unittest discover -s tests -v
+```
+
+Public HTML pages use extensionless canonical URLs on
+`https://www.lucabol.com`. The build keeps `.html` files in `dist` for
+Netlify and emits redirects from legacy URL variants.
+
 ## Deployment
 
 The site is automatically deployed to Netlify in these cases:
 - When changes are pushed to the main branch
-- When pull requests are created or updated (for testing)
 - When manually triggered from the GitHub Actions UI
 
-The GitHub Actions workflow:
+Pull requests build and validate the generated site but do not deploy it. For
+deployment events, the GitHub Actions workflow:
 
 1. Builds the site
 2. Creates a zip file of the built site

@@ -11,4 +11,4 @@ tags:
   - fsharp
   - Financial
 ---
-I’m working on a program to keep track of paired trades with trailing stops. I need to download stock prices, so I thought I might reuse some old code of mine. [Here](http://code.msdn.microsoft.com/DownloadStockPrices) is the updated framework.
+I’m working on a program to keep track of paired trades with trailing stops. I need to download stock prices, so I thought I might reuse some old code of mine. [Download the updated stock-price framework](http://code.msdn.microsoft.com/DownloadStockPrices).

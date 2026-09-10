@@ -20,7 +20,7 @@ An invariant is an assertion that always holds true for a class after the class 
 
 A preconditions is an assertion that needs to hold true at the start of a function, for the postcondition to be true at the end of it. Taken together, invariant, precondition and postcondition define the contract between the implementer and the user of a class.
 
-Code for this post is [here](https://github.com/lucabol/FunctionalCpp/blob/master/dbc.hpp) and [here](https://github.com/lucabol/FunctionalCpp/blob/master/dbc.cpp). Thanks to Andy Sawyer, Steve Bower and Ganesh Sittampalam for reviewing my code and suggesting improvements.
+Code for this post is in [dbc.hpp](https://github.com/lucabol/FunctionalCpp/blob/master/dbc.hpp) and [dbc.cpp](https://github.com/lucabol/FunctionalCpp/blob/master/dbc.cpp). Thanks to Andy Sawyer, Steve Bower and Ganesh Sittampalam for reviewing my code and suggesting improvements.
 
 Preconditions are simple and everyone uses them. They are those little _if_ statements that you put at the start of your functions to make sure that the caller has given you the right parameters.
 
@@ -107,7 +107,7 @@ The macro then creates a ___post class on the stack.
     auto ___UNIQUE_POST = ___post( __FILE__, __LINE__, "Post-condition failure:" #F, [&](){return (F);});
 ```
 
-The UNIQUE stuff is messy business. Part of it is by design and it is used to make sure that each __post variable has a unique name to have multiple 'ensures' in a function. The other part is a workaround for [this](http://social.msdn.microsoft.com/Forums/en/vcgeneral/thread/2c4698e1-8159-44fc-a64c-d15220acedb8) msvc bug. Let me know if you want more details. I suspect there is a better way to do it.
+The UNIQUE stuff is messy business. Part of it is by design and it is used to make sure that each __post variable has a unique name to have multiple 'ensures' in a function. The other part is a workaround for [this MSVC compiler bug](http://social.msdn.microsoft.com/Forums/en/vcgeneral/thread/2c4698e1-8159-44fc-a64c-d15220acedb8). Let me know if you want more details. I suspect there is a better way to do it.
 
 Here is the full enchilada …
 

@@ -5,7 +5,7 @@ author: lucabol
 tags: [story]
 description: "A tale of love, heartbreak, and self-discovery, exploring the complexities of human relationships and the journey to emotional closure. Or just a story."
 ---
-<img src="/img/girlcar.jpg" alt="A girl outside the car under the rain." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/girlcar.jpg" alt="A girl standing outside a car in the rain" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 She got the call late at night, while reading in bed, his voice flat like an answering machine. She sat up putting her back against the pillow, throat tightening. 
 

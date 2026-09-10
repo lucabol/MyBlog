@@ -5,7 +5,7 @@ author: lucabol
 tags: [story]
 description: "A story about longing, fleeting connections, and rediscovering what truly matters, set against the backdrop of daily ferry rides and inner transformation."
 ---
-<img src="/img/ferry.jpg" alt="A girl watching a couple on a ferry." width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/ferry.jpg" alt="A girl watching a couple aboard a ferry" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 _I have to talk to the school and to the tennis coach after work and need steaks for tonight's dinner and mum wants to chat about my sister  ... but, no wait ... don't think like that ... first things first ... that's what the book says ... first thing, my presentation today ...  did the Boss like it?  He is a smart man, but I wish he could speak more clearly ... must be Diana's graphics ... yeah, a bit unusual but come on! ... and just today the ferry is late ... I am going to be late for work again ..._
 

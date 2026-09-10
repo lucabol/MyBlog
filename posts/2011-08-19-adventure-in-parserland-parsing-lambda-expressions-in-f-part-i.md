@@ -14,7 +14,7 @@ tags:
 ---
 This is part of my 'things that I do in the empty spaces between one meeting and the next one, which might end up being vaguely interesting'. It is a lambda expression parser.
 
-The full source code is [here](http://code.msdn.microsoft.com/Parsing-Lambda-Expressions-7ad5271f).
+The full source code is [available on MSDN Code Gallery](http://code.msdn.microsoft.com/Parsing-Lambda-Expressions-7ad5271f).
 
 I actually have two versions of it: one written longhand and the other one written with [FParsec](http://www.quanttec.com/fparsec/about/fparsec-vs-alternatives.html). Just to be clear: I'm no expert of either.
 
@@ -22,7 +22,7 @@ And just to be more clear: I think writing most parsers longhand in the way I am
 
 I have a strong distaste for additional compilation steps. I think it lingers on from MFC project types of 15/20 years ago. I was one of these crazy folks that would generate the project, wrap the generated code (with some generalizations) in my own library and use that one from then on.
 
-So I prefer FParsec. I'm ok rewriting [left recursive](http://en.wikipedia.org/wiki/Left_recursion) rules and its performance has never been a problem for me. [Here](http://www.quanttec.com/fparsec/about/fparsec-vs-alternatives.html) is a table that compares the different approaches.
+So I prefer FParsec. I'm ok rewriting [left recursive](http://en.wikipedia.org/wiki/Left_recursion) rules and its performance has never been a problem for me. The [FParsec comparison table](http://www.quanttec.com/fparsec/about/fparsec-vs-alternatives.html) compares the different approaches.
 
 But I started wondering about coding a a recursive descent parser for a simple grammar by hand, fully knowing the foolishness of the idea. Thanks to [Jose](http://www.haskellers.com/user/pepeiborra) for code reviewing it.
 

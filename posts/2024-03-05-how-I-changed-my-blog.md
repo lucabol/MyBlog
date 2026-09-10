@@ -38,7 +38,7 @@ This is a lesson I had to learn many times, and I am still learning:
 radical simplicity means you don't create a framework. You just code the damn thing.
 
 You can see how it used to look by doing a `View source`
-on [this](https://march2024--lucabol.netlify.app/posts/2022-03-07-implementing-forth-dotnet/).
+on [the pre-redesign Forth.Net post](https://march2024--lucabol.netlify.app/posts/2022-03-07-implementing-forth-dotnet/).
 
 The new website is still `Eleventy + Netlify`, but I fixed the `HTML + CSS` to be radically simple.
 * Not a single `div` tag: just semantic tags (`article`, `main`, ...).
@@ -46,7 +46,7 @@ The new website is still `Eleventy + Netlify`, but I fixed the `HTML + CSS` to b
 * No eye candies at all. Just text all the way.
 * No `css` variables. Just a trivial stylesheet for the typography.
 
-You can see the difference in the source code [here](https://www.lucabol.com/posts/2022-03-07-implementing-forth-dotnet/).
+You can see the difference in the source code [on the current Forth.Net post](https://www.lucabol.com/posts/2022-03-07-implementing-forth-dotnet/).
 
 A few simplification came about as a bonus. When you radically simplify things, you often get to their hidden core.
 
@@ -54,7 +54,7 @@ I used to have different 'templates' for different categories of pages (i.e., po
 I now have just one template. The content in the middle of the page is the only thing that changes.
 
 One thing I have not removed is a processing pass that insert typographic niceties (like Hanging Punctuation).
-You can see an example on the line that says: "I want a piece ..." [here](https://www.lucabol.com/posts/2022-03-09-horchata/).
+You can see an example on the line that says: "I want a piece ..." [in the Horchata story](https://www.lucabol.com/posts/2022-03-09-horchata/).
 
 This is frivolous, but for someone who is into typography like me
 (I have created [my own font](https://www.lucabol.com/posts/2021-06-23-i-have-created-a-font-italiko/) after all),

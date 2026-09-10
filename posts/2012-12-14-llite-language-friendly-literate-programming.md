@@ -16,7 +16,7 @@ tags:
   - Literate programming
 ---
 Main ideas
-==========
+----------
 
 My interest in [literate programming](http://en.wikipedia.org/wiki/Literate_programming)
 comes from some realizations on my part:
@@ -124,7 +124,7 @@ let declare<'a>  = ref Unchecked.defaultof<'a>
 ~~~
 
 Implementation
-==============
+--------------
 
 At the core, this program is a simple translator that takes some code text and return a valid markdown/whatever text.
 We need to know:
@@ -422,7 +422,7 @@ to an input file name, output file name and Options record
 let parseCommandLine = declare<string array -> string * string * Options>
 ~~~
 
-To implement it, we are going to use a command line parser taken from [here](http://fssnip.net/8g). The parseArgs function takes a sequence of argument values
+To implement it, we are going to use a command line parser taken from [an F# command-line parser snippet](http://fssnip.net/8g). The parseArgs function takes a sequence of argument values
 and map them into a (name,value) tuple. It scans the tuple sequence and put command name into all subsequent tuples without name and discard the initial ("","") tuple.
 It then groups tuples by name and converts the tuple sequence into a map of (name,value seq)
 
@@ -546,7 +546,7 @@ let myMain args =
 ~~~
 
 An aside: forward declaring functions in F#
-===========================================
+-------------------------------------------
 
 A simple solution
 -----------------

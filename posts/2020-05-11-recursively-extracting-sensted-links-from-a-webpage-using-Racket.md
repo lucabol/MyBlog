@@ -12,7 +12,7 @@ tags:
   For now, let's build a web crawler, next, I shall write myself a language.
   That's where Racket really shine.
 
-  The code is [here](https://github.com/lucabol/website-links). Thanks to [Mike](https://github.com/mjrousos) for reviewing it.
+  The code is [in the website-links repository](https://github.com/lucabol/website-links). Thanks to [Mike](https://github.com/mjrousos) for reviewing it.
 
 ## Why
   I want to translate a website, including recursively reached pages, to a pdf to read on my e-reader.

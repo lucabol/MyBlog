@@ -29,8 +29,13 @@ jobs:
     - name: Build site
       run: |
         python src/generate_blog.py
+
+    - name: Validate generated site
+      run: |
+        python -m unittest discover -s tests -v
         
     - name: Create and deploy zip file
+      if: github.event_name != 'pull_request'
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -38,7 +43,17 @@ jobs:
         cd dist
         zip -r ../site.zip .
         cd ..
-        curl -H "Content-Type: application/zip" \
+        response_file="$(mktemp)"
+        trap 'rm -f "$response_file"' EXIT
+        if ! curl --fail-with-body --silent --show-error \
+             -H "Content-Type: application/zip" \
              -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
              --data-binary "@site.zip" \
-             https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/deploys
+             --output "$response_file" \
+             "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/deploys"
+        then
+          cat "$response_file"
+          exit 1
+        fi
+        cat "$response_file"
+        jq -e '.id | strings | length > 0' "$response_file" > /dev/null

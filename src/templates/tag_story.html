@@ -1,79 +1,66 @@
 {% extends "base.html" %}
 
-{% block title %}{{ tag }} - My Blog{% endblock %}
+{% block head_extra %}
+    <script src="/static/story-language.js" defer></script>
+{% endblock %}
 
 {% block content %}
-    <h1>"{{ tag }}"</h1>
-    <div class="lang-toggle story-lang-toggle" aria-label="Story language toggle">
-        <span class="story-lang-toggle-inner">[<a href="#" class="lang-option active" data-language="en" aria-pressed="true">EN</a> |
-        <a href="#" class="lang-option" data-language="it" aria-pressed="false">IT</a>]</span>
+<div class="story-archive" data-story-language>
+    <header class="archive-header">
+        <h1>“{{ tag.name }}”</h1>
+        <p class="archive-count">{{ tag.count }} {{ "story" if tag.count == 1 else "stories" }}</p>
+    </header>
+
+    <div class="story-lang-toggle" role="group" aria-label="Choose the language used for story titles" data-story-controls hidden>
+        <span>Titles:</span>
+        <span class="story-lang-toggle-inner" aria-hidden="true">[</span>
+        <button type="button" class="lang-option active" data-language="en" aria-pressed="true">EN</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" class="lang-option" data-language="it" aria-pressed="false">IT</button>
+        <span class="story-lang-toggle-inner" aria-hidden="true">]</span>
     </div>
-    
+
     {% for year in sorted_years %}
-        <h2 class="year">{{ year }}</h2>
+    <section class="archive-year" aria-labelledby="story-year-{{ year }}">
+        <h2 class="year" id="story-year-{{ year }}">{{ year }}</h2>
         <ul class="posts-list">
             {% for post in posts_by_year[year] %}
-                <li>
-                    <a
-                        href="{{ post.url_en or post.url_it or ('/' ~ post.url) }}"
-                        class="story-title-link"
-                        data-title-en="{{ post.title_en or post.title }}"
-                        data-title-it="{{ post.title_it or post.title }}"
-                        data-url-en="{{ post.url_en or ('/' ~ post.url) }}"
-                        data-url-it="{{ post.url_it or post.translation_url or ('/' ~ post.url) }}"
-                    >{{ post.title_en or post.title }}</a>
-                    <span class="lang-toggle-inline">
-                        [<a href="{{ post.url_en or ('/' ~ post.url) }}" class="story-inline-lang active" data-language="en">EN</a> |
-                        <a href="{{ post.url_it or post.translation_url or ('/' ~ post.url) }}" class="story-inline-lang" data-language="it">IT</a>]
-                    </span>
-                </li>
+                {% set default_title = post.title_en or post.title %}
+                {% set default_url = post.url_en or post.url %}
+                {% set default_language = "en" if post.title_en and post.url_en else post.language %}
+            <li data-story-item>
+                <a href="{{ default_url }}"
+                   class="story-title-link"
+                   lang="{{ default_language }}"
+                   rel="bookmark"
+                   data-title-en="{{ post.title_en or '' }}"
+                   data-title-it="{{ post.title_it or '' }}"
+                   data-url-en="{{ post.url_en or '' }}"
+                   data-url-it="{{ post.url_it or '' }}"
+                   data-default-title="{{ default_title }}"
+                   data-default-url="{{ default_url }}"
+                   data-default-language="{{ default_language }}">{{ default_title }}</a>
+                {% if post.url_en and post.url_it %}
+                <span class="language-links" role="group" aria-label="Available languages for this story">
+                    <a href="{{ post.url_en }}"
+                       class="story-inline-lang active"
+                       data-language="en"
+                       lang="en"
+                       hreflang="en"
+                       rel="alternate">EN{% if post.language != 'en' %} (AI){% endif %}</a>
+                    <span aria-hidden="true">|</span>
+                    <a href="{{ post.url_it }}"
+                       class="story-inline-lang"
+                       data-language="it"
+                       lang="it"
+                       hreflang="it"
+                       rel="alternate">IT{% if post.language != 'it' %} (AI){% endif %}</a>
+                </span>
+                {% endif %}
+            </li>
             {% endfor %}
         </ul>
+    </section>
     {% endfor %}
-
-    <script>
-        (function () {
-            const toggle = document.querySelector('.story-lang-toggle');
-            if (!toggle) {
-                return;
-            }
-
-            const buttons = Array.from(toggle.querySelectorAll('.lang-option'));
-            const links = Array.from(document.querySelectorAll('.story-title-link'));
-            const inlineLinks = Array.from(document.querySelectorAll('.story-inline-lang'));
-
-            function setLanguage(language) {
-                buttons.forEach((button) => {
-                    const isActive = button.dataset.language === language;
-                    button.classList.toggle('active', isActive);
-                    button.setAttribute('aria-pressed', String(isActive));
-                });
-
-                links.forEach((link) => {
-                    const title = link.dataset[language === 'it' ? 'titleIt' : 'titleEn'];
-                    const url = link.dataset[language === 'it' ? 'urlIt' : 'urlEn'];
-                    if (title) {
-                        link.textContent = title;
-                    }
-                    if (url) {
-                        link.href = url;
-                    }
-                });
-
-                inlineLinks.forEach((link) => {
-                    const isActive = link.dataset.language === language;
-                    link.classList.toggle('active', isActive);
-                });
-            }
-
-            buttons.forEach((button) => {
-                button.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    setLanguage(button.dataset.language || 'en');
-                });
-            });
-
-            setLanguage('en');
-        }());
-    </script>
+</div>
 {% endblock %}

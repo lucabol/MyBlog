@@ -1,7 +1,7 @@
 ---
 title: Candy al bar
 ---
-<img src="/img/girlatbar.jpg" alt="Gino guarda Pina" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
+<img src="/img/girlatbar.jpg" alt="Candy seduta al bancone di un bar" width="100%" style="max-width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 4px;" />
 
 Candy siede al bancone del bar di un hotel di lusso, con gli occhi fissi sul suo cocktail intatto; il dito tamburella sul mogano scuro. Si è fatta bella: gonna corta, rossetto rosso e mascara scuro.
 

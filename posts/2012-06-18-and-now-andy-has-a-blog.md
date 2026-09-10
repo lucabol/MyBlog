@@ -9,4 +9,4 @@ description: "Quick heads up: Andy Sawyer starts blogging about C++, kicking thi
 categories:
   - Miscellanea
 ---
-For those of you interested in C++, Andy Sawyer now has a blog [here](http://blog.pureabstract.org/). [Here](http://blog.pureabstract.org/2012/06/09/choosing-an-stl-sequence-container/) is an extended discussion on how to choose an STL container. Enjoy !!
+For those of you interested in C++, Andy Sawyer now has a blog [at Pure Abstract](http://blog.pureabstract.org/). Read [his extended discussion of choosing an STL sequence container](http://blog.pureabstract.org/2012/06/09/choosing-an-stl-sequence-container/). Enjoy !!
