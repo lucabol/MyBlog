@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Run this file with `python src/devserver.py` from the project root.
+# Run with `uv run src/devserver.py` from a configured project environment.
 
 import os
 import shutil
