@@ -2170,6 +2170,8 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
         posts_list = base_declarations(".posts-list")
         self.assertEqual(posts_list.get("padding-inline-start"), "2rem")
         self.assertEqual(posts_list.get("line-height"), "1.1")
+        posts_list_link = base_declarations(".posts-list > li > a")
+        self.assertEqual(posts_list_link.get("vertical-align"), "top")
 
         recent_posts_list = base_declarations(".recent-notes .posts-list")
         self.assertEqual(recent_posts_list.get("max-width"), "36rem")
@@ -2185,6 +2187,21 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
         self.assertEqual(post_content.get("line-height"), "1.4")
         post_paragraph = base_declarations(".post-content p")
         self.assertEqual(post_paragraph.get("margin-block"), "1lh")
+
+        mobile_main_rules = [
+            rule["declarations"]
+            for rule in self._css_rules_for_selector(rules, "main")
+            if any(
+                "max-width: 36rem" in query
+                for query in rule["media"]
+            )
+        ]
+        self.assertTrue(
+            any(
+                declarations.get("padding-block-start") == "0"
+                for declarations in mobile_main_rules
+            )
+        )
 
     def test_headers_include_security_and_asset_cache_policies(self):
         blocks = self._parse_headers(

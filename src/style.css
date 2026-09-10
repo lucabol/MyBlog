@@ -365,6 +365,10 @@ hr {
     min-height: var(--compact-target);
 }
 
+.posts-list > li > a {
+    vertical-align: top;
+}
+
 .posts-list a,
 .tags-list a,
 .post-tags a {
@@ -781,6 +785,10 @@ th {
 @media (max-width: 36rem) {
     .site-header {
         margin-top: var(--space-6);
+    }
+
+    main {
+        padding-block-start: 0;
     }
 
     .site-nav {
