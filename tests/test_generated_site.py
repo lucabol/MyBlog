@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import contextlib
+import hashlib
 import io
 import json
 import os
@@ -491,6 +492,48 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
                 missing.append(destination.relative_to(self.dist).as_posix())
 
         self.assertFalse(missing, f"Missing generated files: {missing}")
+
+    def test_static_css_and_javascript_urls_are_content_versioned(self):
+        expected_stylesheet_url = (
+            "/static/style.css?v="
+            + hashlib.sha256(
+                (self.dist / "static" / "style.css").read_bytes()
+            ).hexdigest()[:12]
+        )
+        expected_story_script_url = (
+            "/static/story-language.js?v="
+            + hashlib.sha256(
+                (self.dist / "static" / "story-language.js").read_bytes()
+            ).hexdigest()[:12]
+        )
+        story_script_pages = []
+
+        for path in self.generated_blog_html_files:
+            soup = self._soup(path)
+            stylesheets = self._links_with_rel(soup, "stylesheet")
+            self.assertEqual(
+                [link.get("href") for link in stylesheets],
+                [expected_stylesheet_url],
+                f"{self._relative(path)} must load the current stylesheet version",
+            )
+
+            for script in soup.find_all("script", src=True):
+                if urlsplit(script["src"]).path != "/static/story-language.js":
+                    continue
+                story_script_pages.append(path)
+                self.assertEqual(
+                    script["src"],
+                    expected_story_script_url,
+                    (
+                        f"{self._relative(path)} must load the current "
+                        "story-language script version"
+                    ),
+                )
+
+        self.assertTrue(
+            story_script_pages,
+            "Expected at least one generated story archive to load its script",
+        )
 
     def test_source_posts_have_physical_html_outputs(self):
         expected = {

@@ -1,3 +1,4 @@
+import hashlib
 import html
 import os
 import re
@@ -56,7 +57,20 @@ class BlogGenerator:
             "author": SITE_AUTHOR,
             "feed_url": f"{SITE_URL}/feed.xml",
             "default_image_url": f"{SITE_URL}{DEFAULT_SOCIAL_IMAGE}",
+            "stylesheet_url": self._versioned_asset_url(
+                "src/style.css",
+                "/static/style.css",
+            ),
+            "story_language_script_url": self._versioned_asset_url(
+                "src/story-language.js",
+                "/static/story-language.js",
+            ),
         }
+
+    def _versioned_asset_url(self, source_path, public_path):
+        source = self.root_dir / source_path
+        digest = hashlib.sha256(source.read_bytes()).hexdigest()[:12]
+        return f"{public_path}?v={digest}"
 
     def _ensure_dir(self, path):
         Path(path).mkdir(parents=True, exist_ok=True)
