@@ -1085,6 +1085,11 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
                             f"{relative}: invalid time datetime value "
                             f"{datetime_value!r}"
                         )
+                if time_elements[0].find_parent("em") is None:
+                    problems.append(
+                        f"{relative}: article byline and date must retain "
+                        "their editorial emphasis"
+                    )
 
             content_elements = []
             for element in article.find_all(
@@ -2157,12 +2162,29 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
             body.get("padding"),
             "var(--space-2) var(--space-8)",
         )
+        self.assertEqual(body.get("line-height"), "1.3")
         for rule in self._css_rules_for_selector(rules, "body"):
             if rule["media"]:
                 self.assertNotIn("padding-inline", rule["declarations"])
 
         posts_list = base_declarations(".posts-list")
         self.assertEqual(posts_list.get("padding-inline-start"), "2rem")
+        self.assertEqual(posts_list.get("line-height"), "1.1")
+
+        recent_posts_list = base_declarations(".recent-notes .posts-list")
+        self.assertEqual(recent_posts_list.get("max-width"), "36rem")
+        self.assertEqual(recent_posts_list.get("margin-inline"), "auto")
+        self.assertEqual(recent_posts_list.get("text-align"), "left")
+
+        post_meta = base_declarations(".post-meta")
+        self.assertEqual(post_meta.get("font-size"), "1em")
+        self.assertEqual(post_meta.get("line-height"), "1.3")
+        self.assertEqual(post_meta.get("color"), "var(--color-text)")
+
+        post_content = base_declarations(".post-content")
+        self.assertEqual(post_content.get("line-height"), "1.4")
+        post_paragraph = base_declarations(".post-content p")
+        self.assertEqual(post_paragraph.get("margin-block"), "1lh")
 
     def test_headers_include_security_and_asset_cache_policies(self):
         blocks = self._parse_headers(

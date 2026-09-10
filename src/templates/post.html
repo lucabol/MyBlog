@@ -19,9 +19,12 @@
         </nav>
         {% endif %}
         <p class="post-meta">
-            <span>{{ post.author }}</span>
-            <span aria-hidden="true">·</span>
-            <time datetime="{{ post.date.strftime('%Y-%m-%d') }}">{{ post.date.strftime('%b %Y') }}</time>
+            <em>
+                <span>{{ post.author }}</span>
+                <span aria-hidden="true"> · </span>
+                <span class="visually-hidden">, published </span>
+                <time datetime="{{ post.date.strftime('%Y-%m-%d') }}">{{ post.date.strftime('%b %Y') }}</time>
+            </em>
         </p>
     </header>
 
