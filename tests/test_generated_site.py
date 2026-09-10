@@ -2064,7 +2064,11 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
                     "verifiable minimum 44px target height"
                 )
 
-        for selector in (".posts-list > li > a", ".tags-list a"):
+        for selector in (
+            ".posts-list > li > a",
+            ".tags-list a",
+            ".year-jump a",
+        ):
             sizes = target_sizes(selector)
             if not sizes or any(size is None or size < 24 for size in sizes):
                 problems.append(
@@ -2153,6 +2157,16 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
                     declarations.update(rule["declarations"])
             return declarations
 
+        def mobile_declarations(selector):
+            declarations = {}
+            for rule in self._css_rules_for_selector(rules, selector):
+                if any(
+                    "max-width: 36rem" in query
+                    for query in rule["media"]
+                ):
+                    declarations.update(rule["declarations"])
+            return declarations
+
         root = base_declarations(":root")
         self.assertEqual(root.get("--page-width"), "48rem")
 
@@ -2188,19 +2202,42 @@ class GeneratedSiteStandardsTests(unittest.TestCase):
         post_paragraph = base_declarations(".post-content p")
         self.assertEqual(post_paragraph.get("margin-block"), "1lh")
 
-        mobile_main_rules = [
-            rule["declarations"]
-            for rule in self._css_rules_for_selector(rules, "main")
-            if any(
-                "max-width: 36rem" in query
-                for query in rule["media"]
-            )
-        ]
-        self.assertTrue(
-            any(
-                declarations.get("padding-block-start") == "0"
-                for declarations in mobile_main_rules
-            )
+        mobile_main = mobile_declarations("main")
+        self.assertEqual(mobile_main.get("padding-block-start"), "0")
+
+        mobile_year_jump = mobile_declarations(".year-jump")
+        self.assertEqual(mobile_year_jump.get("display"), "block")
+        self.assertEqual(
+            mobile_year_jump.get("margin-bottom"),
+            "var(--space-6)",
+        )
+        self.assertEqual(mobile_year_jump.get("text-align"), "center")
+
+        mobile_year_jump_label = mobile_declarations(".year-jump-label")
+        self.assertEqual(mobile_year_jump_label.get("display"), "block")
+        self.assertEqual(
+            mobile_year_jump_label.get("margin-bottom"),
+            "var(--space-1)",
+        )
+
+        mobile_year_jump_list = mobile_declarations(".year-jump ol")
+        self.assertEqual(
+            mobile_year_jump_list.get("gap"),
+            "0 var(--space-1)",
+        )
+
+        mobile_year_jump_link = mobile_declarations(".year-jump a")
+        self.assertEqual(
+            mobile_year_jump_link.get("min-width"),
+            "var(--compact-target)",
+        )
+        self.assertEqual(
+            mobile_year_jump_link.get("min-height"),
+            "var(--compact-target)",
+        )
+        self.assertEqual(
+            mobile_year_jump_link.get("padding-inline"),
+            "0.125rem",
         )
 
     def test_headers_include_security_and_asset_cache_policies(self):

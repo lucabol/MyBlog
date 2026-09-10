@@ -791,6 +791,27 @@ th {
         padding-block-start: 0;
     }
 
+    .year-jump {
+        display: block;
+        margin-bottom: var(--space-6);
+        text-align: center;
+    }
+
+    .year-jump-label {
+        display: block;
+        margin-bottom: var(--space-1);
+    }
+
+    .year-jump ol {
+        gap: 0 var(--space-1);
+    }
+
+    .year-jump a {
+        min-width: var(--compact-target);
+        min-height: var(--compact-target);
+        padding-inline: 0.125rem;
+    }
+
     .site-nav {
         column-gap: var(--space-1);
     }
